@@ -5,7 +5,7 @@ description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario
 
 # Rutina semanal de posteos MDO Consultores
 
-Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de la semana como drafts en Postiz.
+Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de la semana como drafts en Metricool.
 
 ## Contexto del negocio
 
@@ -107,7 +107,7 @@ Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
-Antes de crear los drafts en Postiz, los PNGs deben estar en GitHub para tener URL pública:
+Antes de crear los drafts en Metricool, los PNGs deben estar en GitHub para que Metricool los descargue y los copie a su CDN:
 
 ```bash
 git add posts/
@@ -117,7 +117,7 @@ git push origin <branch>
 
 URL pública de cada imagen:
 ```
-https://raw.githubusercontent.com/jmartinez-sketch/mdo---claude/<branch>/posts/YYYY-MM-DD-N.png
+https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
 ```
 
 ### 6. Crear los 3 drafts en Metricool
@@ -139,7 +139,7 @@ Para cada post:
       "dateTime": "<YYYY-MM-DDTHH:mm:ss, ej: 2026-05-25T09:00:00>",
       "timezone": "America/Argentina/Buenos_Aires"
     },
-    "media": ["https://raw.githubusercontent.com/jmartinez-sketch/MDO---Claude/<branch>/posts/YYYY-MM-DD-N.png"],
+    "media": ["https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png"],
     "mediaAltText": [""],
     "shortener": false,
     "smartLinkData": {"ids": []},
@@ -215,7 +215,7 @@ Cuando los 3 drafts estén creados:
 ## Notas técnicas
 
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
-- **Branch**: el repo trabaja sobre `claude/wonderful-bardeen-IOPGx` (o la rama designada en el momento).
+- **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
 - **Templates disponibles**: ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
