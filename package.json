@@ -1,14 +1,14 @@
 {
-  "name": "mdo---claude",
+  "name": "mdo-automatizaciones-redes",
   "version": "1.0.0",
-  "description": "Repositorio del proyecto MDO trabajado con Claude Code.",
+  "description": "Automatizaciones de redes sociales del estudio Martinez, De Orta & Asociados (rutina semanal IG + LinkedIn via Metricool).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "http://local_proxy@127.0.0.1:35143/git/jmartinez-sketch/MDO---Claude"
+    "url": "https://github.com/jmartinez-sketch/mdo-automatizaciones-redes.git"
   },
   "keywords": [],
   "author": "",

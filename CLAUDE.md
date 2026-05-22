@@ -83,5 +83,5 @@ Si el draft generado contiene cualquier dato específico, descartarlo y regenera
 La rama activa para este proyecto: ver `git branch --show-current`. Las imágenes commiteadas a esa rama son accesibles vía:
 
 ```
-https://raw.githubusercontent.com/jmartinez-sketch/mdo---claude/<branch>/posts/<archivo>.png
+https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/<archivo>.png
 ```
