@@ -16,7 +16,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de l
 
 ## Output esperado
 
-3 drafts en Metricool, todos para la cuenta IG "Martinez, De Orta & Asociados" (`blogId: 6267636`, network `instagram`, timezone `America/Argentina/Buenos_Aires`):
+3 drafts en Metricool para la cuenta "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`), cada uno publicado en **Instagram + LinkedIn simultáneamente**:
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
@@ -136,7 +136,7 @@ Para cada post:
     "text": "<texto plano del posteo, ver sección 7>",
     "draft": true,
     "autoPublish": false,
-    "providers": [{"network": "instagram"}],
+    "providers": [{"network": "instagram"}, {"network": "linkedin"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss, ej: 2026-05-25T09:00:00>",
       "timezone": "America/Argentina/Buenos_Aires"
@@ -148,7 +148,8 @@ Para cada post:
     "firstCommentText": "",
     "hasNotReadNotes": false,
     "descendants": [],
-    "instagramData": {"type": "POST", "showReelOnFeed": true, "collaborators": []}
+    "instagramData": {"type": "POST", "showReelOnFeed": true, "collaborators": []},
+    "linkedinData": {"type": "post", "previewIncluded": true}
   }
 }
 ```
