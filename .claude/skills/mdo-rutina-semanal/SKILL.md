@@ -133,7 +133,7 @@ Para cada post:
   "info": {
     "text": "<texto plano del posteo, ver sección 7>",
     "draft": true,
-    "autoPublish": false,
+    "autoPublish": true,
     "providers": [{"network": "instagram"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss — Lunes: 15:00:00 / Miércoles: 09:00:00 / Viernes: 09:00:00>",
