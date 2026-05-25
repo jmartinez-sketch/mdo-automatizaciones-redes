@@ -81,7 +81,7 @@ Ejemplos de tips OK:
 Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
 
 Mapear a slots de `po-04`:
-- `COPETE` — categoría del tip, ej: "Gestión PyME · Tip semanal"
+- `COPETE` — categoría del tip, ej: "Gestión PyME"
 - `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
 - `BAJADA` — explicación breve (máx 150 chars)
 - `BULLET_1`..`BULLET_4` — 4 puntos prácticos
