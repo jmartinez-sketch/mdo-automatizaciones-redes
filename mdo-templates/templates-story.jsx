@@ -181,10 +181,10 @@ function StCTA(props) {
 
       <div style={{ flex: 1 }}></div>
 
-      <div style={{ background: 'var(--navy)', color: 'var(--paper)', padding: '24px 26px', borderRadius: 2 }}>
+      <div style={{ background: 'var(--navy)', color: 'var(--paper)', padding: '14px 22px', borderRadius: 2 }}>
         {channels.map((c, i) => (
           <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-            padding: '10px 0', borderBottom: i < channels.length - 1 ? '1px solid rgba(247,249,252,0.20)' : 'none' }}>
+            padding: '6px 0', borderBottom: i < channels.length - 1 ? '1px solid rgba(247,249,252,0.20)' : 'none' }}>
             <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10.5, letterSpacing: '0.16em',
               color: 'var(--blue-lt)', textTransform: 'uppercase' }}>{c.label}</span>
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 500 }}>{c.value}</span>
