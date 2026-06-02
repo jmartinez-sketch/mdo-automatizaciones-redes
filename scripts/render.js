@@ -74,6 +74,18 @@ async function render({ template, slots, outPath }) {
           stage.innerHTML
         );
       }, slots);
+
+      // Hide rows where every span is empty or still contains an unreplaced [PLACEHOLDER]
+      await page.evaluate(() => {
+        document.querySelectorAll('#stage .mdo-channel-row').forEach(row => {
+          const spans = Array.from(row.querySelectorAll('span'));
+          const allEmpty = spans.every(s => {
+            const t = s.textContent.trim();
+            return t === '' || /^\[[A-Z0-9_]+\]$/.test(t);
+          });
+          if (allEmpty) row.style.display = 'none';
+        });
+      });
     }
 
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
