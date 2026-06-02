@@ -66,6 +66,8 @@ Para cada noticia extraer:
 - `FECHA` — fecha de la noticia, formato "21 may 2026"
 - `HANDLE` — siempre `@mdoconsultores`
 
+**⚠️ REGLA CRÍTICA: NUNCA inventar ni asumir información.** Todos los datos (titular, bajada, fuente, fecha, detalles normativos) deben provenir textualmente del cuerpo del email en Gmail. Si el email no tiene suficiente información para completar un slot, leer más threads o elegir otra noticia. Publicar datos impositivos incorrectos daña la credibilidad profesional del estudio.
+
 ### 3. Preparar la 3ra noticia (viernes)
 
 Igual que las dos anteriores: elegir una 3ra noticia del Gmail, temáticamente distinta de las otras dos.
@@ -156,7 +158,7 @@ Usar la MCP de Metricool: `mcp__Metricool__createScheduledPost`
   "blogId": "6267636",
   "date": "<mismo ISO que el feed post correspondiente>",
   "info": {
-    "text": "<texto breve de la story, ver sección 7>",
+    "text": "",
     "draft": true,
     "autoPublish": false,
     "providers": [{"network": "instagram"}],
@@ -181,6 +183,7 @@ Notas:
 - `autoPublish: false` es red de seguridad extra
 - Metricool descarga la imagen del repo y la copia a su CDN al crear el post
 - Guardar el `id` y `uuid` de cada post creado por si hay que actualizarlo después con `updateScheduledPost`
+- **Las stories NO llevan texto** — Metricool rechaza el campo `text` en Instagram Stories. Siempre pasar `"text": ""`
 
 ### 7. Texto del posteo (campo `text` de Metricool)
 
@@ -202,22 +205,6 @@ Impacto: qué significa esto en la práctica para vos / tu PyME.
 #MDOConsultores #Impuestos #Contabilidad #PyMEs #Argentina #AFIP #ARCA
 ```
 
-Estructura para tip PyME:
-
-```
-Tip PyME · [categoría]
-
-[Tip principal en 1-2 líneas]
-
-Por qué importa: [breve explicación].
-
-—
-
-📞 Auditá tu setup contable con nosotros: mdo-consultores.com.ar
-
-#MDOConsultores #TipPyME #GestiónPyME #Contabilidad #Argentina
-```
-
 Reglas de texto:
 
 - Largo total: entre 600-1200 caracteres
@@ -228,12 +215,12 @@ Reglas de texto:
 
 ## Tareas de cierre
 
-Cuando los 3 drafts estén creados:
+Cuando los 6 drafts estén creados (3 feed + 3 stories):
 
 1. Reportar al usuario en chat (si la sesión es interactiva) o por log:
-   - Las 3 noticias/temas elegidos
-   - URLs de las 3 imágenes en GitHub
-   - `id` y `uuid` de los 3 drafts en Metricool
+   - Las 3 noticias elegidas con su fuente exacta (tal como aparece en el Gmail)
+   - URLs de las 6 imágenes en GitHub
+   - `id` y `uuid` de los 6 drafts en Metricool
    - Recordatorio: "Revisá los drafts en https://app.metricool.com/planner y aprobalos antes del lunes/miércoles/viernes 9hs"
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
 
