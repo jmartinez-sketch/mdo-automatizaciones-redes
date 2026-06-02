@@ -16,15 +16,20 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de l
 
 ## Output esperado
 
-3 drafts en Metricool, todos para la cuenta "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
+**6 drafts en total** en Metricool, para la cuenta "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`):
 
-| # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
-|---|---|---|---|---|
-| 1 | Lunes 9hs    | Noticia destacada #1 | `sq-12` (Square 1080×1080) | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2 | `sq-12` (Square 1080×1080) | Gmail newsletter |
-| 3 | Viernes 9hs   | Noticia destacada #3 | `sq-12` (Square 1080×1080) | Gmail newsletter |
+| # | Día/Hora (ARG) | Tipo | Template | Networks | Fuente del contenido |
+|---|---|---|---|---|---|
+| 1 | Lunes 9hs    | Noticia destacada #1 — Feed  | `sq-12` (1080×1080)  | instagram + linkedin | Gmail newsletter |
+| 2 | Lunes 9hs    | Noticia destacada #1 — Story | `st-09` (1080×1920)  | instagram            | Misma noticia, formato story |
+| 3 | Miércoles 9hs | Noticia destacada #2 — Feed | `sq-12` (1080×1080)  | instagram + linkedin | Gmail newsletter |
+| 4 | Miércoles 9hs | Noticia destacada #2 — Story| `st-09` (1080×1920)  | instagram            | Misma noticia, formato story |
+| 5 | Viernes 9hs   | Noticia destacada #3 — Feed | `sq-12` (1080×1080)  | instagram + linkedin | Gmail newsletter |
+| 6 | Viernes 9hs   | Noticia destacada #3 — Story| `st-09` (1080×1920)  | instagram            | Misma noticia, formato story |
 
 **IMPORTANTE**: NO usar tip PyME genérico. Los 3 posts son siempre noticias reales de los newsletters.
+
+Las **stories** van en Instagram solamente (LinkedIn no tiene stories). Mismo día y hora que el feed post correspondiente.
 
 ## Paso a paso
 
@@ -70,22 +75,35 @@ Mapear a slots de `sq-12` igual que las otras noticias:
 
 **NO generar tips PyME** — el viernes es siempre una noticia real de los newsletters.
 
-### 4. Renderizar las 3 imágenes
+### 4. Renderizar las 6 imágenes (3 feed + 3 stories)
 
-Para cada post:
-
+**Feed posts** (sq-12, 1080×1080):
 ```bash
 node scripts/render.js \
   --template sq-12 \
   --out posts/YYYY-MM-DD-N.png \
-  --slots '{"CATEGORIA":"...","TITULAR":"...",...}'
+  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
 ```
 
-(Para el viernes: `--template po-04`)
+**Stories** (st-09, 1080×1920) — misma noticia en formato story:
+```bash
+node scripts/render.js \
+  --template st-09 \
+  --out posts/YYYY-MM-DD-Ns.png \
+  --slots '{"COPETE":"...","TITULAR_1":"...","TITULAR_2":"...","TITULAR_3":"...","BAJADA":"...","CANAL_1_LABEL":"Fuente","CANAL_1_VALOR":"...","CANAL_2_LABEL":"Consultanos","CANAL_2_VALOR":"mdo-consultores.com.ar","CANAL_3_LABEL":"","CANAL_3_VALOR":"","HANDLE":"@mdoconsultores"}'
+```
 
-Nombrado: `posts/YYYY-MM-DD-N.png` donde:
-- `YYYY-MM-DD` = fecha de publicación (lunes, miércoles, viernes correspondientes)
-- `N` = 1, 2, 3
+Reglas para los slots de st-09:
+- `TITULAR_1`, `TITULAR_2`, `TITULAR_3`: **palabras o frases MUY cortas** (máx 2-3 palabras cada una). Son tipografía grande en 3 líneas. TITULAR_2 va en serif italic y es el "centro visual".
+- `BAJADA`: 1-2 líneas explicando la novedad.
+- `CANAL_1`: siempre la fuente de la noticia.
+- `CANAL_2`: siempre "Consultanos" / "mdo-consultores.com.ar".
+- `CANAL_3_LABEL` y `CANAL_3_VALOR`: pasar siempre como `""` (vacío).
+
+Nombrado:
+- Feed: `posts/YYYY-MM-DD-N.png`
+- Story: `posts/YYYY-MM-DD-Ns.png`
+- `N` = 1, 2, 3 según el día (lunes, miércoles, viernes)
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
@@ -102,12 +120,11 @@ URL pública de cada imagen:
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
 ```
 
-### 6. Crear los 3 drafts en Metricool
+### 6. Crear los 6 drafts en Metricool
 
-Usar la MCP de Metricool: `mcp__7d9da2c2-8ef9-4d07-bd69-a1376309827a__createScheduledPost`
+Usar la MCP de Metricool: `mcp__Metricool__createScheduledPost`
 
-Para cada post:
-
+**Feed posts** (instagram + linkedin):
 ```jsonc
 {
   "blogId": "6267636",
@@ -118,7 +135,7 @@ Para cada post:
     "autoPublish": false,
     "providers": [{"network": "instagram"}, {"network": "linkedin"}],
     "publicationDate": {
-      "dateTime": "<YYYY-MM-DDTHH:mm:ss, ej: 2026-05-25T09:00:00>",
+      "dateTime": "<YYYY-MM-DDTHH:mm:ss>",
       "timezone": "America/Argentina/Buenos_Aires"
     },
     "media": ["https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png"],
@@ -133,10 +150,36 @@ Para cada post:
 }
 ```
 
+**Stories** (instagram solamente, mismo día/hora que el feed):
+```jsonc
+{
+  "blogId": "6267636",
+  "date": "<mismo ISO que el feed post correspondiente>",
+  "info": {
+    "text": "<texto breve de la story, ver sección 7>",
+    "draft": true,
+    "autoPublish": false,
+    "providers": [{"network": "instagram"}],
+    "publicationDate": {
+      "dateTime": "<YYYY-MM-DDTHH:mm:ss>",
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "media": ["https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-Ns.png"],
+    "mediaAltText": [""],
+    "shortener": false,
+    "smartLinkData": {"ids": []},
+    "firstCommentText": "",
+    "hasNotReadNotes": false,
+    "descendants": [],
+    "instagramData": {"type": "STORY", "showReelOnFeed": false, "collaborators": []}
+  }
+}
+```
+
 Notas:
-- `draft: true` deja el post como borrador → el usuario lo aprueba a mano desde Metricool antes de que salga
-- `autoPublish: false` es red de seguridad extra (no publica solo aunque la fecha llegue)
-- Metricool descarga la imagen del repo y la copia a su CDN al crear el post, así que aunque el repo se vuelva privado después, la imagen ya queda hospedada por Metricool
+- `draft: true` → el usuario aprueba a mano desde Metricool antes de que salga
+- `autoPublish: false` es red de seguridad extra
+- Metricool descarga la imagen del repo y la copia a su CDN al crear el post
 - Guardar el `id` y `uuid` de cada post creado por si hay que actualizarlo después con `updateScheduledPost`
 
 ### 7. Texto del posteo (campo `text` de Metricool)
