@@ -181,12 +181,12 @@ function StCTA(props) {
 
       <div style={{ flex: 1 }}></div>
 
-      <div style={{ background: 'var(--navy)', color: 'var(--paper)', padding: '16px 22px', borderRadius: 2 }}>
+      <div style={{ background: 'transparent', color: 'var(--navy-ink)', padding: '16px 0', borderRadius: 2 }}>
         {channels.map((c, i) => (
           <div key={i} className="mdo-channel-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-            padding: '8px 0', borderBottom: i < channels.length - 1 ? '1px solid rgba(247,249,252,0.20)' : 'none' }}>
+            padding: '8px 0', borderBottom: i < channels.length - 1 ? '1px solid rgba(26,26,46,0.15)' : 'none' }}>
             <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10.5, letterSpacing: '0.16em',
-              color: 'var(--blue-lt)', textTransform: 'uppercase' }}>{c.label}</span>
+              color: 'var(--blue-mid)', textTransform: 'uppercase' }}>{c.label}</span>
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 500 }}>{c.value}</span>
           </div>
         ))}
