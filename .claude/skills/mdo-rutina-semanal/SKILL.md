@@ -1,6 +1,6 @@
 ---
 name: mdo-rutina-semanal
-description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 3 imágenes branded con los templates Claude Design, y crea 3 drafts en Metricool programados Lun/Mié/Vie 9hs Argentina para la cuenta IG @mdoconsultores. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 3 noticias más impactantes, renderiza 3 imágenes branded con los templates Claude Design, y crea 3 drafts en Metricool programados Lun/Mié/Vie 9hs Argentina para Instagram + LinkedIn de @mdoconsultores. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
@@ -16,13 +16,15 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de l
 
 ## Output esperado
 
-3 drafts en Metricool, todos para la cuenta IG "Martinez, De Orta & Asociados" (`blogId: 6267636`, network `instagram`, timezone `America/Argentina/Buenos_Aires`):
+3 drafts en Metricool, todos para la cuenta "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
 | 1 | Lunes 9hs    | Noticia destacada #1 | `sq-12` (Square 1080×1080) | Gmail newsletter |
 | 2 | Miércoles 9hs | Noticia destacada #2 | `sq-12` (Square 1080×1080) | Gmail newsletter |
-| 3 | Viernes 9hs   | Tip PyME genérico    | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 3 | Viernes 9hs   | Noticia destacada #3 | `sq-12` (Square 1080×1080) | Gmail newsletter |
+
+**IMPORTANTE**: NO usar tip PyME genérico. Los 3 posts son siempre noticias reales de los newsletters.
 
 ## Paso a paso
 
@@ -36,7 +38,7 @@ label:mdo-automatizaciones-claude-newsletter newer_than:7d
 
 Levantar todos los threads y leer el primer mensaje de cada uno (asunto + cuerpo).
 
-### 2. Elegir 2 noticias
+### 2. Elegir 3 noticias
 
 Criterios de selección (en orden de prioridad):
 
@@ -47,7 +49,7 @@ Criterios de selección (en orden de prioridad):
 
 Reglas:
 
-- Las **2 noticias elegidas deben ser temáticamente distintas** (no las dos sobre lo mismo)
+- Las **3 noticias elegidas deben ser temáticamente distintas** (no dos sobre lo mismo)
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 
@@ -59,34 +61,14 @@ Para cada noticia extraer:
 - `FECHA` — fecha de la noticia, formato "21 may 2026"
 - `HANDLE` — siempre `@mdoconsultores`
 
-### 3. Generar tip PyME (3er post)
+### 3. Preparar la 3ra noticia (viernes)
 
-**REGLAS DURAS — no negociables**:
+Igual que las dos anteriores: elegir una 3ra noticia del Gmail, temáticamente distinta de las otras dos.
 
-1. ❌ **NO** mencionar números específicos: montos de monotributo, alícuotas, topes de facturación, importes mínimos no imponibles, etc. (cambian con la normativa)
-2. ❌ **NO** mencionar fechas de vencimiento ni plazos específicos
-3. ❌ **NO** dar consejos legales o de derecho tributario específicos
-4. ✅ **SÍ**: tips genéricos atemporales sobre gestión PyME, hábitos contables, organización financiera
+Mapear a slots de `sq-12` igual que las otras noticias:
+- `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE`
 
-Ejemplos de tips OK:
-
-- "Separá cuenta personal de cuenta empresa: la mezcla es la #1 razón de líos contables"
-- "Pedí siempre factura A cuando podés deducir: te ahorra IVA"
-- "Reservá un % de cada cobro para impuestos antes de tocar la plata"
-- "Llevá control semanal de caja, no mensual: detectás desvíos antes"
-- "Conciliá bancos cada 15 días, no a fin de mes"
-- "Tu contador no es un mal necesario, es un asesor — usalo para decisiones, no solo para cumplir"
-- "Documentá los gastos del día mismo en una app o planilla: la memoria al cierre miente"
-
-Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
-
-Mapear a slots de `po-04`:
-- `COPETE` — categoría del tip, ej: "Gestión PyME · Tip semanal"
-- `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
-- `BAJADA` — explicación breve (máx 150 chars)
-- `BULLET_1`..`BULLET_4` — 4 puntos prácticos
-- `CTA` — frase de cierre, ej: "Consultanos para auditar tu setup contable"
-- `HANDLE` — `@mdoconsultores`
+**NO generar tips PyME** — el viernes es siempre una noticia real de los newsletters.
 
 ### 4. Renderizar las 3 imágenes
 
@@ -134,7 +116,7 @@ Para cada post:
     "text": "<texto plano del posteo, ver sección 7>",
     "draft": true,
     "autoPublish": false,
-    "providers": [{"network": "instagram"}],
+    "providers": [{"network": "instagram"}, {"network": "linkedin"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss, ej: 2026-05-25T09:00:00>",
       "timezone": "America/Argentina/Buenos_Aires"

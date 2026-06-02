@@ -1,6 +1,6 @@
-# MDO Consultores — Rutina semanal de posteos IG
+# MDO Consultores — Rutina semanal de posteos IG + LinkedIn
 
-Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del estudio **Martinez, De Orta & Asociados**.
+Proyecto para automatizar los posteos de Instagram y LinkedIn del estudio **Martinez, De Orta & Asociados**.
 
 ## Quién es el usuario
 
@@ -67,16 +67,10 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ Templates HTML+JSX de Claude Design (Anthropic Labs) como base de diseño
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
 
-## Regla dura sobre el tip PyME (viernes)
+## Preferencias confirmadas por el usuario
 
-El tip lo genera la IA. Para evitar imprecisiones técnicas:
-
-- ❌ NUNCA mencionar números específicos (montos monotributo, alícuotas, topes)
-- ❌ NUNCA mencionar fechas/plazos de vencimientos
-- ❌ NUNCA dar consejos legales específicos
-- ✅ SOLO tips genéricos atemporales sobre gestión y hábitos contables
-
-Si el draft generado contiene cualquier dato específico, descartarlo y regenerar.
+- ✅ **Siempre publicar en Instagram + LinkedIn** — todos los posts deben incluir ambas redes en `providers`: `[{"network":"instagram"}, {"network":"linkedin"}]`
+- ❌ **Sin tip PyME** — el viernes es una 3ra noticia de Gmail, NO un tip genérico generado por IA. El formato tip fue descartado por Juan.
 
 ## Branch de trabajo
 
