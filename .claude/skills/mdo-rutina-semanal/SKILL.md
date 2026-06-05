@@ -134,7 +134,7 @@ Usar la MCP de Metricool: `mcp__Metricool__createScheduledPost`
   "info": {
     "text": "<texto plano del posteo, ver sección 7>",
     "draft": true,
-    "autoPublish": false,
+    "autoPublish": true,
     "providers": [{"network": "instagram"}, {"network": "linkedin"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss>",
@@ -160,7 +160,7 @@ Usar la MCP de Metricool: `mcp__Metricool__createScheduledPost`
   "info": {
     "text": "",
     "draft": true,
-    "autoPublish": false,
+    "autoPublish": true,
     "providers": [{"network": "instagram"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss>",
@@ -179,8 +179,8 @@ Usar la MCP de Metricool: `mcp__Metricool__createScheduledPost`
 ```
 
 Notas:
-- `draft: true` → el usuario aprueba a mano desde Metricool antes de que salga
-- `autoPublish: false` es red de seguridad extra
+- `draft: true` → el post queda como borrador para que el usuario lo revise y apruebe en Metricool
+- `autoPublish: true` → una vez aprobado el borrador, se publica automáticamente a la hora programada
 - Metricool descarga la imagen del repo y la copia a su CDN al crear el post
 - Guardar el `id` y `uuid` de cada post creado por si hay que actualizarlo después con `updateScheduledPost`
 - **Las stories NO llevan texto** — Metricool rechaza el campo `text` en Instagram Stories. Siempre pasar `"text": ""`
