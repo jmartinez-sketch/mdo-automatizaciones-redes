@@ -1,11 +1,11 @@
 ---
 name: mdo-rutina-semanal
-description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 3 imágenes branded con los templates Claude Design, y crea 3 drafts en Metricool programados Lun/Mié/Vie 9hs Argentina para la cuenta IG @mdoconsultores. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 4 imágenes branded con los templates Claude Design, y crea 4 drafts en Metricool programados Lun/Mié/Jue/Vie 9hs Argentina para la cuenta IG+LinkedIn @mdoconsultores. El jueves alterna semanas: semana impar = story st-09 (CTA), semana par = carrusel cb-* (slides según noticia). Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
 
-Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de la semana como drafts en Metricool.
+Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de la semana como drafts en Metricool.
 
 ## Contexto del negocio
 
@@ -16,13 +16,16 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 3 posteos de l
 
 ## Output esperado
 
-3 drafts en Metricool, todos para la cuenta IG "Martinez, De Orta & Asociados" (`blogId: 6267636`, network `instagram`, timezone `America/Argentina/Buenos_Aires`):
+4 drafts en Metricool, todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
-| 1 | Lunes 9hs    | Noticia destacada #1 | `sq-12` (Square 1080×1080) | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2 | `sq-12` (Square 1080×1080) | Gmail newsletter |
-| 3 | Viernes 9hs   | Tip PyME genérico    | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 1 | Lunes 9hs     | Noticia destacada #1         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
+| 2 | Miércoles 9hs | Noticia destacada #2         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
+| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` **o** `cb-*`         | Basado en noticias de la semana |
+| 4 | Viernes 9hs   | Gestión PyME (tip genérico)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
+
+(*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
 
 ## Paso a paso
 
@@ -88,7 +91,60 @@ Mapear a slots de `po-04`:
 - `CTA` — frase de cierre, ej: "Consultanos para auditar tu setup contable"
 - `HANDLE` — `@mdoconsultores`
 
-### 4. Renderizar las 3 imágenes
+### 3b. Generar contenido del jueves
+
+Determinar el tipo según semana ISO del lunes de la semana en curso:
+
+```bash
+SEMANA_TIPO=$(( $(date +%V) % 2 ))
+# 1 = semana impar → story st-09
+# 0 = semana par  → carrusel cb-*
+```
+
+**Opción A — Story `st-09` (semana impar)**
+
+Slots del template:
+- `COPETE` — ej: "Consultanos"
+- `TITULAR_1` — beneficio clave, ej: "Ordenamos tu contabilidad"
+- `TITULAR_2` — segundo punto, ej: "Optimizamos tu carga impositiva"
+- `TITULAR_3` — llamada a la acción, ej: "Acompañamos el crecimiento de tu PyME"
+- `BAJADA` — cierre breve, ej: "Contadores con experiencia en PyMEs argentinas"
+- `CANAL_1_LABEL` / `CANAL_1_VALOR` — ej: "Web" / "mdo-consultores.com.ar"
+- `CANAL_2_LABEL` / `CANAL_2_VALOR` — ej: "IG" / "@mdoconsultores"
+- `CANAL_3_LABEL` / `CANAL_3_VALOR` — ej: "Mail" / "info@mdo-consultores.com.ar"
+- `HANDLE` — `@mdoconsultores`
+
+Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
+
+**Opción B — Carrusel `cb-*` (semana par)**
+
+Usar siempre `cb-cover` como tapa + tantos slides de contenido como necesite la noticia (mínimo 2, máximo 3: `cb-tip1`, `cb-tip2`, `cb-tip3`).
+
+El contenido debe profundizar en **una de las 2 noticias de la semana** (la más compleja o con más puntos a explicar).
+
+Slots de `cb-cover`:
+- `COPETE` — ej: "Impuestos · ARCA"
+- `TITULO_SANS` — primera línea del título (sin serif)
+- `TITULO_SERIF` — segunda línea en serif italic
+- `BAJADA` — subtítulo breve
+- `SWIPE_CTA` — ej: "Deslizá para entender el cambio"
+- `CHROME_LABEL` — ej: "MDO Consultores"
+
+Slots de cada slide de contenido (`cb-tip1`, `cb-tip2`, `cb-tip3`):
+- `TITULAR` — punto o pregunta clave del slide
+- `CUERPO` — explicación (2-3 líneas)
+- `TAKEAWAY` — frase de cierre del slide, la idea que se lleva el lector
+- `CHROME_LABEL` — ej: "MDO Consultores"
+
+Renderizar cada slide por separado con su template ID correspondiente. Los archivos del carrusel llevan sufijo `-a`, `-b`, `-c`:
+- `posts/YYYY-MM-DD-3-cover.png` → `cb-cover`
+- `posts/YYYY-MM-DD-3-s1.png` → `cb-tip1`
+- `posts/YYYY-MM-DD-3-s2.png` → `cb-tip2`
+- (si hay 3er slide) `posts/YYYY-MM-DD-3-s3.png` → `cb-tip3`
+
+En Metricool, el carrusel se crea como un único post con todas las imágenes en el array `media` en orden.
+
+### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel)
 
 Para cada post:
 
@@ -99,11 +155,16 @@ node scripts/render.js \
   --slots '{"CATEGORIA":"...","TITULAR":"...",...}'
 ```
 
-(Para el viernes: `--template po-04`)
+Templates por día:
+- Lunes y miércoles: `--template sq-12`
+- Jueves (story): `--template st-09`
+- Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
+- Viernes: `--template po-04`
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
-- `YYYY-MM-DD` = fecha de publicación (lunes, miércoles, viernes correspondientes)
-- `N` = 1, 2, 3
+- `YYYY-MM-DD` = fecha de publicación
+- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes)
+- Carrusel del jueves: `posts/YYYY-MM-DD-3-cover.png`, `posts/YYYY-MM-DD-3-s1.png`, etc.
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
