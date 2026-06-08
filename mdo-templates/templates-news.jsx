@@ -24,7 +24,7 @@ function SqNoticia(props) {
   }, props);
 
   return (
-    <div className="tpl" style={{ padding: 40, display: 'flex', flexDirection: 'column',
+    <div className="tpl" style={{ padding: 54, display: 'flex', flexDirection: 'column',
       background: 'var(--paper-warm)', position: 'relative' }}>
 
       {/* Header */}
@@ -91,7 +91,7 @@ function PoNoticia(props) {
   }, props);
 
   return (
-    <div className="tpl" style={{ padding: 40, display: 'flex', flexDirection: 'column',
+    <div className="tpl" style={{ padding: 54, display: 'flex', flexDirection: 'column',
       background: 'var(--paper-warm)' }}>
 
       {/* Header */}
