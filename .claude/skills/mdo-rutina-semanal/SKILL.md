@@ -134,7 +134,7 @@ Para cada post:
     "text": "<texto plano del posteo, ver sección 7>",
     "draft": true,
     "autoPublish": false,
-    "providers": [{"network": "instagram"}],
+    "providers": [{"network": "instagram"}, {"network": "linkedin"}],
     "publicationDate": {
       "dateTime": "<YYYY-MM-DDTHH:mm:ss, ej: 2026-05-25T09:00:00>",
       "timezone": "America/Argentina/Buenos_Aires"
@@ -146,7 +146,8 @@ Para cada post:
     "firstCommentText": "",
     "hasNotReadNotes": false,
     "descendants": [],
-    "instagramData": {"type": "POST", "showReelOnFeed": true, "collaborators": []}
+    "instagramData": {"type": "POST", "showReelOnFeed": true, "collaborators": []},
+    "linkedinData": {"type": "post", "previewIncluded": true}
   }
 }
 ```
@@ -180,7 +181,7 @@ Impacto: qué significa esto en la práctica para vos / tu PyME.
 Estructura para tip PyME:
 
 ```
-Tip PyME · [categoría]
+Gestión PyME
 
 [Tip principal en 1-2 líneas]
 
@@ -190,7 +191,7 @@ Por qué importa: [breve explicación].
 
 📞 Auditá tu setup contable con nosotros: mdo-consultores.com.ar
 
-#MDOConsultores #TipPyME #GestiónPyME #Contabilidad #Argentina
+#MDOConsultores #GestiónPyME #Contabilidad #Argentina
 ```
 
 Reglas de texto:
