@@ -265,13 +265,13 @@ Reglas de texto:
 
 ## Tareas de cierre
 
-Cuando los 3 drafts estén creados:
+Cuando los 4 drafts estén creados:
 
 1. Reportar al usuario en chat (si la sesión es interactiva) o por log:
-   - Las 3 noticias/temas elegidos
-   - URLs de las 3 imágenes en GitHub
-   - `id` y `uuid` de los 3 drafts en Metricool
-   - Recordatorio: "Revisá los drafts en https://app.metricool.com/planner y aprobalos antes del lunes/miércoles/viernes 9hs"
+   - Las noticias/contenidos elegidos para cada día (lunes, miércoles, jueves, viernes)
+   - URLs de las imágenes en GitHub
+   - `id` y `uuid` de los 4 drafts en Metricool
+   - Recordatorio: "Revisá los drafts en https://app.metricool.com/planner y aprobalos antes de que llegue cada fecha de publicación"
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
 
 ## Notas técnicas
