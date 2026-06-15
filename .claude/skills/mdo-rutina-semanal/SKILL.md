@@ -97,7 +97,7 @@ Mapear a slots de `po-04`:
 - `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
 - `BAJADA` — explicación breve (máx 150 chars)
 - `BULLET_1`..`BULLET_4` — 4 puntos prácticos
-- `CTA` — frase de cierre, ej: "Consultanos para auditar tu setup contable"
+- `CTA` — frase de cierre que referencia un servicio real de MDO. Servicios válidos: contabilidad, impuestos, liquidación de sueldos, asesoría impositiva, monotributo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoría impositiva para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta (ej: "análisis de rentabilidad", "consultoría financiera")
 - `HANDLE` — `@mdoconsultores`
 
 ### 3b. Generar contenido del jueves
