@@ -65,6 +65,29 @@ Para cada noticia extraer:
 
 ### 3. Generar tip PyME (3er post)
 
+**PASO 0 — Determinar el servicio de la semana (rotación fija)**:
+
+El servicio sobre el que se enfoca el tip del viernes NO se elige a criterio: se calcula por semana ISO para garantizar cobertura pareja de los 5 servicios PyME-relevantes (Precios de Transferencia queda fuera del ciclo: no aplica a audiencia PyME).
+
+```bash
+SERVICIO_IDX=$(( $(date +%V) % 5 ))
+# 0 = Contabilidad
+# 1 = Tributario
+# 2 = Laboral
+# 3 = Societario
+# 4 = Auditoría
+```
+
+El tip y el CTA deben girar en torno al servicio que toque esa semana. El **ángulo creativo y la redacción siguen siendo libres** (ver regla de creatividad abajo), pero el servicio queda fijado por el cálculo. Ver la lista completa de tareas de cada servicio en la sección "Servicios de MDO Consultores".
+
+| IDX | Servicio | CTA sugerido |
+|---|---|---|
+| 0 | Contabilidad | "Llevamos la contabilidad de tu PyME. Consultanos." |
+| 1 | Tributario | "Asesoramiento impositivo para tu empresa. Consultanos." |
+| 2 | Laboral | "Liquidamos los sueldos de tu empresa. Consultanos." |
+| 3 | Societario | "Te ayudamos a constituir tu sociedad. Consultanos." |
+| 4 | Auditoría | "Auditamos los estados contables de tu empresa. Consultanos." |
+
 **REGLAS DURAS — no negociables**:
 
 1. ❌ **NO** mencionar números específicos: montos de monotributo, alícuotas, topes de facturación, importes mínimos no imponibles, etc. (cambian con la normativa)
