@@ -71,15 +71,24 @@ Para cada noticia extraer:
 3. ❌ **NO** dar consejos legales o de derecho tributario específicos
 4. ✅ **SÍ**: tips genéricos atemporales sobre gestión PyME, hábitos contables, organización financiera
 
-Ejemplos de tips OK:
+**REGLA DE CREATIVIDAD — obligatoria**:
 
-- "Separá cuenta personal de cuenta empresa: la mezcla es la #1 razón de líos contables"
-- "Pedí siempre factura A cuando podés deducir: te ahorra IVA"
+Cada semana el tip debe ser **distinto en ángulo y estructura**. Los viernes son el post de mayor potencial de engagement (guardados, comentarios). Usar ángulos que generen reacción:
+
+- **Pregunta provocadora**: "¿Por qué el mes en que más vendiste fue el que menos ganaste?"
+- **Error común**: "El error de caja que cometen el 80% de las PyMEs (y cómo evitarlo)"
+- **Contraintuitivo**: "Facturar más no siempre significa ganar más. Acá el porqué"
+- **Perspectiva del contador**: "Lo que tu contador ve en 5 minutos que vos no ves en un año"
+- **Mito vs. realidad**: "Mito: 'Si facturo menos no pago impuestos.' Realidad: ..."
+- **Decisión concreta**: "Antes de contratar tu primer empleado, hacé estas 3 cosas"
+- **Comparación de escenarios**: "PyME A vs PyME B: igual facturación, resultado opuesto. La diferencia estaba en..."
+
+Rotar entre estos ángulos. **Nunca repetir la misma estructura dos semanas seguidas**. Los ejemplos de abajo son de referencia para el tono, NO para copiar literalmente:
+
+- "Separá cuenta personal de cuenta empresa" ← ya usado como referencia, NO reutilizar
 - "Reservá un % de cada cobro para impuestos antes de tocar la plata"
-- "Llevá control semanal de caja, no mensual: detectás desvíos antes"
-- "Conciliá bancos cada 15 días, no a fin de mes"
 - "Tu contador no es un mal necesario, es un asesor — usalo para decisiones, no solo para cumplir"
-- "Documentá los gastos del día mismo en una app o planilla: la memoria al cierre miente"
+- "Documentá los gastos el día mismo en una app o planilla: la memoria al cierre miente"
 
 Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
 
@@ -105,14 +114,16 @@ SEMANA_TIPO=$(( $(date +%V) % 2 ))
 
 Slots del template:
 - `COPETE` — ej: "Consultanos"
-- `TITULAR_1` — beneficio clave, ej: "Ordenamos tu contabilidad"
-- `TITULAR_2` — segundo punto, ej: "Optimizamos tu carga impositiva"
-- `TITULAR_3` — llamada a la acción, ej: "Acompañamos el crecimiento de tu PyME"
-- `BAJADA` — cierre breve, ej: "Contadores con experiencia en PyMEs argentinas"
+- `TITULAR_1` — beneficio clave, **máx 10 chars** (1 palabra o 2 muy cortas), ej: "Ordená", "Crecé", "Hablemos"
+- `TITULAR_2` — segundo punto, **máx 10 chars** (el serif es 92px, el más grande del template), ej: "tu PyME", "con MDO", "antes"
+- `TITULAR_3` — remate, **máx 12 chars** con punto, ej: "con MDO.", "hoy mismo.", "de firmar."
+- `BAJADA` — cierre breve, ej: "Contabilidad, impuestos y nómina. Un solo equipo."
 - `CANAL_1_LABEL` / `CANAL_1_VALOR` — ej: "Web" / "mdo-consultores.com.ar"
 - `CANAL_2_LABEL` / `CANAL_2_VALOR` — ej: "IG" / "@mdoconsultores"
 - `CANAL_3_LABEL` / `CANAL_3_VALOR` — ej: "Mail" / "info@mdo-consultores.com.ar"
 - `HANDLE` — `@mdoconsultores`
+
+⚠️ **CONSTRAINT CRÍTICO st-09**: El template usa 72px (TITULAR_1/3) y 92px (TITULAR_2) sobre un artboard de 480px (→ 400px útiles con padding). Frases largas DESBORDAN el borde derecho y se cortan. Usar SIEMPRE palabras sueltas o frases de máximo 2-3 palabras muy cortas. Verificar mentalmente: ~40px por carácter bold a 72px.
 
 Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
 
