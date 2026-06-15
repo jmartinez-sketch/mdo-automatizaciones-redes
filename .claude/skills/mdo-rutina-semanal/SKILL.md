@@ -1,5 +1,6 @@
 ---
 name: mdo-rutina-semanal
+model: opus
 description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 4 imágenes branded con los templates Claude Design, y crea 4 drafts en Metricool programados Lun/Mié/Jue/Vie 9hs Argentina para la cuenta IG+LinkedIn @mdoconsultores. El jueves alterna semanas: semana impar = story st-09 (CTA), semana par = carrusel cb-* (slides según noticia). Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
@@ -97,7 +98,7 @@ Mapear a slots de `po-04`:
 - `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
 - `BAJADA` — explicación breve (máx 150 chars)
 - `BULLET_1`..`BULLET_4` — 4 puntos prácticos
-- `CTA` — frase de cierre que referencia un servicio real de MDO. Servicios válidos: contabilidad, impuestos, liquidación de sueldos, asesoría impositiva, monotributo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoría impositiva para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta (ej: "análisis de rentabilidad", "consultoría financiera")
+- `CTA` — frase de cierre que referencia un servicio real de MDO. Ver lista completa abajo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoramiento impositivo para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta
 - `HANDLE` — `@mdoconsultores`
 
 ### 3b. Generar contenido del jueves
@@ -273,6 +274,38 @@ Reglas de texto:
 - Sin emojis salvo el 📞 al CTA
 - Hashtags al final, máximo 8
 - Siempre incluir `#MDOConsultores`
+
+## Servicios de MDO Consultores (fuente: archivo web oficial)
+
+Usar exclusivamente estos servicios para los CTAs del viernes y cualquier referencia a lo que hace el estudio. ❌ NO mencionar servicios fuera de esta lista (ej: monotributo, análisis de rentabilidad, consultoría financiera).
+
+### 1. Tributario — Asesoramiento Impositivo y Previsional
+Liquidación de IVA, Portal IVA, Ingresos Brutos / Convenio Multilateral, Ganancias, Bienes Personales, DDJJ mensuales y anuales, reintegros IVA por exportaciones, recupero de créditos fiscales, exenciones, exclusión de regímenes de retención/percepción, planes de pago y moratorias, planificación fiscal, due diligence impositivo y previsional, ajuste por inflación impositivo, reorganización de empresas, inspecciones AFIP/ARCA/ARBA/AGIP, patrocinio ante el Tribunal Fiscal.
+
+### 2. Precios de Transferencia
+Estudios de precios de transferencia, transacciones entre partes vinculadas, Master File, Country by Country Report (CbCR), documentación y DDJJ, defensa ante ARCA (auditorías, APAs y ajustes).
+
+### 3. Auditoría — Estados Contables
+Auditoría de estados contables, revisiones limitadas, auditoría operativa y de procesos, auditoría interna, control interno y gestión de riesgos, procedimientos acordados, certificaciones contables, informes periciales (pericia contable), implementación de NIIF/IFRS, prevención de lavado de activos, valuación de empresas.
+
+### 4. Societario
+Constitución de sociedades (SA, SRL, SAS), trámites IGJ y registros provinciales, actas societarias, aumento de capital, reforma de estatutos, designación de autoridades / cambio de sede, fusiones y adquisiciones, escisiones y transformaciones, transferencia de fondo de comercio, contratos comerciales.
+
+### 5. Contabilidad y Gestión para PyMEs
+Balances, estados contables, asesoría contable, registración de operaciones, conciliaciones de cuentas, libros de comercio, reportes de gestión, gestión de pagos y cobranzas, control presupuestario económico y financiero, ajuste por inflación contable, certificación de ingresos, certificación de origen de fondos.
+
+### 6. Laboral — Liquidación de Sueldos
+Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, cargas sociales, convenios colectivos de trabajo, ART y Seguro de Vida Obligatorio, cálculo de indemnizaciones, asesoramiento laboral, inspecciones laborales.
+
+---
+
+**CTAs válidos por servicio** (ejemplos):
+- Tributario: "Asesoramiento impositivo para tu empresa. Consultanos."
+- Auditoría: "Auditamos los estados contables de tu empresa. Consultanos."
+- Contabilidad: "Llevamos la contabilidad de tu PyME. Consultanos."
+- Laboral: "Liquidamos los sueldos de tu empresa. Consultanos."
+- Societario: "Te ayudamos a constituir tu sociedad. Consultanos."
+- Precios de Transferencia: solo relevante para empresas con operaciones entre vinculadas — no usar en posts genéricos de PyME.
 
 ## Tareas de cierre
 
