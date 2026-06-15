@@ -207,6 +207,50 @@ function PoEquipo(props) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────
+// 16 — Spotlight de servicio (marca + 1 servicio)
+// Brand-forward: logo + isologo grande de fondo, nombre del servicio en
+// serif y UNA línea de beneficio. Sin listas ni grillas. Post institucional
+// quincenal para variar el formato del feed.
+// Slots: COPETE, TITULO, BAJADA, HANDLE
+// ─────────────────────────────────────────────────────────────────────
+function PoServicioSpotlight(props) {
+  const p = Object.assign({
+    copete: '[COPETE]',
+    titulo: '[TITULO]',
+    bajada: '[BAJADA]',
+    handle: '[HANDLE]',
+  }, props);
+
+  return (
+    <div className="tpl navy" style={{ padding: 40, display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      <IsoWatermark mode="light" size={420} opacity={0.07}
+        style={{ position: 'absolute', right: -120, bottom: -80 }} />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+        <Lockup mode="light" size={26} />
+        <div className="chip">{p.copete}</div>
+      </div>
+
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        position: 'relative' }}>
+        <div className="display-serif" style={{ fontSize: 64, color: 'var(--paper)', lineHeight: 1.0 }}>
+          <em>{p.titulo}</em>
+        </div>
+        <div className="lede" style={{ marginTop: 24, fontSize: 17, color: 'rgba(247,249,252,0.78)',
+          maxWidth: '84%', lineHeight: 1.45 }}>
+          {p.bajada}
+        </div>
+      </div>
+
+      <div className="footer-row" style={{ color: 'rgba(247,249,252,0.55)', position: 'relative' }}>
+        <span>{p.handle}</span>
+        <span>mdo-consultores.com.ar</span>
+      </div>
+    </div>
+  );
+}
+
 const EXAMPLES_PORTRAIT = {
   PoServicio: {
     copete: 'Servicio · MDO',
@@ -237,6 +281,12 @@ const EXAMPLES_PORTRAIT = {
     foto_caption: 'RETRATO · 4:5',
     handle: '@mdoconsultores',
   },
+  PoServicioSpotlight: {
+    copete: 'Servicios',
+    titulo: 'Asesoramiento Impositivo',
+    bajada: 'Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas.',
+    handle: '@mdoconsultores',
+  },
 };
 
-Object.assign(window, { PoServicio, PoAltaCliente, PoEquipo, EXAMPLES_PORTRAIT });
+Object.assign(window, { PoServicio, PoAltaCliente, PoEquipo, PoServicioSpotlight, EXAMPLES_PORTRAIT });
