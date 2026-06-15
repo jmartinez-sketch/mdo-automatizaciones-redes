@@ -72,6 +72,7 @@ await fetch('https://postiz.../api/v1/posts', {
 | `po-05` | Anuncio institucional     | `COPETE`, `TITULO`, `SUBTITULO`, `TEMA`, `BLOQUE_1..3`, `FECHA_HORA`, `HANDLE` |
 | `po-06` | Voz experta / Equipo      | `COPETE`, `NOMBRE`, `ROL`, `BIO`, `TAG_1..4`, `FOTO_CAPTION`, `HANDLE` |
 | `po-13` | **Noticia + take MDO**    | `CATEGORIA`, `TITULAR`, `BAJADA`, `QUE_SABER_LABEL`, `QUE_SABER`, `FUENTE`, `FECHA`, `HANDLE` |
+| `po-16` | **Spotlight de servicio** (marca, navy) | `COPETE`, `TITULO`, `BAJADA`, `HANDLE` |
 
 ### Story · 9:16 (output 1080×1920)
 

@@ -17,7 +17,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 
 ## Output esperado
 
-4 drafts en Metricool, todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
+4 drafts en Metricool por semana (5 en semanas pares — ver el sábado), todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
@@ -25,8 +25,11 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 | 2 | Miércoles 9hs | Noticia destacada #2         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
 | 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` **o** `cb-*`         | Basado en noticias de la semana |
 | 4 | Viernes 9hs   | Gestión PyME (tip genérico)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
 
 (*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
+
+(**) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca para variar el formato del feed. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
 
 ## Paso a paso
 
@@ -179,7 +182,35 @@ Renderizar cada slide por separado con su template ID correspondiente. Los archi
 
 En Metricool, el carrusel se crea como un único post con todas las imágenes en el array `media` en orden.
 
-### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel)
+### 3c. Generar spotlight de servicio del sábado (SOLO semanas pares)
+
+Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(date +%V) % 2 )) == 0`). En semanas impares, **omitir este paso** (la rutina genera 4 posts, no 5).
+
+Objetivo: variar el formato del feed con un post **institucional de marca**, no de noticias ni de tips. Logo con presencia + un servicio + una sola línea de beneficio.
+
+- **Template**: `po-16` (spotlight de servicio, navy con isologo grande de fondo)
+- **Día/hora**: sábado de esa semana, 11hs Argentina (`-03:00`)
+- **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
+- **Servicio**: el **mismo que tocó el tip del viernes de esa semana** → reutilizar `SERVICIO_IDX=$(( $(date +%V) % 5 ))` (ver tabla en sección 3). El sábado refuerza el servicio de la quincena.
+
+Slots de `po-16`:
+- `COPETE` — siempre "Servicios"
+- `TITULO` — nombre del servicio en grande (máx ~24 chars/línea, entra en 2 líneas serif). Ej: "Asesoramiento Impositivo", "Liquidación de Sueldos", "Contabilidad para PyMEs"
+- `BAJADA` — **UNA** línea de beneficio (máx ~110 chars). NO listar tareas ni repetir el título. Hablar del beneficio para el cliente, no del "qué hacemos".
+- `HANDLE` — `@mdoconsultores`
+
+Líneas de beneficio de referencia (escribir una nueva en ese estilo, NO copiar literal):
+- **Tributario**: "Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas."
+- **Contabilidad**: "Tus balances y tu gestión al día, para decidir con números reales."
+- **Laboral**: "Liquidamos los sueldos de tu equipo y te sacamos el peso de encima."
+- **Societario**: "Te acompañamos desde la constitución de tu sociedad hasta cada trámite en IGJ."
+- **Auditoría**: "Auditamos tus estados contables con la mirada que tu empresa necesita."
+
+Nombre del archivo: `posts/YYYY-MM-DD-5.png` (fecha = sábado de publicación).
+
+⚠️ Aplican las mismas reglas duras que el tip del viernes: NO números específicos, NO fechas/plazos, NO consejo legal puntual.
+
+### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel o hay spotlight de sábado)
 
 Para cada post:
 
@@ -216,9 +247,14 @@ URL pública de cada imagen:
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
 ```
 
-### 6. Crear los 3 drafts en Metricool
+### 6. Crear los drafts en Metricool (4 por semana, 5 en semanas pares)
 
-Usar la MCP de Metricool: `mcp__7d9da2c2-8ef9-4d07-bd69-a1376309827a__createScheduledPost`
+Usar la MCP de Metricool: `createScheduledPost`.
+
+> **Recordatorios de red por post:**
+> - Posts 1, 2, 4 (noticias + tip viernes): `providers` con `instagram` **y** `linkedin`.
+> - Post 3 (jueves): si es **story `st-09`**, Instagram NO admite texto en stories → crear 2 posts separados (IG Story sin texto + LinkedIn con texto). Si es **carrusel**, IG + LinkedIn normal.
+> - Post 5 (sábado spotlight, solo semanas pares): `providers` con **solo `instagram`**.
 
 Para cada post:
 
