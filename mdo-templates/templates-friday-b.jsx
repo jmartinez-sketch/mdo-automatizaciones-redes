@@ -34,14 +34,16 @@ function PoTresIconos(props) {
         <Lockup size={26} /><div className="chip">{p.copete}</div>
       </div>
       <div className="display" style={{ marginTop: 32, fontSize: 36, fontWeight: 700, color: 'var(--navy-ink)', lineHeight: 1.1, maxWidth: '88%' }}>{p.titulo}</div>
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 18 }}>
-        {cols.map((c, i) => (
-          <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 16 }}>
-            <div style={{ width: 88, height: 88, borderRadius: '50%', background: 'var(--blue-pale)', color: 'var(--navy)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}><c.Ic s={40} /></div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.3 }}>{c.l}</div>
-          </div>
-        ))}
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 18, width: '100%' }}>
+          {cols.map((c, i) => (
+            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 16 }}>
+              <div style={{ width: 88, height: 88, borderRadius: '50%', background: 'var(--blue-pale)', color: 'var(--navy)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><c.Ic s={40} /></div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.3, minHeight: 40 }}>{c.l}</div>
+            </div>
+          ))}
+        </div>
       </div>
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)', borderRadius: 2,
         fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600, marginBottom: 16 }}>{p.cta}</div>
@@ -122,7 +124,7 @@ function PoIconoFrase(props) {
         <Lockup mode="light" size={26} /><div className="chip">{p.copete}</div>
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div style={{ color: 'var(--blue-lt)', marginBottom: 30 }}><IcoShield s={84} /></div>
+        <div style={{ color: 'var(--blue-lt)', marginBottom: 30, marginLeft: -16 }}><IcoShield s={84} /></div>
         <div className="display" style={{ fontSize: 40, fontWeight: 700, color: 'var(--paper)', lineHeight: 1.12, letterSpacing: '-0.01em' }}>{p.frase}</div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

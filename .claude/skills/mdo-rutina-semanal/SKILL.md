@@ -146,6 +146,41 @@ Mapear a slots de `po-04`:
 
 ⚠️ **Al renderizar `po-04`, verificar SIEMPRE que el pie (`@mdoconsultores · Buenos Aires`) quede visible.** Si no se ve, el texto desbordó: acortar bullets a 1 línea cada uno y/o el título.
 
+#### Catálogo de templates del viernes (referencia — se pueden variar)
+
+El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**: se pueden usar tal cual, rotar entre ellos, combinarlos o **variar** (cambiar copy, ajustar, o crear uno nuevo inspirado en estos). La idea es romper la monotonía del feed.
+
+**Texto-driven:**
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-04` | Guía/tip: título + 4 bullets (1 línea c/u) + CTA | COPETE, TITULO, BULLET_1..4, CTA, HANDLE |
+| `po-21` | Pregunta hero (navy): gancho en pregunta serif | COPETE, PREGUNTA, RESPUESTA, CTA, HANDLE |
+| `po-22` | Antes/Después (split papel→navy) | COPETE, SIN_LABEL, SIN_TEXTO, CON_LABEL, CON_TEXTO, CTA, HANDLE |
+| `po-23` | Declaración/manifiesto (papel) + firma | COPETE, DECLARACION, APOYO, HANDLE |
+| `po-24` | Checklist (blanco): 3 ítems tildados | COPETE, TITULO, ITEM_1..3, CTA, HANDLE |
+| `po-25` | Foco/una idea (navy) minimal | COPETE, IDEA, DETALLE, CTA, HANDLE |
+
+**Icon-forward (menos texto, más íconos SVG):**
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-26` | 3 íconos en fila (papel) | COPETE, TITULO, LABEL_1..3, CTA, HANDLE |
+| `po-27` | Ícono grande central (navy) | COPETE, TITULO, BAJADA, CTA, HANDLE |
+| `po-28` | Proceso en 3 pasos con íconos (papel) | COPETE, TITULO, PASO_1..3, CTA, HANDLE |
+| `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
+| `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
+
+**Reglas que aplican a TODOS los templates del viernes:**
+- `COPETE` NUNCA dice "Tip". Usar "Gestión PyME" o el nombre del servicio de la semana.
+- **ARCA, nunca AFIP.**
+- Anclar al servicio de la semana (rotación `SERVICIO_IDX`, ver Paso 0).
+- **Verificar siempre la imagen renderizada**: pie/footer visible, nada cortado, márgenes ok.
+
+**Dónde vive el código (por si hay que crear uno nuevo o variar):**
+- `po-04` → `mdo-templates/templates-portrait.jsx`
+- `po-21`–`po-25` → `mdo-templates/templates-friday.jsx`
+- `po-26`–`po-30` → `mdo-templates/templates-friday-b.jsx` (incluye el set de íconos SVG line-style)
+- Para un template nuevo: escribir el componente reusando el sistema de marca (paleta `:root`, fuentes Montserrat/Instrument Serif/Geist Mono, `Lockup`, `IsoWatermark`, clases `.tpl`/`.navy`/etc.) y registrarlo en `render.html` (`TEMPLATES`). Mantener padding generoso (margen seguro de grilla).
+
 ### 3b. Generar contenido del jueves
 
 Determinar el tipo según semana ISO del lunes de la semana en curso:
