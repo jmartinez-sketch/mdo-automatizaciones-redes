@@ -24,7 +24,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 | 1 | Lunes 9hs     | Noticia destacada #1         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
 | 2 | Miércoles 9hs | Noticia destacada #2         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
 | 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` (Story 1080×1920) **o** `cb-*` (1080×1350) | Basado en noticias de la semana |
-| 4 | Viernes 9hs   | Gestión PyME (tip genérico)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
 | 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
 
 (*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
@@ -135,12 +135,14 @@ Rotar entre estos ángulos. **Nunca repetir la misma estructura dos semanas segu
 Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
 
 Mapear a slots de `po-04`:
-- `COPETE` — categoría del tip, ej: "Gestión PyME · Tip semanal"
-- `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
+- `COPETE` — ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar `"Gestión PyME"` o el nombre del servicio de la semana, ej: "Gestión PyME", "Contabilidad", "Asesoramiento impositivo"
+- `TITULO` — headline corto del hook (máx 50 chars). Que entre en **máximo 3 líneas** en el render
 - `BAJADA` — explicación breve (máx 150 chars)
-- `BULLET_1`..`BULLET_4` — 4 puntos prácticos
+- `BULLET_1`..`BULLET_4` — **siempre los 4** (si pasás menos, el template muestra el placeholder `[BULLET_N]`). Cada bullet **de 1 línea** (máx ~36 chars): si son de 2 líneas, el contenido desborda y **se corta el pie**
 - `CTA` — frase de cierre que referencia un servicio real de MDO. Ver lista completa abajo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoramiento impositivo para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta
 - `HANDLE` — `@mdoconsultores`
+
+⚠️ **Al renderizar `po-04`, verificar SIEMPRE que el pie (`@mdoconsultores · Buenos Aires`) quede visible.** Si no se ve, el texto desbordó: acortar bullets a 1 línea cada uno y/o el título.
 
 ### 3b. Generar contenido del jueves
 
