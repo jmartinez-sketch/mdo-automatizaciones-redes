@@ -15,6 +15,8 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 - **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar
 
+⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
+
 ## Output esperado
 
 4 drafts en Metricool por semana (5 en semanas pares — ver el sábado), todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):

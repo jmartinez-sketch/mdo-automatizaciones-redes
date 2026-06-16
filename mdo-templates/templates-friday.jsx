@@ -175,7 +175,7 @@ const EXAMPLES_FRIDAY = {
   PoAntesDespues: {
     copete: 'Contabilidad',
     sin_label: 'Sin orden contable',
-    sin_texto: 'Números a fin de año, decisiones a las apuradas y sorpresas con AFIP.',
+    sin_texto: 'Números a fin de año, decisiones a las apuradas y sorpresas con ARCA.',
     con_label: 'Con MDO',
     con_texto: 'Información al día para decidir tranquilo, todo el año.',
     cta: 'Ordenamos tu contabilidad', handle: '@mdoconsultores',

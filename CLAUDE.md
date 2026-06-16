@@ -78,6 +78,10 @@ El tip lo genera la IA. Para evitar imprecisiones técnicas:
 
 Si el draft generado contiene cualquier dato específico, descartarlo y regenerar.
 
+## Regla dura: ARCA, nunca AFIP
+
+El organismo recaudador **ya no se llama AFIP**: es **ARCA** (Agencia de Recaudación y Control Aduanero). En TODO el contenido (títulos, copys, imágenes, hashtags) usar siempre **ARCA**. ❌ Nunca escribir "AFIP". Si una fuente/newsletter dice "AFIP", traducirlo a "ARCA" al redactar.
+
 ## Branch de trabajo
 
 La rama activa para este proyecto: ver `git branch --show-current`. Las imágenes commiteadas a esa rama son accesibles vía:
