@@ -23,7 +23,7 @@ function PoServicio(props) {
   const bullets = [p.bullet_1, p.bullet_2, p.bullet_3, p.bullet_4].filter(Boolean);
 
   return (
-    <div className="tpl" style={{ padding: 54, display: 'flex', flexDirection: 'column', background: 'var(--paper-warm)' }}>
+    <div className="tpl" style={{ padding: 68, display: 'flex', flexDirection: 'column', background: 'var(--paper-warm)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Lockup size={26} />
         <div className="mono">{p.copete}</div>
@@ -223,7 +223,7 @@ function PoServicioSpotlight(props) {
   }, props);
 
   return (
-    <div className="tpl navy" style={{ padding: 40, display: 'flex', flexDirection: 'column', position: 'relative' }}>
+    <div className="tpl navy" style={{ padding: 64, display: 'flex', flexDirection: 'column', position: 'relative' }}>
       <IsoWatermark mode="light" size={420} opacity={0.07}
         style={{ position: 'absolute', right: -120, bottom: -80 }} />
 

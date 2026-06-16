@@ -226,11 +226,21 @@ Templates por día:
 - Jueves (story): `--template st-09`
 - Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
 - Viernes: `--template po-04`
+- Sábado (solo semanas pares): `--template po-16`
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 - `YYYY-MM-DD` = fecha de publicación
-- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes)
+- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes), 5 (sábado)
 - Carrusel del jueves: `posts/YYYY-MM-DD-3-cover.png`, `posts/YYYY-MM-DD-3-s1.png`, etc.
+
+⚠️ **VERIFICACIÓN VISUAL OBLIGATORIA — antes de crear cualquier draft**:
+
+Después de renderizar, **abrir cada PNG y mirarlo** (tool Read sobre el archivo). NO crear el draft en Metricool sin haber visto la imagen. Chequear:
+- El texto NO se sale ni se corta en ningún borde.
+- El titular entra completo (en `st-09` los titulares son cortísimos, ver constraint).
+- Hay margen de seguridad amplio en los 4 bordes → **Instagram recorta los bordes en la grilla del feed**, así que el contenido pegado al margen se ve cortado en el perfil aunque el PNG esté bien. Los templates ya usan padding generoso (`sq-12`=72, `po-04`=68, `po-16`=64 sobre base 540); si se toca un template, mantener ese margen o más.
+
+Si una imagen tiene texto cortado o pegado al borde, **NO crear el draft**: acortar el texto o ajustar el template y volver a renderizar. Un post mal renderizado que ya se publicó NO se puede corregir.
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
@@ -246,6 +256,8 @@ URL pública de cada imagen:
 ```
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
 ```
+
+> **Cache busting**: si se **actualiza** un PNG ya referenciado en un draft (ej: corregir márgenes), Metricool tiene cacheada la versión vieja en su CDN. Al llamar `updateScheduledPost`, agregar un query param a la URL (`...-N.png?v=2`) para forzar que Metricool re-descargue la imagen nueva. `raw.githubusercontent.com` ignora el query param y sirve el archivo igual.
 
 ### 6. Crear los drafts en Metricool (4 por semana, 5 en semanas pares)
 
