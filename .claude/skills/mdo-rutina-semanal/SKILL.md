@@ -148,7 +148,13 @@ Mapear a slots de `po-04`:
 
 #### Catálogo de templates del viernes (referencia — se pueden variar)
 
-El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**: se pueden usar tal cual, rotar entre ellos, combinarlos o **variar** (cambiar copy, ajustar, o crear uno nuevo inspirado en estos). La idea es romper la monotonía del feed.
+El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**, no una lista cerrada.
+
+**Cómo se decide el template del viernes (NO es rotación ciega):**
+- El **servicio** lo fija la rotación por semana ISO (`SERVICIO_IDX`, ver Paso 0).
+- El **template y el ángulo los elige la IA según el contenido de esa semana**: qué querés decir y cómo se comunica mejor. Elegir el template cuya estructura potencie el mensaje (ver guía abajo).
+- Si ningún template existente encaja bien con el ángulo, **crear uno nuevo** usando estos 11 como referencia de estilo (mismo sistema de marca).
+- Buscar **variedad**: evitar repetir el mismo template que el viernes anterior si es identificable (mirar los últimos `posts/*-4.png` si hace falta).
 
 **Texto-driven:**
 | ID | Estilo | Slots |
@@ -168,6 +174,21 @@ El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos vertica
 | `po-28` | Proceso en 3 pasos con íconos (papel) | COPETE, TITULO, PASO_1..3, CTA, HANDLE |
 | `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
 | `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
+
+**Guía ángulo → template (orientativa, no obligatoria):**
+| Si el mensaje es… | Conviene |
+|---|---|
+| Un gancho/pregunta que abre curiosidad | `po-21` |
+| Mostrar el contraste problema vs. solución | `po-22` |
+| Una postura o frase con autoridad | `po-23`, `po-25`, `po-29` |
+| Un autodiagnóstico ("¿tenés esto resuelto?") | `po-24` |
+| Enumerar beneficios concretos | `po-04`, `po-26` |
+| Explicar cómo trabajamos / un proceso | `po-28` |
+| Una sola idea fuerte y limpia | `po-25`, `po-27`, `po-29` |
+| Mostrar la amplitud de servicios | `po-30` |
+| Tip con varios puntos prácticos | `po-04` |
+
+→ Si nada encaja, **diseñar un template nuevo** inspirado en estos y registrarlo (ver "Dónde vive el código").
 
 **Reglas que aplican a TODOS los templates del viernes:**
 - `COPETE` NUNCA dice "Tip". Usar "Gestión PyME" o el nombre del servicio de la semana.
