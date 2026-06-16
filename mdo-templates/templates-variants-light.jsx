@@ -271,7 +271,7 @@ function PoNoticiaMinimal(props) {
   }, props);
 
   return (
-    <div className="tpl white" style={{ padding: 40, display: 'flex', flexDirection: 'column' }}>
+    <div className="tpl white" style={{ padding: 56, display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <Lockup size={26} />
         <span className="eyebrow">{p.categoria}</span>

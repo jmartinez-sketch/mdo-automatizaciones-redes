@@ -21,15 +21,29 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
-| 1 | Lunes 9hs     | Noticia destacada #1         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
-| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` **o** `cb-*`         | Basado en noticias de la semana |
+| 1 | Lunes 9hs     | Noticia destacada #1         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
+| 2 | Miércoles 9hs | Noticia destacada #2         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
+| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` (Story 1080×1920) **o** `cb-*` (1080×1350) | Basado en noticias de la semana |
 | 4 | Viernes 9hs   | Gestión PyME (tip genérico)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
 | 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
 
 (*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
 
 (**) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca para variar el formato del feed. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
+
+### ⚠️ Formatos correctos de imagen (regla dura — Instagram 2026)
+
+Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra todo en vertical 3:4 y recorta los cuadrados**. Por eso TODOS los posts de feed van en **vertical**, nunca en cuadrado (1:1).
+
+| Destino | Ratio | Píxeles | Templates |
+|---|---|---|---|
+| **Feed (post)** | **4:5 vertical** | **1080 × 1350** | `po-13c`, `po-04`, `po-16`, carrusel `cb-*` |
+| **Historia (story)** | **9:16 vertical** | **1080 × 1920** | `st-09` |
+
+- ❌ **NUNCA usar `sq-12` ni ningún template cuadrado (1080×1080) para el feed** — se recorta en la grilla.
+- **Zona segura**: logo, titular y CTA lejos de los bordes superior e inferior (la grilla 3:4 le recorta ~12% arriba/abajo a un post 4:5). Los templates ya traen padding generoso; si se edita uno, no bajar de ese margen.
+- En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
+- (Opción cero-recorte: 3:4 → 1080×1440, pero requiere rediseñar la altura de los templates. El 4:5 es el estándar y ya está validado en producción.)
 
 ## Paso a paso
 
@@ -58,10 +72,11 @@ Reglas:
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 
-Para cada noticia extraer:
+Para cada noticia extraer (slots del template `po-13c` — Noticia vertical 4:5):
 - `CATEGORIA` — eyebrow corto, ej: "Impuestos · ARCA", "Régimen Simplificado", "PyMEs"
 - `TITULAR` — máximo 70 caracteres, redactado por nosotros (no copiar el del medio)
 - `BAJADA` — 1-2 líneas (máx 180 chars) que expliquen la novedad concreta
+- `CIERRE` — frase de cierre editorial breve en serif (máx ~90 chars), ej: "Un cambio que conviene resolver con tiempo." (en noticias SÍ se pueden mencionar datos/plazos reales — la regla dura de no-números aplica solo al tip del viernes y al spotlight del sábado)
 - `FUENTE` — medio + tipo de comunicación, ej: "Cronista · Nota", "ARCA · Resolución oficial"
 - `FECHA` — fecha de la noticia, formato "21 may 2026"
 - `HANDLE` — siempre `@mdoconsultores`
@@ -216,17 +231,17 @@ Para cada post:
 
 ```bash
 node scripts/render.js \
-  --template sq-12 \
+  --template po-13c \
   --out posts/YYYY-MM-DD-N.png \
-  --slots '{"CATEGORIA":"...","TITULAR":"...",...}'
+  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","CIERRE":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
 ```
 
-Templates por día:
-- Lunes y miércoles: `--template sq-12`
-- Jueves (story): `--template st-09`
+Templates por día (todos verticales — ver "Formatos correctos de imagen"):
+- Lunes y miércoles: `--template po-13c` (noticia vertical 4:5 · 1080×1350)
+- Jueves (story): `--template st-09` (9:16 · 1080×1920)
 - Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
-- Viernes: `--template po-04`
-- Sábado (solo semanas pares): `--template po-16`
+- Viernes: `--template po-04` (4:5 · 1080×1350)
+- Sábado (solo semanas pares): `--template po-16` (4:5 · 1080×1350)
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 - `YYYY-MM-DD` = fecha de publicación
