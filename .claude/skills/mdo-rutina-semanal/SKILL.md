@@ -1,5 +1,6 @@
 ---
 name: mdo-rutina-semanal
+model: opus
 description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 4 imágenes branded con los templates Claude Design, y crea 4 drafts en Metricool programados Lun/Mié/Jue/Vie 9hs Argentina para la cuenta IG+LinkedIn @mdoconsultores. El jueves alterna semanas: semana impar = story st-09 (CTA), semana par = carrusel cb-* (slides según noticia). Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
@@ -14,18 +15,37 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 - **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar
 
+⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
+
 ## Output esperado
 
-4 drafts en Metricool, todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
+4 drafts en Metricool por semana (5 en semanas pares — ver el sábado), todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
-| 1 | Lunes 9hs     | Noticia destacada #1         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2         | `sq-12` (Square 1080×1080)   | Gmail newsletter |
-| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` **o** `cb-*`         | Basado en noticias de la semana |
-| 4 | Viernes 9hs   | Gestión PyME (tip genérico)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 1 | Lunes 9hs     | Noticia destacada #1         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
+| 2 | Miércoles 9hs | Noticia destacada #2         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
+| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` (Story 1080×1920) **o** `cb-*` (1080×1350) | Basado en noticias de la semana |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
+| 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
 
 (*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
+
+(**) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca para variar el formato del feed. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
+
+### ⚠️ Formatos correctos de imagen (regla dura — Instagram 2026)
+
+Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra todo en vertical 3:4 y recorta los cuadrados**. Por eso TODOS los posts de feed van en **vertical**, nunca en cuadrado (1:1).
+
+| Destino | Ratio | Píxeles | Templates |
+|---|---|---|---|
+| **Feed (post)** | **4:5 vertical** | **1080 × 1350** | `po-13c`, `po-04`, `po-16`, carrusel `cb-*` |
+| **Historia (story)** | **9:16 vertical** | **1080 × 1920** | `st-09` |
+
+- ❌ **NUNCA usar `sq-12` ni ningún template cuadrado (1080×1080) para el feed** — se recorta en la grilla.
+- **Zona segura**: logo, titular y CTA lejos de los bordes superior e inferior (la grilla 3:4 le recorta ~12% arriba/abajo a un post 4:5). Los templates ya traen padding generoso; si se edita uno, no bajar de ese margen.
+- En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
+- (Opción cero-recorte: 3:4 → 1080×1440, pero requiere rediseñar la altura de los templates. El 4:5 es el estándar y ya está validado en producción.)
 
 ## Paso a paso
 
@@ -54,15 +74,39 @@ Reglas:
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 
-Para cada noticia extraer:
+Para cada noticia extraer (slots del template `po-13c` — Noticia vertical 4:5):
 - `CATEGORIA` — eyebrow corto, ej: "Impuestos · ARCA", "Régimen Simplificado", "PyMEs"
 - `TITULAR` — máximo 70 caracteres, redactado por nosotros (no copiar el del medio)
 - `BAJADA` — 1-2 líneas (máx 180 chars) que expliquen la novedad concreta
+- `CIERRE` — frase de cierre editorial breve en serif (máx ~90 chars), ej: "Un cambio que conviene resolver con tiempo." (en noticias SÍ se pueden mencionar datos/plazos reales — la regla dura de no-números aplica solo al tip del viernes y al spotlight del sábado)
 - `FUENTE` — medio + tipo de comunicación, ej: "Cronista · Nota", "ARCA · Resolución oficial"
 - `FECHA` — fecha de la noticia, formato "21 may 2026"
 - `HANDLE` — siempre `@mdoconsultores`
 
 ### 3. Generar tip PyME (3er post)
+
+**PASO 0 — Determinar el servicio de la semana (rotación fija)**:
+
+El servicio sobre el que se enfoca el tip del viernes NO se elige a criterio: se calcula por semana ISO para garantizar cobertura pareja de los 5 servicios PyME-relevantes (Precios de Transferencia queda fuera del ciclo: no aplica a audiencia PyME).
+
+```bash
+SERVICIO_IDX=$(( $(date +%V) % 5 ))
+# 0 = Contabilidad
+# 1 = Tributario
+# 2 = Laboral
+# 3 = Societario
+# 4 = Auditoría
+```
+
+El tip y el CTA deben girar en torno al servicio que toque esa semana. El **ángulo creativo y la redacción siguen siendo libres** (ver regla de creatividad abajo), pero el servicio queda fijado por el cálculo. Ver la lista completa de tareas de cada servicio en la sección "Servicios de MDO Consultores".
+
+| IDX | Servicio | CTA sugerido |
+|---|---|---|
+| 0 | Contabilidad | "Llevamos la contabilidad de tu PyME. Consultanos." |
+| 1 | Tributario | "Asesoramiento impositivo para tu empresa. Consultanos." |
+| 2 | Laboral | "Liquidamos los sueldos de tu empresa. Consultanos." |
+| 3 | Societario | "Te ayudamos a constituir tu sociedad. Consultanos." |
+| 4 | Auditoría | "Auditamos los estados contables de tu empresa. Consultanos." |
 
 **REGLAS DURAS — no negociables**:
 
@@ -71,25 +115,92 @@ Para cada noticia extraer:
 3. ❌ **NO** dar consejos legales o de derecho tributario específicos
 4. ✅ **SÍ**: tips genéricos atemporales sobre gestión PyME, hábitos contables, organización financiera
 
-Ejemplos de tips OK:
+**REGLA DE CREATIVIDAD — obligatoria**:
 
-- "Separá cuenta personal de cuenta empresa: la mezcla es la #1 razón de líos contables"
-- "Pedí siempre factura A cuando podés deducir: te ahorra IVA"
+Cada semana el tip debe ser **distinto en ángulo y estructura**. Los viernes son el post de mayor potencial de engagement (guardados, comentarios). Usar ángulos que generen reacción:
+
+- **Pregunta provocadora**: "¿Por qué el mes en que más vendiste fue el que menos ganaste?"
+- **Error común**: "El error de caja que cometen el 80% de las PyMEs (y cómo evitarlo)"
+- **Contraintuitivo**: "Facturar más no siempre significa ganar más. Acá el porqué"
+- **Perspectiva del contador**: "Lo que tu contador ve en 5 minutos que vos no ves en un año"
+- **Mito vs. realidad**: "Mito: 'Si facturo menos no pago impuestos.' Realidad: ..."
+- **Decisión concreta**: "Antes de contratar tu primer empleado, hacé estas 3 cosas"
+- **Comparación de escenarios**: "PyME A vs PyME B: igual facturación, resultado opuesto. La diferencia estaba en..."
+
+Rotar entre estos ángulos. **Nunca repetir la misma estructura dos semanas seguidas**. Los ejemplos de abajo son de referencia para el tono, NO para copiar literalmente:
+
+- "Separá cuenta personal de cuenta empresa" ← ya usado como referencia, NO reutilizar
 - "Reservá un % de cada cobro para impuestos antes de tocar la plata"
-- "Llevá control semanal de caja, no mensual: detectás desvíos antes"
-- "Conciliá bancos cada 15 días, no a fin de mes"
 - "Tu contador no es un mal necesario, es un asesor — usalo para decisiones, no solo para cumplir"
-- "Documentá los gastos del día mismo en una app o planilla: la memoria al cierre miente"
+- "Documentá los gastos el día mismo en una app o planilla: la memoria al cierre miente"
 
 Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
 
 Mapear a slots de `po-04`:
-- `COPETE` — categoría del tip, ej: "Gestión PyME · Tip semanal"
-- `TITULO` — headline corto del tip (máx 50 chars), ej: "Separá lo personal de lo de la empresa"
+- `COPETE` — ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar `"Gestión PyME"` o el nombre del servicio de la semana, ej: "Gestión PyME", "Contabilidad", "Asesoramiento impositivo"
+- `TITULO` — headline corto del hook (máx 50 chars). Que entre en **máximo 3 líneas** en el render
 - `BAJADA` — explicación breve (máx 150 chars)
-- `BULLET_1`..`BULLET_4` — 4 puntos prácticos
-- `CTA` — frase de cierre, ej: "Consultanos para auditar tu setup contable"
+- `BULLET_1`..`BULLET_4` — **siempre los 4** (si pasás menos, el template muestra el placeholder `[BULLET_N]`). Cada bullet **de 1 línea** (máx ~36 chars): si son de 2 líneas, el contenido desborda y **se corta el pie**
+- `CTA` — frase de cierre que referencia un servicio real de MDO. Ver lista completa abajo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoramiento impositivo para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta
 - `HANDLE` — `@mdoconsultores`
+
+⚠️ **Al renderizar `po-04`, verificar SIEMPRE que el pie (`@mdoconsultores · Buenos Aires`) quede visible.** Si no se ve, el texto desbordó: acortar bullets a 1 línea cada uno y/o el título.
+
+#### Catálogo de templates del viernes (referencia — se pueden variar)
+
+El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**, no una lista cerrada.
+
+**Cómo se decide el template del viernes (NO es rotación ciega):**
+- El **servicio** lo fija la rotación por semana ISO (`SERVICIO_IDX`, ver Paso 0).
+- El **template y el ángulo los elige la IA según el contenido de esa semana**: qué querés decir y cómo se comunica mejor. Elegir el template cuya estructura potencie el mensaje (ver guía abajo).
+- Si ningún template existente encaja bien con el ángulo, **crear uno nuevo** usando estos 11 como referencia de estilo (mismo sistema de marca).
+- Buscar **variedad**: evitar repetir el mismo template que el viernes anterior si es identificable (mirar los últimos `posts/*-4.png` si hace falta).
+
+**Texto-driven:**
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-04` | Guía/tip: título + 4 bullets (1 línea c/u) + CTA | COPETE, TITULO, BULLET_1..4, CTA, HANDLE |
+| `po-21` | Pregunta hero (navy): gancho en pregunta serif | COPETE, PREGUNTA, RESPUESTA, CTA, HANDLE |
+| `po-22` | Antes/Después (split papel→navy) | COPETE, SIN_LABEL, SIN_TEXTO, CON_LABEL, CON_TEXTO, CTA, HANDLE |
+| `po-23` | Declaración/manifiesto (papel) + firma | COPETE, DECLARACION, APOYO, HANDLE |
+| `po-24` | Checklist (blanco): 3 ítems tildados | COPETE, TITULO, ITEM_1..3, CTA, HANDLE |
+| `po-25` | Foco/una idea (navy) minimal | COPETE, IDEA, DETALLE, CTA, HANDLE |
+
+**Icon-forward (menos texto, más íconos SVG):**
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-26` | 3 íconos en fila (papel) | COPETE, TITULO, LABEL_1..3, CTA, HANDLE |
+| `po-27` | Ícono grande central (navy) | COPETE, TITULO, BAJADA, CTA, HANDLE |
+| `po-28` | Proceso en 3 pasos con íconos (papel) | COPETE, TITULO, PASO_1..3, CTA, HANDLE |
+| `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
+| `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
+
+**Guía ángulo → template (orientativa, no obligatoria):**
+| Si el mensaje es… | Conviene |
+|---|---|
+| Un gancho/pregunta que abre curiosidad | `po-21` |
+| Mostrar el contraste problema vs. solución | `po-22` |
+| Una postura o frase con autoridad | `po-23`, `po-25`, `po-29` |
+| Un autodiagnóstico ("¿tenés esto resuelto?") | `po-24` |
+| Enumerar beneficios concretos | `po-04`, `po-26` |
+| Explicar cómo trabajamos / un proceso | `po-28` |
+| Una sola idea fuerte y limpia | `po-25`, `po-27`, `po-29` |
+| Mostrar la amplitud de servicios | `po-30` |
+| Tip con varios puntos prácticos | `po-04` |
+
+→ Si nada encaja, **diseñar un template nuevo** inspirado en estos y registrarlo (ver "Dónde vive el código").
+
+**Reglas que aplican a TODOS los templates del viernes:**
+- `COPETE` NUNCA dice "Tip". Usar "Gestión PyME" o el nombre del servicio de la semana.
+- **ARCA, nunca AFIP.**
+- Anclar al servicio de la semana (rotación `SERVICIO_IDX`, ver Paso 0).
+- **Verificar siempre la imagen renderizada**: pie/footer visible, nada cortado, márgenes ok.
+
+**Dónde vive el código (por si hay que crear uno nuevo o variar):**
+- `po-04` → `mdo-templates/templates-portrait.jsx`
+- `po-21`–`po-25` → `mdo-templates/templates-friday.jsx`
+- `po-26`–`po-30` → `mdo-templates/templates-friday-b.jsx` (incluye el set de íconos SVG line-style)
+- Para un template nuevo: escribir el componente reusando el sistema de marca (paleta `:root`, fuentes Montserrat/Instrument Serif/Geist Mono, `Lockup`, `IsoWatermark`, clases `.tpl`/`.navy`/etc.) y registrarlo en `render.html` (`TEMPLATES`). Mantener padding generoso (margen seguro de grilla).
 
 ### 3b. Generar contenido del jueves
 
@@ -105,14 +216,16 @@ SEMANA_TIPO=$(( $(date +%V) % 2 ))
 
 Slots del template:
 - `COPETE` — ej: "Consultanos"
-- `TITULAR_1` — beneficio clave, ej: "Ordenamos tu contabilidad"
-- `TITULAR_2` — segundo punto, ej: "Optimizamos tu carga impositiva"
-- `TITULAR_3` — llamada a la acción, ej: "Acompañamos el crecimiento de tu PyME"
-- `BAJADA` — cierre breve, ej: "Contadores con experiencia en PyMEs argentinas"
+- `TITULAR_1` — beneficio clave, **máx 10 chars** (1 palabra o 2 muy cortas), ej: "Ordená", "Crecé", "Hablemos"
+- `TITULAR_2` — segundo punto, **máx 10 chars** (el serif es 92px, el más grande del template), ej: "tu PyME", "con MDO", "antes"
+- `TITULAR_3` — remate, **máx 12 chars** con punto, ej: "con MDO.", "hoy mismo.", "de firmar."
+- `BAJADA` — cierre breve, ej: "Contabilidad, impuestos y nómina. Un solo equipo."
 - `CANAL_1_LABEL` / `CANAL_1_VALOR` — ej: "Web" / "mdo-consultores.com.ar"
 - `CANAL_2_LABEL` / `CANAL_2_VALOR` — ej: "IG" / "@mdoconsultores"
 - `CANAL_3_LABEL` / `CANAL_3_VALOR` — ej: "Mail" / "info@mdo-consultores.com.ar"
 - `HANDLE` — `@mdoconsultores`
+
+⚠️ **CONSTRAINT CRÍTICO st-09**: El template usa 72px (TITULAR_1/3) y 92px (TITULAR_2) sobre un artboard de 480px (→ 400px útiles con padding). Frases largas DESBORDAN el borde derecho y se cortan. Usar SIEMPRE palabras sueltas o frases de máximo 2-3 palabras muy cortas. Verificar mentalmente: ~40px por carácter bold a 72px.
 
 Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
 
@@ -144,27 +257,65 @@ Renderizar cada slide por separado con su template ID correspondiente. Los archi
 
 En Metricool, el carrusel se crea como un único post con todas las imágenes en el array `media` en orden.
 
-### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel)
+### 3c. Generar spotlight de servicio del sábado (SOLO semanas pares)
+
+Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(date +%V) % 2 )) == 0`). En semanas impares, **omitir este paso** (la rutina genera 4 posts, no 5).
+
+Objetivo: variar el formato del feed con un post **institucional de marca**, no de noticias ni de tips. Logo con presencia + un servicio + una sola línea de beneficio.
+
+- **Template**: `po-16` (spotlight de servicio, navy con isologo grande de fondo)
+- **Día/hora**: sábado de esa semana, 11hs Argentina (`-03:00`)
+- **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
+- **Servicio**: el **mismo que tocó el tip del viernes de esa semana** → reutilizar `SERVICIO_IDX=$(( $(date +%V) % 5 ))` (ver tabla en sección 3). El sábado refuerza el servicio de la quincena.
+
+Slots de `po-16`:
+- `COPETE` — siempre "Servicios"
+- `TITULO` — nombre del servicio en grande (máx ~24 chars/línea, entra en 2 líneas serif). Ej: "Asesoramiento Impositivo", "Liquidación de Sueldos", "Contabilidad para PyMEs"
+- `BAJADA` — **UNA** línea de beneficio (máx ~110 chars). NO listar tareas ni repetir el título. Hablar del beneficio para el cliente, no del "qué hacemos".
+- `HANDLE` — `@mdoconsultores`
+
+Líneas de beneficio de referencia (escribir una nueva en ese estilo, NO copiar literal):
+- **Tributario**: "Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas."
+- **Contabilidad**: "Tus balances y tu gestión al día, para decidir con números reales."
+- **Laboral**: "Liquidamos los sueldos de tu equipo y te sacamos el peso de encima."
+- **Societario**: "Te acompañamos desde la constitución de tu sociedad hasta cada trámite en IGJ."
+- **Auditoría**: "Auditamos tus estados contables con la mirada que tu empresa necesita."
+
+Nombre del archivo: `posts/YYYY-MM-DD-5.png` (fecha = sábado de publicación).
+
+⚠️ Aplican las mismas reglas duras que el tip del viernes: NO números específicos, NO fechas/plazos, NO consejo legal puntual.
+
+### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel o hay spotlight de sábado)
 
 Para cada post:
 
 ```bash
 node scripts/render.js \
-  --template sq-12 \
+  --template po-13c \
   --out posts/YYYY-MM-DD-N.png \
-  --slots '{"CATEGORIA":"...","TITULAR":"...",...}'
+  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","CIERRE":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
 ```
 
-Templates por día:
-- Lunes y miércoles: `--template sq-12`
-- Jueves (story): `--template st-09`
+Templates por día (todos verticales — ver "Formatos correctos de imagen"):
+- Lunes y miércoles: `--template po-13c` (noticia vertical 4:5 · 1080×1350)
+- Jueves (story): `--template st-09` (9:16 · 1080×1920)
 - Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
-- Viernes: `--template po-04`
+- Viernes: `--template po-04` (4:5 · 1080×1350)
+- Sábado (solo semanas pares): `--template po-16` (4:5 · 1080×1350)
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 - `YYYY-MM-DD` = fecha de publicación
-- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes)
+- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes), 5 (sábado)
 - Carrusel del jueves: `posts/YYYY-MM-DD-3-cover.png`, `posts/YYYY-MM-DD-3-s1.png`, etc.
+
+⚠️ **VERIFICACIÓN VISUAL OBLIGATORIA — antes de crear cualquier draft**:
+
+Después de renderizar, **abrir cada PNG y mirarlo** (tool Read sobre el archivo). NO crear el draft en Metricool sin haber visto la imagen. Chequear:
+- El texto NO se sale ni se corta en ningún borde.
+- El titular entra completo (en `st-09` los titulares son cortísimos, ver constraint).
+- Hay margen de seguridad amplio en los 4 bordes → **Instagram recorta los bordes en la grilla del feed**, así que el contenido pegado al margen se ve cortado en el perfil aunque el PNG esté bien. Los templates ya usan padding generoso (`sq-12`=72, `po-04`=68, `po-16`=64 sobre base 540); si se toca un template, mantener ese margen o más.
+
+Si una imagen tiene texto cortado o pegado al borde, **NO crear el draft**: acortar el texto o ajustar el template y volver a renderizar. Un post mal renderizado que ya se publicó NO se puede corregir.
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
@@ -181,9 +332,16 @@ URL pública de cada imagen:
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
 ```
 
-### 6. Crear los 3 drafts en Metricool
+> **Cache busting**: si se **actualiza** un PNG ya referenciado en un draft (ej: corregir márgenes), Metricool tiene cacheada la versión vieja en su CDN. Al llamar `updateScheduledPost`, agregar un query param a la URL (`...-N.png?v=2`) para forzar que Metricool re-descargue la imagen nueva. `raw.githubusercontent.com` ignora el query param y sirve el archivo igual.
 
-Usar la MCP de Metricool: `mcp__7d9da2c2-8ef9-4d07-bd69-a1376309827a__createScheduledPost`
+### 6. Crear los drafts en Metricool (4 por semana, 5 en semanas pares)
+
+Usar la MCP de Metricool: `createScheduledPost`.
+
+> **Recordatorios de red por post:**
+> - Posts 1, 2, 4 (noticias + tip viernes): `providers` con `instagram` **y** `linkedin`.
+> - Post 3 (jueves): si es **story `st-09`**, Instagram NO admite texto en stories → crear 2 posts separados (IG Story sin texto + LinkedIn con texto). Si es **carrusel**, IG + LinkedIn normal.
+> - Post 5 (sábado spotlight, solo semanas pares): `providers` con **solo `instagram`**.
 
 Para cada post:
 
@@ -262,6 +420,38 @@ Reglas de texto:
 - Sin emojis salvo el 📞 al CTA
 - Hashtags al final, máximo 8
 - Siempre incluir `#MDOConsultores`
+
+## Servicios de MDO Consultores (fuente: archivo web oficial)
+
+Usar exclusivamente estos servicios para los CTAs del viernes y cualquier referencia a lo que hace el estudio. ❌ NO mencionar servicios fuera de esta lista (ej: monotributo, análisis de rentabilidad, consultoría financiera).
+
+### 1. Tributario — Asesoramiento Impositivo y Previsional
+Liquidación de IVA, Portal IVA, Ingresos Brutos / Convenio Multilateral, Ganancias, Bienes Personales, DDJJ mensuales y anuales, reintegros IVA por exportaciones, recupero de créditos fiscales, exenciones, exclusión de regímenes de retención/percepción, planes de pago y moratorias, planificación fiscal, due diligence impositivo y previsional, ajuste por inflación impositivo, reorganización de empresas, inspecciones AFIP/ARCA/ARBA/AGIP, patrocinio ante el Tribunal Fiscal.
+
+### 2. Precios de Transferencia
+Estudios de precios de transferencia, transacciones entre partes vinculadas, Master File, Country by Country Report (CbCR), documentación y DDJJ, defensa ante ARCA (auditorías, APAs y ajustes).
+
+### 3. Auditoría — Estados Contables
+Auditoría de estados contables, revisiones limitadas, auditoría operativa y de procesos, auditoría interna, control interno y gestión de riesgos, procedimientos acordados, certificaciones contables, informes periciales (pericia contable), implementación de NIIF/IFRS, prevención de lavado de activos, valuación de empresas.
+
+### 4. Societario
+Constitución de sociedades (SA, SRL, SAS), trámites IGJ y registros provinciales, actas societarias, aumento de capital, reforma de estatutos, designación de autoridades / cambio de sede, fusiones y adquisiciones, escisiones y transformaciones, transferencia de fondo de comercio, contratos comerciales.
+
+### 5. Contabilidad y Gestión para PyMEs
+Balances, estados contables, asesoría contable, registración de operaciones, conciliaciones de cuentas, libros de comercio, reportes de gestión, gestión de pagos y cobranzas, control presupuestario económico y financiero, ajuste por inflación contable, certificación de ingresos, certificación de origen de fondos.
+
+### 6. Laboral — Liquidación de Sueldos
+Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, cargas sociales, convenios colectivos de trabajo, ART y Seguro de Vida Obligatorio, cálculo de indemnizaciones, asesoramiento laboral, inspecciones laborales.
+
+---
+
+**CTAs válidos por servicio** (ejemplos):
+- Tributario: "Asesoramiento impositivo para tu empresa. Consultanos."
+- Auditoría: "Auditamos los estados contables de tu empresa. Consultanos."
+- Contabilidad: "Llevamos la contabilidad de tu PyME. Consultanos."
+- Laboral: "Liquidamos los sueldos de tu empresa. Consultanos."
+- Societario: "Te ayudamos a constituir tu sociedad. Consultanos."
+- Precios de Transferencia: solo relevante para empresas con operaciones entre vinculadas — no usar en posts genéricos de PyME.
 
 ## Tareas de cierre
 

@@ -175,6 +175,8 @@
 <script type="text/babel" src="templates-news.jsx"></script>
 <script type="text/babel" src="templates-variants.jsx"></script>
 <script type="text/babel" src="templates-variants-light.jsx"></script>
+<script type="text/babel" src="templates-friday.jsx"></script>
+<script type="text/babel" src="templates-friday-b.jsx"></script>
 
 <script type="text/babel">
   // Render registry: template-id → { component, baseW, baseH, outW, outH, mode }
@@ -188,6 +190,19 @@
     'po-04': { c: PoServicio,    baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-05': { c: PoAltaCliente, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-06': { c: PoEquipo,      baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-16': { c: PoServicioSpotlight, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    // Viernes — 5 templates de gestión PyME (po-21..po-25)
+    'po-21': { c: PoPreguntaHero, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-22': { c: PoAntesDespues, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-23': { c: PoDeclaracion,  baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-24': { c: PoChecklist,    baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-25': { c: PoFoco,         baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    // Viernes icon-forward (po-26..po-30)
+    'po-26': { c: PoTresIconos,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-27': { c: PoIconoHero,    baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-28': { c: PoProcesoIconos,baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-29': { c: PoIconoFrase,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
+    'po-30': { c: PoGridIconos,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'st-07': { c: StVencimientos,baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'st-08': { c: StCita,        baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'st-09': { c: StCTA,         baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
@@ -221,7 +236,7 @@
   };
 
   const EXAMPLES = {
-    ...EXAMPLES_SQUARE, ...EXAMPLES_PORTRAIT, ...EXAMPLES_STORY, ...EXAMPLES_CAROUSEL, ...EXAMPLES_NEWS, ...EXAMPLES_VARIANTS, ...EXAMPLES_VARIANTS_LIGHT,
+    ...EXAMPLES_SQUARE, ...EXAMPLES_PORTRAIT, ...EXAMPLES_STORY, ...EXAMPLES_CAROUSEL, ...EXAMPLES_NEWS, ...EXAMPLES_VARIANTS, ...EXAMPLES_VARIANTS_LIGHT, ...EXAMPLES_FRIDAY, ...EXAMPLES_FRIDAY_B,
   };
 
   // Resolve params from both ?query and #hash — the latter survives
