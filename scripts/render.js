@@ -39,9 +39,14 @@ async function render({ template, slots, outPath }) {
 
   const { w, h } = sizeForTemplate(template);
 
+  // En sesiones cloud el tráfico sale por un proxy local (HTTPS_PROXY);
+  // Chromium no lee esa variable solo, hay que pasársela explícita para
+  // que carguen las fuentes de Google Fonts.
+  const proxy = process.env.HTTPS_PROXY || process.env.https_proxy;
   const browser = await puppeteer.launch({
     headless: true,
     args: [
+      ...(proxy ? [`--proxy-server=${proxy}`] : []),
       '--no-sandbox',
       '--disable-setuid-sandbox',
       '--font-render-hinting=none',
