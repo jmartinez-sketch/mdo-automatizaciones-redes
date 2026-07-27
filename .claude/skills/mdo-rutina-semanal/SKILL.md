@@ -61,6 +61,17 @@ Levantar todos los threads y leer el primer mensaje de cada uno (asunto + cuerpo
 
 ### 2. Elegir 2 noticias
 
+⚠️ **PASO 0 — Verificar que no se repitan noticias ya publicadas (obligatorio, SIEMPRE)**:
+
+Antes de dar por elegida una noticia, chequear que el estudio no la haya posteado ya en una semana anterior. Un mismo hecho (ej. "Monotributo: nuevos valores", "prórroga de Ganancias") no puede volver a salir como noticia del lunes/miércoles aunque pasen varias semanas.
+
+Cómo verificar:
+1. Traer los posts recientes con `getScheduledPosts` (Metricool, blogId `6267636`) de las últimas ~4-6 semanas y revisar el `text` de los posts de lunes/miércoles.
+2. Además revisar `git log --oneline -20 -- posts/` — los mensajes de commit describen el tema de cada posteo.
+3. Si la noticia candidata (mismo hecho/norma, aunque esté redactada distinto) ya apareció, **descartarla** y elegir otra de la newsletter que cumpla los criterios de abajo. Si las 2 noticias más relevantes de la semana ya se usaron antes, bajar en la lista de prioridad antes que repetir.
+
+Esto aplica solo a las noticias (posts 1 y 2). El tip del viernes y el spotlight del sábado ya tienen su propia regla de no repetir ángulo/estructura (ver más abajo).
+
 Criterios de selección (en orden de prioridad):
 
 1. **Impacto normativo**: cambios AFIP/ARCA, decretos, resoluciones nuevas
@@ -71,6 +82,7 @@ Criterios de selección (en orden de prioridad):
 Reglas:
 
 - Las **2 noticias elegidas deben ser temáticamente distintas** (no las dos sobre lo mismo)
+- Las 2 noticias **no deben haber sido publicadas ya** en una semana anterior (ver Paso 0)
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 
