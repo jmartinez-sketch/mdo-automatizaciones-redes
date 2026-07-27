@@ -150,7 +150,7 @@ function StCTA(props) {
   ].filter(c => c.label && c.value);
 
   return (
-    <div className="tpl" style={{ padding: 40, display: 'flex', flexDirection: 'column',
+    <div className="tpl" style={{ padding: '40px 40px 180px', display: 'flex', flexDirection: 'column',
       background: 'var(--paper-warm)', position: 'relative' }}>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
