@@ -23,8 +23,8 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 
 | # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
 |---|---|---|---|---|
-| 1 | Lunes 9hs     | Noticia destacada #1         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2         | `po-13c` (Portrait 1080×1350) | Gmail newsletter |
+| 1 | Lunes 9hs     | Noticia destacada #1         | `po-13d` (Portrait 1080×1350) | Gmail newsletter |
+| 2 | Miércoles 9hs | Noticia destacada #2         | `po-13d` (Portrait 1080×1350) | Gmail newsletter |
 | 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` (Story 1080×1920) **o** `cb-*` (1080×1350) | Basado en noticias de la semana |
 | 4 | Viernes 9hs   | Gestión PyME (foco en un servicio)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
 | 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
@@ -39,7 +39,7 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 
 | Destino | Ratio | Píxeles | Templates |
 |---|---|---|---|
-| **Feed (post)** | **4:5 vertical** | **1080 × 1350** | `po-13c`, `po-04`, `po-16`, carrusel `cb-*` |
+| **Feed (post)** | **4:5 vertical** | **1080 × 1350** | `po-13d`, `po-04`, `po-16`, carrusel `cb-*` |
 | **Historia (story)** | **9:16 vertical** | **1080 × 1920** | `st-09` |
 
 - ❌ **NUNCA usar `sq-12` ni ningún template cuadrado (1080×1080) para el feed** — se recorta en la grilla.
@@ -74,7 +74,7 @@ Reglas:
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 
-Para cada noticia extraer (slots del template `po-13c` — Noticia vertical 4:5):
+Para cada noticia extraer (slots del template `po-13d` — Noticia vertical 4:5):
 - `CATEGORIA` — eyebrow corto, ej: "Impuestos · ARCA", "Régimen Simplificado", "PyMEs"
 - `TITULAR` — máximo 70 caracteres, redactado por nosotros (no copiar el del medio)
 - `BAJADA` — 1-2 líneas (máx 180 chars) que expliquen la novedad concreta
@@ -175,6 +175,17 @@ El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos vertica
 | `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
 | `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
 
+**Contenido y engagement (paquete jul 2026):**
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-31` | Explicador en 3 pasos, cada uno con título **y** cuerpo (po-28 sólo tiene una línea por paso) | COPETE, TITULO, PASO_1_TIT, PASO_1_TXT, PASO_2_TIT, PASO_2_TXT, PASO_3_TIT, PASO_3_TXT, CTA, HANDLE |
+| `po-32` | Comparativa A vs. B en dos columnas + veredicto | COPETE, TITULO, A_LABEL, A_TITULO, A_1..3, B_LABEL, B_TITULO, B_1..3, VEREDICTO, HANDLE |
+| `po-33` | Elegí tu caso: pregunta + 3 opciones + CTA a comentar | COPETE, PREGUNTA, OPCION_1..3, CTA, HANDLE |
+| `po-34` | Mito vs. realidad (el mito va tachado) | COPETE, TITULO, MITO, REALIDAD, CTA, HANDLE |
+| `po-35` | 3 errores frecuentes con su corrección | COPETE, TITULO, ERROR_1, FIX_1, ERROR_2, FIX_2, ERROR_3, FIX_3, CTA, HANDLE |
+| `po-36` | Testimonio de cliente (sin nombre propio: sector + tamaño) | COPETE, TESTIMONIO, CLIENTE_TIPO, CLIENTE_DETALLE, SERVICIO, HANDLE |
+| `po-37` | Vencimientos de la semana **en el feed** — la story se va en 24 h, ésta queda para guardar | COPETE, SEMANA, DIA_1..4, MES_1..4, IMPUESTO_1..4, PERIODO_1..4, CTA, HANDLE |
+
 **Guía ángulo → template (orientativa, no obligatoria):**
 | Si el mensaje es… | Conviene |
 |---|---|
@@ -183,10 +194,16 @@ El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos vertica
 | Una postura o frase con autoridad | `po-23`, `po-25`, `po-29` |
 | Un autodiagnóstico ("¿tenés esto resuelto?") | `po-24` |
 | Enumerar beneficios concretos | `po-04`, `po-26` |
-| Explicar cómo trabajamos / un proceso | `po-28` |
+| Explicar cómo trabajamos / un proceso | `po-28` (una línea por paso) o `po-31` (título + cuerpo por paso) |
 | Una sola idea fuerte y limpia | `po-25`, `po-27`, `po-29` |
 | Mostrar la amplitud de servicios | `po-30` |
 | Tip con varios puntos prácticos | `po-04` |
+| Corregir una creencia equivocada del cliente | `po-34` |
+| Advertir sobre errores que se cometen seguido | `po-35` |
+| Comparar dos caminos (hacerlo solo vs. tercerizar, monotributo vs. RI) | `po-32` |
+| Buscar comentarios / conversación | `po-33` |
+| Prueba social sin exponer al cliente | `po-36` |
+| Los vencimientos del mes, para que los guarden | `po-37` |
 
 → Si nada encaja, **diseñar un template nuevo** inspirado en estos y registrarlo (ver "Dónde vive el código").
 
@@ -291,13 +308,13 @@ Para cada post:
 
 ```bash
 node scripts/render.js \
-  --template po-13c \
+  --template po-13d \
   --out posts/YYYY-MM-DD-N.png \
   --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","CIERRE":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
 ```
 
 Templates por día (todos verticales — ver "Formatos correctos de imagen"):
-- Lunes y miércoles: `--template po-13c` (noticia vertical 4:5 · 1080×1350)
+- Lunes y miércoles: `--template po-13d` (noticia vertical 4:5 · 1080×1350)
 - Jueves (story): `--template st-09` (9:16 · 1080×1920)
 - Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
 - Viernes: `--template po-04` (4:5 · 1080×1350)
