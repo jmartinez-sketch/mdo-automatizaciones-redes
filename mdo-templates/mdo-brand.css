@@ -1,0 +1,96 @@
+/* ============================================================
+   MDO · Marca unificada para placas de redes
+   Reemplaza el bloque <style> de render.html por:
+     <link rel="stylesheet" href="mdo-brand.css">
+
+   CAMBIO CLAVE: la paleta ahora es la MISMA del design system MDO
+   (azul #1f4e79 de la firma institucional). Antes las placas usaban
+   #1a3a6e y los emails #1f4e79 → no se veían de la misma marca.
+   Los nombres de variables NO cambiaron, así que las 40 plantillas
+   existentes adoptan la paleta nueva sin tocar una línea de JSX.
+   ============================================================ */
+:root{
+  /* Azules de marca (design system MDO) */
+  --navy:#1f4e79; --navy-deep:#1a4468; --navy-ink:#143352;
+  --blue-mid:#2e75b6; --blue:#4a9fd8; --blue-lt:#8cc4ea;
+  --blue-pale:#dbe7f4; --blue-tint:#f4f8fb;
+  --paper:#f7f9fc; --paper-warm:#fafbfd;
+  /* Neutros cálidos del design system */
+  --ink:#33383d; --ink-70:#55606b; --ink-55:#6c7883;
+  --ink-35:#98a3ae; --ink-15:#c9d3dc;
+  --hair:rgba(31,78,121,0.14); --hair-2:rgba(31,78,121,0.28);
+  --amber-bg:#fffbec; --amber-bd:#f0e0a0; --amber-tx:#5a4a10;
+  --green:#2e7d6b; --purple:#7b3fa0;
+}
+html,body{margin:0;padding:0;background:#fff;overflow:hidden}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink)}
+#stage{position:relative;overflow:hidden;background:#fff}
+#stage > .__scaled{transform-origin:top left}
+
+/* Zona segura IG (?safe=1) */
+.safezone{position:absolute;inset:0;pointer-events:none;z-index:1000}
+.safezone::before,.safezone::after{content:"";position:absolute;left:0;right:0;background:repeating-linear-gradient(45deg,rgba(255,80,80,0.15) 0 14px,rgba(255,80,80,0.05) 14px 28px);border:1px dashed rgba(255,80,80,0.5)}
+.safezone::before{top:0;height:250px}
+.safezone.story::after{bottom:0;height:330px}
+.safezone.feed::after{bottom:0;height:200px}
+.safezone-label{position:absolute;left:50%;transform:translateX(-50%);font-family:'Geist Mono',monospace;font-size:22px;letter-spacing:0.1em;color:rgba(255,80,80,0.85);text-transform:uppercase;background:rgba(255,255,255,0.85);padding:4px 10px}
+.safezone-label.top{top:12px}
+.safezone-label.bot{bottom:12px}
+
+/* Primitivas de plantilla */
+.tpl{width:100%;height:100%;box-sizing:border-box;position:relative;overflow:hidden;background:var(--paper);color:var(--ink);font-family:'Montserrat',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.tpl.navy{background:var(--navy);color:var(--paper)}
+.tpl.navy-deep{background:var(--navy-deep);color:var(--paper)}
+.tpl.white{background:#fff}
+.tpl.tint{background:var(--blue-tint)}
+.tpl.pale{background:var(--blue-pale)}
+
+.eyebrow{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;color:var(--blue-mid)}
+.tpl.navy .eyebrow,.tpl.navy-deep .eyebrow{color:var(--blue-lt)}
+
+.display{font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);text-wrap:pretty}
+.tpl.navy .display,.tpl.navy-deep .display{color:var(--paper)}
+
+.display-serif{font-family:'Instrument Serif',serif;font-weight:400;line-height:1.0;letter-spacing:-0.012em}
+.display-serif em{font-style:italic}
+
+.lede{font-family:'Montserrat',sans-serif;font-weight:400;line-height:1.45;color:var(--ink-70);text-wrap:pretty}
+.tpl.navy .lede,.tpl.navy-deep .lede{color:rgba(247,249,252,0.82)}
+
+.mono{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--ink-55)}
+.number-xl{font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:-0.04em;line-height:0.85;font-variant-numeric:tabular-nums}
+
+.hair{height:1px;background:var(--hair);width:100%}
+.hair-navy{height:1px;background:var(--navy);width:100%}
+.tpl.navy .hair,.tpl.navy-deep .hair{background:rgba(247,249,252,0.20)}
+
+.slot{position:relative;background:repeating-linear-gradient(135deg,rgba(31,78,121,0.05) 0 8px,rgba(31,78,121,0.10) 8px 16px),var(--blue-tint);color:var(--ink-55);overflow:hidden;border:1px solid var(--hair)}
+.slot-cap{position:absolute;left:12px;bottom:10px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase}
+
+.lockup{display:inline-flex;align-items:center;gap:10px}
+.lockup img.iso{display:block;height:28px;width:auto}
+.lockup .wm{font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.08em;line-height:1.15;color:var(--navy);text-transform:uppercase}
+.lockup .wm small{display:block;font-weight:500;font-size:8.5px;letter-spacing:0.14em;color:var(--ink-55);margin-top:1px}
+
+.footer-row{display:flex;justify-content:space-between;align-items:end;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--ink-55)}
+.tpl.navy .footer-row{color:rgba(247,249,252,0.55)}
+/* FIX: el pie ya no se parte en dos líneas */
+.footer-row > span{white-space:nowrap}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--hair-2);border-radius:999px;font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,0.5);white-space:nowrap}
+.chip.solid{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.tpl.navy .chip{color:var(--paper);border-color:rgba(247,249,252,0.30);background:transparent}
+.tpl.navy .chip.solid{background:var(--paper);color:var(--navy);border-color:var(--paper)}
+
+.step-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:36px;color:var(--blue-mid);line-height:0.8}
+.asterisk{font-family:'Instrument Serif',serif;font-style:italic;color:var(--blue-mid);line-height:0.7}
+
+.pgindex{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.16em;color:var(--ink-55);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase}
+.pgindex .num{color:var(--navy);font-weight:500}
+.pgindex .bar{width:10px;height:1px;background:currentColor;opacity:0.4}
+
+.bg-grid-navy{background-image:linear-gradient(to right,rgba(247,249,252,0.06) 1px,transparent 1px);background-size:64px 64px}
+.quote-mark{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;line-height:0.7;color:var(--blue-mid)}
+
+/* Truncado seguro para fuentes largas ("Errepar · ARCA · Resolución") */
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}

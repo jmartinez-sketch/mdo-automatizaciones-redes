@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MDO · Plantillas nuevas y corregidas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mdo-brand.css">
+<style>
+html,body{overflow:auto;background:#e9eef3}
+body{padding:40px 32px 64px}
+.page-h{max-width:1180px;margin:0 auto 30px}
+.page-h h1{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#143352;margin:0;letter-spacing:-.01em}
+.page-h p{font-family:'Montserrat',sans-serif;font-size:13.5px;color:#6c7883;margin:8px 0 0;line-height:1.6;max-width:70ch}
+.grid{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:34px}
+.item{display:flex;flex-direction:column;gap:10px}
+.cap{display:flex;align-items:baseline;gap:9px}
+.cap .id{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#2e75b6;font-weight:500}
+.cap .nm{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:#33383d}
+.cap .sz{font-family:'Geist Mono',monospace;font-size:9.5px;color:#98a3ae;margin-left:auto}
+.frame{background:#fff;box-shadow:0 4px 18px rgba(20,50,90,.13);overflow:hidden;position:relative}
+.sec{max-width:1180px;margin:44px auto 4px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#1f4e79;border-bottom:1px solid rgba(31,78,121,.18);padding-bottom:8px}
+</style>
+</head>
+<body>
+<div class="page-h">
+  <h1>Plantillas nuevas y corregidas</h1>
+  <p>Paleta unificada al azul institucional MDO (#1f4e79), el mismo de los emails y las propuestas. Las placas corregidas resuelven el hueco vertical, el pie que se partía en dos líneas y el título de cuerpo fijo. Cada pieza se muestra a escala; la salida real es la indicada a la derecha.</p>
+</div>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="brand.jsx"></script>
+<script type="text/babel" src="tpl-utils.jsx"></script>
+<script type="text/babel" src="templates-noticia-v2.jsx"></script>
+<script type="text/babel" src="templates-explicador.jsx"></script>
+<script type="text/babel" src="templates-linkedin.jsx"></script>
+<script type="text/babel" src="templates-marketing.jsx"></script>
+<script type="text/babel" src="templates-utilidad.jsx"></script>
+<script type="text/babel" src="templates-square.jsx"></script>
+<script type="text/babel" src="templates-portrait.jsx"></script>
+<script type="text/babel" src="templates-friday.jsx"></script>
+<script type="text/babel" src="templates-friday-b.jsx"></script>
+<script type="text/babel" src="templates-story.jsx"></script>
+<script type="text/babel" src="templates-carousel.jsx"></script>
+<script type="text/babel" src="templates-news.jsx"></script>
+<script type="text/babel" src="templates-variants.jsx"></script>
+<script type="text/babel" src="templates-variants-light.jsx"></script>
+
+<script type="text/babel">
+const GALLERY = [
+  { sec: 'Corregidas — reemplazan a po-13c / sq-12c en la rutina' },
+  { id: 'po-13d', nm: 'Noticia portrait (corregida)', c: 'PoNoticiaV2', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'sq-12d', nm: 'Noticia square (corregida)', c: 'SqNoticiaV2', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { sec: 'Nuevas — Instagram 4:5' },
+  { id: 'po-31', nm: 'Explicador en 3 pasos', c: 'PoExplicador', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-32', nm: 'Comparativa A vs. B', c: 'PoComparativa', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-33', nm: 'Elegí tu caso (engagement)', c: 'PoElegiTuCaso', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { sec: 'Nuevas — marketing y autoridad' },
+  { id: 'po-34', nm: 'Mito vs. realidad', c: 'PoMitoRealidad', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-35', nm: 'Errores frecuentes', c: 'PoErrores', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-36', nm: 'Testimonio de cliente', c: 'PoTestimonio', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { sec: 'Nuevas — utilidad para el seguidor' },
+  { id: 'po-37', nm: 'Vencimientos de la semana (feed)', c: 'PoVencimientosFeed', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'st-10', nm: 'Story encuesta', c: 'StEncuesta', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { sec: 'Nuevas — LinkedIn 1.91:1' },
+  { id: 'li-01', nm: 'Noticia / novedad normativa', c: 'LiNoticia', w: 600, h: 314, out: '1200×628', s: 0.79 },
+  { id: 'li-02', nm: 'Claim institucional', c: 'LiClaim', w: 600, h: 314, out: '1200×628', s: 0.79 },
+  { id: 'li-03', nm: 'Dato clave', c: 'LiDato', w: 600, h: 314, out: '1200×628', s: 0.79 },
+  { sec: 'Originales corregidas — mismos IDs y slots, estructura arreglada' },
+  { id: 'sq-01', nm: 'Vencimiento impositivo', c: 'SqVencimiento', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-02', nm: 'Cita / reflexión', c: 'SqCita', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-03', nm: 'Número clave', c: 'SqNumero', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'po-04', nm: 'Guía rápida / Servicio', c: 'PoServicio', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-05', nm: 'Anuncio institucional', c: 'PoAltaCliente', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-06', nm: 'Voz experta / Equipo', c: 'PoEquipo', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-16', nm: 'Spotlight de servicio', c: 'PoServicioSpotlight', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-21', nm: 'Pregunta hero', c: 'PoPreguntaHero', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-22', nm: 'Antes / Después', c: 'PoAntesDespues', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-23', nm: 'Declaración (hueco corregido)', c: 'PoDeclaracion', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-24', nm: 'Checklist (hueco corregido)', c: 'PoChecklist', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-25', nm: 'Foco / una idea', c: 'PoFoco', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-26', nm: '3 columnas con íconos', c: 'PoTresIconos', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-27', nm: 'Ícono grande central', c: 'PoIconoHero', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-28', nm: 'Proceso en 3 pasos', c: 'PoProcesoIconos', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-29', nm: 'Ícono lateral + frase', c: 'PoIconoFrase', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-30', nm: 'Grid 2×2 de íconos', c: 'PoGridIconos', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { sec: 'Originales corregidas — noticia y carrusel' },
+  { id: 'sq-12', nm: 'Noticia square', c: 'SqNoticia', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'po-13', nm: 'Noticia + take MDO (hueco corregido)', c: 'PoNoticia', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'ca-cover', nm: 'Calendario · tapa', c: 'CalCover', w: 420, h: 420, out: '1080×1080', s: 0.8 },
+  { id: 'ca-q1', nm: 'Calendario · 1° quincena', c: 'CalQ1', w: 420, h: 420, out: '1080×1080', s: 0.8 },
+  { id: 'ca-q2', nm: 'Calendario · 2° quincena', c: 'CalQ2', w: 420, h: 420, out: '1080×1080', s: 0.8 },
+  { id: 'cb-cover', nm: 'Guía PyME · tapa', c: 'TipCover', w: 420, h: 525, out: '1080×1350', s: 0.8 },
+  { id: 'cb-tip1', nm: 'Guía PyME · punto 1', c: 'TipSlide2', w: 420, h: 525, out: '1080×1350', s: 0.8 },
+  { id: 'cb-tip2', nm: 'Guía PyME · punto 2', c: 'TipSlide3', w: 420, h: 525, out: '1080×1350', s: 0.8 },
+  { id: 'cb-tip3', nm: 'Guía PyME · punto 3', c: 'TipSlide4', w: 420, h: 525, out: '1080×1350', s: 0.8 },
+  { sec: 'Originales corregidas — stories (zona segura de IG arreglada)' },
+  { id: 'st-07', nm: 'Vencimientos de la semana', c: 'StVencimientos', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-08', nm: 'Cita vertical', c: 'StCita', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-09', nm: 'CTA / Consultanos', c: 'StCTA', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-07b', nm: 'Vencimientos en papel', c: 'StVencimientosLight', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-08b', nm: 'Cita en navy', c: 'StCitaNavy', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-08c', nm: 'Cita minimal', c: 'StCitaMinimal', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { id: 'st-09b', nm: 'CTA en navy', c: 'StCTANavy', w: 480, h: 853, out: '1080×1920', s: 0.42 },
+  { sec: 'Originales corregidas — variantes de color' },
+  { id: 'sq-01b', nm: 'Vencimiento en papel', c: 'SqVencimientoLight', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-02b', nm: 'Cita en navy', c: 'SqCitaNavy', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-02c', nm: 'Cita minimal', c: 'SqCitaMinimal', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-03b', nm: 'Número en serif', c: 'SqNumeroSerif', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-03c', nm: 'Número en blanco', c: 'SqNumeroLight', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-12b', nm: 'Noticia último momento', c: 'SqNoticiaBreaking', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'sq-12c', nm: 'Noticia minimal', c: 'SqNoticiaMinimal', w: 540, h: 540, out: '1080×1080', s: 0.63 },
+  { id: 'po-04b', nm: 'Servicio en navy', c: 'PoServicioNavy', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-05b', nm: 'Anuncio en papel', c: 'PoAnuncioLight', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-06b', nm: 'Voz experta sin foto', c: 'PoEquipoNoPhoto', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-13b', nm: 'Noticia en navy (hueco corregido)', c: 'PoNoticiaNavy', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+  { id: 'po-13c', nm: 'Noticia minimal (era la del hueco)', c: 'PoNoticiaMinimal', w: 540, h: 675, out: '1080×1350', s: 0.63 },
+];
+
+function Card({ it, comp, props }) {
+  return (
+    <div className="item" style={{ width: it.w * it.s }}>
+      <div className="cap">
+        <span className="id">{it.id}</span>
+        <span className="nm">{it.nm}</span>
+        <span className="sz">{it.out}</span>
+      </div>
+      <div className="frame" style={{ width: it.w * it.s, height: it.h * it.s }}>
+        <div style={{ width: it.w, height: it.h, transform: 'scale(' + it.s + ')', transformOrigin: 'top left' }}>
+          {React.createElement(comp, props)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Gallery() {
+  const EX = Object.assign({}, window.EXAMPLES_NOTICIA_V2, window.EXAMPLES_EXPLICADOR, window.EXAMPLES_LINKEDIN, window.EXAMPLES_MARKETING, window.EXAMPLES_UTILIDAD, window.EXAMPLES_SQUARE, window.EXAMPLES_PORTRAIT, window.EXAMPLES_FRIDAY, window.EXAMPLES_FRIDAY_B, window.EXAMPLES_STORY, window.EXAMPLES_CAROUSEL, window.EXAMPLES_NEWS, window.EXAMPLES_VARIANTS, window.EXAMPLES_VARIANTS_LIGHT);
+  const out = [];
+  let row = [];
+  const flush = (k) => { if (row.length) { out.push(<div className="grid" key={'g' + k}>{row}</div>); row = []; } };
+  GALLERY.forEach((it, i) => {
+    if (it.sec) { flush(i); out.push(<div className="sec" key={'s' + i}>{it.sec}</div>); return; }
+    const comp = window[it.c];
+    if (!comp) return;
+    row.push(<Card key={it.id} it={it} comp={comp} props={EX[it.c] || {}} />);
+  });
+  flush('end');
+  return <div>{out}</div>;
+}
+
+(function mount() {
+  if (!window.PoExplicador || !window.LiNoticia || !window.PoNoticiaV2 || !window.PoMitoRealidad || !window.LiDato || !window.SqVencimiento || !window.PoGridIconos || !window.PoDeclaracion || !window.StCita || !window.CalCover || !window.SqNoticia || !window.SqCitaNavy || !window.PoNoticiaMinimal) {
+    return setTimeout(mount, 60);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Gallery />);
+})();
+</script>
+</body>
+</html>

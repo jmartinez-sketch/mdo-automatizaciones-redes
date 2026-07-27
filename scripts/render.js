@@ -24,10 +24,14 @@ const SIZES = {
   square:   { w: 1080, h: 1080 },
   portrait: { w: 1080, h: 1350 },
   story:    { w: 1080, h: 1920 },
+  linkedin: { w: 1200, h: 628 },
 };
 
 function sizeForTemplate(id) {
   if (id.startsWith('st-')) return SIZES.story;
+  if (id.startsWith('li-')) return SIZES.linkedin;
+  // sq-12d es cuadrada pese al prefijo de noticia; el resto de po-/cb- son 4:5
+  if (id.startsWith('sq-')) return SIZES.square;
   if (id.startsWith('po-') || id.startsWith('cb-')) return SIZES.portrait;
   return SIZES.square;
 }

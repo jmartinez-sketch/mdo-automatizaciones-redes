@@ -1,6 +1,14 @@
-// templates-friday-b.jsx — 5 templates icon-forward para el viernes (po-26..po-30).
+// templates-friday-b.jsx — 5 plantillas icon-forward del viernes (po-26..po-30). CORREGIDO.
 // Menos texto, más íconos. Íconos SVG inline (line-style) en paleta MDO.
-// Portrait 4:5 (base 540×675 → 1080×1350). Regla: ARCA nunca AFIP.
+// Portrait 4:5 (base 540×675 → 1080×1350). Regla: ARCA, nunca AFIP.
+//
+// Correcciones respecto de la versión anterior (mismos IDs y slots):
+//   · Titulares con fitSize(): eran cuerpos fijos (36/42/40/34 px) que
+//     desbordaban con textos largos.
+//   · Pies unificados con HandleFooter (no se parten en dos líneas).
+//   · po-26: las etiquetas de las 3 columnas se alinean arriba con altura
+//     mínima uniforme, así los íconos quedan a la misma altura.
+// Requiere brand.jsx + tpl-utils.jsx cargados ANTES de este archivo.
 
 // ── Set de íconos line-style (stroke currentColor) ──────────────────
 function Svg({ s = 32, children }) {
@@ -20,145 +28,200 @@ const IcoUsers  = (p) => <Svg {...p}><circle cx="9" cy="8" r="3" /><path d="M3.5
 const IcoSearch = (p) => <Svg {...p}><circle cx="11" cy="11" r="6" /><path d="M15.5 15.5L20 20" /></Svg>;
 const IcoCheck  = (p) => <Svg {...p}><circle cx="12" cy="12" r="9" /><path d="M8 12l3 3 5-6" /></Svg>;
 
-// ─────────────────────────────────────────────────────────────────────
-// po-26 — 3 columnas con íconos (papel). Íconos fijos: al día / decisiones / tranquilidad
+// ── po-26 · 3 columnas con íconos (papel) ───────────────────────────
 // Slots: COPETE, TITULO, LABEL_1, LABEL_2, LABEL_3, CTA, HANDLE
-// ─────────────────────────────────────────────────────────────────────
 function PoTresIconos(props) {
   const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', label_1: '[LABEL_1]',
     label_2: '[LABEL_2]', label_3: '[LABEL_3]', cta: '[CTA]', handle: '[HANDLE]' }, props);
+
   const cols = [{ Ic: IcoClock, l: p.label_1 }, { Ic: IcoChart, l: p.label_2 }, { Ic: IcoShield, l: p.label_3 }];
+  const tSize = fitSize(p.titulo, [[30, 36], [46, 31], [64, 27]], 24);
+
   return (
-    <div className="tpl" style={{ padding: 60, display: 'flex', flexDirection: 'column', background: 'var(--paper-warm)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Lockup size={26} /><div className="chip">{p.copete}</div>
+    <div className="tpl" style={{ padding: 56, display: 'flex', flexDirection: 'column',
+      background: 'var(--paper-warm)' }}>
+      <TplHeader chip={p.copete} size={26} />
+
+      <div className="display" style={{ marginTop: 30, fontSize: tSize, fontWeight: 700,
+        color: 'var(--navy-ink)', lineHeight: 1.1, letterSpacing: '-0.02em', maxWidth: '90%' }}>
+        {p.titulo}
       </div>
-      <div className="display" style={{ marginTop: 32, fontSize: 36, fontWeight: 700, color: 'var(--navy-ink)', lineHeight: 1.1, maxWidth: '88%' }}>{p.titulo}</div>
+
       <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 18, width: '100%' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, width: '100%' }}>
           {cols.map((c, i) => (
-            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 16 }}>
-              <div style={{ width: 88, height: 88, borderRadius: '50%', background: 'var(--blue-pale)', color: 'var(--navy)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><c.Ic s={40} /></div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.3, minHeight: 40 }}>{c.l}</div>
+            <div key={i} style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column',
+              alignItems: 'center', textAlign: 'center', gap: 14 }}>
+              <div style={{ width: 86, height: 86, borderRadius: '50%', background: 'var(--blue-pale)',
+                color: 'var(--navy)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                flexShrink: 0 }}><c.Ic s={38} /></div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14.5, fontWeight: 600,
+                color: 'var(--ink)', lineHeight: 1.3 }}>{c.l}</div>
             </div>
           ))}
         </div>
       </div>
-      <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)', borderRadius: 2,
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600, marginBottom: 16 }}>{p.cta}</div>
-      <div className="footer-row"><span>{p.handle}</span><span>mdo-consultores.com.ar</span></div>
+
+      <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
+        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+        <span>{p.cta}</span>
+        <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
+      </div>
+      <HandleFooter handle={p.handle} />
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-// po-27 — Ícono grande central (navy). Ícono fijo: crecimiento (chart)
+// ── po-27 · Ícono grande central (navy) ─────────────────────────────
 // Slots: COPETE, TITULO, BAJADA, CTA, HANDLE
-// ─────────────────────────────────────────────────────────────────────
 function PoIconoHero(props) {
-  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', bajada: '[BAJADA]', cta: '[CTA]', handle: '[HANDLE]' }, props);
+  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', bajada: '[BAJADA]',
+    cta: '[CTA]', handle: '[HANDLE]' }, props);
+
+  const tSize = fitSize(p.titulo, [[26, 42], [42, 36], [60, 30]], 26);
+  const bSize = fitSize(p.bajada, [[80, 17], [125, 15.5]], 14);
+
   return (
-    <div className="tpl navy" style={{ padding: 64, display: 'flex', flexDirection: 'column', position: 'relative' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Lockup mode="light" size={26} /><div className="chip">{p.copete}</div>
+    <div className="tpl navy" style={{ padding: 60, display: 'flex', flexDirection: 'column',
+      position: 'relative' }}>
+      <TplHeader chip={p.copete} mode="light" size={26} />
+
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
+        justifyContent: 'center', textAlign: 'center' }}>
+        <div style={{ width: 128, height: 128, borderRadius: '50%', border: '2px solid var(--blue-lt)',
+          color: 'var(--blue-lt)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          marginBottom: 32, flexShrink: 0 }}><IcoChart s={62} /></div>
+        <div className="display" style={{ fontSize: tSize, fontWeight: 700, color: 'var(--paper)',
+          lineHeight: 1.1, maxWidth: '94%' }}>{p.titulo}</div>
+        <div className="lede" style={{ marginTop: 16, fontSize: bSize,
+          color: 'rgba(247,249,252,0.82)', maxWidth: '84%' }}>{p.bajada}</div>
       </div>
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-        <div style={{ width: 132, height: 132, borderRadius: '50%', border: '2px solid var(--blue-lt)', color: 'var(--blue-lt)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 36 }}><IcoChart s={64} /></div>
-        <div className="display" style={{ fontSize: 42, fontWeight: 700, color: 'var(--paper)', lineHeight: 1.08, maxWidth: '94%' }}>{p.titulo}</div>
-        <div className="lede" style={{ marginTop: 18, fontSize: 17, color: 'rgba(247,249,252,0.82)', maxWidth: '82%' }}>{p.bajada}</div>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 600, color: 'var(--blue-lt)' }}>{p.cta} →</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em', color: 'rgba(247,249,252,0.55)' }}>{p.handle}</span>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+        gap: 12 }}>
+        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+          color: 'var(--blue-lt)' }}>{p.cta} →</span>
+        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+          color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-// po-28 — Proceso en 3 pasos con íconos (papel). Íconos fijos: doc / calc / chart
+// ── po-28 · Proceso en 3 pasos con íconos (papel) ───────────────────
 // Slots: COPETE, TITULO, PASO_1, PASO_2, PASO_3, CTA, HANDLE
-// ─────────────────────────────────────────────────────────────────────
 function PoProcesoIconos(props) {
-  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', paso_1: '[PASO_1]', paso_2: '[PASO_2]',
-    paso_3: '[PASO_3]', cta: '[CTA]', handle: '[HANDLE]' }, props);
+  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', paso_1: '[PASO_1]',
+    paso_2: '[PASO_2]', paso_3: '[PASO_3]', cta: '[CTA]', handle: '[HANDLE]' }, props);
+
   const pasos = [{ Ic: IcoDoc, t: p.paso_1 }, { Ic: IcoCalc, t: p.paso_2 }, { Ic: IcoChart, t: p.paso_3 }];
+  const tSize = fitSize(p.titulo, [[28, 36], [44, 31], [62, 27]], 24);
+
   return (
-    <div className="tpl" style={{ padding: 60, display: 'flex', flexDirection: 'column', background: 'var(--paper-warm)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Lockup size={26} /><div className="chip">{p.copete}</div>
+    <div className="tpl" style={{ padding: 56, display: 'flex', flexDirection: 'column',
+      background: 'var(--paper-warm)' }}>
+      <TplHeader chip={p.copete} size={26} />
+
+      <div className="display" style={{ marginTop: 28, fontSize: tSize, fontWeight: 700,
+        color: 'var(--navy-ink)', lineHeight: 1.1, letterSpacing: '-0.02em', maxWidth: '90%' }}>
+        {p.titulo}
       </div>
-      <div className="display" style={{ marginTop: 30, fontSize: 36, fontWeight: 700, color: 'var(--navy-ink)', lineHeight: 1.1, maxWidth: '90%' }}>{p.titulo}</div>
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 26 }}>
+
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        gap: 24 }}>
         {pasos.map((s, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <div style={{ flexShrink: 0, width: 64, height: 64, borderRadius: 14, background: 'var(--blue-pale)', color: 'var(--navy)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <s.Ic s={32} />
-              <span style={{ position: 'absolute', top: -8, left: -8, width: 24, height: 24, borderRadius: '50%', background: 'var(--navy)',
-                color: 'var(--paper)', fontFamily: 'Geist Mono, monospace', fontSize: 11, fontWeight: 500,
+            <div style={{ flexShrink: 0, width: 62, height: 62, borderRadius: 14,
+              background: 'var(--blue-pale)', color: 'var(--navy)', display: 'flex',
+              alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <s.Ic s={30} />
+              <span style={{ position: 'absolute', top: -8, left: -8, width: 24, height: 24,
+                borderRadius: '50%', background: 'var(--navy)', color: 'var(--paper)',
+                fontFamily: 'Geist Mono, monospace', fontSize: 11, fontWeight: 500,
                 display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</span>
             </div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 17, fontWeight: 500, color: 'var(--ink)', lineHeight: 1.3 }}>{s.t}</div>
+            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16.5, fontWeight: 500,
+              color: 'var(--ink)', lineHeight: 1.32, minWidth: 0 }}>{s.t}</div>
           </div>
         ))}
       </div>
-      <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)', borderRadius: 2,
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600, marginBottom: 16 }}>{p.cta}</div>
-      <div className="footer-row"><span>{p.handle}</span><span>mdo-consultores.com.ar</span></div>
+
+      <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
+        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+        <span>{p.cta}</span>
+        <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
+      </div>
+      <HandleFooter handle={p.handle} />
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-// po-29 — Ícono grande lateral + frase (navy). Ícono fijo: shield-check
+// ── po-29 · Ícono grande lateral + frase (navy) ─────────────────────
 // Slots: COPETE, FRASE, CTA, HANDLE
-// ─────────────────────────────────────────────────────────────────────
 function PoIconoFrase(props) {
-  const p = Object.assign({ copete: '[COPETE]', frase: '[FRASE]', cta: '[CTA]', handle: '[HANDLE]' }, props);
+  const p = Object.assign({ copete: '[COPETE]', frase: '[FRASE]', cta: '[CTA]',
+    handle: '[HANDLE]' }, props);
+
+  const fSize = fitSize(p.frase, [[38, 40], [58, 34], [82, 29]], 25);
+
   return (
-    <div className="tpl navy" style={{ padding: 64, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Lockup mode="light" size={26} /><div className="chip">{p.copete}</div>
-      </div>
+    <div className="tpl navy" style={{ padding: 60, display: 'flex', flexDirection: 'column' }}>
+      <TplHeader chip={p.copete} mode="light" size={26} />
+
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div style={{ color: 'var(--blue-lt)', marginBottom: 30, marginLeft: -16 }}><IcoShield s={84} /></div>
-        <div className="display" style={{ fontSize: 40, fontWeight: 700, color: 'var(--paper)', lineHeight: 1.12, letterSpacing: '-0.01em' }}>{p.frase}</div>
+        <div style={{ color: 'var(--blue-lt)', marginBottom: 28, marginLeft: -14 }}>
+          <IcoShield s={80} />
+        </div>
+        <div className="display" style={{ fontSize: fSize, fontWeight: 700, color: 'var(--paper)',
+          lineHeight: 1.14, letterSpacing: '-0.01em' }}>{p.frase}</div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 600, color: 'var(--blue-lt)' }}>{p.cta} →</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em', color: 'rgba(247,249,252,0.55)' }}>{p.handle}</span>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+        gap: 12 }}>
+        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+          color: 'var(--blue-lt)' }}>{p.cta} →</span>
+        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+          color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-// po-30 — Grid 2×2 de íconos "lo que hacemos" (papel). Íconos fijos por área
-// Slots: COPETE, TITULO, LABEL_1, LABEL_2, LABEL_3, LABEL_4, HANDLE
-// ─────────────────────────────────────────────────────────────────────
+// ── po-30 · Grid 2×2 de íconos (blanco) ─────────────────────────────
+// Slots: COPETE, TITULO, LABEL_1..4, HANDLE
 function PoGridIconos(props) {
-  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', label_1: '[LABEL_1]', label_2: '[LABEL_2]',
-    label_3: '[LABEL_3]', label_4: '[LABEL_4]', handle: '[HANDLE]' }, props);
-  const tiles = [{ Ic: IcoDoc, l: p.label_1 }, { Ic: IcoScale, l: p.label_2 }, { Ic: IcoUsers, l: p.label_3 }, { Ic: IcoSearch, l: p.label_4 }];
+  const p = Object.assign({ copete: '[COPETE]', titulo: '[TITULO]', label_1: '[LABEL_1]',
+    label_2: '[LABEL_2]', label_3: '[LABEL_3]', label_4: '[LABEL_4]', handle: '[HANDLE]' }, props);
+
+  const tiles = [{ Ic: IcoDoc, l: p.label_1 }, { Ic: IcoScale, l: p.label_2 },
+    { Ic: IcoUsers, l: p.label_3 }, { Ic: IcoSearch, l: p.label_4 }];
+  const tSize = fitSize(p.titulo, [[30, 34], [46, 30], [64, 26]], 23);
+
   return (
-    <div className="tpl white" style={{ padding: 60, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Lockup size={26} /><div className="chip">{p.copete}</div>
+    <div className="tpl white" style={{ padding: 56, display: 'flex', flexDirection: 'column' }}>
+      <TplHeader chip={p.copete} size={26} />
+
+      <div className="display" style={{ marginTop: 28, fontSize: tSize, fontWeight: 700,
+        color: 'var(--navy-ink)', lineHeight: 1.1, letterSpacing: '-0.02em', maxWidth: '90%' }}>
+        {p.titulo}
       </div>
-      <div className="display" style={{ marginTop: 30, fontSize: 34, fontWeight: 700, color: 'var(--navy-ink)', lineHeight: 1.1, maxWidth: '90%' }}>{p.titulo}</div>
-      <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginTop: 32, marginBottom: 18 }}>
+
+      <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
+        marginTop: 28, marginBottom: 16 }}>
         {tiles.map((t, i) => (
-          <div key={i} style={{ border: '1px solid var(--hair)', borderRadius: 12, padding: '22px 20px',
-            display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 18 }}>
-            <div style={{ color: 'var(--navy)' }}><t.Ic s={36} /></div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15.5, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.25 }}>{t.l}</div>
+          <div key={i} style={{ border: '1px solid var(--hair)', borderRadius: 10,
+            padding: '20px 18px', display: 'flex', flexDirection: 'column',
+            justifyContent: 'space-between', gap: 16 }}>
+            <div style={{ color: 'var(--navy)' }}><t.Ic s={34} /></div>
+            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600,
+              color: 'var(--ink)', lineHeight: 1.25 }}>{t.l}</div>
           </div>
         ))}
       </div>
-      <div className="footer-row"><span>{p.handle}</span><span>mdo-consultores.com.ar</span></div>
+
+      <HandleFooter handle={p.handle} />
     </div>
   );
 }
@@ -166,7 +229,7 @@ function PoGridIconos(props) {
 const EXAMPLES_FRIDAY_B = {
   PoTresIconos: { copete: 'Contabilidad', titulo: 'Llevar la contabilidad al día te da:',
     label_1: 'Números al día', label_2: 'Mejores decisiones', label_3: 'Tranquilidad con ARCA',
-    cta: 'Llevamos tu contabilidad. Consultanos.', handle: '@mdoconsultores' },
+    cta: 'Llevamos tu contabilidad', handle: '@mdoconsultores' },
   PoIconoHero: { copete: 'Gestión PyME', titulo: 'Ordená hoy para crecer mañana',
     bajada: 'Una PyME con la contabilidad clara toma mejores decisiones y crece más tranquila.',
     cta: 'Empecemos', handle: '@mdoconsultores' },
@@ -176,7 +239,8 @@ const EXAMPLES_FRIDAY_B = {
   PoIconoFrase: { copete: 'Gestión PyME', frase: 'Dormí tranquilo: tus números, en orden y al día.',
     cta: 'Llevamos tu contabilidad', handle: '@mdoconsultores' },
   PoGridIconos: { copete: 'Servicios', titulo: 'Todo lo que tu PyME necesita, en un solo equipo',
-    label_1: 'Contabilidad', label_2: 'Impuestos', label_3: 'Sueldos', label_4: 'Auditoría', handle: '@mdoconsultores' },
+    label_1: 'Contabilidad', label_2: 'Impuestos', label_3: 'Sueldos', label_4: 'Auditoría',
+    handle: '@mdoconsultores' },
 };
 
 Object.assign(window, { PoTresIconos, PoIconoHero, PoProcesoIconos, PoIconoFrase, PoGridIconos, EXAMPLES_FRIDAY_B });

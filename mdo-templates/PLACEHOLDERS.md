@@ -133,6 +133,62 @@ Composiciones limpias con tipografía protagonista. Pensadas para feed editorial
 
 > **`po-13c`** reemplaza el callout "Qué tenés que saber" por un slot `CIERRE` (frase corta editorial). Usar cuando la noticia se publica neutra, sin opinión del estudio.
 
+## Plantillas nuevas (paquete de julio 2026)
+
+Ver [NUEVAS-PLANTILLAS.md](NUEVAS-PLANTILLAS.md) para el detalle de qué se corrigió en las 45
+originales (zona segura de Instagram en las historias, tipografía que se adapta al largo del
+texto, pie que ya no se parte en dos líneas, y el azul unificado con el de los mails: `#1f4e79`).
+
+### Noticia rearmada — reemplazan a `po-13c` / `sq-12c`
+
+| ID | Uso | Slots |
+|---|---|---|
+| `po-13d` | Noticia 4:5 con marca de agua del iso y cierre anclado | `CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE` |
+| `sq-12d` | Misma, cuadrada | `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
+
+### Portrait 4:5 — contenido y marketing
+
+| ID | Uso | Slots |
+|---|---|---|
+| `po-31` | Explicador en 3 pasos (título + cuerpo por paso) | `COPETE`, `TITULO`, `PASO_1_TIT`, `PASO_1_TXT`, `PASO_2_TIT`, `PASO_2_TXT`, `PASO_3_TIT`, `PASO_3_TXT`, `CTA`, `HANDLE` |
+| `po-32` | Comparativa A vs. B con veredicto | `COPETE`, `TITULO`, `A_LABEL`, `A_TITULO`, `A_1..3`, `B_LABEL`, `B_TITULO`, `B_1..3`, `VEREDICTO`, `HANDLE` |
+| `po-33` | Elegí tu caso (encuesta + CTA a comentar) | `COPETE`, `PREGUNTA`, `OPCION_1..3`, `CTA`, `HANDLE` |
+| `po-34` | Mito vs. realidad (el mito va tachado) | `COPETE`, `TITULO`, `MITO`, `REALIDAD`, `CTA`, `HANDLE` |
+| `po-35` | Errores frecuentes con su corrección | `COPETE`, `TITULO`, `ERROR_1`, `FIX_1`, `ERROR_2`, `FIX_2`, `ERROR_3`, `FIX_3`, `CTA`, `HANDLE` |
+| `po-36` | Testimonio de cliente (sin nombre propio) | `COPETE`, `TESTIMONIO`, `CLIENTE_TIPO`, `CLIENTE_DETALLE`, `SERVICIO`, `HANDLE` |
+| `po-37` | Vencimientos de la semana **en el feed** (la story se va en 24 h; ésta queda para guardar) | `COPETE`, `SEMANA`, `DIA_1..4`, `MES_1..4`, `IMPUESTO_1..4`, `PERIODO_1..4`, `CTA`, `HANDLE` |
+
+### Story 9:16
+
+| ID | Uso | Slots |
+|---|---|---|
+| `st-10` | Encuesta A/B, con zona segura respetada | `COPETE`, `PREGUNTA`, `OPCION_A`, `OPCION_B`, `PIE`, `HANDLE` |
+
+### LinkedIn 1.91:1 — output 1200×628
+
+| ID | Uso | Slots |
+|---|---|---|
+| `li-01` | Noticia / novedad normativa | `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
+| `li-02` | Claim institucional | `COPETE`, `CLAIM`, `SERVICIO_1..3`, `CTA`, `HANDLE` |
+| `li-03` | Dato clave | `CATEGORIA`, `NUMERO`, `UNIDAD`, `DESCRIPCION`, `FUENTE`, `HANDLE` |
+
+> `scripts/render.js` ya conoce el tamaño de LinkedIn (1200×628). Los `li-*` no van a Instagram.
+
+## ⚠️ Margen exterior mínimo (no bajar)
+
+Instagram recorta los bordes en la grilla del perfil, así que el contenido pegado al margen se
+ve cortado aunque el PNG esté bien. Márgenes mínimos sobre base 540:
+
+| Plantilla | Mínimo |
+|---|---|
+| `sq-12` | 72 |
+| `po-04` | 68 |
+| `po-16` | 64 |
+| Historias (`st-*`) | `120px 40px 155px` — deja libre la franja de la UI de Instagram |
+
+El paquete de julio 2026 venía con esos tres en 60; **se restauraron** a sus mínimos. Si se toca
+un template, mantener el margen o subirlo, nunca bajarlo. Verificable con `?safe=1`.
+
 ## Mapeo sugerido — Gmail newsletter → slots
 
 Si el label de Gmail recibe noticias con estos campos (extraíbles del mail):
