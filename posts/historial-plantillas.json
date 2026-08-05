@@ -1,0 +1,22 @@
+{
+  "_leeme": [
+    "Registro de qué plantilla usó cada post. La rutina semanal lo LEE al arrancar",
+    "(paso 0) para no repetir plantillas usadas en las últimas 4 semanas, y le AGREGA",
+    "una entrada por cada post al terminar (paso 8).",
+    "",
+    "Sin este archivo la rutina no tiene memoria entre semanas y siempre cae en las",
+    "mismas plantillas. Si se borra, la variedad deja de funcionar.",
+    "",
+    "Se puede editar a mano: por ejemplo, borrar una entrada para permitir que esa",
+    "plantilla vuelva a salir antes, o agregarla para bloquearla un tiempo.",
+    "",
+    "Campos de cada entrada:",
+    "  fecha      — fecha de publicación (YYYY-MM-DD)",
+    "  semana_iso — número de semana ISO en que corrió la rutina",
+    "  slot       — noticia | jueves | gestion | spotlight",
+    "  template   — id de la plantilla usada para Instagram",
+    "  linkedin   — id de la plantilla horizontal usada para LinkedIn (null si no fue a LinkedIn)",
+    "  nota       — texto libre opcional (ángulo, servicio, tema)"
+  ],
+  "historial": []
+}

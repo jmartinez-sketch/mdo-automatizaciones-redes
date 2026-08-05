@@ -1,12 +1,14 @@
 ---
 name: mdo-rutina-semanal
 model: opus
-description: Rutina semanal de posteos MDO Consultores. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige las 2 noticias más impactantes, arma un tip PyME genérico, renderiza 4 imágenes branded con los templates Claude Design, y crea 4 drafts en Metricool programados Lun/Mié/Jue/Vie 9hs Argentina para la cuenta IG+LinkedIn @mdoconsultores. El jueves alterna semanas: semana impar = story st-09 (CTA), semana par = carrusel cb-* (slides según noticia). Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes branded con los templates Claude Design (verticales para Instagram + horizontales li-* para LinkedIn) y crea los drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares) para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
 
-Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de la semana como drafts en Metricool.
+Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la semana como drafts en Metricool.
+
+⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y crea los drafts. El primer post de la semana sale el **miércoles**. ❌ Nunca crear un draft con fecha de lunes.
 
 ## Contexto del negocio
 
@@ -19,19 +21,32 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los 4 posteos de l
 
 ## Output esperado
 
-4 drafts en Metricool por semana (5 en semanas pares — ver el sábado), todos para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, networks `instagram` + `linkedin`, timezone `America/Argentina/Buenos_Aires`):
+**3 drafts en semanas impares, 4 en semanas pares**, para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`):
 
-| # | Día/Hora (ARG) | Tipo | Template | Fuente del contenido |
-|---|---|---|---|---|
-| 1 | Lunes 9hs     | Noticia destacada #1         | `po-13d` (Portrait 1080×1350) | Gmail newsletter |
-| 2 | Miércoles 9hs | Noticia destacada #2         | `po-13d` (Portrait 1080×1350) | Gmail newsletter |
-| 3 | Jueves 9hs    | Story CTA **o** Carrusel (*) | `st-09` (Story 1080×1920) **o** `cb-*` (1080×1350) | Basado en noticias de la semana |
-| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio)  | `po-04` (Portrait 1080×1350) | Generado por LLM |
-| 5 | Sábado 11hs (**) | Spotlight de servicio (quincenal) | `po-16` (Portrait 1080×1350) | Generado por LLM · **solo Instagram** |
+`N` = el número que lleva el archivo PNG (ver paso 4). Va atado al día, no al orden: el `1` era el lunes y queda libre.
 
-(*) **Jueves — alternancia por semana ISO**: `$(( $(date +%V) % 2 ))` → `1` = semana impar → **story `st-09`** · `0` = semana par → **carrusel `cb-*`**
+| N | Día/Hora (ARG) | Tipo | Plantilla Instagram | Plantilla LinkedIn | Fuente |
+|---|---|---|---|---|---|
+| ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — |
+| 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | `li-01` | Gmail newsletter |
+| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` o carrusel | Noticias de la semana |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | `li-02` / `li-03` | Generado por LLM |
+| 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | pool de 6 | — (solo IG) | Generado por LLM |
 
-(**) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca para variar el formato del feed. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
+(*) **Jueves — ciclo de 4 semanas**, ver sección 3b. Ya NO es "par/impar": rota entre carrusel, encuesta, CTA y cita.
+
+(**) **Viernes — el template lo elige la IA** entre 18 opciones, **descartando las de las últimas 4 semanas** según el historial (paso 0).
+
+(***) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
+
+### ⚠️ Regla dura — variedad de plantillas
+
+La rutina tiene **58 plantillas disponibles** y el riesgo real es caer siempre en las mismas 5-6. Por eso:
+
+1. **Antes de elegir cualquier plantilla, leer `posts/historial-plantillas.json`** (paso 0). Lo usado en las últimas 4 semanas queda **descartado**, salvo la ancla `po-13d`.
+2. **Al terminar, escribir el historial** (paso 8). Si no se escribe, la próxima corrida no tiene memoria y la variedad se rompe.
+3. Si un pool se agotó (todas sus plantillas usadas en las últimas 4 semanas), reiniciar ese pool y elegir la **menos reciente**, no la primera de la lista.
+4. **Nunca** elegir una plantilla "porque es la que siempre funciona". El catálogo existe para usarse.
 
 ### ⚠️ Formatos correctos de imagen (regla dura — Instagram 2026)
 
@@ -39,15 +54,45 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 
 | Destino | Ratio | Píxeles | Templates |
 |---|---|---|---|
-| **Feed (post)** | **4:5 vertical** | **1080 × 1350** | `po-13d`, `po-04`, `po-16`, carrusel `cb-*` |
-| **Historia (story)** | **9:16 vertical** | **1080 × 1920** | `st-09` |
+| **Feed Instagram (post)** | **4:5 vertical** | **1080 × 1350** | `po-13d`, `po-13e`, `po-04`, `po-16`, `po-2x`, `po-3x`, carrusel `cb-*` |
+| **Historia Instagram (story)** | **9:16 vertical** | **1080 × 1920** | `st-08`, `st-09`, `st-10` |
+| **Feed LinkedIn** | **1.91:1 horizontal** | **1200 × 628** | `li-01`, `li-02`, `li-03` |
 
 - ❌ **NUNCA usar `sq-12` ni ningún template cuadrado (1080×1080) para el feed** — se recorta en la grilla.
+
+⚠️ **REGLA DURA — LinkedIn lleva su propia imagen horizontal.** LinkedIn muestra el feed en horizontal: una imagen vertical 4:5 se ve chica y con bandas grises a los costados. Por eso **cada post que va a LinkedIn se renderiza dos veces**: la vertical para Instagram y una horizontal `li-*` con el mismo contenido. ❌ Nunca mandar la vertical de Instagram a LinkedIn. Ver paso 4b.
+
+- **Excepción**: el carrusel `cb-*` (1080×1350) sí va tal cual a LinkedIn — LinkedIn soporta carruseles verticales sin recortarlos.
 - **Zona segura**: logo, titular y CTA lejos de los bordes superior e inferior (la grilla 3:4 le recorta ~12% arriba/abajo a un post 4:5). Los templates ya traen padding generoso; si se edita uno, no bajar de ese margen.
 - En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
 - (Opción cero-recorte: 3:4 → 1080×1440, pero requiere rediseñar la altura de los templates. El 4:5 es el estándar y ya está validado en producción.)
 
 ## Paso a paso
+
+### 0. Leer el historial de plantillas (SIEMPRE primero)
+
+```bash
+cat posts/historial-plantillas.json
+```
+
+Del array `historial`, quedarse con las entradas de las **últimas 4 semanas ISO** y armar la lista de plantillas **bloqueadas** para esta corrida.
+
+```bash
+SEMANA=$(date +%V)   # semana ISO actual
+```
+
+Reglas de bloqueo:
+
+| Slot | Se bloquea lo usado en… | Excepción |
+|---|---|---|
+| `noticia` | últimas 4 semanas | `po-13d` es la **ancla**: nunca se bloquea (ver 2b) |
+| `jueves` | lo define el ciclo, ver 3b | — |
+| `gestion` | últimas 4 semanas | si el pool se agota, usar la **menos reciente** |
+| `spotlight` | últimas 4 corridas quincenales | si el pool se agota, usar la **menos reciente** |
+
+Si el archivo no existe o `historial` está vacío (primera corrida), no hay nada bloqueado: elegir libremente y crear el archivo en el paso 8.
+
+⚠️ **No saltear este paso.** Sin leer el historial no hay forma de cumplir las reglas de variedad, y la rutina vuelve a repetir siempre las mismas plantillas.
 
 ### 1. Leer Gmail
 
@@ -59,20 +104,24 @@ label:mdo-automatizaciones-claude-newsletter newer_than:7d
 
 Levantar todos los threads y leer el primer mensaje de cada uno (asunto + cuerpo).
 
-### 2. Elegir 2 noticias
+### 2. Elegir la noticia de la semana
 
 Criterios de selección (en orden de prioridad):
 
-1. **Impacto normativo**: cambios AFIP/ARCA, decretos, resoluciones nuevas
+1. **Impacto normativo**: cambios ARCA, decretos, resoluciones nuevas
 2. **Vencimientos próximos**: impuestos, presentaciones, prórrogas
 3. **Macro/tributario**: tipo de cambio, blanqueo, regímenes especiales
 4. **Análisis tributario relevante** para PyMEs
 
 Reglas:
 
-- Las **2 noticias elegidas deben ser temáticamente distintas** (no las dos sobre lo mismo)
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
+
+**Cuántas noticias elegir:**
+
+- **Siempre 1** noticia principal → post del **miércoles**.
+- **En semanas de carrusel** (ciclo jueves = `0`, ver 3b) elegir además una **segunda noticia temáticamente distinta** para desarrollar en el carrusel del jueves. Si el newsletter no trae una segunda noticia que valga, usar la principal y profundizarla en el carrusel.
 
 Para cada noticia extraer (slots del template `po-13d` — Noticia vertical 4:5):
 - `CATEGORIA` — eyebrow corto, ej: "Impuestos · ARCA", "Régimen Simplificado", "PyMEs"
@@ -83,9 +132,36 @@ Para cada noticia extraer (slots del template `po-13d` — Noticia vertical 4:5)
 - `FECHA` — fecha de la noticia, formato "21 may 2026"
 - `HANDLE` — siempre `@mdoconsultores`
 
-### 3. Generar tip PyME (3er post)
+### 2b. Elegir la plantilla de la noticia
 
-**PASO 0 — Determinar el servicio de la semana (rotación fija)**:
+**`po-13d` es la ancla.** Es la plantilla que hace que el feed sea reconocible: el seguidor ve la placa en la grilla y sabe de una que es una novedad normativa del estudio. Por eso **no rota como los otros slots** y no se bloquea nunca por historial.
+
+Regla de alternancia de color (para que no se fosilice):
+
+```bash
+# Contar cuántas de las últimas 3 entradas slot="noticia" usaron po-13d
+```
+
+- Por defecto: **`po-13d`** (papel/blanco).
+- Si las **últimas 3 noticias** del historial fueron todas `po-13d` → usar **`po-13e`** (misma composición exacta, en navy). Anotarlo en el historial como `po-13e`.
+- `po-13e` tiene **los mismos 7 slots** que `po-13d` (`CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE`) — no hay que cambiar nada del contenido, solo el id del template.
+
+**Cuándo salirse de la ancla** (opcional, solo si el contenido lo pide con claridad): si la noticia de la semana encaja mucho mejor en otra forma, usar una de éstas en lugar de `po-13d`. Ojo: son la excepción, no la norma — como máximo **una vez cada 4 semanas**.
+
+| Si la noticia… | Conviene | Slots |
+|---|---|---|
+| Corrige una creencia equivocada muy difundida | `po-34` mito vs. realidad | COPETE, TITULO, MITO, REALIDAD, CTA, HANDLE |
+| Compara dos regímenes o dos caminos | `po-32` comparativa A/B | COPETE, TITULO, A_*, B_*, VEREDICTO, HANDLE |
+| Trae pasos concretos a seguir | `po-31` explicador 3 pasos | COPETE, TITULO, PASO_N_TIT, PASO_N_TXT, CTA, HANDLE |
+| Advierte sobre errores que se van a cometer | `po-35` errores + corrección | COPETE, TITULO, ERROR_N, FIX_N, CTA, HANDLE |
+
+⚠️ En estos 4 casos **se pierden los slots `FUENTE` y `FECHA`**, así que la fuente tiene que ir en el texto del posteo (campo `text` de Metricool). Para noticias normativas duras, preferir siempre la ancla `po-13d`/`po-13e`, que muestra la fuente en la placa.
+
+### 3. Generar el post de Gestión PyME (viernes)
+
+> Internamente lo llamamos "el tip", pero ⚠️ **la palabra "Tip" NUNCA aparece en la placa ni en el texto publicado** (ver regla del `COPETE` más abajo).
+
+**3.1 — Determinar el servicio de la semana (rotación fija)**:
 
 El servicio sobre el que se enfoca el tip del viernes NO se elige a criterio: se calcula por semana ISO para garantizar cobertura pareja de los 5 servicios PyME-relevantes (Precios de Transferencia queda fuera del ciclo: no aplica a audiencia PyME).
 
@@ -148,13 +224,16 @@ Mapear a slots de `po-04`:
 
 #### Catálogo de templates del viernes (referencia — se pueden variar)
 
-El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**, no una lista cerrada.
+El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**, no una lista cerrada.
 
 **Cómo se decide el template del viernes (NO es rotación ciega):**
-- El **servicio** lo fija la rotación por semana ISO (`SERVICIO_IDX`, ver Paso 0).
-- El **template y el ángulo los elige la IA según el contenido de esa semana**: qué querés decir y cómo se comunica mejor. Elegir el template cuya estructura potencie el mensaje (ver guía abajo).
-- Si ningún template existente encaja bien con el ángulo, **crear uno nuevo** usando estos 11 como referencia de estilo (mismo sistema de marca).
-- Buscar **variedad**: evitar repetir el mismo template que el viernes anterior si es identificable (mirar los últimos `posts/*-4.png` si hace falta).
+- El **servicio** lo fija la rotación por semana ISO (`SERVICIO_IDX`, ver arriba).
+- **Descartar primero las plantillas bloqueadas por el historial** (paso 0): todo lo usado en slot `gestion` en las últimas 4 semanas queda fuera. Esto es obligatorio, no una sugerencia.
+- Del pool que queda, el **template y el ángulo los elige la IA según el contenido de esa semana**: qué querés decir y cómo se comunica mejor. Elegir el template cuya estructura potencie el mensaje (ver guía abajo).
+- Si el pool quedó vacío (las 18 usadas en 4 semanas — improbable), elegir la **menos reciente** del historial.
+- Si ningún template existente encaja bien con el ángulo, **crear uno nuevo** usando estos como referencia de estilo (mismo sistema de marca).
+
+⚠️ **Los 18 templates del viernes son un pool real, no una lista decorativa.** Con 18 opciones y bloqueo de 4 semanas, cada viernes hay como mínimo 14 plantillas disponibles: no hay excusa para repetir. Si te encontrás eligiendo `po-04` por default, revisá el historial de nuevo.
 
 **Texto-driven:**
 | ID | Estilo | Slots |
@@ -210,7 +289,7 @@ El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos vertica
 **Reglas que aplican a TODOS los templates del viernes:**
 - `COPETE` NUNCA dice "Tip". Usar "Gestión PyME" o el nombre del servicio de la semana.
 - **ARCA, nunca AFIP.**
-- Anclar al servicio de la semana (rotación `SERVICIO_IDX`, ver Paso 0).
+- Anclar al servicio de la semana (rotación `SERVICIO_IDX`, ver 3.1).
 - **Verificar siempre la imagen renderizada**: pie/footer visible, nada cortado, márgenes ok.
 
 **Dónde vive el código (por si hay que crear uno nuevo o variar):**
@@ -221,15 +300,21 @@ El viernes NO está atado a `po-04`. Hay 11 templates disponibles, todos vertica
 
 ### 3b. Generar contenido del jueves
 
-Determinar el tipo según semana ISO del lunes de la semana en curso:
+**Ciclo de 4 semanas** (antes era un simple par/impar que dejaba el jueves siempre igual):
 
 ```bash
-SEMANA_TIPO=$(( $(date +%V) % 2 ))
-# 1 = semana impar → story st-09
-# 0 = semana par  → carrusel cb-*
+JUEVES_TIPO=$(( $(date +%V) % 4 ))
+# 0 → Carrusel cb-*        (noticia profunda)  → opción B
+# 1 → Story st-10          (encuesta A/B)      → opción C
+# 2 → Story st-09 / st-09b (CTA institucional) → opción A
+# 3 → Story st-08 / st-08c (cita)              → opción D
 ```
 
-**Opción A — Story `st-09` (semana impar)**
+Dentro de las opciones con variante de color (`st-09`/`st-09b`, `st-08`/`st-08c`), elegir la que **no** figure en el historial del slot `jueves` en las últimas 4 semanas. Si ninguna figura, empezar por la versión base.
+
+> Las historias de Instagram duran 24 h. Si en alguna semana querés que el contenido del jueves quede en el feed, `po-37` (vencimientos en el feed) es la alternativa vertical: se guarda y se comparte.
+
+**Opción A — Story `st-09` / `st-09b` (ciclo = 2)**
 
 Slots del template:
 - `COPETE` — ej: "Consultanos"
@@ -246,11 +331,38 @@ Slots del template:
 
 Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
 
-**Opción B — Carrusel `cb-*` (semana par)**
+**Opción C — Story encuesta `st-10` (ciclo = 1)**
+
+El formato de mayor interacción: Instagram permite pegarle el sticker de encuesta encima. Slots:
+
+- `COPETE` — ej: "Gestión PyME", "Contanos"
+- `PREGUNTA` — la pregunta, **máx ~50 chars**. El cuerpo se ajusta solo por tramos (44px hasta 28 chars · 38px hasta 46 · 32px hasta 66), así que ~35 chars ocupan 3 líneas y entran cómodas. Ej: "¿Cómo llevás la caja de tu empresa?"
+- `OPCION_A` — primera opción, **máx ~30 chars**. Ej: "Planilla de Excel"
+- `OPCION_B` — segunda opción, **máx ~30 chars**. Ej: "Sistema de gestión"
+- `PIE` — cierre breve. Ej: "Respondé en la encuesta 👆"
+- `HANDLE` — `@mdoconsultores`
+
+Contenido: una pregunta de gestión real, sin datos normativos. Anclarla al servicio de la semana (`SERVICIO_IDX`). Las 2 opciones tienen que ser ambas **razonables** — no una obviamente mala, o nadie vota.
+
+⚠️ Al crear el draft, avisar al usuario en el reporte final que **le tiene que pegar el sticker de encuesta a mano en Instagram** (Metricool sube la imagen, el sticker interactivo se agrega en la app).
+
+**Opción D — Story cita `st-08` / `st-08c` (ciclo = 3)**
+
+Slots (los mismos en las 3 variantes de color):
+
+- `COPETE` — ej: "Pensamiento", "Nuestra mirada"
+- `CITA` — frase propia del estudio sobre gestión o asesoramiento, **máx ~110 chars**. NO citar a terceros ni inventar autores célebres.
+- `AUTOR` — `"Estudio MDO"`
+- `ROL_AUTOR` — ej: "Consultores en gestión"
+- `HANDLE` — `@mdoconsultores`
+
+Variantes: `st-08` (base), `st-08b` (navy), `st-08c` (minimal blanca). Elegir la que no esté en el historial.
+
+**Opción B — Carrusel `cb-*` (ciclo = 0)**
 
 Usar siempre `cb-cover` como tapa + tantos slides de contenido como necesite la noticia (mínimo 2, máximo 3: `cb-tip1`, `cb-tip2`, `cb-tip3`).
 
-El contenido debe profundizar en **una de las 2 noticias de la semana** (la más compleja o con más puntos a explicar).
+El contenido debe profundizar en la **segunda noticia de la semana** (la que no salió el miércoles — ver paso 2). Si el newsletter no trajo una segunda noticia que valga, profundizar la del miércoles desde otro ángulo, sin repetir el mismo titular.
 
 Slots de `cb-cover`:
 - `COPETE` — ej: "Impuestos · ARCA"
@@ -280,12 +392,26 @@ Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(d
 
 Objetivo: variar el formato del feed con un post **institucional de marca**, no de noticias ni de tips. Logo con presencia + un servicio + una sola línea de beneficio.
 
-- **Template**: `po-16` (spotlight de servicio, navy con isologo grande de fondo)
 - **Día/hora**: sábado de esa semana, 11hs Argentina (`-03:00`)
 - **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
 - **Servicio**: el **mismo que tocó el tip del viernes de esa semana** → reutilizar `SERVICIO_IDX=$(( $(date +%V) % 5 ))` (ver tabla en sección 3). El sábado refuerza el servicio de la quincena.
 
-Slots de `po-16`:
+**Template — pool de 6, descartando las últimas 4 del historial** (slot `spotlight`):
+
+| ID | Estilo | Slots |
+|---|---|---|
+| `po-16` | Spotlight de servicio (navy, isologo grande de fondo) | COPETE, TITULO, BAJADA, HANDLE |
+| `po-23` | Declaración/manifiesto (papel) + firma | COPETE, DECLARACION, APOYO, HANDLE |
+| `po-25` | Foco / una sola idea (navy) minimal | COPETE, IDEA, DETALLE, CTA, HANDLE |
+| `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
+| `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
+| `po-36` | Testimonio de cliente (sin nombre propio) | COPETE, TESTIMONIO, CLIENTE_TIPO, CLIENTE_DETALLE, SERVICIO, HANDLE |
+
+Notas del pool:
+- `po-30` (grid de servicios) es el único que **no** se ancla a un solo servicio: muestra la amplitud del estudio. Usarlo como máximo **1 vez cada 2 meses**.
+- `po-36` (testimonio) requiere un testimonio **real o claramente genérico**. ❌ Nunca inventar una cita atribuida a un cliente identificable. Describir al cliente por sector y tamaño ("PyME textil, 12 empleados"), nunca por nombre.
+
+Slots de `po-16` (el más usado del pool):
 - `COPETE` — siempre "Servicios"
 - `TITULO` — nombre del servicio en grande (máx ~24 chars/línea, entra en 2 líneas serif). Ej: "Asesoramiento Impositivo", "Liquidación de Sueldos", "Contabilidad para PyMEs"
 - `BAJADA` — **UNA** línea de beneficio (máx ~110 chars). NO listar tareas ni repetir el título. Hablar del beneficio para el cliente, no del "qué hacemos".
@@ -302,7 +428,7 @@ Nombre del archivo: `posts/YYYY-MM-DD-5.png` (fecha = sábado de publicación).
 
 ⚠️ Aplican las mismas reglas duras que el tip del viernes: NO números específicos, NO fechas/plazos, NO consejo legal puntual.
 
-### 4. Renderizar las 4 imágenes (o más, si el jueves es carrusel o hay spotlight de sábado)
+### 4. Renderizar las imágenes de Instagram
 
 Para cada post:
 
@@ -314,16 +440,52 @@ node scripts/render.js \
 ```
 
 Templates por día (todos verticales — ver "Formatos correctos de imagen"):
-- Lunes y miércoles: `--template po-13d` (noticia vertical 4:5 · 1080×1350)
-- Jueves (story): `--template st-09` (9:16 · 1080×1920)
-- Jueves (carrusel): renderizar cada slide con su template (`cb-cover`, `cb-tip1`, etc.)
-- Viernes: `--template po-04` (4:5 · 1080×1350)
-- Sábado (solo semanas pares): `--template po-16` (4:5 · 1080×1350)
+
+| Día | Template | Tamaño |
+|---|---|---|
+| ~~Lunes~~ | **no se publica** | — |
+| Miércoles | `po-13d` / `po-13e` (o excepción de 2b) | 1080×1350 |
+| Jueves, ciclo 0 | `cb-cover` + `cb-tip1..3` (un render por slide) | 1080×1350 |
+| Jueves, ciclo 1 | `st-10` | 1080×1920 |
+| Jueves, ciclo 2 | `st-09` / `st-09b` | 1080×1920 |
+| Jueves, ciclo 3 | `st-08` / `st-08b` / `st-08c` | 1080×1920 |
+| Viernes | el elegido del pool de 18 | 1080×1350 |
+| Sábado (semanas pares) | el elegido del pool de 6 | 1080×1350 |
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 - `YYYY-MM-DD` = fecha de publicación
-- `N` = 1 (lunes), 2 (miércoles), 3 (jueves), 4 (viernes), 5 (sábado)
+- `N` = **2** (miércoles), **3** (jueves), **4** (viernes), **5** (sábado). El `1` queda libre: era el lunes, que ya no se publica. No renumerar — mantener el `N` atado al día evita confundir posts viejos con nuevos.
 - Carrusel del jueves: `posts/YYYY-MM-DD-3-cover.png`, `posts/YYYY-MM-DD-3-s1.png`, etc.
+
+### 4b. Renderizar las imágenes de LinkedIn
+
+Los posts que van a LinkedIn necesitan **su propia imagen horizontal** (1200×628). Mismo contenido, otra plantilla:
+
+| Post | Template LinkedIn | Cuándo |
+|---|---|---|
+| Miércoles (noticia) | `li-01` | Siempre. Mismos slots que `po-13d` **menos `CIERRE`**: `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
+| Jueves (story) | `li-02` | Cuando el jueves es story (ciclo 1, 2, 3) — la story no existe en LinkedIn, así que LinkedIn recibe un claim institucional |
+| Jueves (carrusel) | — | El carrusel `cb-*` va tal cual a LinkedIn, sin re-render |
+| Viernes (gestión) | `li-02` o `li-03` | `li-03` si el mensaje gira sobre un dato/número; `li-02` si es un claim o beneficio |
+| Sábado (spotlight) | — | No va a LinkedIn |
+
+```bash
+node scripts/render.js \
+  --template li-01 \
+  --out posts/YYYY-MM-DD-N-li.png \
+  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
+```
+
+Nombrado: **mismo nombre que la vertical + sufijo `-li`** → `posts/YYYY-MM-DD-2-li.png`.
+
+Slots de los templates LinkedIn:
+- `li-01` (noticia): `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE`
+- `li-02` (claim institucional): `COPETE`, `CLAIM`, `SERVICIO_1..3`, `CTA`, `HANDLE`
+- `li-03` (dato clave): `CATEGORIA`, `NUMERO`, `UNIDAD`, `DESCRIPCION`, `FUENTE`, `HANDLE`
+
+⚠️ `li-03` lleva un **número**. Si el post es el de gestión PyME del viernes, aplica la regla dura: el número **no puede** ser un monto, alícuota o tope normativo. Solo sirve para cantidades atemporales (ej: "3 hábitos", "12 meses"). Si no hay un número legítimo, usar `li-02`.
+
+⚠️ Los `li-*` son **horizontales y más chicos**: el titular entra en menos líneas que en la vertical. Si `TITULAR` es largo, acortarlo para LinkedIn — no hace falta que sea idéntico al de Instagram.
 
 ⚠️ **VERIFICACIÓN VISUAL OBLIGATORIA — antes de crear cualquier draft**:
 
@@ -347,18 +509,43 @@ git push origin <branch>
 URL pública de cada imagen:
 ```
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
+https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N-li.png
 ```
+
+⚠️ Verificar que **las dos** versiones de cada post (vertical y `-li`) estén commiteadas y respondan 200 antes de crear los drafts. Si falta la `-li`, el draft de LinkedIn se crea sin imagen.
 
 > **Cache busting**: si se **actualiza** un PNG ya referenciado en un draft (ej: corregir márgenes), Metricool tiene cacheada la versión vieja en su CDN. Al llamar `updateScheduledPost`, agregar un query param a la URL (`...-N.png?v=2`) para forzar que Metricool re-descargue la imagen nueva. `raw.githubusercontent.com` ignora el query param y sirve el archivo igual.
 
-### 6. Crear los drafts en Metricool (4 por semana, 5 en semanas pares)
+### 6. Crear los drafts en Metricool (5-7 por semana — ver tabla abajo)
 
 Usar la MCP de Metricool: `createScheduledPost`.
 
-> **Recordatorios de red por post:**
-> - Posts 1, 2, 4 (noticias + tip viernes): `providers` con `instagram` **y** `linkedin`.
-> - Post 3 (jueves): si es **story `st-09`**, Instagram NO admite texto en stories → crear 2 posts separados (IG Story sin texto + LinkedIn con texto). Si es **carrusel**, IG + LinkedIn normal.
-> - Post 5 (sábado spotlight, solo semanas pares): `providers` con **solo `instagram`**.
+⚠️ **CONSECUENCIA DEL CAMBIO DE LINKEDIN — leer antes de crear drafts.**
+
+Instagram y LinkedIn ahora llevan **imágenes distintas** (vertical vs. horizontal). Un post de Metricool tiene un solo array `media` compartido por todos sus `providers`, así que **ya no se puede mandar un post a las dos redes a la vez**. Cada contenido que va a ambas se crea como **dos drafts separados**:
+
+- Draft A → `providers: [{"network": "instagram"}]`, `media` con la imagen **vertical**
+- Draft B → `providers: [{"network": "linkedin"}]`, `media` con la imagen **`-li` horizontal**
+
+Misma fecha y hora en los dos. El texto puede ser el mismo, salvo los hashtags (ver paso 7).
+
+**Única excepción**: el **carrusel del jueves** (ciclo 0) usa las mismas imágenes verticales en las dos redes → un solo draft con los dos `providers`.
+
+**Cuántos drafts crear por semana:**
+
+| Día | Drafts | Detalle |
+|---|---|---|
+| Miércoles (noticia) | **2** | IG vertical `po-13d` + LinkedIn `li-01` |
+| Jueves ciclo 0 (carrusel) | **1** | Un solo draft, IG + LinkedIn, mismas imágenes |
+| Jueves ciclo 1/2/3 (story) | **2** | IG Story (sin texto — Instagram no admite texto en stories) + LinkedIn `li-02` con texto |
+| Viernes (gestión) | **2** | IG vertical + LinkedIn `li-02`/`li-03` |
+| Sábado (semanas pares) | **1** | Solo Instagram |
+
+→ **Semana impar: 6 drafts** (3 posts × 2 redes). **Semana par con carrusel: 5 drafts.** **Semana par con story: 7 drafts.**
+
+En el reporte final al usuario, agrupar por día para que no parezca que se duplicaron los posts: aclarar que cada día tiene su versión de Instagram y su versión de LinkedIn.
+
+> **Recordatorio de stories**: en el draft de IG Story, `instagramData.type` va como `STORY` y el campo `text` queda **vacío** (Instagram no admite caption en stories). El texto va solo en el draft de LinkedIn.
 
 Para cada post:
 
@@ -411,7 +598,7 @@ Impacto: qué significa esto en la práctica para vos / tu PyME.
 
 📞 Consultanos: mdo-consultores.com.ar
 
-#MDOConsultores #Impuestos #Contabilidad #PyMEs #Argentina #AFIP #ARCA
+#MDOConsultores #Impuestos #Contabilidad #PyMEs #Argentina #ARCA
 ```
 
 Estructura para tip PyME:
@@ -437,6 +624,44 @@ Reglas de texto:
 - Sin emojis salvo el 📞 al CTA
 - Hashtags al final, máximo 8
 - Siempre incluir `#MDOConsultores`
+- ❌ **Nunca el hashtag `#AFIP`** — solo `#ARCA` (aplica la regla dura de arriba también a los hashtags)
+
+**Diferencias entre el texto de Instagram y el de LinkedIn** (son drafts separados, así que pueden diferir):
+
+| | Instagram | LinkedIn |
+|---|---|---|
+| Hashtags | hasta 8, al final | **máximo 3** — en LinkedIn más de 3 se ve spam |
+| Tono | directo, cercano | un punto más formal, sin perder el "vos" |
+| Largo | 600-1200 chars | puede ir más largo; LinkedIn premia el desarrollo |
+| Emojis | solo 📞 en el CTA | mejor ninguno |
+| Story de IG | `text` **vacío** (Instagram no admite caption en stories) | acá va el texto completo |
+
+### 8. Escribir el historial de plantillas (OBLIGATORIO)
+
+Una vez creados todos los drafts, **agregar una entrada al array `historial` de `posts/historial-plantillas.json` por cada post** (no por cada draft: el post del miércoles es una sola entrada aunque haya generado 2 drafts).
+
+```jsonc
+{
+  "fecha": "2026-08-05",        // fecha de publicación
+  "semana_iso": 32,             // date +%V de la corrida
+  "slot": "noticia",            // noticia | jueves | gestion | spotlight
+  "template": "po-13d",         // plantilla de Instagram
+  "linkedin": "li-01",          // plantilla de LinkedIn, o null
+  "nota": "Percepción IVA · régimen unificado"
+}
+```
+
+Después commitear el archivo junto con los PNGs:
+
+```bash
+git add posts/
+git commit -m "posts: rutina semanal $(date +%Y-%m-%d)"
+git push origin <branch>
+```
+
+⚠️ **Si este paso se saltea, la rutina de la semana que viene arranca sin memoria y vuelve a elegir las mismas plantillas.** Es el paso que sostiene toda la variedad: no omitirlo aunque los drafts ya estén creados.
+
+Para que el archivo no crezca sin control, si `historial` pasa de **60 entradas**, borrar las más viejas hasta dejar 60. Con 3-4 posts por semana, 60 entradas ≈ 4 meses de historia, muy por encima de la ventana de bloqueo de 4 semanas.
 
 ## Servicios de MDO Consultores (fuente: archivo web oficial)
 
@@ -472,20 +697,30 @@ Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, carga
 
 ## Tareas de cierre
 
-Cuando los 4 drafts estén creados:
+Cuando todos los drafts estén creados y el historial escrito:
 
 1. Reportar al usuario en chat (si la sesión es interactiva) o por log:
-   - Las noticias/contenidos elegidos para cada día (lunes, miércoles, jueves, viernes)
-   - URLs de las imágenes en GitHub
-   - `id` y `uuid` de los 4 drafts en Metricool
+   - **Aclarar primero que el lunes no se publica nada** — solo corrió la rutina.
+   - Los contenidos elegidos, **agrupados por día** (miércoles, jueves, viernes, y sábado si es semana par), indicando para cada uno **qué plantilla se usó y por qué se eligió** (qué había bloqueado el historial).
+   - URLs de las imágenes en GitHub (vertical y `-li` de cada post).
+   - `id` y `uuid` de cada draft en Metricool, agrupados por día y aclarando cuál es el de Instagram y cuál el de LinkedIn.
+   - Si el jueves fue **encuesta `st-10`**: recordarle que **el sticker de encuesta se agrega a mano en Instagram**.
    - Recordatorio: "Revisá los drafts en https://app.metricool.com/planner y aprobalos antes de que llegue cada fecha de publicación"
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
+
+### Chequeo final de variedad
+
+Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas anteriores del historial:
+
+- ¿Alguna plantilla se repite respecto de las últimas 4 semanas (fuera de la ancla `po-13d`/`po-13e`)? → **es un error**: volver a elegir y re-renderizar.
+- ¿Los posts de la semana se ven distintos entre sí en la grilla (modo de color, composición)? Si los 3-4 quedaron todos en navy o todos en papel, cambiar uno.
 
 ## Notas técnicas
 
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
-- **Templates disponibles**: ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo.
+- **Templates disponibles**: **59 en total**. Ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo con todos los slots. La rutina pone ~35 en rotación real; el resto son variantes cuadradas (excluidas a propósito del feed) o superadas por versiones nuevas.
+- **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.
