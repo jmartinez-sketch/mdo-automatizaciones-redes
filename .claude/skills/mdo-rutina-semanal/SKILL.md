@@ -388,7 +388,7 @@ En Metricool, el carrusel se crea como un único post con todas las imágenes en
 
 ### 3c. Generar spotlight de servicio del sábado (SOLO semanas pares)
 
-Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(date +%V) % 2 )) == 0`). En semanas impares, **omitir este paso** (la rutina genera 4 posts, no 5).
+Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(date +%V) % 2 )) == 0`). En semanas impares, **omitir este paso** (la rutina genera 3 posts, no 4).
 
 Objetivo: variar el formato del feed con un post **institucional de marca**, no de noticias ni de tips. Logo con presencia + un servicio + una sola línea de beneficio.
 
