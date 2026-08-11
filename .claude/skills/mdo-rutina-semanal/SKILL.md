@@ -71,6 +71,30 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 
 ### 0. Leer el historial de plantillas (SIEMPRE primero)
 
+⚠️ **Ojo con de dónde se lee.** Cada corrida semanal trabaja en su propia rama efímera (`claude/*`) que **no se mergea a `main`**. Por eso el historial más nuevo puede estar en `main` **o** en la rama de una corrida anterior. Buscar el más completo de los dos:
+
+```bash
+git fetch origin --prune -q
+
+# 1) el de main
+git show origin/main:posts/historial-plantillas.json 2>/dev/null > /tmp/hist-main.json
+
+# 2) el de la rama de la corrida más reciente que lo tenga
+for b in $(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin | head -12); do
+  if git cat-file -e "$b:posts/historial-plantillas.json" 2>/dev/null; then
+    git show "$b:posts/historial-plantillas.json" > /tmp/hist-branch.json
+    echo "historial encontrado en $b"
+    break
+  fi
+done
+```
+
+Quedarse con el que tenga **más entradas en `historial`** y usar ese como base. Copiarlo a `posts/historial-plantillas.json` en la rama de trabajo antes de seguir.
+
+Si ninguno de los dos existe o los dos están vacíos, no hay nada bloqueado: elegir libremente y crear el archivo en el paso 8.
+
+Después, leer las entradas:
+
 ```bash
 cat posts/historial-plantillas.json
 ```
@@ -651,13 +675,35 @@ Una vez creados todos los drafts, **agregar una entrada al array `historial` de 
 }
 ```
 
-Después commitear el archivo junto con los PNGs:
+Después commitear el archivo junto con los PNGs en la rama de trabajo:
 
 ```bash
 git add posts/
 git commit -m "posts: rutina semanal $(date +%Y-%m-%d)"
-git push origin <branch>
+git push -u origin <branch>
 ```
+
+#### ⚠️ Y ADEMÁS: llevar el historial a `main`
+
+**Esto es obligatorio y es distinto de lo anterior.** La rama de trabajo semanal nunca se mergea, así que un historial que quede solo ahí **se pierde**: la corrida siguiente arranca de `main`, encuentra el archivo viejo y la rotación de plantillas deja de funcionar — sin dar ningún error.
+
+Los PNGs pueden quedarse en la rama efímera (a Metricool le alcanza con que la URL responda al momento de crear el post, porque copia la imagen a su propio CDN). **El historial, no**: es el único archivo que tiene que sobrevivir a la corrida.
+
+```bash
+# commit de un solo archivo, directo sobre main
+git fetch origin main -q
+git checkout -B hist-sync origin/main
+cp posts/historial-plantillas.json /tmp/hist-nuevo.json   # el recién escrito
+git checkout origin/main -- . 2>/dev/null || true
+cp /tmp/hist-nuevo.json posts/historial-plantillas.json
+git add posts/historial-plantillas.json
+git commit -m "historial: plantillas usadas semana $(date +%V)"
+git push origin HEAD:main
+```
+
+Es un archivo con un solo escritor (esta rutina), así que no hay riesgo de conflicto.
+
+**Si el push a `main` falla** (permisos, protección de rama): **NO seguir como si nada.** Dejar el historial commiteado en la rama de trabajo y **avisarlo explícitamente en el reporte final**, con esta frase: *"No pude guardar el historial en main — la rotación de plantillas de la semana que viene puede repetir. Hay que mergear la rama a mano."* El paso 0 tiene un plan B que busca el historial en las ramas recientes, pero es más frágil que tenerlo en `main`.
 
 ⚠️ **Si este paso se saltea, la rutina de la semana que viene arranca sin memoria y vuelve a elegir las mismas plantillas.** Es el paso que sostiene toda la variedad: no omitirlo aunque los drafts ya estén creados.
 
