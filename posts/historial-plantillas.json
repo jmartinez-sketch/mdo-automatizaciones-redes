@@ -19,10 +19,10 @@
     "  linkedin   — id de la plantilla horizontal usada para LinkedIn (null si no fue a LinkedIn)",
     "  nota       — texto libre opcional (ángulo, servicio, tema)",
     "",
-    "Las entradas de las semanas 32 y 33 se reconstruyeron a mano el 11/08/2026 a partir",
-    "de los PNGs de las ramas de esas corridas, para que la rotación no arranque en blanco.",
-    "Los posts de lunes que figuran son del esquema anterior: desde la semana 34 el lunes",
-    "ya no publica."
+    "Las entradas de la semana 32 se reconstruyeron a mano el 11/08/2026 a partir de los PNGs",
+    "de la rama de esa corrida, para que la rotación no arrancara en blanco.",
+    "La semana 33 se rehízo el 11/08/2026 con el esquema nuevo (sin post de lunes): sus",
+    "entradas reemplazan a las de la corrida original del 10/08."
   ],
   "historial": [
     {
@@ -66,36 +66,28 @@
       "nota": "Laboral · Liquidación de Sueldos"
     },
     {
-      "fecha": "2026-08-10",
-      "semana_iso": 33,
-      "slot": "noticia",
-      "template": "po-13d",
-      "linkedin": null,
-      "nota": "Devolución saldos a favor IVA PyMEs · post de lunes (esquema anterior)"
-    },
-    {
       "fecha": "2026-08-12",
       "semana_iso": 33,
       "slot": "noticia",
-      "template": "po-13d",
-      "linkedin": null,
-      "nota": "Comercio · acuerdo salarial julio 2026"
+      "template": "po-13e",
+      "linkedin": "li-01",
+      "nota": "IVA · devolución de saldos a favor PyMEs · navy por alternancia (las 2 anteriores fueron po-13d)"
     },
     {
       "fecha": "2026-08-13",
       "semana_iso": 33,
       "slot": "jueves",
-      "template": "st-09",
-      "linkedin": null,
-      "nota": "Story CTA institucional"
+      "template": "st-10",
+      "linkedin": "li-02",
+      "nota": "Encuesta A/B · Societario · ciclo 33%4=1"
     },
     {
       "fecha": "2026-08-14",
       "semana_iso": 33,
       "slot": "gestion",
-      "template": "po-35",
-      "linkedin": null,
-      "nota": "Societario · 3 errores al armar tu sociedad"
+      "template": "po-31",
+      "linkedin": "li-03",
+      "nota": "Societario · explicador 3 pasos (po-34 y po-35 bloqueadas por historial)"
     }
   ]
 }
