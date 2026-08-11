@@ -144,7 +144,34 @@ texto, pie que ya no se parte en dos líneas, y el azul unificado con el de los 
 | ID | Uso | Slots |
 |---|---|---|
 | `po-13d` | Noticia 4:5 con marca de agua del iso y cierre anclado | `CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE` |
+| `po-13e` | **Misma que `po-13d`, en navy.** Existe para que dos noticias de la misma semana se distingan de un vistazo en la grilla | idénticos a `po-13d` |
 | `sq-12d` | Misma, cuadrada | `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
+
+> **`po-13e`** es `po-13d` con el modo de color invertido — misma composición, mismos 7 slots, mismos límites de texto. Para alternar solo hay que cambiar el id del template: el contenido no se toca.
+
+### Portrait 4:5 — pool del viernes, texto-driven (`templates-friday.jsx`)
+
+Diseñadas para el post de Gestión PyME del viernes, pero sirven para cualquier contenido propio del estudio.
+
+| ID | Uso | Slots |
+|---|---|---|
+| `po-21` | Pregunta hero (navy) — gancho en pregunta serif | `COPETE`, `PREGUNTA`, `RESPUESTA`, `CTA`, `HANDLE` |
+| `po-22` | Antes/Después (split papel→navy) | `COPETE`, `SIN_LABEL`, `SIN_TEXTO`, `CON_LABEL`, `CON_TEXTO`, `CTA`, `HANDLE` |
+| `po-23` | Declaración / manifiesto (papel) + firma | `COPETE`, `DECLARACION`, `APOYO`, `HANDLE` |
+| `po-24` | Checklist (blanco) — 3 ítems tildados | `COPETE`, `TITULO`, `ITEM_1..3`, `CTA`, `HANDLE` |
+| `po-25` | Foco / una sola idea (navy) minimal | `COPETE`, `IDEA`, `DETALLE`, `CTA`, `HANDLE` |
+
+### Portrait 4:5 — pool del viernes, icon-forward (`templates-friday-b.jsx`)
+
+Menos texto, más íconos SVG line-style. El set de íconos vive en el mismo archivo.
+
+| ID | Uso | Slots |
+|---|---|---|
+| `po-26` | 3 íconos en fila (papel) | `COPETE`, `TITULO`, `LABEL_1..3`, `CTA`, `HANDLE` |
+| `po-27` | Ícono grande central (navy) | `COPETE`, `TITULO`, `BAJADA`, `CTA`, `HANDLE` |
+| `po-28` | Proceso en 3 pasos con íconos (papel) — una línea por paso | `COPETE`, `TITULO`, `PASO_1..3`, `CTA`, `HANDLE` |
+| `po-29` | Ícono + frase (navy) | `COPETE`, `FRASE`, `CTA`, `HANDLE` |
+| `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | `COPETE`, `TITULO`, `LABEL_1..4`, `HANDLE` |
 
 ### Portrait 4:5 — contenido y marketing
 
@@ -213,6 +240,16 @@ templates-portrait.jsx    ← po-04, po-05, po-06
 templates-story.jsx       ← st-07, st-08, st-09
 templates-carousel.jsx    ← ca-* y cb-*
 templates-news.jsx        ← sq-12, po-13
+templates-noticia-v2.jsx  ← po-13d, po-13e, sq-12d
+templates-variants.jsx    ← variantes navy (sq-02b, po-13b, st-09b, …)
+templates-variants-light.jsx ← variantes light/minimal (sq-12c, po-13c, st-08c, …)
+templates-friday.jsx      ← po-21 a po-25
+templates-friday-b.jsx    ← po-26 a po-30 (+ set de íconos SVG line-style)
+templates-explicador.jsx  ← po-31, po-32, po-33
+templates-marketing.jsx   ← po-34, po-35, po-36
+templates-utilidad.jsx    ← po-37, st-10, li-03
+templates-linkedin.jsx    ← li-01, li-02
+tpl-utils.jsx             ← fitSize, SourceFooter, HandleFooter, TplHeader
 assets/logo-mdo*.png      ← logo en 4 variantes (con/sin texto, claro/oscuro)
 ```
 

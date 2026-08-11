@@ -1,0 +1,101 @@
+{
+  "_leeme": [
+    "Registro de qué plantilla usó cada post. La rutina semanal lo LEE al arrancar",
+    "(paso 0) para no repetir plantillas usadas en las últimas 4 semanas, y le AGREGA",
+    "una entrada por cada post al terminar (paso 8).",
+    "",
+    "IMPORTANTE — este archivo tiene que vivir en main. Cada corrida semanal trabaja en",
+    "una rama efímera que no se mergea, así que un historial que quede solo en esa rama",
+    "se pierde y la rotación deja de funcionar sin dar error. Ver paso 8 de la skill.",
+    "",
+    "Se puede editar a mano: por ejemplo, borrar una entrada para permitir que esa",
+    "plantilla vuelva a salir antes, o agregarla para bloquearla un tiempo.",
+    "",
+    "Campos de cada entrada:",
+    "  fecha      — fecha de publicación (YYYY-MM-DD)",
+    "  semana_iso — número de semana ISO en que corrió la rutina",
+    "  slot       — noticia | jueves | gestion | spotlight",
+    "  template   — id de la plantilla usada para Instagram",
+    "  linkedin   — id de la plantilla horizontal usada para LinkedIn (null si no fue a LinkedIn)",
+    "  nota       — texto libre opcional (ángulo, servicio, tema)",
+    "",
+    "Las entradas de las semanas 32 y 33 se reconstruyeron a mano el 11/08/2026 a partir",
+    "de los PNGs de las ramas de esas corridas, para que la rotación no arranque en blanco.",
+    "Los posts de lunes que figuran son del esquema anterior: desde la semana 34 el lunes",
+    "ya no publica."
+  ],
+  "historial": [
+    {
+      "fecha": "2026-08-03",
+      "semana_iso": 32,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Régimen Penal Tributario · post de lunes (esquema anterior)"
+    },
+    {
+      "fecha": "2026-08-05",
+      "semana_iso": 32,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "CABA rúbrica laboral"
+    },
+    {
+      "fecha": "2026-08-06",
+      "semana_iso": 32,
+      "slot": "jueves",
+      "template": "cb-cover+cb-tip1+cb-tip2+cb-tip3",
+      "linkedin": null,
+      "nota": "Carrusel de 4 slides"
+    },
+    {
+      "fecha": "2026-08-07",
+      "semana_iso": 32,
+      "slot": "gestion",
+      "template": "po-34",
+      "linkedin": null,
+      "nota": "Laboral · mito vs. realidad (contratar en blanco)"
+    },
+    {
+      "fecha": "2026-08-08",
+      "semana_iso": 32,
+      "slot": "spotlight",
+      "template": "po-16",
+      "linkedin": null,
+      "nota": "Laboral · Liquidación de Sueldos"
+    },
+    {
+      "fecha": "2026-08-10",
+      "semana_iso": 33,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Devolución saldos a favor IVA PyMEs · post de lunes (esquema anterior)"
+    },
+    {
+      "fecha": "2026-08-12",
+      "semana_iso": 33,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Comercio · acuerdo salarial julio 2026"
+    },
+    {
+      "fecha": "2026-08-13",
+      "semana_iso": 33,
+      "slot": "jueves",
+      "template": "st-09",
+      "linkedin": null,
+      "nota": "Story CTA institucional"
+    },
+    {
+      "fecha": "2026-08-14",
+      "semana_iso": 33,
+      "slot": "gestion",
+      "template": "po-35",
+      "linkedin": null,
+      "nota": "Societario · 3 errores al armar tu sociedad"
+    }
+  ]
+}

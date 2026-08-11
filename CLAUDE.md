@@ -22,6 +22,8 @@ Esto instala `node_modules` + Chromium (lleva ~30-60s la primera vez).
 
 **Trigger automático**: los lunes 9hs Argentina (12:00 UTC), configurado desde la interfaz web de Claude Code on the Web.
 
+⚠️ **El lunes la rutina corre pero NO publica nada.** El lunes solo lee el Gmail, arma el contenido y crea los drafts. Los posts salen **miércoles, jueves, viernes** (y sábado en semanas pares). Nunca crear un draft con fecha de lunes.
+
 **Trigger manual**: cualquiera de estos prompts dispara la skill `mdo-rutina-semanal`:
 
 - "Corré la rutina semanal MDO"
@@ -45,6 +47,9 @@ scripts/
   setup.sh              Instalación de deps + Chromium para sesiones frescas
 
 posts/                  PNGs generados por la rutina (commiteados a git → URL pública)
+  historial-plantillas.json   Memoria de qué plantilla se usó cada semana.
+                              La rutina lo lee para NO repetir plantillas de las
+                              últimas 4 semanas. Si se borra, la variedad se rompe.
 out/                    PNGs de prueba locales (en .gitignore)
 
 .claude/skills/
