@@ -120,11 +120,16 @@ Si el archivo no existe o `historial` está vacío (primera corrida), no hay nad
 
 ### 1. Leer Gmail
 
-Usar la MCP de Gmail. Query:
+Usar la MCP de Gmail. Query — **usar exactamente esta forma**, con el nombre del label entre comillas:
 ```
-label:mdo-automatizaciones-claude-newsletter newer_than:7d
+label:"MDO/AUTOMATIZACIONES/Claude/Newsletter" newer_than:7d
 ```
-(labelId alternativo: `Label_6047302680017632381`)
+
+⚠️ **Verificado el 11/08/2026**: la forma `label:Label_6047302680017632381` (el ID) y la forma en minúsculas con guiones (`label:mdo-automatizaciones-claude-newsletter`) **devuelven vacío** aunque el label existe y tiene mails. Solo funciona el nombre completo entre comillas. Si la búsqueda vuelve vacía, NO asumir que no hay newsletters: probar de nuevo con esta sintaxis antes de reportar Gmail vacío.
+
+⚠️ **Los mails de Errepar hay que leerlos en HTML.** Pedir `messageFormat: FULL_CONTENT` y leer `htmlBody`: el `plaintextBody` trae solo un stub del tipo "tu software de correo no puede desplegar correos en formato HTML" y **no contiene ninguna noticia**. Con `PLAIN_TEXT` pasa lo mismo. Cada novedad viene en un bloque con `pSeccion` (la categoría), `pTitulo` (el titular) y `pSumario` (el resumen).
+
+Ignorar los bloques que son publicidad de Errepar y no noticias: `CAPACITACIONES`, `ENTRENAMIENTOS`, `BENEFICIOS Y PROMOCIONES` y `CONTENIDO DESTACADO` cuando promociona un producto propio.
 
 Levantar todos los threads y leer el primer mensaje de cada uno (asunto + cuerpo).
 
@@ -162,12 +167,10 @@ Para cada noticia extraer (slots del template `po-13d` — Noticia vertical 4:5)
 
 Regla de alternancia de color (para que no se fosilice):
 
-```bash
-# Contar cuántas de las últimas 3 entradas slot="noticia" usaron po-13d
-```
-
 - Por defecto: **`po-13d`** (papel/blanco).
-- Si las **últimas 3 noticias** del historial fueron todas `po-13d` → usar **`po-13e`** (misma composición exacta, en navy). Anotarlo en el historial como `po-13e`.
+- Si las **últimas 2 noticias** del historial fueron `po-13d` → usar **`po-13e`** (misma composición exacta, en navy). Anotarlo en el historial como `po-13e`.
+
+> Este umbral era 3 y se bajó a 2 el 11/08/2026: con una sola noticia por semana, esperar 3 dejaba tres semanas seguidas de placas idénticas en la grilla, que es justo lo que la rotación tiene que evitar. Con 2 alterna cada dos semanas y el feed respira.
 - `po-13e` tiene **los mismos 7 slots** que `po-13d` (`CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE`) — no hay que cambiar nada del contenido, solo el id del template.
 
 **Cuándo salirse de la ancla** (opcional, solo si el contenido lo pide con claridad): si la noticia de la semana encaja mucho mejor en otra forma, usar una de éstas en lugar de `po-13d`. Ojo: son la excepción, no la norma — como máximo **una vez cada 4 semanas**.
