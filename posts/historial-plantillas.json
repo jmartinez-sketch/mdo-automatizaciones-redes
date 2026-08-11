@@ -70,8 +70,8 @@
       "semana_iso": 33,
       "slot": "noticia",
       "template": "po-13e",
-      "linkedin": "li-01",
-      "nota": "IVA · devolución de saldos a favor PyMEs · navy por alternancia (las 2 anteriores fueron po-13d)"
+      "linkedin": null,
+      "nota": "IVA · devolución de saldos a favor PyMEs · navy por alternancia (las 2 anteriores fueron po-13d) · un solo draft IG+LinkedIn, vertical compartida"
     },
     {
       "fecha": "2026-08-13",
@@ -86,8 +86,8 @@
       "semana_iso": 33,
       "slot": "gestion",
       "template": "po-31",
-      "linkedin": "li-03",
-      "nota": "Societario · explicador 3 pasos (po-34 y po-35 bloqueadas por historial)"
+      "linkedin": null,
+      "nota": "Societario · explicador 3 pasos (po-34 y po-35 bloqueadas por historial) · un solo draft IG+LinkedIn, vertical compartida"
     }
   ]
 }

@@ -1,7 +1,7 @@
 ---
 name: mdo-rutina-semanal
 model: opus
-description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes branded con los templates Claude Design (verticales para Instagram + horizontales li-* para LinkedIn) y crea los drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares) para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes branded con los templates Claude Design y crea 4 drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares), cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
@@ -21,16 +21,18 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ## Output esperado
 
-**3 drafts en semanas impares, 4 en semanas pares**, para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`):
+**4 drafts por semana** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
+
+**Cada draft lleva Instagram y LinkedIn juntos**, salvo el jueves de story — ver la regla dura del paso 6.
 
 `N` = el número que lleva el archivo PNG (ver paso 4). Va atado al día, no al orden: el `1` era el lunes y queda libre.
 
 | N | Día/Hora (ARG) | Tipo | Plantilla Instagram | Plantilla LinkedIn | Fuente |
 |---|---|---|---|---|---|
 | ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — |
-| 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | `li-01` | Gmail newsletter |
-| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` o carrusel | Noticias de la semana |
-| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | `li-02` / `li-03` | Generado por LLM |
+| 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | comparte la vertical | Gmail newsletter |
+| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` (solo si es story) | Noticias de la semana |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | comparte la vertical | Generado por LLM |
 | 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | pool de 6 | — (solo IG) | Generado por LLM |
 
 (*) **Jueves — ciclo de 4 semanas**, ver sección 3b. Ya NO es "par/impar": rota entre carrusel, encuesta, CTA y cita.
@@ -60,9 +62,11 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 
 - ❌ **NUNCA usar `sq-12` ni ningún template cuadrado (1080×1080) para el feed** — se recorta en la grilla.
 
-⚠️ **REGLA DURA — LinkedIn lleva su propia imagen horizontal.** LinkedIn muestra el feed en horizontal: una imagen vertical 4:5 se ve chica y con bandas grises a los costados. Por eso **cada post que va a LinkedIn se renderiza dos veces**: la vertical para Instagram y una horizontal `li-*` con el mismo contenido. ❌ Nunca mandar la vertical de Instagram a LinkedIn. Ver paso 4b.
+⚠️ **LinkedIn comparte la imagen vertical de Instagram.** LinkedIn muestra las verticales 4:5 sin romperlas — no están optimizadas para su feed, pero se ven bien. Como un post de Metricool tiene una sola imagen para todas sus redes, la alternativa era duplicar los drafts, y **el usuario la rechazó explícitamente** (ver la regla dura del paso 6). Así que:
 
-- **Excepción**: el carrusel `cb-*` (1080×1350) sí va tal cual a LinkedIn — LinkedIn soporta carruseles verticales sin recortarlos.
+- **Miércoles y viernes**: un solo draft con IG + LinkedIn, imagen vertical compartida. **No** renderizar `-li`.
+- **Jueves de story**: es el único día que necesita una horizontal `li-02`, porque LinkedIn no tiene stories y no hay forma de meterlas en el mismo post.
+- **Jueves de carrusel**: el carrusel `cb-*` va tal cual a las dos redes — LinkedIn soporta carruseles verticales sin recortarlos.
 - **Zona segura**: logo, titular y CTA lejos de los bordes superior e inferior (la grilla 3:4 le recorta ~12% arriba/abajo a un post 4:5). Los templates ya traen padding generoso; si se edita uno, no bajar de ese margen.
 - En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
 - (Opción cero-recorte: 3:4 → 1080×1440, pero requiere rediseñar la altura de los templates. El 4:5 es el estándar y ya está validado en producción.)
@@ -486,15 +490,17 @@ Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 
 ### 4b. Renderizar las imágenes de LinkedIn
 
-Los posts que van a LinkedIn necesitan **su propia imagen horizontal** (1200×628). Mismo contenido, otra plantilla:
+⚠️ **Solo hace falta UNA imagen horizontal por semana, y solo cuando el jueves es story.** El resto de los días comparten la vertical con Instagram (ver la regla del paso 6). No renderizar `-li` para el miércoles ni el viernes: esas imágenes quedarían sin usar.
 
 | Post | Template LinkedIn | Cuándo |
 |---|---|---|
-| Miércoles (noticia) | `li-01` | Siempre. Mismos slots que `po-13d` **menos `CIERRE`**: `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
-| Jueves (story) | `li-02` | Cuando el jueves es story (ciclo 1, 2, 3) — la story no existe en LinkedIn, así que LinkedIn recibe un claim institucional |
-| Jueves (carrusel) | — | El carrusel `cb-*` va tal cual a LinkedIn, sin re-render |
-| Viernes (gestión) | `li-02` o `li-03` | `li-03` si el mensaje gira sobre un dato/número; `li-02` si es un claim o beneficio |
+| Miércoles (noticia) | — | Comparte la vertical con Instagram |
+| Jueves (story) | **`li-02`** | **Único caso.** La story no existe en LinkedIn, así que LinkedIn recibe un claim institucional en horizontal |
+| Jueves (carrusel) | — | El carrusel `cb-*` va tal cual a LinkedIn |
+| Viernes (gestión) | — | Comparte la vertical con Instagram |
 | Sábado (spotlight) | — | No va a LinkedIn |
+
+Las tres plantillas horizontales siguen disponibles por si en alguna semana se justifica (`li-01` noticia, `li-02` claim, `li-03` dato), pero la rutina normal solo usa `li-02` los jueves de story.
 
 ```bash
 node scripts/render.js \
@@ -503,7 +509,7 @@ node scripts/render.js \
   --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
 ```
 
-Nombrado: **mismo nombre que la vertical + sufijo `-li`** → `posts/YYYY-MM-DD-2-li.png`.
+Nombrado: **mismo nombre que la vertical + sufijo `-li`** → `posts/YYYY-MM-DD-3-li.png` (el `3` es el jueves, el único día que la usa).
 
 Slots de los templates LinkedIn:
 - `li-01` (noticia): `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE`
@@ -536,43 +542,42 @@ git push origin <branch>
 URL pública de cada imagen:
 ```
 https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N.png
-https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-N-li.png
+https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/YYYY-MM-DD-3-li.png
 ```
 
-⚠️ Verificar que **las dos** versiones de cada post (vertical y `-li`) estén commiteadas y respondan 200 antes de crear los drafts. Si falta la `-li`, el draft de LinkedIn se crea sin imagen.
+⚠️ Verificar que **cada imagen que se va a referenciar** esté commiteada y responda 200 **antes** de crear los drafts. Normalmente son 3 o 4 verticales más la `-li` del jueves cuando toca story. Si una URL da 404, el draft se crea sin imagen.
 
 > **Cache busting**: si se **actualiza** un PNG ya referenciado en un draft (ej: corregir márgenes), Metricool tiene cacheada la versión vieja en su CDN. Al llamar `updateScheduledPost`, agregar un query param a la URL (`...-N.png?v=2`) para forzar que Metricool re-descargue la imagen nueva. `raw.githubusercontent.com` ignora el query param y sirve el archivo igual.
 
-### 6. Crear los drafts en Metricool (5-7 por semana — ver tabla abajo)
+### 6. Crear los drafts en Metricool (4 por semana, 5 si el jueves es story)
 
 Usar la MCP de Metricool: `createScheduledPost`.
 
-⚠️ **CONSECUENCIA DEL CAMBIO DE LINKEDIN — leer antes de crear drafts.**
+⚠️ **REGLA DURA — un draft por día, con las dos redes. NO duplicar.**
 
-Instagram y LinkedIn ahora llevan **imágenes distintas** (vertical vs. horizontal). Un post de Metricool tiene un solo array `media` compartido por todos sus `providers`, así que **ya no se puede mandar un post a las dos redes a la vez**. Cada contenido que va a ambas se crea como **dos drafts separados**:
+**Decisión del usuario (11/08/2026, no revisitar):** el miércoles y el viernes van en **un solo draft con `instagram` y `linkedin` juntos**, compartiendo la imagen vertical y el texto. Se probó una semana con drafts separados por red y el usuario lo rechazó: le duplicaba las tarjetas a revisar en el planificador y le parecían posts repetidos.
 
-- Draft A → `providers: [{"network": "instagram"}]`, `media` con la imagen **vertical**
-- Draft B → `providers: [{"network": "linkedin"}]`, `media` con la imagen **`-li` horizontal**
+Un post de Metricool tiene **un solo array `media` y un solo `text`** compartidos por todos sus `providers`. Eso significa que juntarlos tiene un costo aceptado: **LinkedIn recibe la vertical 4:5 y el mismo texto que Instagram**. Está bien — LinkedIn muestra las verticales sin romperlas, solo no están optimizadas.
 
-Misma fecha y hora en los dos. El texto puede ser el mismo, salvo los hashtags (ver paso 7).
-
-**Única excepción**: el **carrusel del jueves** (ciclo 0) usa las mismas imágenes verticales en las dos redes → un solo draft con los dos `providers`.
+**El jueves es la excepción obligatoria**, y no por elección: en Instagram es una **story** (9:16, sin caption) y LinkedIn no tiene stories, así que no hay forma de meterlas en el mismo post. Cuando el jueves toca **carrusel** (ciclo 0), sí va en un solo draft con las dos redes.
 
 **Cuántos drafts crear por semana:**
 
 | Día | Drafts | Detalle |
 |---|---|---|
-| Miércoles (noticia) | **2** | IG vertical `po-13d` + LinkedIn `li-01` |
-| Jueves ciclo 0 (carrusel) | **1** | Un solo draft, IG + LinkedIn, mismas imágenes |
-| Jueves ciclo 1/2/3 (story) | **2** | IG Story (sin texto — Instagram no admite texto en stories) + LinkedIn `li-02` con texto |
-| Viernes (gestión) | **2** | IG vertical + LinkedIn `li-02`/`li-03` |
+| Miércoles (noticia) | **1** | IG + LinkedIn, imagen vertical compartida |
+| Jueves ciclo 0 (carrusel) | **1** | IG + LinkedIn, mismos slides |
+| Jueves ciclo 1/2/3 (story) | **2** | IG Story (`text` vacío) + LinkedIn con texto e imagen `-li` |
+| Viernes (gestión) | **1** | IG + LinkedIn, imagen vertical compartida |
 | Sábado (semanas pares) | **1** | Solo Instagram |
 
-→ **Semana impar: 6 drafts** (3 posts × 2 redes). **Semana par con carrusel: 5 drafts.** **Semana par con story: 7 drafts.**
+→ **Semana impar: 4 drafts.** **Semana par con carrusel: 4.** **Semana par con story: 5.**
 
-En el reporte final al usuario, agrupar por día para que no parezca que se duplicaron los posts: aclarar que cada día tiene su versión de Instagram y su versión de LinkedIn.
+**Hashtags del texto compartido**: como el texto va a las dos redes, usar **5 hashtags** — suficiente para Instagram y no spammeado para LinkedIn. (La tabla de diferencias del paso 7 aplica solo al draft de LinkedIn del jueves, que sí tiene texto propio.)
 
-> **Recordatorio de stories**: en el draft de IG Story, `instagramData.type` va como `STORY` y el campo `text` queda **vacío** (Instagram no admite caption en stories). El texto va solo en el draft de LinkedIn.
+> **Recordatorio de stories**: en el draft de IG Story, `instagramData.type` va como `STORY` y el campo `text` queda **vacío** (Instagram no admite caption en stories). El texto va solo en el draft de LinkedIn de ese día.
+
+> ⚠️ **Metricool no tiene herramienta para borrar posts.** Si una corrida crea un draft de más, NO se puede eliminar desde acá: hay que avisarle al usuario cuál borrar a mano y pasarle el link (`plannerUrl` de la respuesta). Mejor no crearlo.
 
 Para cada post:
 
