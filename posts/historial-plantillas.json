@@ -88,6 +88,38 @@
       "template": "po-31",
       "linkedin": null,
       "nota": "Societario · explicador 3 pasos (po-34 y po-35 bloqueadas por historial) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-08-19",
+      "semana_iso": 34,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "ARCA · pago de Ganancias 2025 en dos etapas sin perder el Régimen Simplificado · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-08-20",
+      "semana_iso": 34,
+      "slot": "jueves",
+      "template": "st-09",
+      "linkedin": "li-02",
+      "nota": "CTA institucional (base, ni st-09 ni st-09b estaban en historial) · ciclo 34%4=2"
+    },
+    {
+      "fecha": "2026-08-21",
+      "semana_iso": 34,
+      "slot": "gestion",
+      "template": "po-24",
+      "linkedin": null,
+      "nota": "Auditoría · checklist autodiagnóstico (po-34 y po-31 bloqueadas por historial) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-08-22",
+      "semana_iso": 34,
+      "slot": "spotlight",
+      "template": "po-25",
+      "linkedin": null,
+      "nota": "Auditoría · foco/una idea (po-16 bloqueada por historial) · solo Instagram"
     }
   ]
 }
