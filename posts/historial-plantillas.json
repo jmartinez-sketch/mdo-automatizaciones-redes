@@ -22,7 +22,11 @@
     "Las entradas de la semana 32 se reconstruyeron a mano el 11/08/2026 a partir de los PNGs",
     "de la rama de esa corrida, para que la rotación no arrancara en blanco.",
     "La semana 33 se rehízo el 11/08/2026 con el esquema nuevo (sin post de lunes): sus",
-    "entradas reemplazan a las de la corrida original del 10/08."
+    "entradas reemplazan a las de la corrida original del 10/08.",
+    "",
+    "temas_previos: temas ya publicados (reconstruidos por OCR de las placas el 17/08/2026).",
+    "La rutina los lee junto con las notas del historial para NO repetir ningún tema",
+    "publicado en las últimas 13 semanas (3 meses). Ver la regla de contenido en la skill."
   ],
   "historial": [
     {
@@ -120,6 +124,188 @@
       "template": "po-25",
       "linkedin": null,
       "nota": "Auditoría · foco/una idea (po-16 bloqueada por historial) · solo Instagram"
+    }
+  ],
+  "temas_previos": [
+    {
+      "fecha": "2026-05-25",
+      "slot": "noticia",
+      "tema": "RIMI: reglamentan Régimen de Incentivo para Medianas Inversiones (RG 5849)"
+    },
+    {
+      "fecha": "2026-05-27",
+      "slot": "noticia",
+      "tema": "Fondos de Asistencia Laboral (Ley 27802): aportes de empleadores desde junio"
+    },
+    {
+      "fecha": "2026-05-29",
+      "slot": "gestion",
+      "tema": "Separá la cuenta personal de la de tu PyME"
+    },
+    {
+      "fecha": "2026-06-08",
+      "slot": "noticia",
+      "tema": "Nuevo modelo de recibo de sueldo digital (Decreto 407/2026)"
+    },
+    {
+      "fecha": "2026-06-10",
+      "slot": "noticia",
+      "tema": "Convenio Multilateral: ajuste en el 4to anticipo (CM03)"
+    },
+    {
+      "fecha": "2026-06-12",
+      "slot": "gestion",
+      "tema": "Organizá tu carpeta de personal"
+    },
+    {
+      "fecha": "2026-06-15",
+      "slot": "noticia",
+      "tema": "ARCA abre la Moratoria Laboral para empleadores"
+    },
+    {
+      "fecha": "2026-06-17",
+      "slot": "noticia",
+      "tema": "CABA/AGIP: mostrar alícuota IIBB en facturas a consumidores"
+    },
+    {
+      "fecha": "2026-06-19",
+      "slot": "jueves",
+      "tema": "Story CTA institucional: 'Ordená tu PyME con MDO'"
+    },
+    {
+      "fecha": "2026-06-20",
+      "slot": "gestion",
+      "tema": "Tu contabilidad no es solo para ARCA: decidir con números"
+    },
+    {
+      "fecha": "2026-06-22",
+      "slot": "noticia",
+      "tema": "ARCA: nuevas reglas de facturación desde julio (RG 5824)"
+    },
+    {
+      "fecha": "2026-06-24",
+      "slot": "noticia",
+      "tema": "Proyecto de nueva Ley General de Sociedades en el Senado"
+    },
+    {
+      "fecha": "2026-06-25",
+      "slot": "jueves",
+      "tema": "Carrusel: RG 5824 facturación, qué cambia en julio"
+    },
+    {
+      "fecha": "2026-06-26",
+      "slot": "gestion",
+      "tema": "Planificación impositiva: que los impuestos no te agarren de sorpresa"
+    },
+    {
+      "fecha": "2026-06-29",
+      "slot": "noticia",
+      "tema": "ARCA prorroga presentación de balances al 31/07 (RG 5871)"
+    },
+    {
+      "fecha": "2026-07-01",
+      "slot": "noticia",
+      "tema": "Cronograma escalonado de facturación julio 2026 - marzo 2027"
+    },
+    {
+      "fecha": "2026-07-02",
+      "slot": "jueves",
+      "tema": "Story CTA: 'Liquidá sueldos sin estrés'"
+    },
+    {
+      "fecha": "2026-07-03",
+      "slot": "gestion",
+      "tema": "Antes/después: liquidación de sueldos con y sin asesoramiento"
+    },
+    {
+      "fecha": "2026-07-06",
+      "slot": "noticia",
+      "tema": "IGJ: balances 100% digital"
+    },
+    {
+      "fecha": "2026-07-08",
+      "slot": "noticia",
+      "tema": "ARCA extiende plazo de balances al 31/07 (⚠️ repetida de la del 29/06)"
+    },
+    {
+      "fecha": "2026-07-09",
+      "slot": "jueves",
+      "tema": "Carrusel: estados contables digitales ante IGJ (⚠️ mismo tema que 06/07)"
+    },
+    {
+      "fecha": "2026-07-10",
+      "slot": "gestion",
+      "tema": "Antes/después societario: socios sin roles claros"
+    },
+    {
+      "fecha": "2026-07-11",
+      "slot": "spotlight",
+      "tema": "Asesoramiento Societario"
+    },
+    {
+      "fecha": "2026-07-13",
+      "slot": "noticia",
+      "tema": "Monotributo: recategorización semestral hasta el 05/08"
+    },
+    {
+      "fecha": "2026-07-15",
+      "slot": "noticia",
+      "tema": "IGJ estrena sistema SODA para balances (⚠️ 3ra vez IGJ digital)"
+    },
+    {
+      "fecha": "2026-07-16",
+      "slot": "jueves",
+      "tema": "Story CTA: 'Ordená tu PyME con MDO' (⚠️ repetida del 19/06)"
+    },
+    {
+      "fecha": "2026-07-17",
+      "slot": "gestion",
+      "tema": "¿Tu PyME necesita una auditoría? Señales"
+    },
+    {
+      "fecha": "2026-07-20",
+      "slot": "noticia",
+      "tema": "IGJ: domicilio electrónico obligatorio (RG 10/2026)"
+    },
+    {
+      "fecha": "2026-07-22",
+      "slot": "noticia",
+      "tema": "Exportación por correo sin tope de valor (Decreto 604/2026)"
+    },
+    {
+      "fecha": "2026-07-23",
+      "slot": "jueves",
+      "tema": "Carrusel: notificaciones digitales IGJ obligatorias"
+    },
+    {
+      "fecha": "2026-07-24",
+      "slot": "gestion",
+      "tema": "¿El banco dice una cosa y el balance otra? Conciliación"
+    },
+    {
+      "fecha": "2026-07-25",
+      "slot": "spotlight",
+      "tema": "Contabilidad para PyMEs"
+    },
+    {
+      "fecha": "2026-07-27",
+      "slot": "noticia",
+      "tema": "Aportes sindicales: qué conceptos salariales se excluyen de la base"
+    },
+    {
+      "fecha": "2026-07-29",
+      "slot": "noticia",
+      "tema": "ARCA: informar socios, directores y beneficiario final"
+    },
+    {
+      "fecha": "2026-07-30",
+      "slot": "jueves",
+      "tema": "Story CTA: 'Ordená tu PyME con MDO' (⚠️ 3ra vez)"
+    },
+    {
+      "fecha": "2026-07-31",
+      "slot": "gestion",
+      "tema": "Antes/después: planificación tributaria"
     }
   ]
 }

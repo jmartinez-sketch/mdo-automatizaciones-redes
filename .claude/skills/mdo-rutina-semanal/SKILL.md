@@ -41,6 +41,24 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 (***) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
 
+### ⚠️ Regla dura — NO repetir contenido de los últimos 3 meses
+
+Además de las plantillas (regla siguiente), **el CONTENIDO no se repite**. Antes de elegir la noticia, el ángulo del jueves, el tip del viernes o el spotlight:
+
+1. Leer las **notas** de TODAS las entradas de `historial` y la lista `temas_previos` de `posts/historial-plantillas.json`.
+2. Todo tema publicado en las **últimas 13 semanas (3 meses)** queda **descartado**: mismo hecho normativo, mismo organismo+tema, mismo consejo o el mismo texto de CTA. No alcanza con redactarlo distinto — si un seguidor diría "esto ya lo vi", está repetido.
+3. Si la noticia más fuerte del newsletter ya se publicó (ej: una prórroga que vuelve a salir en los medios), elegir la siguiente. Si TODAS las candidatas están repetidas, profundizar un ángulo nuevo de una (qué cambió desde entonces) y decirlo explícitamente en la placa ("Actualización").
+4. En el reporte final, indicar para cada post qué se descartó por repetido, si hubo.
+
+Esto no es teórico — pasó de verdad (auditoría del 17/08/2026 sobre 3 meses de placas):
+- La prórroga de balances de ARCA salió **2 veces** (29/06 y 08/07).
+- IGJ digital salió **3 veces** (06/07, carrusel del 09/07 y 15/07).
+- La story CTA "Ordená tu PyME con MDO" salió **4 veces con el mismo texto** (19/06, 16/07, 30/07 y 20/08) — la última el usuario la borró del planificador porque ya la había visto demasiado.
+
+**Para que esta regla funcione mañana**: la `nota` de cada entrada nueva del historial (paso 8) DEBE describir el tema con precisión ("Moratoria Laboral ARCA empleadores"), no en genérico ("noticia impositiva").
+
+⚠️ En las **stories CTA** (`st-09`/`st-09b`) la regla aplica al TEXTO: los titulares y la bajada deben ser distintos de los de las últimas 13 semanas. La plantilla puede repetirse (el ciclo la trae cada 4 semanas), las palabras no.
+
 ### ⚠️ Regla dura — variedad de plantillas
 
 La rutina tiene **58 plantillas disponibles** y el riesgo real es caer siempre en las mismas 5-6. Por eso:
@@ -608,6 +626,7 @@ Para cada post:
 ```
 
 Notas:
+- ⚠️ **REGLA DURA — `draft: true` y `autoPublish: false` van SIEMPRE, explícitos, en cada draft.** Los defaults de la API de Metricool son **los contrarios** (`draft: false`, `autoPublish: true`): si se omiten, el post queda programado para **publicarse solo, sin aprobación del usuario**. Pasó el 17/08/2026 — la corrida los omitió y los 4 posts de la semana quedaron con publicación automática; hubo que corregirlos a mano. Nunca confiar en los defaults.
 - `draft: true` deja el post como borrador → el usuario lo aprueba a mano desde Metricool antes de que salga
 - `autoPublish: false` es red de seguridad extra (no publica solo aunque la fecha llegue)
 - Metricool descarga la imagen del repo y la copia a su CDN al crear el post, así que aunque el repo se vuelva privado después, la imagen ya queda hospedada por Metricool
@@ -715,7 +734,7 @@ Es un archivo con un solo escritor (esta rutina), así que no hay riesgo de conf
 
 ⚠️ **Si este paso se saltea, la rutina de la semana que viene arranca sin memoria y vuelve a elegir las mismas plantillas.** Es el paso que sostiene toda la variedad: no omitirlo aunque los drafts ya estén creados.
 
-Para que el archivo no crezca sin control, si `historial` pasa de **60 entradas**, borrar las más viejas hasta dejar 60. Con 3-4 posts por semana, 60 entradas ≈ 4 meses de historia, muy por encima de la ventana de bloqueo de 4 semanas.
+Para que el archivo no crezca sin control, si `historial` pasa de **80 entradas**, borrar las más viejas hasta dejar 80 — pero **nunca borrar entradas de menos de 14 semanas**, porque la regla de contenido necesita 13 semanas de memoria. Lo mismo para `temas_previos`: se pueden podar las entradas de más de 14 semanas (el historial nuevo ya las cubre con sus notas).
 
 ## Servicios de MDO Consultores (fuente: archivo web oficial)
 
@@ -748,6 +767,16 @@ Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, carga
 - Laboral: "Liquidamos los sueldos de tu empresa. Consultanos."
 - Societario: "Te ayudamos a constituir tu sociedad. Consultanos."
 - Precios de Transferencia: solo relevante para empresas con operaciones entre vinculadas — no usar en posts genéricos de PyME.
+
+### 9. Verificación final en Metricool (OBLIGATORIA)
+
+Después de crear todo, llamar a `getScheduledPosts` con el rango de la semana (miércoles a sábado) y verificar contra la tabla del paso 6:
+
+1. **Están todos los drafts esperados.** El 17/08/2026 la corrida escribió el historial pero el draft del viernes nunca llegó a Metricool y nadie lo notó — por eso existe este paso. Si falta uno, crearlo ahí mismo.
+2. **Cada uno tiene `"draft": true` y `"autoPublish": false`** en la respuesta. Si alguno vino con otros valores, corregirlo con `updateScheduledPost` antes de terminar.
+3. **Ninguno tiene fecha de lunes.**
+
+No dar la rutina por terminada sin este chequeo: es la única forma de detectar un draft perdido o un flag mal puesto antes de que el usuario se entere por Instagram.
 
 ## Tareas de cierre
 
