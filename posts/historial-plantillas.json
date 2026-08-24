@@ -124,6 +124,30 @@
       "template": "po-25",
       "linkedin": null,
       "nota": "Auditoría · foco/una idea (po-16 bloqueada por historial) · solo Instagram"
+    },
+    {
+      "fecha": "2026-08-26",
+      "semana_iso": 35,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Inocencia Fiscal II · dictamen de mayoría en Diputados, reduce sanciones para PyMEs y personas humanas · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-08-27",
+      "semana_iso": 35,
+      "slot": "jueves",
+      "template": "st-08c",
+      "linkedin": "li-02",
+      "nota": "Story cita institucional sobre valor de la contabilidad ordenada (st-08 base descartado: bug de superposición del quote-mark con el isologo) · ciclo 35%4=3"
+    },
+    {
+      "fecha": "2026-08-28",
+      "semana_iso": 35,
+      "slot": "gestion",
+      "template": "po-22",
+      "linkedin": null,
+      "nota": "Contabilidad · antes/después (cerrar el mes a ciegas vs. saber el resultado a tiempo) · (po-34, po-31 y po-24 bloqueadas por historial) · un solo draft IG+LinkedIn, vertical compartida"
     }
   ],
   "temas_previos": [
@@ -306,6 +330,21 @@
       "fecha": "2026-07-31",
       "slot": "gestion",
       "tema": "Antes/después: planificación tributaria"
+    },
+    {
+      "fecha": "2026-08-26",
+      "slot": "noticia",
+      "tema": "Inocencia Fiscal II: dictamen para reducir sanciones a PyMEs y personas humanas"
+    },
+    {
+      "fecha": "2026-08-27",
+      "slot": "jueves",
+      "tema": "Story cita: la contabilidad ordenada como información para decidir a tiempo"
+    },
+    {
+      "fecha": "2026-08-28",
+      "slot": "gestion",
+      "tema": "Antes/después contable: cerrar el mes a ciegas vs. saber el resultado a tiempo"
     }
   ]
 }
