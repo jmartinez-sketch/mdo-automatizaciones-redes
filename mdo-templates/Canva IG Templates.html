@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600&family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <meta charset="utf-8" />
 <title>MDO Consultores · IG Templates</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     /* MDO brand palette — extracted from logo + email template */
@@ -39,7 +39,7 @@
   }
 
   html, body { margin: 0; padding: 0; background: #f0eee9; }
-  body { font-family: 'Montserrat', system-ui, sans-serif; color: var(--ink); }
+  body { font-family: var(--font-body); color: var(--ink); }
 
   /* ─── Template primitives ─── */
   .tpl {
@@ -49,7 +49,7 @@
     overflow: hidden;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Montserrat', system-ui, sans-serif;
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
   .tpl.navy   { background: var(--navy); color: var(--paper); }
@@ -60,7 +60,7 @@
 
   /* ─── Type ─── */
   .eyebrow {
-    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-family: var(--font-accent);
     font-size: 10px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -70,7 +70,7 @@
   .tpl.navy .eyebrow, .tpl.navy-deep .eyebrow { color: var(--blue-lt); }
 
   .display {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -79,7 +79,7 @@
   .tpl.navy .display, .tpl.navy-deep .display { color: var(--paper); }
 
   .display-serif {
-    font-family: 'Instrument Serif', 'Times New Roman', serif;
+    font-family: var(--font-accent);
     font-weight: 400;
     line-height: 1.0;
     letter-spacing: -0.012em;
@@ -87,7 +87,7 @@
   .display-serif em { font-style: italic; }
 
   .lede {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     line-height: 1.45;
     color: var(--ink-70);
@@ -95,13 +95,13 @@
   .tpl.navy .lede, .tpl.navy-deep .lede { color: rgba(247,249,252,0.82); }
 
   .mono {
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-accent);
     font-size: 11px; letter-spacing: 0.04em;
     color: var(--ink-55);
   }
 
   .number-xl {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
     font-weight: 300;
     letter-spacing: -0.04em;
     line-height: 0.85;
@@ -137,7 +137,7 @@
   }
   .slot-cap {
     position: absolute; left: 12px; bottom: 10px;
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-accent);
     font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
   }
 
@@ -147,7 +147,7 @@
   }
   .lockup img.iso { display: block; height: 28px; width: auto; }
   .lockup .wm {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -169,7 +169,7 @@
   /* Footer row used on most templates */
   .footer-row {
     display: flex; justify-content: space-between; align-items: end;
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-accent);
     font-size: 10px; letter-spacing: 0.08em;
     color: var(--ink-55);
   }
@@ -181,7 +181,7 @@
     padding: 4px 10px;
     border: 1px solid var(--hair-2);
     border-radius: 999px;
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-accent);
     font-size: 9.5px; letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--navy);
@@ -198,7 +198,7 @@
 
   /* Numeric step (for tip lists) */
   .step-num {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-accent);
     font-style: italic;
     font-size: 36px;
     color: var(--blue-mid);
@@ -206,7 +206,7 @@
   }
 
   .asterisk {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-accent);
     font-style: italic;
     color: var(--blue-mid);
     line-height: 0.7;
@@ -214,7 +214,7 @@
 
   /* Page index for carousels */
   .pgindex {
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-accent);
     font-size: 10px; letter-spacing: 0.16em;
     color: var(--ink-55);
     display: inline-flex; align-items: center; gap: 6px;
@@ -238,7 +238,7 @@
 
   /* Big quote mark */
   .quote-mark {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-accent);
     font-style: italic;
     font-weight: 400;
     line-height: 0.7;
@@ -261,6 +261,7 @@
 <script type="text/babel" src="templates-news.jsx"></script>
 <script type="text/babel" src="templates-variants.jsx"></script>
 <script type="text/babel" src="templates-variants-light.jsx"></script>
+<script type="text/babel" src="templates-manual.jsx"></script>
 <script type="text/babel" src="app.jsx"></script>
 
 </body>

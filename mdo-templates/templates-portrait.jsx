@@ -1,17 +1,21 @@
-// templates-portrait.jsx — 4 plantillas portrait (4:5) para MDO. CORREGIDO.
-// Artboard 540×675 (IG = 1080×1350).
+// templates-portrait.jsx — placas 4:5, MARCA v2.0 (Manual de Marca 2026).
+// Va al repo como mdo-templates/templates-portrait.jsx (reemplaza el actual).
 //
-// Correcciones respecto de la versión anterior (mismos IDs y slots):
-//   · po-04: el título ya no depende de un \n manual (whiteSpace pre-line se
-//     mantiene por compatibilidad, pero el cuerpo se ajusta solo con fitSize);
-//     los bullets se centran en su bloque en vez de quedar arriba con vacío
-//     abajo; el pie dice el sitio, como el resto de las placas.
-//   · po-05 / po-16: los titulares serif (68px y 64px fijos) desbordaban con
-//     nombres largos — ahora se ajustan al largo del texto.
-//   · po-06: los tags dejaron de empujar el pie con un flex:1 fantasma.
-// Requiere brand.jsx + tpl-utils.jsx cargados ANTES de este archivo.
+// Base 540×675 → 1080×1350. Regla: ARCA, nunca AFIP.
+// Requiere brand.jsx + tpl-utils.jsx + mdo-brand.css v2.0 cargados ANTES.
+//
+// QUÉ CAMBIÓ — mismos IDs y mismos slots:
+//   Montserrat → var(--font-body) · Instrument Serif italic → var(--font-accent)
+//   oblicua · Geist Mono → var(--font-accent) versalitas · hex → variables.
+//   El lockup no baja de 40 (base 540).
+//
+// MÁRGENES MÍNIMOS — son reglas de negocio, no gusto: Instagram recorta los
+// bordes en la grilla del perfil. po-04 mínimo 68, po-16 mínimo 64. Se
+// mantienen o suben, NUNCA bajan.
+//
+// Las del viernes (po-21 a po-25) están en templates-friday.jsx, igual que antes.
 
-// ── po-04 · Guía rápida / Servicio ──────────────────────────────────
+// ── po-04 · Guía rápida / Servicio (blanco) ─────────────────────────
 // Slots: COPETE, TITULO, BAJADA, BULLET_1..4, CTA, HANDLE
 function PoServicio(props) {
   const p = Object.assign({
@@ -25,30 +29,26 @@ function PoServicio(props) {
   const bSize = fitSize(p.bajada, [[70, 16], [110, 14.5]], 13.5);
 
   return (
-    <div className="tpl" style={{ padding: 68, display: 'flex', flexDirection: 'column',
-      background: 'var(--paper-warm)' }}>
-      <TplHeader chip={p.copete} size={26} />
+    <div className="tpl white" style={{ padding: 68, display: 'flex', flexDirection: 'column' }}>
+      <TplHeader chip={p.copete} size={40} />
 
       <div style={{ marginTop: 28 }}>
-        <div className="display" style={{ fontSize: tSize, fontWeight: 600, color: 'var(--navy)',
-          whiteSpace: 'pre-line', lineHeight: 1.06 }}>
-          {p.titulo}
-        </div>
+        <div className="display" style={{ fontSize: tSize, fontWeight: 700, lineHeight: 1.06,
+          whiteSpace: 'pre-line' }}>{p.titulo}</div>
         <div className="lede" style={{ marginTop: 14, fontSize: bSize, maxWidth: '90%' }}>{p.bajada}</div>
       </div>
 
       <div className="hair-navy" style={{ width: 56, marginTop: 24 }}></div>
 
-      {/* Los bullets se centran en el espacio disponible: sin vacío abajo */}
+      {/* Los bullets se centran: sin vacío abajo cuando hay menos de 4 */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         gap: 13 }}>
         {bullets.map((b, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'var(--blue-mid)',
-              minWidth: 22, fontWeight: 500, letterSpacing: '0.04em', flexShrink: 0 }}>
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, color: 'var(--ink)',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11,
+              letterSpacing: '0.04em', color: 'var(--blue-mid)', minWidth: 22,
+              flexShrink: 0 }}>{String(i + 1).padStart(2, '0')}</span>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--ink)',
               lineHeight: 1.4 }}>{b}</span>
           </div>
         ))}
@@ -56,17 +56,18 @@ function PoServicio(props) {
 
       <div style={{ padding: '14px 18px', background: 'var(--navy)', color: 'var(--paper)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 600 }}>{p.cta}</span>
-        <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700 }}>{p.cta}</span>
+        <span style={{ color: 'var(--grey)', flexShrink: 0 }}>→</span>
       </div>
       <HandleFooter handle={p.handle} />
     </div>
   );
 }
 
-// ── po-05 · Anuncio institucional ───────────────────────────────────
+// ── po-05 · Anuncio institucional (navy) ────────────────────────────
+// La grilla de rótulo/valor es de dos columnas fijas (104px).
 // Slots: COPETE, TITULO, SUBTITULO, TEMA, BLOQUE_1..3, FECHA_HORA, HANDLE
-function PoAltaCliente(props) {
+function PoAnuncio(props) {
   const p = Object.assign({
     copete: '[COPETE]', titulo: '[TITULO]', subtitulo: '[SUBTITULO]', tema: '[TEMA]',
     bloque_1: '[BLOQUE_1]', bloque_2: '[BLOQUE_2]', bloque_3: '[BLOQUE_3]',
@@ -75,11 +76,8 @@ function PoAltaCliente(props) {
 
   const bloques = [p.bloque_1, p.bloque_2, p.bloque_3].filter(Boolean);
   const tSize = fitSize(p.titulo, [[16, 66], [28, 52], [42, 42]], 34);
-
-  const rowLabel = {
-    color: 'rgba(247,249,252,0.55)', fontFamily: 'Geist Mono, monospace', fontSize: 10.5,
-    letterSpacing: '0.1em', textTransform: 'uppercase',
-  };
+  const rowLabel = { fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5,
+    letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-40)' };
 
   return (
     <div className="tpl navy" style={{ padding: 44, display: 'flex', flexDirection: 'column',
@@ -88,35 +86,29 @@ function PoAltaCliente(props) {
         style={{ position: 'absolute', right: -100, bottom: -60 }} />
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <TplHeader chip={p.copete} mode="light" size={26} />
+        <TplHeader chip={p.copete} mode="light" size={40} />
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         position: 'relative', zIndex: 1 }}>
-        <div className="eyebrow" style={{ marginBottom: 20 }}>Anuncio</div>
+        <span className="eyebrow" style={{ marginBottom: 20 }}>Anuncio</span>
 
         <div className="display-serif" style={{ fontSize: tSize, color: 'var(--paper)',
-          lineHeight: 1.0 }}>
-          <em>{p.titulo}</em>
-        </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 13, letterSpacing: '0.18em',
-          color: 'rgba(247,249,252,0.55)', marginTop: 10, textTransform: 'uppercase' }}>
-          {p.subtitulo}
-        </div>
+          lineHeight: 1.0 }}><em>{p.titulo}</em></div>
+        <div style={{ marginTop: 10, fontFamily: 'var(--font-accent)', fontWeight: 700,
+          fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase',
+          color: 'var(--ink-40)' }}>{p.subtitulo}</div>
 
-        <div className="hair" style={{ background: 'rgba(247,249,252,0.20)', marginTop: 24,
-          marginBottom: 20, width: '60%' }}></div>
+        <div className="hair" style={{ marginTop: 24, marginBottom: 20, width: '60%' }}></div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '104px 1fr', rowGap: 12, columnGap: 16,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: 'var(--paper)',
+          fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--paper)',
           alignItems: 'start' }}>
           <div style={rowLabel}>Tema</div>
           <div>{p.tema}</div>
           <div style={rowLabel}>Bloques</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            {bloques.map((b, i) => (
-              <span key={i} className="chip" style={{ fontSize: 9.5 }}>{b}</span>
-            ))}
+            {bloques.map((b, i) => <span key={i} className="chip" style={{ fontSize: 9.5 }}>{b}</span>)}
           </div>
           <div style={rowLabel}>Cuándo</div>
           <div>{p.fecha_hora}</div>
@@ -130,7 +122,9 @@ function PoAltaCliente(props) {
   );
 }
 
-// ── po-06 · Voz experta / Equipo ────────────────────────────────────
+// ── po-06 · Voz experta / Equipo (blanco) ───────────────────────────
+// La única con foto en el bloque superior (320px). La bio se estira y los
+// tags quedan pegados al pie.
 // Slots: COPETE, NOMBRE, ROL, BIO, TAG_1..4, FOTO_CAPTION, HANDLE
 function PoEquipo(props) {
   const p = Object.assign({
@@ -144,55 +138,48 @@ function PoEquipo(props) {
   const bioSize = fitSize(p.bio, [[130, 14.5], [190, 13.5]], 12.5);
 
   return (
-    <div className="tpl" style={{ padding: 0, display: 'flex', flexDirection: 'column',
-      background: 'var(--paper-warm)' }}>
-      <div style={{ height: 320, position: 'relative' }}>
-        <div className="slot" style={{ position: 'absolute', inset: 0, borderLeft: 'none',
-          borderRight: 'none', borderTop: 'none' }}>
-          <div style={{ position: 'absolute', right: 12, top: 12, fontFamily: 'Geist Mono, monospace',
-            fontSize: 10, letterSpacing: '0.06em', textTransform: 'uppercase',
-            color: 'var(--ink-55)' }}>{p.foto_caption}</div>
-        </div>
+    <div className="tpl white" style={{ padding: 0, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ height: 320, position: 'relative', flexShrink: 0 }}>
+        <div className="slot" style={{ width: '100%', height: '100%', border: 'none' }}></div>
+        <span className="slot-cap" style={{ left: 'auto', right: 12, top: 12, bottom: 'auto' }}>
+          {p.foto_caption}
+        </span>
+        <div style={{ position: 'absolute', left: 36, top: 24 }}><Lockup size={40} /></div>
         <div style={{ position: 'absolute', left: 36, bottom: 18 }}>
           <span className="chip solid">{p.copete}</span>
         </div>
-        <div style={{ position: 'absolute', left: 36, top: 24 }}>
-          <Lockup size={24} />
-        </div>
       </div>
 
-      <div style={{ flex: 1, padding: '26px 40px 28px', display: 'flex', flexDirection: 'column' }}>
-        <div className="display-serif" style={{ fontSize: nSize, color: 'var(--navy-ink)',
-          marginBottom: 6, lineHeight: 1.02 }}>
-          <em>{p.nombre}</em>
-        </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.18em',
-          color: 'var(--blue-mid)', textTransform: 'uppercase', fontWeight: 500 }}>
-          {p.rol}
-        </div>
+      <div style={{ flex: 1, padding: '26px 40px 28px', display: 'flex', flexDirection: 'column',
+        minHeight: 0 }}>
+        <div className="display-serif" style={{ fontSize: nSize, color: 'var(--navy)',
+          lineHeight: 1.02 }}><em>{p.nombre}</em></div>
+        <div style={{ marginTop: 6, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11,
+          letterSpacing: '0.18em', textTransform: 'uppercase',
+          color: 'var(--blue-mid)' }}>{p.rol}</div>
 
         <div className="hair" style={{ marginTop: 16, marginBottom: 14, width: '40%' }}></div>
 
-        {/* La bio ocupa el espacio libre; los tags quedan pegados al pie */}
         <div className="lede" style={{ flex: 1, fontSize: bioSize }}>{p.bio}</div>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 14 }}>
           {tags.map((a, i) => (
-            <span key={i} style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10,
-              letterSpacing: '0.1em', padding: '4px 8px', border: '1px solid var(--hair-2)',
-              textTransform: 'uppercase', color: 'var(--navy)', whiteSpace: 'nowrap' }}>{a}</span>
+            <span key={i} style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10,
+              letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 8px',
+              border: '1px solid var(--hair-2)', color: 'var(--navy)',
+              whiteSpace: 'nowrap' }}>{a}</span>
           ))}
         </div>
-
         <HandleFooter handle={p.handle} />
       </div>
     </div>
   );
 }
 
-// ── po-16 · Spotlight de servicio (marca) ───────────────────────────
+// ── po-16 · Spotlight de servicio (navy) ────────────────────────────
+// Margen mínimo 64. Es la placa de marca: navy, título grande y nada más.
 // Slots: COPETE, TITULO, BAJADA, HANDLE
-function PoServicioSpotlight(props) {
+function PoSpotlight(props) {
   const p = Object.assign({
     copete: '[COPETE]', titulo: '[TITULO]', bajada: '[BAJADA]', handle: '[HANDLE]',
   }, props);
@@ -207,19 +194,15 @@ function PoServicioSpotlight(props) {
         style={{ position: 'absolute', right: -120, bottom: -80 }} />
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <TplHeader chip={p.copete} mode="light" size={26} />
+        <TplHeader chip={p.copete} mode="light" size={40} />
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         position: 'relative', zIndex: 1 }}>
         <div className="display-serif" style={{ fontSize: tSize, color: 'var(--paper)',
-          lineHeight: 1.02 }}>
-          <em>{p.titulo}</em>
-        </div>
-        <div className="lede" style={{ marginTop: 22, fontSize: bSize,
-          color: 'rgba(247,249,252,0.78)', maxWidth: '86%', lineHeight: 1.45 }}>
-          {p.bajada}
-        </div>
+          lineHeight: 1.02 }}><em>{p.titulo}</em></div>
+        <div className="lede" style={{ marginTop: 22, fontSize: bSize, maxWidth: '86%',
+          lineHeight: 1.45 }}>{p.bajada}</div>
       </div>
 
       <div style={{ position: 'relative', zIndex: 1 }}>
@@ -231,40 +214,31 @@ function PoServicioSpotlight(props) {
 
 const EXAMPLES_PORTRAIT = {
   PoServicio: {
-    copete: 'Servicio · MDO',
-    titulo: 'Auditoría externa',
+    copete: 'Servicio · MDO', titulo: 'Auditoría externa',
     bajada: 'Estados contables auditados con criterio profesional y normativa vigente.',
     bullet_1: 'Auditoría de estados contables anuales',
     bullet_2: 'Revisión limitada de información intermedia',
     bullet_3: 'Informes especiales sobre patrimonio y resultados',
     bullet_4: 'Atención de requerimientos ARCA / IGJ / CNV',
-    cta: 'Consultanos',
-    handle: '@mdoconsultores',
+    cta: 'Consultanos', handle: '@mdoconsultores',
   },
-  PoAltaCliente: {
-    copete: 'Anuncio',
-    titulo: 'Reforma fiscal',
-    subtitulo: 'Webinar gratuito',
+  PoAnuncio: {
+    copete: 'Anuncio', titulo: 'Reforma fiscal', subtitulo: 'Webinar gratuito',
     tema: 'Análisis ejecutivo de los cambios 2026',
     bloque_1: 'Impuestos', bloque_2: 'Sociedades', bloque_3: 'Sueldos',
-    fecha_hora: 'Jueves 19 · 19:00 h',
-    handle: '@mdoconsultores',
+    fecha_hora: 'Jueves 19 · 19:00 h', handle: '@mdoconsultores',
   },
   PoEquipo: {
-    copete: 'Voz experta · MDO',
-    nombre: 'Lucía Martínez',
-    rol: 'Socia · Impuestos',
+    copete: 'Voz experta · MDO', nombre: 'Lucía Martínez', rol: 'Socia · Impuestos',
     bio: 'Sobre la reforma del monotributo: los nuevos topes corren desde julio y obligan a recategorizar antes de fin de mes. Cuidado con los pagos por billetera virtual.',
     tag_1: 'Ganancias', tag_2: 'IVA', tag_3: 'Bienes personales', tag_4: 'Fiscalizaciones ARCA',
-    foto_caption: 'Retrato · 4:5',
-    handle: '@mdoconsultores',
+    foto_caption: 'Retrato · 4:5', handle: '@mdoconsultores',
   },
-  PoServicioSpotlight: {
-    copete: 'Servicios',
-    titulo: 'Asesoramiento Impositivo',
+  PoSpotlight: {
+    copete: 'Servicios', titulo: 'Asesoramiento Impositivo',
     bajada: 'Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas.',
     handle: '@mdoconsultores',
   },
 };
 
-Object.assign(window, { PoServicio, PoAltaCliente, PoEquipo, PoServicioSpotlight, EXAMPLES_PORTRAIT });
+Object.assign(window, { PoServicio, PoAnuncio, PoEquipo, PoSpotlight, EXAMPLES_PORTRAIT });

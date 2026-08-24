@@ -1,6 +1,6 @@
 # MDO Consultores · IG Templates — Render API
 
-Plantillas de Instagram para Martinez, De Orta & Asociados. Diseñadas
+Plantillas de Instagram para Martinez, De Orta & Gutierrez Taboada. Diseñadas
 para automatización vía Claude Code: cada plantilla acepta contenido por
 **placeholders literales** entre corchetes `[CORCHETES]` que se reemplazan
 por find/replace en el HTML antes de renderizar a PNG.

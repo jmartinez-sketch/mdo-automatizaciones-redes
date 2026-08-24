@@ -12,7 +12,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ## Contexto del negocio
 
-- **Estudio**: Martinez, De Orta & Asociados (MDO Consultores) — Argentina
+- **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
 - **Audiencia IG**: dueños de PyMEs, profesionales independientes, monotributistas
 - **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar

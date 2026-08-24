@@ -1,14 +1,20 @@
-// templates-square.jsx — 3 plantillas square (1:1) para MDO. CORREGIDO.
-// Artboard 540×540 (IG = 1080×1080).
+// templates-square.jsx — placas cuadradas 1:1, MARCA v2.0 (Manual de Marca 2026).
+// Va al repo como mdo-templates/templates-square.jsx (reemplaza el actual).
 //
-// Correcciones respecto de la versión anterior (mismos IDs y slots):
-//   · Titulares y números con fitSize(): antes eran cuerpos fijos (56px, 180px)
-//     que desbordaban con textos largos ("Ingresos Brutos" en sq-01).
-//   · Pie unificado con HandleFooter (no se parte en dos líneas).
-//   · sq-03: se eliminó el hack de height:170 para alinear la unidad.
-// Requiere brand.jsx + tpl-utils.jsx cargados ANTES de este archivo.
+// Base 540×540 → 1080×1080. Regla: ARCA, nunca AFIP.
+// Requiere brand.jsx + tpl-utils.jsx + mdo-brand.css v2.0 cargados ANTES.
+//
+// QUÉ CAMBIÓ respecto de la versión anterior — mismos IDs y mismos slots:
+//   · Montserrat → var(--font-body) (Open Sans). El manual (pág. 15) pone
+//     Open Sans en TODO, títulos incluidos.
+//   · Instrument Serif italic → var(--font-accent) en oblicua (Chivo 300).
+//     El manual no define serif, pero sí usa itálica.
+//   · Geist Mono → var(--font-accent) en versalitas (Chivo 700). El manual
+//     define dos familias y nada más: no se agrega una mono de afuera.
+//   · Los hex viejos salen: todo sale de las variables del CSS v2.
+//   · El lockup no baja de 40 (base 540): abajo de eso «CONSULTORES» se pierde.
 
-// ── sq-01 · Vencimiento impositivo ──────────────────────────────────
+// ── sq-01 · Vencimiento impositivo (navy) ───────────────────────────
 // Slots: COPETE, DIA, MES, ANIO, IMPUESTO, DESCRIPCION_VENC, HORARIO, CHIP_MES, HANDLE
 function SqVencimiento(props) {
   const p = Object.assign({
@@ -23,35 +29,33 @@ function SqVencimiento(props) {
 
   return (
     <div className="tpl navy" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
-      <TplHeader chip={p.chip_mes} mode="light" size={26} />
+      <TplHeader chip={p.chip_mes} mode="light" size={40} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         marginTop: 18 }}>
-        <div className="eyebrow" style={{ marginBottom: 20 }}>{p.copete}</div>
+        <span className="eyebrow" style={{ marginBottom: 20 }}>{p.copete}</span>
 
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 12 }}>
           <div className="number-xl" style={{ fontSize: dSize, color: 'var(--paper)' }}>{p.dia}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 14, letterSpacing: '0.22em',
-              color: 'var(--blue-lt)', fontWeight: 500 }}>{p.mes}</div>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.18em',
-              color: 'rgba(247,249,252,0.55)' }}>{p.anio}</div>
+            <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 14,
+              letterSpacing: '0.22em', color: 'var(--grey)' }}>{p.mes}</div>
+            <div style={{ fontFamily: 'var(--font-accent)', fontSize: 11, letterSpacing: '0.18em',
+              color: 'var(--ink-40)' }}>{p.anio}</div>
           </div>
         </div>
 
-        <div className="hair" style={{ margin: '6px 0 16px', background: 'rgba(247,249,252,0.30)' }}></div>
+        <div className="hair" style={{ margin: '6px 0 16px' }}></div>
 
-        <div className="display" style={{ fontSize: iSize, color: 'var(--paper)', fontWeight: 600,
-          marginBottom: 10, lineHeight: 1.05 }}>
-          {p.impuesto}
-        </div>
+        <div className="display" style={{ fontSize: iSize, fontWeight: 700, color: 'var(--paper)',
+          lineHeight: 1.05, marginBottom: 10 }}>{p.impuesto}</div>
         <div className="lede" style={{ fontSize: descSize, maxWidth: '88%' }}>{p.descripcion}</div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
-          <span style={{ display: 'inline-block', width: 5, height: 5, borderRadius: '50%',
-            background: 'var(--blue-lt)', flexShrink: 0 }}></span>
-          <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11.5, letterSpacing: '0.1em',
-            color: 'var(--blue-lt)' }}>{p.horario}</span>
+          <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--grey)',
+            flexShrink: 0 }}></span>
+          <span style={{ fontFamily: 'var(--font-accent)', fontSize: 11.5, letterSpacing: '0.1em',
+            color: 'var(--grey)' }}>{p.horario}</span>
         </div>
       </div>
 
@@ -60,7 +64,8 @@ function SqVencimiento(props) {
   );
 }
 
-// ── sq-02 · Cita / reflexión ────────────────────────────────────────
+// ── sq-02 · Cita / reflexión (blanco) ───────────────────────────────
+// La comilla de apertura cuelga fuera del margen a propósito: alineación óptica.
 // Slots: COPETE, CITA, AUTOR, ROL_AUTOR, HANDLE
 function SqCita(props) {
   const p = Object.assign({
@@ -71,25 +76,22 @@ function SqCita(props) {
   const cSize = fitSize(p.cita, [[58, 40], [95, 34], [140, 29]], 25);
 
   return (
-    <div className="tpl" style={{ padding: 44, display: 'flex', flexDirection: 'column',
-      background: 'var(--paper-warm)' }}>
+    <div className="tpl white" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <Lockup size={26} />
-        <div className="quote-mark" style={{ fontSize: 96, marginTop: -16, marginRight: -6,
-          color: 'var(--blue)' }}>“</div>
+        <Lockup size={40} />
+        <span className="quote-mark" style={{ fontSize: 96, marginTop: 4, marginRight: -6 }}>“</span>
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         paddingRight: 8 }}>
-        <div className="eyebrow" style={{ marginBottom: 20 }}>{p.copete}</div>
-        <div className="display-serif" style={{ fontSize: cSize, color: 'var(--navy-ink)',
-          lineHeight: 1.14 }}>
-          <em>{p.cita}</em>
-        </div>
+        <span className="eyebrow" style={{ marginBottom: 20 }}>{p.copete}</span>
+        <div className="display-serif" style={{ fontSize: cSize, color: 'var(--navy)',
+          lineHeight: 1.14 }}><em>{p.cita}</em></div>
+
         <div style={{ marginTop: 26, display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-          <span style={{ display: 'inline-block', width: 28, height: 1, background: 'var(--navy)',
-            marginTop: 8, flexShrink: 0 }}></span>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5, fontWeight: 600,
+          <span style={{ width: 28, height: 1, background: 'var(--navy)', marginTop: 8,
+            flexShrink: 0 }}></span>
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 600,
             letterSpacing: '0.04em', color: 'var(--ink)' }}>
             {p.autor}
             <div style={{ fontWeight: 400, color: 'var(--ink-55)', fontSize: 11.5, marginTop: 2,
@@ -103,7 +105,8 @@ function SqCita(props) {
   );
 }
 
-// ── sq-03 · Número clave / stat ─────────────────────────────────────
+// ── sq-03 · Número clave (tint) ─────────────────────────────────────
+// Chivo 300, no 900: el número pesa por tamaño, no por grosor.
 // Slots: COPETE, NUMERO, UNIDAD, DESCRIPCION, PIE, HANDLE
 function SqNumero(props) {
   const p = Object.assign({
@@ -112,32 +115,61 @@ function SqNumero(props) {
   }, props);
 
   const nSize = fitSize(p.numero, [[2, 200], [3, 172], [4, 142]], 116);
-  const uSize = Math.round(nSize * 0.22 + 22);
   const dSize = fitSize(p.descripcion, [[70, 17], [110, 15.5]], 14);
 
   return (
     <div className="tpl tint" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
-      <TplHeader chip="Est. 1972" size={26} />
+      <TplHeader chip="Est. 1972" size={40} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div className="eyebrow" style={{ marginBottom: 14 }}>{p.copete}</div>
+        <span className="eyebrow" style={{ marginBottom: 14 }}>{p.copete}</span>
 
-        {/* Alineación por baseline — sin el hack de altura fija */}
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
           <div className="number-xl" style={{ fontSize: nSize, color: 'var(--navy)' }}>{p.numero}</div>
-          <div className="display-serif" style={{ fontSize: uSize, color: 'var(--blue-mid)' }}>
-            <em>{p.unidad}</em>
-          </div>
+          <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 300,
+            fontSize: Math.round(nSize * 0.22 + 22), color: 'var(--slate)' }}>{p.unidad}</div>
         </div>
 
-        <div className="hair-navy" style={{ width: 64, marginBottom: 18 }}></div>
+        <div className="hair-navy" style={{ width: 64, margin: '20px 0 18px' }}></div>
 
-        <div className="lede" style={{ fontSize: dSize, maxWidth: '90%', color: 'var(--ink-70)' }}>
-          {p.descripcion}
-        </div>
+        <div className="lede" style={{ fontSize: dSize, maxWidth: '90%' }}>{p.descripcion}</div>
       </div>
 
       <HandleFooter handle={p.handle} right={p.pie} />
+    </div>
+  );
+}
+
+// ── sq-12 · Noticia square (la del newsletter de Gmail) ─────────────
+// Margen mínimo 72: es el más alto de todo el catálogo. NO bajarlo.
+// Slots: CATEGORIA, TITULAR, BAJADA, FUENTE, FECHA, HANDLE
+function SqNoticia(props) {
+  const p = Object.assign({
+    categoria: '[CATEGORIA]', titular: '[TITULAR]', bajada: '[BAJADA]',
+    fuente: '[FUENTE]', fecha: '[FECHA]', handle: '[HANDLE]',
+  }, props);
+
+  const tSize = fitSize(p.titular, [[30, 38], [46, 33], [66, 28]], 24);
+  const bSize = fitSize(p.bajada, [[80, 14.5], [130, 13.5]], 12.5);
+
+  return (
+    <div className="tpl white" style={{ padding: 72, display: 'flex', flexDirection: 'column' }}>
+      <TplHeader chip="Noticia" size={40} />
+
+      <div style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+        <span style={{ width: 24, height: 1, background: 'var(--blue-mid)', flexShrink: 0 }}></span>
+        <span className="eyebrow">{p.categoria}</span>
+      </div>
+
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        paddingRight: 8 }}>
+        <div className="display" style={{ fontSize: tSize, fontWeight: 700,
+          letterSpacing: '-0.018em', lineHeight: 1.1 }}>{p.titular}</div>
+        <div className="lede" style={{ marginTop: 14, fontSize: bSize, maxWidth: '94%' }}>{p.bajada}</div>
+      </div>
+
+      <SourceFooter fuente={p.fuente} fecha={p.fecha} />
+      <HandleFooter handle={p.handle} style={{ marginTop: 8 }} />
     </div>
   );
 }
@@ -154,7 +186,7 @@ const EXAMPLES_SQUARE = {
   },
   SqCita: {
     copete: 'Pensamiento',
-    cita: 'La planificación impositiva no es un costo, es la primera decisión estratégica del año.',
+    cita: 'La planificación impositiva no es un costo: es la primera decisión estratégica del año.',
     autor: 'Estudio MDO',
     rol_autor: 'Consultores en gestión',
     handle: '@mdoconsultores',
@@ -166,6 +198,14 @@ const EXAMPLES_SQUARE = {
     pie: 'Desde 1972 · Buenos Aires',
     handle: '@mdoconsultores',
   },
+  SqNoticia: {
+    categoria: 'Impuestos · ARCA',
+    titular: 'ARCA extiende el plazo para presentar la DDJJ de Ganancias',
+    bajada: 'La prórroga aplica a personas humanas. Nuevo vencimiento: 30 de junio.',
+    fuente: 'ARCA · Comunicado oficial',
+    fecha: '19 jun 2026',
+    handle: '@mdoconsultores',
+  },
 };
 
-Object.assign(window, { SqVencimiento, SqCita, SqNumero, EXAMPLES_SQUARE });
+Object.assign(window, { SqVencimiento, SqCita, SqNumero, SqNoticia, EXAMPLES_SQUARE });
