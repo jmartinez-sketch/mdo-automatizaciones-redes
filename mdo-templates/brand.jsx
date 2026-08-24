@@ -1,7 +1,7 @@
 // brand.jsx — shared MDO brand primitives used across templates.
 
-const ISO_DARK = 'assets/logo-mdo-iso.png';      // blue M on transparent — for light bg
-const ISO_WHITE = 'assets/logo-mdo-iso-white.png'; // white M on transparent — for navy bg
+const ISO_DARK = 'assets/logo-mdo-iso.svg';      // blue M on transparent — for light bg
+const ISO_WHITE = 'assets/logo-mdo-iso-white.svg'; // white M on transparent — for navy bg
 
 // Wordmark + iso lockup. Modes: 'dark' (default, blue iso + navy wordmark)
 // or 'light' (white iso + paper wordmark) for navy backgrounds.
@@ -13,14 +13,14 @@ function Lockup({ mode = 'dark', size = 28, stacked = false, hideWordmark = fals
         <img src={src} alt="MDO" style={{ height: size, width: 'auto', display: 'block' }} />
         {!hideWordmark && (
           <div className="wm" style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: size * 0.34,
+            fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: size * 0.34,
             letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center',
             color: mode === 'light' ? 'var(--paper)' : 'var(--navy)', lineHeight: 1.2,
           }}>
             Martinez, De Orta
             <div style={{ fontWeight: 500, fontSize: size * 0.26, letterSpacing: '0.22em',
               color: mode === 'light' ? 'rgba(247,249,252,0.65)' : 'var(--ink-55)', marginTop: 2 }}>
-              &amp; Asociados
+              Gutierrez Taboada
             </div>
           </div>
         )}
@@ -34,7 +34,7 @@ function Lockup({ mode = 'dark', size = 28, stacked = false, hideWordmark = fals
         <div className="wm" style={{ color: mode === 'light' ? 'var(--paper)' : 'var(--navy)' }}>
           Martinez, De Orta
           <small style={{ color: mode === 'light' ? 'rgba(247,249,252,0.65)' : 'var(--ink-55)' }}>
-            &amp; Asociados
+            Gutierrez Taboada
           </small>
         </div>
       )}

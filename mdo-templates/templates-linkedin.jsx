@@ -22,7 +22,7 @@ function LiNoticia(props) {
 
       {/* Filete de marca al tope */}
       <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 4,
-        background: 'linear-gradient(90deg,#1f4e79,#2e75b6)' }}></div>
+        background: 'var(--gradient-brand-h)' }}></div>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <Lockup size={22} />
@@ -76,7 +76,7 @@ function LiClaim(props) {
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {servicios.map((s, i) => (
             <span key={i} style={{ padding: '5px 12px', borderRadius: 999,
-              border: '1px solid rgba(247,249,252,0.30)', fontFamily: 'Geist Mono, monospace',
+              border: '1px solid rgba(247,249,252,0.30)', fontFamily: 'var(--font-accent)', fontWeight: 700,
               fontSize: 9.5, letterSpacing: '0.12em', textTransform: 'uppercase',
               color: 'rgba(247,249,252,0.85)', whiteSpace: 'nowrap' }}>{s}</span>
           ))}
@@ -88,9 +88,9 @@ function LiClaim(props) {
         paddingLeft: 26, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Lockup mode="light" size={24} stacked={true} />
         <div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
             color: 'var(--paper)', lineHeight: 1.3 }}>{p.cta}</div>
-          <div style={{ marginTop: 10, fontFamily: 'Geist Mono, monospace', fontSize: 9.5,
+          <div style={{ marginTop: 10, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5,
             letterSpacing: '0.08em', color: 'rgba(247,249,252,0.55)' }}>{p.handle}</div>
         </div>
       </div>
@@ -108,7 +108,7 @@ const EXAMPLES_LINKEDIN = {
     handle: '@mdoconsultores',
   },
   LiClaim: {
-    copete: 'Martinez, De Orta & Asociados',
+    copete: 'Martinez, De Orta & Gutierrez Taboada',
     claim: 'Más de 50 años ordenando los números de empresas argentinas.',
     servicio_1: 'Impuestos',
     servicio_2: 'Contabilidad',

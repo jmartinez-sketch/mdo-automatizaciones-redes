@@ -32,9 +32,9 @@ function SqVencimiento(props) {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 12 }}>
           <div className="number-xl" style={{ fontSize: dSize, color: 'var(--paper)' }}>{p.dia}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 14, letterSpacing: '0.22em',
+            <div style={{ fontFamily: 'var(--font-accent)', fontSize: 14, letterSpacing: '0.22em',
               color: 'var(--blue-lt)', fontWeight: 500 }}>{p.mes}</div>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.18em',
+            <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11, letterSpacing: '0.18em',
               color: 'rgba(247,249,252,0.55)' }}>{p.anio}</div>
           </div>
         </div>
@@ -50,7 +50,7 @@ function SqVencimiento(props) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
           <span style={{ display: 'inline-block', width: 5, height: 5, borderRadius: '50%',
             background: 'var(--blue-lt)', flexShrink: 0 }}></span>
-          <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11.5, letterSpacing: '0.1em',
+          <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11.5, letterSpacing: '0.1em',
             color: 'var(--blue-lt)' }}>{p.horario}</span>
         </div>
       </div>
@@ -89,7 +89,7 @@ function SqCita(props) {
         <div style={{ marginTop: 26, display: 'flex', alignItems: 'flex-start', gap: 12 }}>
           <span style={{ display: 'inline-block', width: 28, height: 1, background: 'var(--navy)',
             marginTop: 8, flexShrink: 0 }}></span>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5, fontWeight: 600,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 600,
             letterSpacing: '0.04em', color: 'var(--ink)' }}>
             {p.autor}
             <div style={{ fontWeight: 400, color: 'var(--ink-55)', fontSize: 11.5, marginTop: 2,

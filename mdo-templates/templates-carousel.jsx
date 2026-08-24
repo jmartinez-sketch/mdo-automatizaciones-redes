@@ -36,12 +36,12 @@ function CalRow({ date, tax, period, compact }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '40px 1fr', alignItems: 'baseline',
       gap: 6, padding: compact ? '8px 0' : '10px 0', borderBottom: '1px solid var(--hair)' }}>
-      <div style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic',
+      <div style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 300, fontStyle: 'italic',
         fontSize: compact ? 26 : 28, color: 'var(--navy)', lineHeight: 0.8 }}>{date}</div>
       <div style={{ minWidth: 0 }}>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: compact ? 12.5 : 13,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: compact ? 12.5 : 13,
           fontWeight: 600, color: 'var(--navy-ink)', lineHeight: 1.2 }}>{tax}</div>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: compact ? 10.5 : 11,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: compact ? 10.5 : 11,
           color: 'var(--ink-55)', marginTop: 1 }}>{period}</div>
       </div>
     </div>
@@ -78,10 +78,10 @@ function CalCover(props) {
           lineHeight: 0.95 }}>
           <em>{p.mes}</em>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 17, color: 'var(--blue-lt)',
+        <div style={{ fontFamily: 'var(--font-accent)', fontSize: 17, color: 'var(--blue-lt)',
           letterSpacing: '0.16em', marginTop: 4, fontWeight: 500 }}>{p.anio}</div>
         <div className="lede" style={{ marginTop: 16, fontSize: 12.5, maxWidth: '90%' }}>{p.bajada}</div>
-        <div style={{ marginTop: 20, fontFamily: 'Geist Mono, monospace', fontSize: 11,
+        <div style={{ marginTop: 20, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11,
           letterSpacing: '0.16em', color: 'var(--blue-lt)', textTransform: 'uppercase' }}>
           {p.swipe}
         </div>
@@ -165,7 +165,7 @@ function CalQ2(props) {
         <div style={{ marginTop: 12, padding: '11px 14px', background: 'var(--navy)',
           color: 'var(--paper)', display: 'flex', justifyContent: 'space-between',
           alignItems: 'center', gap: 10 }}>
-          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11.5, fontWeight: 600 }}>
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: 11.5, fontWeight: 600 }}>
             {p.cta}
           </span>
           <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -207,7 +207,7 @@ function TipCover(props) {
           <em>{p.titulo_serif}</em>
         </div>
         <div className="lede" style={{ marginTop: 20, fontSize: 13.5, maxWidth: '92%' }}>{p.bajada}</div>
-        <div style={{ marginTop: 24, fontFamily: 'Geist Mono, monospace', fontSize: 10.5,
+        <div style={{ marginTop: 24, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5,
           letterSpacing: '0.16em', color: 'var(--blue-mid)', textTransform: 'uppercase' }}>{p.swipe}</div>
       </div>
 
@@ -236,13 +236,13 @@ function TipSlide({ idx, total = 4, tip_num, titular, cuerpo, takeaway, chrome_l
 
       <div style={{ marginTop: 14, flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div style={{ display: 'flex', alignItems: 'stretch', gap: 14, marginBottom: 14 }}>
-          <div style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic', fontSize: 92,
+          <div style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 300, fontStyle: 'italic', fontSize: 92,
             color: accent, lineHeight: 0.78, flexShrink: 0 }}>
             {tip_num}
           </div>
           <div style={{ width: 1, background: isNavy ? 'rgba(247,249,252,0.25)' : 'var(--hair-2)',
             margin: '8px 0', flexShrink: 0 }}></div>
-          <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.18em',
+          <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.18em',
             color: accent, textTransform: 'uppercase', alignSelf: 'center' }}>
             {'Punto ' + tip_num + ' de ' + (total - 1)}
           </div>
@@ -254,7 +254,7 @@ function TipSlide({ idx, total = 4, tip_num, titular, cuerpo, takeaway, chrome_l
           {titular}
         </div>
 
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: cSize, lineHeight: 1.5,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: cSize, lineHeight: 1.5,
           color: isNavy ? 'rgba(247,249,252,0.78)' : 'var(--ink-70)' }}>
           {cuerpo}
         </div>
@@ -263,7 +263,7 @@ function TipSlide({ idx, total = 4, tip_num, titular, cuerpo, takeaway, chrome_l
           <div style={{ marginTop: 'auto', paddingTop: 16, display: 'flex',
             alignItems: 'flex-start', gap: 10 }}>
             <span className="asterisk" style={{ fontSize: 32, color: accent, flexShrink: 0 }}>*</span>
-            <div style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic', fontSize: kSize,
+            <div style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 300, fontStyle: 'italic', fontSize: kSize,
               lineHeight: 1.22, color: isNavy ? 'var(--paper)' : 'var(--navy-ink)' }}>
               {takeaway}
             </div>

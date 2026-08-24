@@ -55,7 +55,7 @@ function PoTresIconos(props) {
               <div style={{ width: 86, height: 86, borderRadius: '50%', background: 'var(--blue-pale)',
                 color: 'var(--navy)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0 }}><c.Ic s={38} /></div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14.5, fontWeight: 600,
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, fontWeight: 600,
                 color: 'var(--ink)', lineHeight: 1.3 }}>{c.l}</div>
             </div>
           ))}
@@ -63,7 +63,7 @@ function PoTresIconos(props) {
       </div>
 
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -100,9 +100,9 @@ function PoIconoHero(props) {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         gap: 12 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
           color: 'var(--blue-lt)' }}>{p.cta} →</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
           color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
@@ -138,17 +138,17 @@ function PoProcesoIconos(props) {
               <s.Ic s={30} />
               <span style={{ position: 'absolute', top: -8, left: -8, width: 24, height: 24,
                 borderRadius: '50%', background: 'var(--navy)', color: 'var(--paper)',
-                fontFamily: 'Geist Mono, monospace', fontSize: 11, fontWeight: 500,
+                fontFamily: 'var(--font-accent)', fontSize: 11, fontWeight: 500,
                 display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</span>
             </div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16.5, fontWeight: 500,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 16.5, fontWeight: 500,
               color: 'var(--ink)', lineHeight: 1.32, minWidth: 0 }}>{s.t}</div>
           </div>
         ))}
       </div>
 
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -180,9 +180,9 @@ function PoIconoFrase(props) {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         gap: 12 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
           color: 'var(--blue-lt)' }}>{p.cta} →</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
           color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
@@ -215,7 +215,7 @@ function PoGridIconos(props) {
             padding: '20px 18px', display: 'flex', flexDirection: 'column',
             justifyContent: 'space-between', gap: 16 }}>
             <div style={{ color: 'var(--navy)' }}><t.Ic s={34} /></div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
               color: 'var(--ink)', lineHeight: 1.25 }}>{t.l}</div>
           </div>
         ))}

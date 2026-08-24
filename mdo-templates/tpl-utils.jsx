@@ -29,11 +29,11 @@ function SourceFooter({ fuente, fecha, mode = 'dark', label = 'Fuente' }) {
   return (
     <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, paddingTop: 14,
       borderTop: '1px solid ' + rule }}>
-      <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.18em',
+      <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.18em',
         color: muted, textTransform: 'uppercase', flexShrink: 0 }}>{label}</span>
-      <span className="truncate" style={{ flex: 1, fontFamily: 'Montserrat, sans-serif',
+      <span className="truncate" style={{ flex: 1, fontFamily: 'var(--font-body)',
         fontSize: 12.5, fontWeight: 600, color: strong }}>{fuente}</span>
-      <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10.5, letterSpacing: '0.06em',
+      <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5, letterSpacing: '0.06em',
         color: muted, flexShrink: 0 }}>{fecha}</span>
     </div>
   );
@@ -44,7 +44,7 @@ function HandleFooter({ handle, right = 'mdo-consultores.com.ar', mode = 'dark',
   const muted = mode === 'light' ? 'rgba(247,249,252,0.55)' : 'var(--ink-55)';
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-      marginTop: 10, fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+      marginTop: 10, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
       color: muted, ...style }}>
       <span style={{ whiteSpace: 'nowrap' }}>{handle}</span>
       <span style={{ whiteSpace: 'nowrap' }}>{right}</span>

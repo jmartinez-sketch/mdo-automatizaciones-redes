@@ -56,15 +56,15 @@ function StVencimientos(props) {
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '72px 1fr 64px',
               alignItems: 'center', gap: 8, padding: '15px 0',
               borderBottom: '1px solid rgba(247,249,252,0.20)' }}>
-              <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 13.5,
+              <div style={{ fontFamily: 'var(--font-accent)', fontSize: 13.5,
                 letterSpacing: '0.06em', color: 'var(--blue-lt)', fontWeight: 500 }}>{it.date}</div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 600,
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: 18, fontWeight: 600,
                   color: 'var(--paper)', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{it.tax}</div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11.5,
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: 11.5,
                   color: 'rgba(247,249,252,0.62)', marginTop: 2 }}>{it.period}</div>
               </div>
-              <div style={{ textAlign: 'right', fontFamily: 'Geist Mono, monospace', fontSize: 11.5,
+              <div style={{ textAlign: 'right', fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11.5,
                 letterSpacing: '0.04em', color: 'rgba(247,249,252,0.62)',
                 whiteSpace: 'nowrap' }}>{it.due} h</div>
             </div>
@@ -117,9 +117,9 @@ function StCita(props) {
           <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--navy)',
             marginTop: 9, flexShrink: 0 }}></span>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 700,
               color: 'var(--navy-ink)' }}>{p.autor}</div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 12,
               color: 'var(--ink-55)', marginTop: 2 }}>{p.rol_autor}</div>
           </div>
         </div>
@@ -165,7 +165,7 @@ function StCTA(props) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="eyebrow" style={{ marginBottom: 16 }}>{p.copete}</div>
 
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: hSize, fontWeight: 700,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: hSize, fontWeight: 700,
           color: 'var(--navy-ink)', letterSpacing: '-0.025em', lineHeight: 0.98 }}>
           {p.titular_1}
         </div>
@@ -173,7 +173,7 @@ function StCTA(props) {
           color: 'var(--blue-mid)', lineHeight: 0.92 }}>
           <em>{p.titular_2}</em>
         </div>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: hSize, fontWeight: 700,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: hSize, fontWeight: 700,
           color: 'var(--navy-ink)', letterSpacing: '-0.025em', lineHeight: 0.98 }}>
           {p.titular_3}
         </div>
@@ -189,9 +189,9 @@ function StCTA(props) {
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between',
               alignItems: 'baseline', gap: 12, padding: '9px 0',
               borderBottom: i < channels.length - 1 ? '1px solid rgba(247,249,252,0.20)' : 'none' }}>
-              <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.16em',
+              <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.16em',
                 color: 'var(--blue-lt)', textTransform: 'uppercase', flexShrink: 0 }}>{c.label}</span>
-              <span className="truncate" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+              <span className="truncate" style={{ fontFamily: 'var(--font-body)', fontSize: 13,
                 fontWeight: 500, textAlign: 'right' }}>{c.value}</span>
             </div>
           ))}

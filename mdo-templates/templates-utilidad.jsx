@@ -30,7 +30,7 @@ function PoVencimientosFeed(props) {
           lineHeight: 1.06, letterSpacing: '-0.022em' }}>
           Vencimientos<br />de la semana
         </div>
-        <div style={{ marginTop: 10, fontFamily: 'Geist Mono, monospace', fontSize: 11,
+        <div style={{ marginTop: 10, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11,
           letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--blue-mid)' }}>
           {p.semana}
         </div>
@@ -42,17 +42,17 @@ function PoVencimientosFeed(props) {
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '15px 0',
             borderTop: '1px solid var(--hair)' }}>
             <div style={{ flexShrink: 0, width: 54, textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 30, fontWeight: 700,
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 30, fontWeight: 700,
                 color: 'var(--navy)', lineHeight: 1, letterSpacing: '-0.03em',
                 fontVariantNumeric: 'tabular-nums' }}>{f.d}</div>
-              <div style={{ marginTop: 3, fontFamily: 'Geist Mono, monospace', fontSize: 9.5,
+              <div style={{ marginTop: 3, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5,
                 letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--blue-mid)' }}>{f.m}</div>
             </div>
             <div style={{ width: 1, alignSelf: 'stretch', background: 'var(--hair)', flexShrink: 0 }}></div>
             <div style={{ minWidth: 0, flex: 1 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 700,
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 16, fontWeight: 700,
                 color: 'var(--navy-ink)', lineHeight: 1.2 }}>{f.i}</div>
-              <div style={{ marginTop: 3, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+              <div style={{ marginTop: 3, fontFamily: 'var(--font-body)', fontSize: 12,
                 color: 'var(--ink-55)' }}>{f.per}</div>
             </div>
           </div>
@@ -60,7 +60,7 @@ function PoVencimientosFeed(props) {
       </div>
 
       <div style={{ padding: '14px 20px', background: 'var(--blue-tint)',
-        border: '1px solid var(--hair)', fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+        border: '1px solid var(--hair)', fontFamily: 'var(--font-body)', fontSize: 13,
         fontWeight: 600, color: 'var(--navy)', display: 'flex', justifyContent: 'space-between',
         alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
@@ -88,10 +88,10 @@ function StEncuesta(props) {
         borderRadius: 6, background: 'rgba(247,249,252,0.06)', display: 'flex', gap: 16,
         alignItems: 'center' }}>
         <span style={{ flexShrink: 0, width: 34, height: 34, borderRadius: '50%',
-          background: 'var(--blue-lt)', color: 'var(--navy)', fontFamily: 'Montserrat, sans-serif',
+          background: 'var(--blue-lt)', color: 'var(--navy)', fontFamily: 'var(--font-body)',
           fontSize: 15, fontWeight: 700, display: 'flex', alignItems: 'center',
           justifyContent: 'center' }}>{letra}</span>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 600,
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 16, fontWeight: 600,
           color: 'var(--paper)', lineHeight: 1.3 }}>{texto}</span>
       </div>
     );
@@ -121,7 +121,7 @@ function StEncuesta(props) {
       </div>
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 600,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
           color: 'var(--blue-lt)' }}>{p.pie}</div>
         <HandleFooter handle={p.handle} mode="light" style={{ marginTop: 12 }} />
       </div>
@@ -143,7 +143,7 @@ function LiDato(props) {
     <div className="tpl white" style={{ padding: 38, display: 'flex', flexDirection: 'column',
       position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 4,
-        background: 'linear-gradient(90deg,#1f4e79,#2e75b6)' }}></div>
+        background: 'var(--gradient-brand-h)' }}></div>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <Lockup size={22} />
@@ -165,9 +165,9 @@ function LiDato(props) {
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
           gap: 12, borderTop: '1px solid var(--hair)', paddingTop: 13 }}>
-          <span className="truncate" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+          <span className="truncate" style={{ fontFamily: 'var(--font-body)', fontSize: 12,
             fontWeight: 600, color: 'var(--navy)' }}>{p.fuente}</span>
-          <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+          <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
             color: 'var(--ink-55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
         </div>
       </div>

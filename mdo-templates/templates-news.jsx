@@ -91,7 +91,7 @@ function PoNoticia(props) {
           color: 'var(--paper)' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
             <span className="asterisk" style={{ fontSize: 22, color: 'var(--blue-lt)' }}>*</span>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.2em',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: 'var(--blue-lt)' }}>{p.que_saber_label}</span>
           </div>
           <div className="display-serif" style={{ fontSize: qSize, lineHeight: 1.22,

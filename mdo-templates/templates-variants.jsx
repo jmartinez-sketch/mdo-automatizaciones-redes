@@ -43,7 +43,7 @@ function SqCitaNavy(props) {
         <div style={{ marginTop: 26, display: 'flex', alignItems: 'flex-start', gap: 12 }}>
           <span style={{ display: 'inline-block', width: 28, height: 1, background: 'var(--paper)',
             marginTop: 8, flexShrink: 0 }}></span>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5, fontWeight: 600,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 600,
             letterSpacing: '0.04em', color: 'var(--paper)' }}>
             {p.autor}
             <div style={{ fontWeight: 400, color: 'rgba(247,249,252,0.65)', fontSize: 11.5,
@@ -79,7 +79,7 @@ function SqNumeroSerif(props) {
           <em>{p.numero}</em>
         </div>
 
-        <div style={{ marginTop: 16, fontFamily: 'Montserrat, sans-serif', fontSize: 24,
+        <div style={{ marginTop: 16, fontFamily: 'var(--font-body)', fontSize: 24,
           fontWeight: 500, color: 'var(--navy)', letterSpacing: '-0.01em' }}>
           {p.unidad}
         </div>
@@ -108,9 +108,9 @@ function SqNoticiaBreaking(props) {
     <div className="tpl navy" style={{ padding: 0, display: 'flex', flexDirection: 'column' }}>
       <div style={{ background: 'var(--blue-lt)', color: 'var(--navy-deep)', padding: '12px 40px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.24em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontSize: 11, letterSpacing: '0.24em',
           fontWeight: 600, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{p.badge}</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.12em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontSize: 11, letterSpacing: '0.12em',
           fontWeight: 500, whiteSpace: 'nowrap' }}>{p.fecha}</span>
       </div>
 
@@ -169,11 +169,11 @@ function PoServicioNavy(props) {
         gap: 13 }}>
         {bullets.map((b, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'var(--blue-lt)',
+            <span style={{ fontFamily: 'var(--font-accent)', fontSize: 11, color: 'var(--blue-lt)',
               minWidth: 22, fontWeight: 500, letterSpacing: '0.04em', flexShrink: 0 }}>
               {String(i + 1).padStart(2, '0')}
             </span>
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, color: 'var(--paper)',
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--paper)',
               lineHeight: 1.4 }}>{b}</span>
           </div>
         ))}
@@ -181,7 +181,7 @@ function PoServicioNavy(props) {
 
       <div style={{ padding: '14px 18px', background: 'var(--paper)', color: 'var(--navy)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700 }}>{p.cta}</span>
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700 }}>{p.cta}</span>
         <span style={{ color: 'var(--blue-mid)', flexShrink: 0 }}>→</span>
       </div>
       <HandleFooter handle={p.handle} mode="light" />
@@ -201,7 +201,7 @@ function PoAnuncioLight(props) {
   const tSize = fitSize(p.titulo, [[16, 66], [28, 52], [42, 42]], 34);
 
   const rowLabel = {
-    color: 'var(--ink-55)', fontFamily: 'Geist Mono, monospace', fontSize: 10.5,
+    color: 'var(--ink-55)', fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5,
     letterSpacing: '0.1em', textTransform: 'uppercase',
   };
 
@@ -223,7 +223,7 @@ function PoAnuncioLight(props) {
           lineHeight: 1.0 }}>
           <em>{p.titulo}</em>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 13, letterSpacing: '0.18em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em',
           color: 'var(--ink-55)', marginTop: 10, textTransform: 'uppercase' }}>
           {p.subtitulo}
         </div>
@@ -231,7 +231,7 @@ function PoAnuncioLight(props) {
         <div className="hair-navy" style={{ marginTop: 24, marginBottom: 20, width: '60%' }}></div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '104px 1fr', rowGap: 12, columnGap: 16,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: 'var(--ink)',
+          fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--ink)',
           alignItems: 'start' }}>
           <div style={rowLabel}>Tema</div>
           <div>{p.tema}</div>
@@ -290,7 +290,7 @@ function PoNoticiaNavy(props) {
           color: 'var(--navy-ink)' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
             <span className="asterisk" style={{ fontSize: 22, color: 'var(--blue-mid)' }}>*</span>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.2em',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: 'var(--blue-mid)' }}>{p.que_saber_label}</span>
           </div>
           <div className="display-serif" style={{ fontSize: qSize, lineHeight: 1.22,
@@ -340,9 +340,9 @@ function StCitaNavy(props) {
           <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--paper)',
             marginTop: 9, flexShrink: 0 }}></span>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 700,
               color: 'var(--paper)' }}>{p.autor}</div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 12,
               color: 'rgba(247,249,252,0.65)', marginTop: 2 }}>{p.rol_autor}</div>
           </div>
         </div>
@@ -386,7 +386,7 @@ function StCTANavy(props) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="eyebrow" style={{ marginBottom: 16 }}>{p.copete}</div>
 
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: hSize, fontWeight: 700,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: hSize, fontWeight: 700,
           color: 'var(--paper)', letterSpacing: '-0.025em', lineHeight: 0.98 }}>
           {p.titular_1}
         </div>
@@ -394,7 +394,7 @@ function StCTANavy(props) {
           color: 'var(--blue-lt)', lineHeight: 0.92 }}>
           <em>{p.titular_2}</em>
         </div>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: hSize, fontWeight: 700,
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: hSize, fontWeight: 700,
           color: 'var(--paper)', letterSpacing: '-0.025em', lineHeight: 0.98 }}>
           {p.titular_3}
         </div>
@@ -410,9 +410,9 @@ function StCTANavy(props) {
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between',
               alignItems: 'baseline', gap: 12, padding: '9px 0',
               borderBottom: i < channels.length - 1 ? '1px solid var(--hair)' : 'none' }}>
-              <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.16em',
+              <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.16em',
                 color: 'var(--blue-mid)', textTransform: 'uppercase', flexShrink: 0 }}>{c.label}</span>
-              <span className="truncate" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+              <span className="truncate" style={{ fontFamily: 'var(--font-body)', fontSize: 13,
                 fontWeight: 500, color: 'var(--navy-ink)', textAlign: 'right' }}>{c.value}</span>
             </div>
           ))}

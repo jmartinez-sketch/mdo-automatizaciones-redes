@@ -44,11 +44,11 @@ function PoServicio(props) {
         gap: 13 }}>
         {bullets.map((b, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'var(--blue-mid)',
+            <span style={{ fontFamily: 'var(--font-accent)', fontSize: 11, color: 'var(--blue-mid)',
               minWidth: 22, fontWeight: 500, letterSpacing: '0.04em', flexShrink: 0 }}>
               {String(i + 1).padStart(2, '0')}
             </span>
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, color: 'var(--ink)',
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--ink)',
               lineHeight: 1.4 }}>{b}</span>
           </div>
         ))}
@@ -56,7 +56,7 @@ function PoServicio(props) {
 
       <div style={{ padding: '14px 18px', background: 'var(--navy)', color: 'var(--paper)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 600 }}>{p.cta}</span>
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600 }}>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
       </div>
       <HandleFooter handle={p.handle} />
@@ -77,7 +77,7 @@ function PoAltaCliente(props) {
   const tSize = fitSize(p.titulo, [[16, 66], [28, 52], [42, 42]], 34);
 
   const rowLabel = {
-    color: 'rgba(247,249,252,0.55)', fontFamily: 'Geist Mono, monospace', fontSize: 10.5,
+    color: 'rgba(247,249,252,0.55)', fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5,
     letterSpacing: '0.1em', textTransform: 'uppercase',
   };
 
@@ -99,7 +99,7 @@ function PoAltaCliente(props) {
           lineHeight: 1.0 }}>
           <em>{p.titulo}</em>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 13, letterSpacing: '0.18em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em',
           color: 'rgba(247,249,252,0.55)', marginTop: 10, textTransform: 'uppercase' }}>
           {p.subtitulo}
         </div>
@@ -108,7 +108,7 @@ function PoAltaCliente(props) {
           marginBottom: 20, width: '60%' }}></div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '104px 1fr', rowGap: 12, columnGap: 16,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: 'var(--paper)',
+          fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--paper)',
           alignItems: 'start' }}>
           <div style={rowLabel}>Tema</div>
           <div>{p.tema}</div>
@@ -149,7 +149,7 @@ function PoEquipo(props) {
       <div style={{ height: 320, position: 'relative' }}>
         <div className="slot" style={{ position: 'absolute', inset: 0, borderLeft: 'none',
           borderRight: 'none', borderTop: 'none' }}>
-          <div style={{ position: 'absolute', right: 12, top: 12, fontFamily: 'Geist Mono, monospace',
+          <div style={{ position: 'absolute', right: 12, top: 12, fontFamily: 'var(--font-accent)', fontWeight: 700,
             fontSize: 10, letterSpacing: '0.06em', textTransform: 'uppercase',
             color: 'var(--ink-55)' }}>{p.foto_caption}</div>
         </div>
@@ -166,7 +166,7 @@ function PoEquipo(props) {
           marginBottom: 6, lineHeight: 1.02 }}>
           <em>{p.nombre}</em>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.18em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontSize: 11, letterSpacing: '0.18em',
           color: 'var(--blue-mid)', textTransform: 'uppercase', fontWeight: 500 }}>
           {p.rol}
         </div>
@@ -178,7 +178,7 @@ function PoEquipo(props) {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 14 }}>
           {tags.map((a, i) => (
-            <span key={i} style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10,
+            <span key={i} style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10,
               letterSpacing: '0.1em', padding: '4px 8px', border: '1px solid var(--hair-2)',
               textTransform: 'uppercase', color: 'var(--navy)', whiteSpace: 'nowrap' }}>{a}</span>
           ))}

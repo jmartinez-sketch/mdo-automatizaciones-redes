@@ -48,7 +48,7 @@ function PoPreguntaHero(props) {
 
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'var(--paper)',
-          color: 'var(--navy)', padding: '13px 20px', fontFamily: 'Montserrat, sans-serif',
+          color: 'var(--navy)', padding: '13px 20px', fontFamily: 'var(--font-body)',
           fontSize: 13.5, fontWeight: 700 }}>
           <span>{p.cta}</span>
           <span style={{ color: 'var(--blue-mid)' }}>→</span>
@@ -89,7 +89,7 @@ function PoAntesDespues(props) {
         <div className="eyebrow" style={{ color: 'var(--blue-lt)', marginBottom: 14 }}>{p.con_label}</div>
         <div className="display" style={{ fontSize: cSize, color: 'var(--paper)', lineHeight: 1.14,
           fontWeight: 700 }}>{p.con_texto}</div>
-        <div style={{ marginTop: 20, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+        <div style={{ marginTop: 20, fontFamily: 'var(--font-body)', fontSize: 13,
           fontWeight: 700, color: 'var(--blue-lt)' }}>{p.cta} →</div>
         <HandleFooter handle={p.handle} mode="light" style={{ marginTop: 18 }} />
       </div>
@@ -126,7 +126,7 @@ function PoDeclaracion(props) {
         borderTop: '1px solid var(--hair)' }}>
         <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--navy)',
           flexShrink: 0 }}></span>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
           color: 'var(--navy)' }}>Estudio MDO · Consultores</span>
       </div>
       <HandleFooter handle={p.handle} />
@@ -161,14 +161,14 @@ function PoChecklist(props) {
               background: 'var(--navy)', color: 'var(--paper)', display: 'flex',
               alignItems: 'center', justifyContent: 'center', fontSize: 15, fontWeight: 700,
               marginTop: 1 }}>✓</span>
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 17, fontWeight: 500,
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 17, fontWeight: 500,
               color: 'var(--ink)', lineHeight: 1.35 }}>{it}</span>
           </div>
         ))}
       </div>
 
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -211,9 +211,9 @@ function PoFoco(props) {
         <div className="hair" style={{ marginBottom: 16 }}></div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
           gap: 12 }}>
-          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
             color: 'var(--blue-lt)' }}>{p.cta} →</span>
-          <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+          <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
             color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
         </div>
       </div>

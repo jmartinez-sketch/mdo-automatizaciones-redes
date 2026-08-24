@@ -41,9 +41,9 @@ function SqVencimientoLight(props) {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 12 }}>
           <div className="number-xl" style={{ fontSize: dSize, color: 'var(--navy)' }}>{p.dia}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 14, letterSpacing: '0.22em',
+            <div style={{ fontFamily: 'var(--font-accent)', fontSize: 14, letterSpacing: '0.22em',
               color: 'var(--blue-mid)', fontWeight: 500 }}>{p.mes}</div>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, letterSpacing: '0.18em',
+            <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11, letterSpacing: '0.18em',
               color: 'var(--ink-55)' }}>{p.anio}</div>
           </div>
         </div>
@@ -59,7 +59,7 @@ function SqVencimientoLight(props) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
           <span style={{ display: 'inline-block', width: 5, height: 5, borderRadius: '50%',
             background: 'var(--blue-mid)', flexShrink: 0 }}></span>
-          <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11.5, letterSpacing: '0.1em',
+          <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11.5, letterSpacing: '0.1em',
             color: 'var(--blue-mid)' }}>{p.horario}</span>
         </div>
       </div>
@@ -100,12 +100,12 @@ function SqCitaMinimal(props) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         gap: 12 }}>
         <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5, fontWeight: 700,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 700,
             color: 'var(--navy-ink)' }}>{p.autor}</div>
-          <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.12em',
+          <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.12em',
             color: 'var(--ink-55)', marginTop: 3, textTransform: 'uppercase' }}>{p.rol_autor}</div>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
           color: 'var(--ink-55)', whiteSpace: 'nowrap' }}>{p.handle}</div>
       </div>
     </div>
@@ -207,7 +207,7 @@ function PoEquipoNoPhoto(props) {
           lineHeight: 0.98 }}>
           <em>{p.nombre}</em>
         </div>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, letterSpacing: '0.2em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontSize: 12, letterSpacing: '0.2em',
           color: 'var(--blue-mid)', textTransform: 'uppercase', fontWeight: 500, marginTop: 14 }}>
           {p.rol}
         </div>
@@ -219,7 +219,7 @@ function PoEquipoNoPhoto(props) {
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 4 }}>
         {tags.map((a, i) => (
-          <span key={i} style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10,
+          <span key={i} style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10,
             letterSpacing: '0.1em', padding: '4px 8px', border: '1px solid var(--hair-2)',
             textTransform: 'uppercase', color: 'var(--navy)', whiteSpace: 'nowrap' }}>{a}</span>
         ))}
@@ -308,15 +308,15 @@ function StVencimientosLight(props) {
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '72px 1fr 64px',
               alignItems: 'center', gap: 8, padding: '15px 0',
               borderBottom: '1px solid var(--hair)' }}>
-              <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 13.5,
+              <div style={{ fontFamily: 'var(--font-accent)', fontSize: 13.5,
                 letterSpacing: '0.06em', color: 'var(--blue-mid)', fontWeight: 500 }}>{it.date}</div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 600,
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: 18, fontWeight: 600,
                   color: 'var(--navy-ink)', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{it.tax}</div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11.5,
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: 11.5,
                   color: 'var(--ink-55)', marginTop: 2 }}>{it.period}</div>
               </div>
-              <div style={{ textAlign: 'right', fontFamily: 'Geist Mono, monospace', fontSize: 11.5,
+              <div style={{ textAlign: 'right', fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11.5,
                 letterSpacing: '0.04em', color: 'var(--ink-55)',
                 whiteSpace: 'nowrap' }}>{it.due} h</div>
             </div>
@@ -366,12 +366,12 @@ function StCitaMinimal(props) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         gap: 12 }}>
         <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 700,
             color: 'var(--navy-ink)' }}>{p.autor}</div>
-          <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10.5, letterSpacing: '0.14em',
+          <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5, letterSpacing: '0.14em',
             color: 'var(--ink-55)', marginTop: 4, textTransform: 'uppercase' }}>{p.rol_autor}</div>
         </div>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10.5, letterSpacing: '0.08em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10.5, letterSpacing: '0.08em',
           color: 'var(--ink-55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>

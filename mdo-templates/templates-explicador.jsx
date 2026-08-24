@@ -44,7 +44,7 @@ function PoExplicador(props) {
               <em>{'0' + (i + 1)}</em>
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16.5, fontWeight: 700,
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 16.5, fontWeight: 700,
                 color: 'var(--navy)', lineHeight: 1.25, letterSpacing: '-0.01em' }}>{s.t}</div>
               <div className="lede" style={{ marginTop: 6, fontSize: 13,
                 color: 'var(--ink-55)' }}>{s.d}</div>
@@ -54,7 +54,7 @@ function PoExplicador(props) {
       </div>
 
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -82,11 +82,11 @@ function PoComparativa(props) {
     return (
       <div style={{ flex: 1, minWidth: 0, border: bd, borderRadius: 4, padding: '20px 18px',
         background: dark ? 'var(--navy)' : '#fff', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.18em',
+        <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.18em',
           textTransform: 'uppercase', color: dark ? 'var(--blue-lt)' : 'var(--blue-mid)' }}>
           {label}
         </div>
-        <div style={{ marginTop: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 19,
+        <div style={{ marginTop: 8, fontFamily: 'var(--font-body)', fontSize: 19,
           fontWeight: 700, letterSpacing: '-0.015em', lineHeight: 1.15,
           color: dark ? 'var(--paper)' : 'var(--navy-ink)' }}>
           {titulo}
@@ -98,7 +98,7 @@ function PoComparativa(props) {
             <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
               <span style={{ flexShrink: 0, marginTop: 6, width: 10, height: 1,
                 background: dark ? 'var(--blue-lt)' : 'var(--blue)' }}></span>
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5, lineHeight: 1.4,
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, lineHeight: 1.4,
                 color: dark ? 'rgba(247,249,252,0.85)' : 'var(--ink-70)' }}>{it}</span>
             </div>
           ))}
@@ -118,7 +118,7 @@ function PoComparativa(props) {
 
       <div style={{ flex: 1, display: 'flex', alignItems: 'stretch', gap: 14, marginTop: 24 }}>
         <Col label={p.a_label} titulo={p.a_titulo} items={[p.a_1, p.a_2, p.a_3]} dark={false} />
-        <div style={{ flexShrink: 0, alignSelf: 'center', fontFamily: 'Geist Mono, monospace',
+        <div style={{ flexShrink: 0, alignSelf: 'center', fontFamily: 'var(--font-accent)', fontWeight: 700,
           fontSize: 10, letterSpacing: '0.14em', color: 'var(--ink-35)',
           textTransform: 'uppercase' }}>vs</div>
         <Col label={p.b_label} titulo={p.b_titulo} items={[p.b_1, p.b_2, p.b_3]} dark={true} />
@@ -170,9 +170,9 @@ function PoElegiTuCaso(props) {
               background: 'rgba(247,249,252,0.05)' }}>
               <span style={{ flexShrink: 0, width: 26, height: 26, borderRadius: '50%',
                 border: '1px solid var(--blue-lt)', color: 'var(--blue-lt)',
-                fontFamily: 'Geist Mono, monospace', fontSize: 11, display: 'flex',
+                fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11, display: 'flex',
                 alignItems: 'center', justifyContent: 'center' }}>{i + 1}</span>
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 500,
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 500,
                 color: 'var(--paper)', lineHeight: 1.3 }}>{o}</span>
             </div>
           ))}
@@ -181,7 +181,7 @@ function PoElegiTuCaso(props) {
 
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ padding: '15px 20px', background: 'var(--paper)', color: 'var(--navy)',
-          fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 700,
+          fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 700,
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
           <span>{p.cta}</span>
           <span style={{ color: 'var(--blue-mid)', flexShrink: 0 }}>→</span>

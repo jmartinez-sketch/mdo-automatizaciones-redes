@@ -32,13 +32,13 @@ function PoMitoRealidad(props) {
           border: '1px solid var(--hair)', borderRadius: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 10 }}>
             <span style={{ width: 18, height: 18, borderRadius: '50%', border: '1px solid var(--ink-35)',
-              color: 'var(--ink-35)', fontFamily: 'Montserrat, sans-serif', fontSize: 11,
+              color: 'var(--ink-35)', fontFamily: 'var(--font-body)', fontSize: 11,
               fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center',
               flexShrink: 0 }}>✕</span>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.2em',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: 'var(--ink-35)' }}>El mito</span>
           </div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: mSize, fontWeight: 500,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: mSize, fontWeight: 500,
             color: 'var(--ink-55)', lineHeight: 1.38, textDecoration: 'line-through',
             textDecorationColor: 'var(--ink-15)' }}>
             {p.mito}
@@ -49,13 +49,13 @@ function PoMitoRealidad(props) {
         <div style={{ padding: '22px 24px', background: 'var(--navy)', borderRadius: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 10 }}>
             <span style={{ width: 18, height: 18, borderRadius: '50%', background: 'var(--blue-lt)',
-              color: 'var(--navy)', fontFamily: 'Montserrat, sans-serif', fontSize: 11,
+              color: 'var(--navy)', fontFamily: 'var(--font-body)', fontSize: 11,
               fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center',
               flexShrink: 0 }}>✓</span>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.2em',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: 'var(--blue-lt)' }}>La realidad</span>
           </div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: rSize, fontWeight: 600,
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: rSize, fontWeight: 600,
             color: 'var(--paper)', lineHeight: 1.38 }}>
             {p.realidad}
           </div>
@@ -64,9 +64,9 @@ function PoMitoRealidad(props) {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         gap: 12, borderTop: '1px solid var(--hair)', paddingTop: 16 }}>
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+        <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 700,
           color: 'var(--navy)' }}>{p.cta}</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
           color: 'var(--ink-55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
@@ -106,16 +106,16 @@ function PoErrores(props) {
           <div key={i} style={{ background: '#fff', border: '1px solid var(--hair)', borderRadius: 4,
             padding: '16px 18px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
             <span style={{ flexShrink: 0, width: 24, height: 24, borderRadius: '50%',
-              background: 'var(--navy)', color: 'var(--paper)', fontFamily: 'Geist Mono, monospace',
+              background: 'var(--navy)', color: 'var(--paper)', fontFamily: 'var(--font-accent)', fontWeight: 700,
               fontSize: 11, display: 'flex', alignItems: 'center', justifyContent: 'center',
               marginTop: 1 }}>{i + 1}</span>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 700,
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 700,
                 color: 'var(--navy-ink)', lineHeight: 1.28 }}>{it.e}</div>
               <div style={{ marginTop: 5, display: 'flex', gap: 7, alignItems: 'flex-start' }}>
                 <span style={{ flexShrink: 0, marginTop: 7, width: 9, height: 1,
                   background: 'var(--blue)' }}></span>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12.5,
+                <span style={{ fontFamily: 'var(--font-body)', fontSize: 12.5,
                   color: 'var(--ink-55)', lineHeight: 1.4 }}>{it.f}</span>
               </div>
             </div>
@@ -124,7 +124,7 @@ function PoErrores(props) {
       </div>
 
       <div style={{ padding: '15px 20px', background: 'var(--navy)', color: 'var(--paper)',
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 600,
+        fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600,
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <span>{p.cta}</span>
         <span style={{ color: 'var(--blue-lt)', flexShrink: 0 }}>→</span>
@@ -166,9 +166,9 @@ function PoTestimonio(props) {
           <span style={{ flexShrink: 0, marginTop: 8, width: 26, height: 1,
             background: 'var(--blue-lt)' }}></span>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13.5, fontWeight: 700,
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 700,
               color: 'var(--paper)' }}>{p.cliente_tipo}</div>
-            <div style={{ marginTop: 3, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+            <div style={{ marginTop: 3, fontFamily: 'var(--font-body)', fontSize: 12,
               color: 'rgba(247,249,252,0.65)' }}>{p.cliente_detalle}</div>
           </div>
         </div>
@@ -177,9 +177,9 @@ function PoTestimonio(props) {
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between',
         alignItems: 'baseline', gap: 12, borderTop: '1px solid rgba(247,249,252,0.20)',
         paddingTop: 16 }}>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 9.5, letterSpacing: '0.18em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 9.5, letterSpacing: '0.18em',
           textTransform: 'uppercase', color: 'var(--blue-lt)' }}>{p.servicio}</span>
-        <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.08em',
+        <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.08em',
           color: 'rgba(247,249,252,0.55)', whiteSpace: 'nowrap' }}>{p.handle}</span>
       </div>
     </div>
