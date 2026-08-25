@@ -108,7 +108,7 @@ Además: "AFIP" → "ARCA" en todos los ejemplos, y se quitó la etiqueta visibl
 ## 4. Plantillas nuevas (13)
 
 ### Noticia rearmada
-- **po-13d / sq-12d** (`templates-noticia-v2.jsx`) — noticia con marca de agua del
+- **po-13d** (`templates-noticia-v2.jsx`) — noticia con marca de agua del
   iso y cierre editorial anclado. Recomendadas para la rutina en lugar de po-13c / sq-12c.
   `CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE` (sólo po-13d), `FUENTE`, `FECHA`, `HANDLE`
 
@@ -147,7 +147,6 @@ Además: "AFIP" → "ARCA" en todos los ejemplos, y se quitó la etiqueta visibl
 
 ```js
 'po-13d': { c: PoNoticiaV2,       baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
-'sq-12d': { c: SqNoticiaV2,       baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
 'po-31':  { c: PoExplicador,      baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
 'po-32':  { c: PoComparativa,     baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
 'po-33':  { c: PoElegiTuCaso,     baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },

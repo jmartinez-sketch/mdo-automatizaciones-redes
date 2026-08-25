@@ -145,7 +145,6 @@ texto, pie que ya no se parte en dos líneas, y el azul unificado con el de los 
 |---|---|---|
 | `po-13d` | Noticia 4:5 con marca de agua del iso y cierre anclado | `CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE` |
 | `po-13e` | **Misma que `po-13d`, en navy.** Existe para que dos noticias de la misma semana se distingan de un vistazo en la grilla | idénticos a `po-13d` |
-| `sq-12d` | Misma, cuadrada | `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE` |
 
 > **`po-13e`** es `po-13d` con el modo de color invertido — misma composición, mismos 7 slots, mismos límites de texto. Para alternar solo hay que cambiar el id del template: el contenido no se toca.
 
@@ -240,7 +239,7 @@ templates-portrait.jsx    ← po-04, po-05, po-06
 templates-story.jsx       ← st-07, st-08, st-09
 templates-carousel.jsx    ← ca-* y cb-*
 templates-news.jsx        ← sq-12, po-13
-templates-noticia-v2.jsx  ← po-13d, po-13e, sq-12d
+templates-noticia-v2.jsx  ← po-13d, po-13e
 templates-variants.jsx    ← variantes navy (sq-02b, po-13b, st-09b, …)
 templates-variants-light.jsx ← variantes light/minimal (sq-12c, po-13c, st-08c, …)
 templates-friday.jsx      ← po-21 a po-25

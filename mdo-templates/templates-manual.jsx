@@ -36,18 +36,30 @@ function ManWatermark({ variant = 'a' }) {
 // Foto a sangre. El manual usa foto real (edificios en contrapicado, manos en
 // el teclado) SIEMPRE oscurecida con velo navy: nunca la foto cruda, nunca una
 // foto cálida o saturada.
-function ManPhoto({ caption, dark = 0.52 }) {
+// `src` es la ruta de la foto real; sin src queda el slot rayado de placeholder.
+// Las fotos institucionales salen del propio manual (assets/fotos/): la de
+// edificios está incrustada limpia en el PDF y la de manos es un recorte sin
+// texto de la pieza original de redes.
+function ManPhoto({ caption, src, dark = 0.52, position = 'center' }) {
   return (
     <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-      <div className="slot" style={{ width: '100%', height: '100%', border: 'none' }}>
-        <span className="slot-cap">{caption}</span>
-      </div>
+      {src ? (
+        <img src={src} alt="" style={{ width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: position, display: 'block' }} />
+      ) : (
+        <div className="slot" style={{ width: '100%', height: '100%', border: 'none' }}>
+          <span className="slot-cap">{caption}</span>
+        </div>
+      )}
       <div style={{ position: 'absolute', inset: 0, background: 'var(--navy)', opacity: dark }}></div>
       <div style={{ position: 'absolute', inset: 0,
         background: 'linear-gradient(to top,rgba(0,8,29,0.55),transparent 60%)' }}></div>
     </div>
   );
 }
+
+const FOTO_EDIFICIOS = 'assets/fotos/edificios-contrapicado.jpg';
+const FOTO_MANOS = 'assets/fotos/manos-teclado.jpg';
 
 const MAN_Z = { position: 'relative', zIndex: 1 };
 
@@ -240,13 +252,14 @@ function ManFrase(props) {
 function ManFraseFoto(props) {
   const p = Object.assign({
     claim_1: '[CLAIM_1]', claim_2: '[CLAIM_2]', foto: '[FOTO]',
+    foto_src: FOTO_EDIFICIOS, foto_pos: 'left center',
   }, props);
   const cSize = fitSize(p.claim_1 + p.claim_2, [[40, 21], [56, 18]], 16);
 
   return (
     <div className="tpl navy" style={{ padding: MAN_PAD, display: 'flex', flexDirection: 'column',
       position: 'relative', overflow: 'hidden' }}>
-      <ManPhoto caption={p.foto} dark={0.34} />
+      <ManPhoto caption={p.foto} src={p.foto_src} position={p.foto_pos} dark={0.34} />
 
       <div style={Object.assign({ flex: 1, display: 'flex', alignItems: 'center',
         justifyContent: 'center', textAlign: 'center' }, MAN_Z)}>
@@ -270,12 +283,13 @@ function ManClaimFoto(props) {
   const p = Object.assign({
     claim_1: '[CLAIM_1]', claim_2: '[CLAIM_2]', claim_3: '[CLAIM_3]',
     destacado: '[DESTACADO]', foto: '[FOTO]',
+    foto_src: FOTO_EDIFICIOS, foto_pos: 'right center',
   }, props);
 
   return (
     <div className="tpl navy" style={{ padding: MAN_PAD, display: 'flex', flexDirection: 'column',
       position: 'relative', overflow: 'hidden' }}>
-      <ManPhoto caption={p.foto} dark={0.55} />
+      <ManPhoto caption={p.foto} src={p.foto_src} position={p.foto_pos} dark={0.55} />
 
       <div style={Object.assign({ flex: 1, display: 'flex', flexDirection: 'column',
         justifyContent: 'center', alignItems: 'flex-end', textAlign: 'right' }, MAN_Z)}>
@@ -301,12 +315,13 @@ function ManClaimFoto(props) {
 // y el rubro abajo a la derecha en versalitas muy abiertas.
 // Slots: RUBRO, FOTO
 function ManInstitucional(props) {
-  const p = Object.assign({ rubro: '[RUBRO]', foto: '[FOTO]' }, props);
+  const p = Object.assign({ rubro: '[RUBRO]', foto: '[FOTO]',
+    foto_src: FOTO_MANOS, foto_pos: 'center' }, props);
 
   return (
     <div className="tpl navy" style={{ padding: MAN_PAD, display: 'flex', flexDirection: 'column',
       position: 'relative', overflow: 'hidden' }}>
-      <ManPhoto caption={p.foto} dark={0.58} />
+      <ManPhoto caption={p.foto} src={p.foto_src} position={p.foto_pos} dark={0.58} />
 
       <div style={MAN_Z}>
         <LockupSecundario mode="light" size={48} />
