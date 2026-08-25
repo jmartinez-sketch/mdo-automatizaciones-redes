@@ -91,7 +91,7 @@ function PoNoticia(props) {
           color: 'var(--paper)' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
             <span className="asterisk" style={{ fontSize: 22, color: 'var(--blue-lt)' }}>*</span>
-            <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, letterSpacing: '0.2em',
+            <span style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: 'var(--blue-lt)' }}>{p.que_saber_label}</span>
           </div>
           <div className="display-serif" style={{ fontSize: qSize, lineHeight: 1.22,
@@ -128,4 +128,8 @@ const EXAMPLES_NEWS = {
   },
 };
 
-Object.assign(window, { SqNoticia, PoNoticia, EXAMPLES_NEWS });
+// SqNoticia y PoNoticia YA NO se exportan desde acá: las versiones rediseñadas
+// (marca v2.0) viven en templates-square.jsx y templates-noticia-v2.jsx. Este
+// archivo se quedó en el branding anterior y, al cargarse después de
+// templates-square.jsx, las pisaba. Solo aporta sus ejemplos.
+Object.assign(window, { EXAMPLES_NEWS });

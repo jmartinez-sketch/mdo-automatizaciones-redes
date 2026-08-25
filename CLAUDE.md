@@ -1,6 +1,6 @@
 # MDO Consultores — Rutina semanal de posteos IG
 
-Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del estudio **Martinez, De Orta & Asociados**.
+Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del estudio **Martinez, De Orta & Gutierrez Taboada**.
 
 ## Quién es el usuario
 

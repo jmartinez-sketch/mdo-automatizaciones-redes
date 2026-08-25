@@ -1,32 +1,32 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600&family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <meta charset="utf-8">
 <title>MDO · Plantillas nuevas y corregidas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="mdo-brand.css">
 <style>
 html,body{overflow:auto;background:#e9eef3}
 body{padding:40px 32px 64px}
 .page-h{max-width:1180px;margin:0 auto 30px}
-.page-h h1{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#143352;margin:0;letter-spacing:-.01em}
-.page-h p{font-family:'Montserrat',sans-serif;font-size:13.5px;color:#6c7883;margin:8px 0 0;line-height:1.6;max-width:70ch}
+.page-h h1{font-family:var(--font-body);font-size:22px;font-weight:700;color:#143352;margin:0;letter-spacing:-.01em}
+.page-h p{font-family:var(--font-body);font-size:13.5px;color:#737B87;margin:8px 0 0;line-height:1.6;max-width:70ch}
 .grid{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:34px}
 .item{display:flex;flex-direction:column;gap:10px}
 .cap{display:flex;align-items:baseline;gap:9px}
-.cap .id{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#2e75b6;font-weight:500}
-.cap .nm{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:#33383d}
-.cap .sz{font-family:'Geist Mono',monospace;font-size:9.5px;color:#98a3ae;margin-left:auto}
+.cap .id{font-family:var(--font-accent);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#7C8392;font-weight:500}
+.cap .nm{font-family:var(--font-body);font-size:12.5px;font-weight:600;color:#06162D}
+.cap .sz{font-family:var(--font-accent);font-size:9.5px;color:#9BA2AB;margin-left:auto}
 .frame{background:#fff;box-shadow:0 4px 18px rgba(20,50,90,.13);overflow:hidden;position:relative}
-.sec{max-width:1180px;margin:44px auto 4px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#1f4e79;border-bottom:1px solid rgba(31,78,121,.18);padding-bottom:8px}
+.sec{max-width:1180px;margin:44px auto 4px;font-family:var(--font-accent);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#06162D;border-bottom:1px solid rgba(31,78,121,.18);padding-bottom:8px}
 </style>
 </head>
 <body>
 <div class="page-h">
   <h1>Plantillas nuevas y corregidas</h1>
-  <p>Paleta unificada al azul institucional MDO (#1f4e79), el mismo de los emails y las propuestas. Las placas corregidas resuelven el hueco vertical, el pie que se partía en dos líneas y el título de cuerpo fijo. Cada pieza se muestra a escala; la salida real es la indicada a la derecha.</p>
+  <p>Paleta unificada al azul noche MDO (#06162D), el mismo de los emails y las propuestas. Las placas corregidas resuelven el hueco vertical, el pie que se partía en dos líneas y el título de cuerpo fijo. Cada pieza se muestra a escala; la salida real es la indicada a la derecha.</p>
 </div>
 <div id="root"></div>
 
@@ -50,13 +50,13 @@ body{padding:40px 32px 64px}
 <script type="text/babel" src="templates-news.jsx"></script>
 <script type="text/babel" src="templates-variants.jsx"></script>
 <script type="text/babel" src="templates-variants-light.jsx"></script>
+<script type="text/babel" src="templates-manual.jsx"></script>
 
 <script type="text/babel">
 const GALLERY = [
   { sec: 'Corregidas — reemplazan a po-13c / sq-12c en la rutina' },
   { id: 'po-13d', nm: 'Noticia portrait (corregida)', c: 'PoNoticiaV2', w: 540, h: 675, out: '1080×1350', s: 0.63 },
   { id: 'po-13e', nm: 'Noticia portrait navy', c: 'PoNoticiaV2Navy', w: 540, h: 675, out: '1080×1350', s: 0.63 },
-  { id: 'sq-12d', nm: 'Noticia square (corregida)', c: 'SqNoticiaV2', w: 540, h: 540, out: '1080×1080', s: 0.63 },
   { sec: 'Nuevas — Instagram 4:5' },
   { id: 'po-31', nm: 'Explicador en 3 pasos', c: 'PoExplicador', w: 540, h: 675, out: '1080×1350', s: 0.63 },
   { id: 'po-32', nm: 'Comparativa A vs. B', c: 'PoComparativa', w: 540, h: 675, out: '1080×1350', s: 0.63 },

@@ -30,7 +30,7 @@ const SIZES = {
 function sizeForTemplate(id) {
   if (id.startsWith('st-')) return SIZES.story;
   if (id.startsWith('li-')) return SIZES.linkedin;
-  // sq-12d es cuadrada pese al prefijo de noticia; el resto de po-/cb- son 4:5
+  // (sq-12d se retiró del catálogo: era idéntica a sq-12)
   if (id.startsWith('sq-')) return SIZES.square;
   if (id.startsWith('po-') || id.startsWith('cb-')) return SIZES.portrait;
   return SIZES.square;
