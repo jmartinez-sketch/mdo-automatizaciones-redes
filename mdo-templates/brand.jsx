@@ -1,44 +1,25 @@
 // brand.jsx — shared MDO brand primitives used across templates.
 
-const ISO_DARK = 'assets/logo-mdo-iso.svg';      // blue M on transparent — for light bg
-const ISO_WHITE = 'assets/logo-mdo-iso-white.svg'; // white M on transparent — for navy bg
+const ISO_DARK = 'assets/logo-mdo-iso.svg';      // isotipo navy — para fondos claros
+const ISO_WHITE = 'assets/logo-mdo-iso-white.svg'; // isotipo paper — para fondos navy
 
-// Wordmark + iso lockup. Modes: 'dark' (default, blue iso + navy wordmark)
-// or 'light' (white iso + paper wordmark) for navy backgrounds.
-function Lockup({ mode = 'dark', size = 28, stacked = false, hideWordmark = false }) {
-  const src = mode === 'light' ? ISO_WHITE : ISO_DARK;
-  if (stacked) {
-    return (
-      <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-        <img src={src} alt="MDO" style={{ height: size, width: 'auto', display: 'block' }} />
-        {!hideWordmark && (
-          <div className="wm" style={{
-            fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: size * 0.34,
-            letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center',
-            color: mode === 'light' ? 'var(--paper)' : 'var(--navy)', lineHeight: 1.2,
-          }}>
-            Martinez, De Orta
-            <div style={{ fontWeight: 500, fontSize: size * 0.26, letterSpacing: '0.22em',
-              color: mode === 'light' ? 'rgba(247,249,252,0.65)' : 'var(--ink-55)', marginTop: 2 }}>
-              Gutierrez Taboada
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
+// Logo principal (MDO + CONSULTORES) y secundario (los tres apellidos).
+// Son los SVG del manual, no texto: el nombre nunca se escribe a mano.
+const LOGO_DARK = 'assets/logo-mdo-principal.svg';
+const LOGO_WHITE = 'assets/logo-mdo-principal-white.svg';
+const LOGO2_DARK = 'assets/logo-mdo-secundario.svg';
+const LOGO2_WHITE = 'assets/logo-mdo-secundario-white.svg';
+
+// Logo principal: el SVG del manual (isotipo + MDO + CONSULTORES).
+// Modo 'dark' (navy, para fondos claros) o 'light' (paper, para navy).
+// `hideWordmark` deja sólo el isotipo, para cajas muy chicas.
+function Lockup({ mode = 'dark', size = 28, hideWordmark = false }) {
+  const light = mode === 'light';
+  const src = hideWordmark ? (light ? ISO_WHITE : ISO_DARK)
+                           : (light ? LOGO_WHITE : LOGO_DARK);
   return (
-    <div className="lockup">
-      <img className="iso" src={src} alt="MDO" style={{ height: size }} />
-      {!hideWordmark && (
-        <div className="wm" style={{ color: mode === 'light' ? 'var(--paper)' : 'var(--navy)' }}>
-          Martinez, De Orta
-          <small style={{ color: mode === 'light' ? 'rgba(247,249,252,0.65)' : 'var(--ink-55)' }}>
-            Gutierrez Taboada
-          </small>
-        </div>
-      )}
-    </div>
+    <img src={src} alt="MDO Consultores"
+      style={{ height: size, width: 'auto', display: 'block' }} />
   );
 }
 
@@ -64,25 +45,17 @@ function IsoWatermark({ mode = 'dark', size = 200, opacity = 0.08, style = {} })
 
 
 // ── Lockup secundario ──────────────────────────────────────────────
-// El del manual: isotipo, filete vertical y los tres apellidos en tres
-// líneas. Va donde hace falta reforzar la identificación institucional
-// (firmas, credenciales, formatos horizontales). Mínimo 30 mm / 140 px:
-// por debajo de eso el manual pide usar sólo el isologo.
-function LockupSecundario({ mode = 'dark', size = 48 }) {
-  const src = mode === 'light' ? ISO_WHITE : ISO_DARK;
-  const tinta = mode === 'light' ? 'var(--paper)' : 'var(--navy)';
-  const filete = mode === 'light' ? 'rgba(248,246,246,0.45)' : 'var(--ink-25)';
+// El SVG del manual: isotipo, filete vertical y los tres apellidos.
+// Va sólo donde hace falta reforzar la identificación institucional
+// (mn-08 y li-02). Mínimo 30 mm / 140 px: por debajo de eso el manual
+// pide usar sólo el isologo.
+function LockupSecundario({ mode = 'light', size = 48 }) {
+  const src = mode === 'light' ? LOGO2_WHITE : LOGO2_DARK;
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size * 0.30 }}>
-      <img src={src} alt="MDO" style={{ height: size, width: 'auto', display: 'block' }} />
-      <div style={{ width: 1, alignSelf: 'stretch', background: filete }} />
-      <div style={{ fontFamily: 'var(--font-body)', fontWeight: 400,
-        fontSize: size * 0.235, lineHeight: 1.32, letterSpacing: '0.055em',
-        textTransform: 'uppercase', color: tinta, whiteSpace: 'nowrap' }}>
-        Martinez<br />De Orta<br />Gutierrez Taboada
-      </div>
-    </div>
+    <img src={src} alt="Martinez · De Orta · Gutierrez Taboada"
+      style={{ height: size, width: 'auto', display: 'block' }} />
   );
 }
 
-Object.assign(window, { Lockup, LockupSecundario, FooterBar, IsoWatermark, ISO_DARK, ISO_WHITE });
+Object.assign(window, { Lockup, LockupSecundario, FooterBar, IsoWatermark,
+  ISO_DARK, ISO_WHITE, LOGO_DARK, LOGO_WHITE, LOGO2_DARK, LOGO2_WHITE });

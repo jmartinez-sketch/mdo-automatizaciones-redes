@@ -43,11 +43,26 @@
   /* Semáforo y acentos */
   --amber-bg:rgba(138,99,32,0.12); --amber-bd:rgba(138,99,32,0.35); --amber-tx:#8a6320;
   --green:#2f6b56; --purple:#6E6A6F;
+  /* Tintas que piden las placas del manual (mn-*) y algunas variantes.
+     El paquete de Claude Design las usaba sin definirlas: sin estas líneas
+     mn-02 salía con el título en blanco, mn-04 con fondo papel y mn-05 sin
+     tinta en la frase. Cada valor es la entrada de la escala del manual más
+     cercana a lo medido sobre los PNG de referencia (entre paréntesis). */
+  --slate-30:#89909D;      /* slate t1 — medido #8F96A1 (mn-02, subtítulo) */
+  --slate-40:#BDC1C8;      /* slate t5 — medido #B8C0CA (mn-02, cuerpo) */
+  --slate-60:#CBCDD3;      /* slate t6 — ya venía como fallback en el JSX */
+  --navy-20:#384557;       /* navy t2 — medido #2B3F51 (mn-04, cuerpo) */
+  --warm-grey-20:#8B888C;  /* warm-grey t2 — medido #898387 (mn-05, frase) */
+  --ink-35:#828A96;        /* navy t5 — el hueco entre --ink-40 y --ink-25 */
+  --paper-feed:#F0EDEE;    /* medido exacto en mn-03 y mn-05 */
   /* Degradés del manual (pág. 14). Sólo colores de la paleta, transición
      suave, y el degradé es soporte del contenido: nunca protagonista. */
   --gradient-brand:linear-gradient(180deg,#010719,#294166);
   --gradient-brand-h:linear-gradient(90deg,#010719,#294166);
   --gradient-gris:linear-gradient(180deg,#647083,#D8D8D8);
+  /* Degradé claro, sólo mn-04. Dos tintas de la escala del gris azulado; el
+     PNG de referencia mide #C2C6CE de punta a punta, que es el promedio. */
+  --gradient-light:linear-gradient(160deg,#BDC1C8,#CBCDD3);
   /* Tipografías */
   --font-body:'Open Sans',system-ui,sans-serif;
   --font-display:'Open Sans',system-ui,sans-serif;
