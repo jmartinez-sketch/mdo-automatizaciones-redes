@@ -59,7 +59,10 @@ function ManPhoto({ caption, src, dark = 0.52, position = 'center' }) {
 }
 
 const FOTO_EDIFICIOS = 'assets/fotos/edificios-contrapicado.jpg';
-const FOTO_MANOS = 'assets/fotos/manos-teclado.jpg';
+// La foto de manos en el teclado NO tiene version en alta (el recorte de la
+// pieza de redes quedaba pixelado estirado a 1080x1350, y las fotos nunca se
+// escalan por encima del 100%). Hasta conseguirla, mn-08 cae al degrade de
+// marca, como mn-01.
 
 const MAN_Z = { position: 'relative', zIndex: 1 };
 
@@ -316,12 +319,13 @@ function ManClaimFoto(props) {
 // Slots: RUBRO, FOTO
 function ManInstitucional(props) {
   const p = Object.assign({ rubro: '[RUBRO]', foto: '[FOTO]',
-    foto_src: FOTO_MANOS, foto_pos: 'center' }, props);
+    foto_src: null, foto_pos: 'center' }, props);
 
   return (
     <div className="tpl navy" style={{ padding: MAN_PAD, display: 'flex', flexDirection: 'column',
-      position: 'relative', overflow: 'hidden' }}>
-      <ManPhoto caption={p.foto} src={p.foto_src} position={p.foto_pos} dark={0.58} />
+      position: 'relative', overflow: 'hidden',
+      background: p.foto_src ? undefined : 'var(--gradient-brand)' }}>
+      {p.foto_src ? <ManPhoto caption={p.foto} src={p.foto_src} position={p.foto_pos} dark={0.58} /> : null}
 
       <div style={MAN_Z}>
         <LockupSecundario mode="light" size={48} />

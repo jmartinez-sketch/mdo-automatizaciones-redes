@@ -65,7 +65,10 @@ function LiClaim(props) {
     <div className="tpl navy bg-grid-navy" style={{ padding: 38, display: 'flex',
       flexDirection: 'row', gap: 30 }}>
       <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-        <span className="eyebrow">{p.copete}</span>
+        {/* 1px menos y tracking mas corto que .eyebrow: los tres apellidos
+            tienen que entrar en UNA linea en la columna angosta de 600px */}
+        <span className="eyebrow" style={{ fontSize: 9, letterSpacing: '0.18em',
+          whiteSpace: 'nowrap' }}>{p.copete}</span>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
           <div className="display" style={{ fontSize: cSize, fontWeight: 700, color: 'var(--paper)',
             letterSpacing: '-0.022em', lineHeight: 1.1 }}>{p.claim}</div>
