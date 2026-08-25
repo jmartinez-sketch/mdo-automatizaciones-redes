@@ -62,4 +62,27 @@ function IsoWatermark({ mode = 'dark', size = 200, opacity = 0.08, style = {} })
   );
 }
 
-Object.assign(window, { Lockup, FooterBar, IsoWatermark, ISO_DARK, ISO_WHITE });
+
+// ── Lockup secundario ──────────────────────────────────────────────
+// El del manual: isotipo, filete vertical y los tres apellidos en tres
+// líneas. Va donde hace falta reforzar la identificación institucional
+// (firmas, credenciales, formatos horizontales). Mínimo 30 mm / 140 px:
+// por debajo de eso el manual pide usar sólo el isologo.
+function LockupSecundario({ mode = 'dark', size = 48 }) {
+  const src = mode === 'light' ? ISO_WHITE : ISO_DARK;
+  const tinta = mode === 'light' ? 'var(--paper)' : 'var(--navy)';
+  const filete = mode === 'light' ? 'rgba(248,246,246,0.45)' : 'var(--ink-25)';
+  return (
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: size * 0.30 }}>
+      <img src={src} alt="MDO" style={{ height: size, width: 'auto', display: 'block' }} />
+      <div style={{ width: 1, alignSelf: 'stretch', background: filete }} />
+      <div style={{ fontFamily: 'var(--font-body)', fontWeight: 400,
+        fontSize: size * 0.235, lineHeight: 1.32, letterSpacing: '0.055em',
+        textTransform: 'uppercase', color: tinta, whiteSpace: 'nowrap' }}>
+        Martinez<br />De Orta<br />Gutierrez Taboada
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { Lockup, LockupSecundario, FooterBar, IsoWatermark, ISO_DARK, ISO_WHITE });
