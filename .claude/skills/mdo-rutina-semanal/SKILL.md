@@ -23,6 +23,26 @@ La fuente de verdad es el repo **`jmartinez-sketch/mdo-brand`** (`actual/tokens.
 
 ⚠️ **Placas renderizadas antes del 19/08/2026 llevan la marca vieja.** Si hay que reprogramar un post viejo, re-renderizar la imagen primero.
 
+
+### Familias de contenido del manual (regla de fondo por slot)
+
+El Manual de Marca 2026 define **cuatro familias** para redes, cada una con su tratamiento de fondo. No es decorativo: es cómo el manual quiere que se distingan los tipos de contenido en la grilla. Cada slot de la rutina cae en una:
+
+| Slot de la rutina | Familia del manual | Fondo que corresponde | Estructura |
+|---|---|---|---|
+| **Miércoles · noticia** | Novedades impositivas | Navy con degradados sutiles | Fecha, título, desarrollo y destacado |
+| **Jueves · story/carrusel** | Institucional | Fotografía tratada dentro de la paleta | Mensajes breves de alto impacto, tipografía simple y editorial |
+| **Viernes · gestión PyME** | MDO explica | **Claro, con mucho aire** | Composición editorial; jerarquías por peso tipográfico, no por color |
+| **Sábado · spotlight** | Servicios | Gris azulado o tonos intermedios | Recursos gráficos del universo MDO a gran escala |
+
+Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coincida con su familia**. Si el pool no tiene ninguna que encaje, es preferible repetir estructura con el fondo correcto que acertar la estructura con el fondo equivocado.
+
+⚠️ El viernes es el que más se desvía hoy: "MDO explica" pide **fondo claro y aire**, así que las variantes navy cargadas de texto no son las indicadas para ese slot.
+
+**Tono de marca** (manual pág. 5, "This is how we talk"): **Estratégico · Claro · Seguro · Cercano**. Los cuatro juntos — ni frío ni informal.
+
+**Datos de contacto correctos** (confirmados por Juan el 24/08/2026, y el manual los tiene MAL en la hoja membretada): la web y el mail van **con guion** → `mdo-consultores.com.ar` y `info@mdo-consultores.com.ar`. ❌ Nunca `mdoconsultores.com.ar` sin guion.
+
 ## Contexto del negocio
 
 - **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
