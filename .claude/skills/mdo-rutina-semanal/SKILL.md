@@ -10,6 +10,19 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y crea los drafts. El primer post de la semana sale el **miércoles**. ❌ Nunca crear un draft con fecha de lunes.
 
+## ⚠️ Marca 2026 — regla dura
+
+El estudio **rebrandeó**. Todo lo que se publique tiene que salir con la marca nueva:
+
+- **Nombre**: el logo dice **MDO CONSULTORES**. El lockup secundario es **MARTINEZ · DE ORTA · GUTIERREZ TABOADA**. ❌ "& Asociados" es el nombre **anterior** y no puede aparecer en nada publicado.
+- **Color**: azul noche `#06162D`. ❌ Nunca el azul viejo `#1f4e79`.
+- **Tipografías**: **Open Sans** en todo (títulos incluidos) y **Chivo** solo como acento en palabras o frases cortas. ❌ No hay monoespaciada: lo que antes iba en Geist Mono va en Chivo 700 con versalitas.
+- **Nunca escribir hex a mano** en una plantilla: usar las variables de `mdo-brand.css`. Los nombres de variable no cambiaron, así que una plantilla bien escrita adopta la marca sola.
+
+La fuente de verdad es el repo **`jmartinez-sketch/mdo-brand`** (`actual/tokens.css` y `actual/brand.json`). Si hay una duda de marca, se resuelve ahí, no acá.
+
+⚠️ **Placas renderizadas antes del 19/08/2026 llevan la marca vieja.** Si hay que reprogramar un post viejo, re-renderizar la imagen primero.
+
 ## Contexto del negocio
 
 - **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
@@ -21,7 +34,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ## Output esperado
 
-**4 drafts por semana** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn "Martinez, De Orta & Asociados" (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
+**4 drafts por semana** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn de **MDO Consultores** (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
 
 **Cada draft lleva Instagram y LinkedIn juntos**, salvo el jueves de story — ver la regla dura del paso 6.
 
@@ -61,7 +74,7 @@ Esto no es teórico — pasó de verdad (auditoría del 17/08/2026 sobre 3 meses
 
 ### ⚠️ Regla dura — variedad de plantillas
 
-La rutina tiene **58 plantillas disponibles** y el riesgo real es caer siempre en las mismas 5-6. Por eso:
+La rutina tiene **76 plantillas disponibles** y el riesgo real es caer siempre en las mismas 5-6. Por eso:
 
 1. **Antes de elegir cualquier plantilla, leer `posts/historial-plantillas.json`** (paso 0). Lo usado en las últimas 4 semanas queda **descartado**, salvo la ancla `po-13d`.
 2. **Al terminar, escribir el historial** (paso 8). Si no se escribe, la próxima corrida no tiene memoria y la variedad se rompe.
@@ -345,7 +358,7 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 - `po-04` → `mdo-templates/templates-portrait.jsx`
 - `po-21`–`po-25` → `mdo-templates/templates-friday.jsx`
 - `po-26`–`po-30` → `mdo-templates/templates-friday-b.jsx` (incluye el set de íconos SVG line-style)
-- Para un template nuevo: escribir el componente reusando el sistema de marca (paleta `:root`, fuentes Montserrat/Instrument Serif/Geist Mono, `Lockup`, `IsoWatermark`, clases `.tpl`/`.navy`/etc.) y registrarlo en `render.html` (`TEMPLATES`). Mantener padding generoso (margen seguro de grilla).
+- Para un template nuevo: escribir el componente reusando el sistema de marca **v2.0** (variables de `mdo-brand.css` — NUNCA hex a mano; `var(--font-body)` Open Sans para todo, `var(--font-accent)` Chivo solo para acentos cortos; `Lockup`, `IsoWatermark`, clases `.tpl`/`.navy`) y registrarlo en `render.html` (`TEMPLATES`). Mantener padding generoso (margen seguro de grilla).
 
 ### 3b. Generar contenido del jueves
 
@@ -803,7 +816,7 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
-- **Templates disponibles**: **59 en total**. Ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo con todos los slots. La rutina pone ~35 en rotación real; el resto son variantes cuadradas (excluidas a propósito del feed) o superadas por versiones nuevas.
+- **Templates disponibles**: **76 en total** (incluye las `mn-*` del manual y las `hl-*` de destacadas). Ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo con todos los slots. La rutina pone ~35 en rotación real; el resto son variantes cuadradas (excluidas a propósito del feed) o superadas por versiones nuevas.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.
