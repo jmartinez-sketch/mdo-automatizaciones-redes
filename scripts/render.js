@@ -28,7 +28,7 @@ const SIZES = {
 };
 
 function sizeForTemplate(id) {
-  if (id.startsWith('st-')) return SIZES.story;
+  if (id.startsWith('st-') || id.startsWith('hl-')) return SIZES.story;
   if (id.startsWith('li-')) return SIZES.linkedin;
   // (sq-12d se retiró del catálogo: era idéntica a sq-12)
   if (id.startsWith('sq-')) return SIZES.square;

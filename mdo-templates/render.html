@@ -34,6 +34,7 @@
 <script type="text/babel" src="templates-utilidad.jsx"></script>
 <script type="text/babel" src="templates-linkedin.jsx"></script>
 <script type="text/babel" src="templates-manual.jsx"></script>
+<script type="text/babel" src="templates-destacadas.jsx"></script>
 
 <script type="text/babel">
   // Render registry: template-id → { component, baseW, baseH, outW, outH, mode }
@@ -104,6 +105,18 @@
     // Story
     'st-10':  { c: StEncuesta,         baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     // LinkedIn 1.91:1
+    // Portadas de historias destacadas (1080×1920, recorte circular al centro)
+    'hl-tributario':   { c: HlTributario,   baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-precios':      { c: HlPrecios,      baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-auditoria':    { c: HlAuditoria,    baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-societario':   { c: HlSocietario,   baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-contabilidad': { c: HlContabilidad, baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-laboral':      { c: HlLaboral,      baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-tributario-l': { c: HlTributarioL,  baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-auditoria-l':  { c: HlAuditoriaL,   baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-laboral-l':    { c: HlLaboralL,     baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-auditoria-p':  { c: HlAuditoriaPapel,  baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
+    'hl-societario-p': { c: HlSocietarioPapel, baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'li-01':  { c: LiNoticia,          baseW: 600, baseH: 314, outW: 1200, outH: 628, mode: 'feed' },
     'li-02':  { c: LiClaim,            baseW: 600, baseH: 314, outW: 1200, outH: 628, mode: 'feed' },
     'li-03':  { c: LiDato,             baseW: 600, baseH: 314, outW: 1200, outH: 628, mode: 'feed' },
