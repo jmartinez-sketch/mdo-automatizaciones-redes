@@ -4,7 +4,9 @@
 //   · Todo el contenido vive dentro de un círculo centrado de ~70% del ancho.
 //   · El ícono manda; el texto es opcional y secundario (a ese tamaño casi no
 //     se lee — la etiqueta real la pone el NOMBRE de la destacada en Instagram).
-// Requiere brand.jsx y mdo-brand.css cargados antes.
+// Requiere brand.jsx y mdo-brand.css v2.0 cargados antes.
+// Marca 2026: colores por variable (toman el azul noche solos) y la etiqueta
+// en Chivo 700 versalitas — el manual eliminó la monoespaciada.
 
 // Ícono SVG propio: templates-friday-b.jsx define uno igual pero no lo exporta
 // al window, y el orden de carga no está garantizado.
@@ -46,7 +48,7 @@ function HlBase({ Ico, label, light = true }) {
           <Ico s={250} />
         </div>
         {label ? (
-          <div style={{ marginTop: 26, fontFamily: 'Geist Mono, monospace',
+          <div style={{ marginTop: 26, fontFamily: 'var(--font-accent)', fontWeight: 700,
             fontSize: 22, letterSpacing: '0.20em', textTransform: 'uppercase',
             textAlign: 'center', lineHeight: 1.35, opacity: 0.92 }}>{label}</div>
         ) : null}
