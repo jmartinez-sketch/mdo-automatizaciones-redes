@@ -32,7 +32,7 @@ function sizeForTemplate(id) {
   if (id.startsWith('li-')) return SIZES.linkedin;
   // (sq-12d se retiró del catálogo: era idéntica a sq-12)
   if (id.startsWith('sq-')) return SIZES.square;
-  if (id.startsWith('po-') || id.startsWith('cb-')) return SIZES.portrait;
+  if (id.startsWith('po-') || id.startsWith('cb-') || id.startsWith('mn-')) return SIZES.portrait;
   return SIZES.square;
 }
 
