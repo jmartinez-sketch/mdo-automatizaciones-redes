@@ -294,6 +294,27 @@ Rotar entre estos ángulos. **Nunca repetir la misma estructura dos semanas segu
 
 Si el tip generado contiene cualquier número específico o referencia normativa con fecha, **descartarlo y generar otro**.
 
+**⚠️ REGLA DURA — nada de frases hechas de LinkedIn** (pedido explícito de Juan, 01/09/2026):
+
+El viernes es el post que más se nota cuando suena a manual de autoayuda para emprendedores. Antes de dar por bueno un titular, pasarlo por este filtro. Si cae en cualquiera de estos vicios, **descartarlo y escribir otro**:
+
+| Vicio | Cómo suena | Por qué está mal |
+|---|---|---|
+| **Aforismo de dos tiempos** | "X no es A. Es B." · "No se trata de A, sino de B." | Es la estructura más gastada de LinkedIn. Suena a frase de cuadrito, no a estudio contable. |
+| **Consejo que nadie discute** | "Ordená tus números" · "Planificá con tiempo" · "Llevá la contabilidad al día" | Nadie va a decir que no. Si el lector no puede estar en desacuerdo, no dijiste nada. |
+| **Verdad genérica de coach** | "El orden es rentabilidad" · "La información es poder" | Sirve para cualquier rubro. Si funcionaría igual para una panadería o una agencia de viajes, no es nuestro. |
+| **Estadística inventada** | "El 80% de las PyMEs..." | No la podemos sostener. Además viola la regla de números. |
+| **Miedo vago** | "No esperes a que sea tarde" · "Que no te agarre desprevenido" | Amenaza sin contenido. |
+
+**Qué sí funciona** — que el titular describa una **situación concreta y reconocible**, no una moraleja. El lector tiene que pensar "esto me pasa a mí", no "qué linda frase".
+
+- ✅ "Elegiste cómo tributar cuando tu empresa era otra." → describe una situación real y puntual
+- ❌ "Planificar impuestos no es pagar menos. Es saber cuánto vas a pagar." → aforismo de dos tiempos, descartado el 01/09/2026 por este motivo
+
+**Test rápido antes de renderizar**: leé el titular en voz alta e imaginá que lo dice un coach de negocios en un video motivacional. Si le queda cómodo, no sirve. Si en cambio suena a algo que un contador le diría a un cliente mirándolo a los ojos, va.
+
+⚠️ Ojo con el ángulo, no solo con las palabras: **"planificación tributaria / que no te agarren de sorpresa" ya salió el 26/06 y el 31/07/2026**. Reformularlo con otras palabras sigue siendo repetirlo.
+
 Mapear a slots de `po-04`:
 - `COPETE` — ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar `"Gestión PyME"` o el nombre del servicio de la semana, ej: "Gestión PyME", "Contabilidad", "Asesoramiento impositivo"
 - `TITULO` — headline corto del hook (máx 50 chars). Que entre en **máximo 3 líneas** en el render

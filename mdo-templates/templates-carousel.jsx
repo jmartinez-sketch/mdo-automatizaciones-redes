@@ -175,9 +175,8 @@ function TipCover(props) {
 
   return (
     <div className="tpl tint" style={{ padding: 28, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 10 }}>
         <Lockup size={40} />
-        <div className="mono" style={{ whiteSpace: 'nowrap' }}>{p.copete}</div>
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -208,15 +207,12 @@ function TipSlide({ idx, total = 4, tip_num, titular, cuerpo, takeaway, chrome_l
   return (
     <div className={'tpl ' + (isNavy ? 'navy' : '')} style={{ padding: 28, display: 'flex',
       flexDirection: 'column', background: isNavy ? 'var(--navy)' : 'var(--paper)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 10 }}>
         <Lockup mode={isNavy ? 'light' : 'dark'} size={40} />
-        <div className="mono" style={{ color: isNavy ? 'var(--ink-40)' : 'var(--ink-55)',
-          whiteSpace: 'nowrap' }}>
-          Punto {String(tip_num).padStart(2, '0')}
-        </div>
       </div>
 
-      <div style={{ marginTop: 14, flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ marginTop: 14, marginBottom: 14, flex: 1, minHeight: 0,
+        display: 'flex', flexDirection: 'column' }}>
         <div style={{ display: 'flex', alignItems: 'stretch', gap: 14, marginBottom: 14 }}>
           <div style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 300,
             fontSize: 92, color: accent, lineHeight: 0.78, flexShrink: 0 }}>{tip_num}</div>
