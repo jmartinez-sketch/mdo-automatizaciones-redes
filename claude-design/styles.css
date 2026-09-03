@@ -1,0 +1,10 @@
+/* MDO Consultores — hoja global del design system.
+   Solo @import. Los valores viven en tokens/.
+   Fuente: repo jmartinez-sketch/mdo-brand (actual/brand.json, actual/tokens.css)
+   + Manual de Marca 2026. */
+@import url("tokens/fonts.css");
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
+@import url("tokens/effects.css");
+@import url("tokens/semantic.css");
