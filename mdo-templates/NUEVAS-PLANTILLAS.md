@@ -55,6 +55,15 @@ La paleta pasa al azul institucional MDO (**#1f4e79**), el mismo de los emails y
 las propuestas. Antes las placas usaban `#1a3a6e` y los documentos `#1f4e79`: no
 se veían de la misma marca. Los nombres de variables no cambiaron.
 
+> **Este párrafo quedó viejo.** El paquete es de julio de 2026 y unificaba en
+> `#1f4e79`. En agosto el estudio adoptó la **marca v2.0 del Manual de Marca
+> 2026**: el principal es el azul noche **`#06162D`**, con Open Sans en todo
+> (títulos incluidos) y Chivo sólo como acento para frases cortas. Los valores
+> vigentes están en `mdo-brand.css`, y el sistema completo quedó copiado en
+> `jmartinez-sketch/mdo-brand`, carpeta `claude-design/`. Lo que sigue valiendo
+> de este documento es todo lo demás: los cinco defectos corregidos, las
+> utilidades de `tpl-utils.jsx`, los IDs y los slots.
+
 Incluye el arreglo global del pie (`.footer-row > span { white-space: nowrap }`)
 y la clase `.truncate`.
 
