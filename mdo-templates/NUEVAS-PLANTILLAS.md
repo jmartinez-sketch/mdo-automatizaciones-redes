@@ -1,5 +1,7 @@
 # Plantillas MDO redes — 58 plantillas corregidas y nuevas
 
+> **Retiradas.** `po-06`, `po-06b`, `po-13`, `po-37`, `st-07` y `st-07b` ya no están en el catálogo: el kit de redes del Manual de Marca 2026 no las incluye. Lo que va en su lugar está en [LEEME-kit-manual.md](LEEME-kit-manual.md).
+
 Paquete para copiar dentro de `mdo-templates/` del repo
 `jmartinez-sketch/mdo-automatizaciones-redes`.
 

@@ -66,11 +66,15 @@ mapear. Si eso pasa, hay que agregarla a la tabla `LOGOS` del script.
 
 ## Lo que este kit retira
 
-Estas seis siguen en el repo pero el kit nuevo ya no las incluye. Antes de
-borrarlas hay que sacarlas de la rutina semanal, que todavía elige `po-37`:
+Estas seis **ya no están**: se sacaron del registry, del canvas de vista previa y
+de la rutina semanal.
 
-| ID | Qué era | Por qué se cae |
-|---|---|---|
-| `po-06`, `po-06b` | Voz experta / equipo | El kit nuevo no lleva voz experta |
-| `po-13` | Noticia, versión vieja | La reemplazan `po-13d` y `po-13e` |
-| `po-37`, `st-07`, `st-07b` | Vencimientos de la semana | El kit nuevo no lleva vencimientos de la semana |
+| ID | Qué era | Por qué se cae | Qué usar en su lugar |
+|---|---|---|---|
+| `po-06`, `po-06b` | Voz experta / equipo | El kit nuevo no lleva voz experta | `in-01` … `in-06`, la familia institucional |
+| `po-13` | Noticia, versión vieja | Ya renderizaba lo mismo que `po-13d`: las dos apuntaban al mismo componente | `po-13d` o `po-13e` |
+| `po-37`, `st-07`, `st-07b` | Vencimientos de la semana | El kit nuevo no lleva vencimientos de la semana | el carrusel de calendario (`ca-cover` + `ca-q1` + `ca-q2`), o `sq-01` para un vencimiento puntual |
+
+Pedir una de éstas ahora **falla**, con el id que no existe en el mensaje. Antes
+no: `render.html` caía en `sq-01` sin avisar, así que un id retirado o mal
+escrito salía como un PNG de otra placa. `scripts/render.js` ahora frena.

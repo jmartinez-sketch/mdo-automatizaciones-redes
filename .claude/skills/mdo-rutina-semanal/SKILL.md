@@ -366,7 +366,6 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 | `po-34` | Mito vs. realidad (el mito va tachado) | COPETE, TITULO, MITO, REALIDAD, CTA, HANDLE |
 | `po-35` | 3 errores frecuentes con su corrección | COPETE, TITULO, ERROR_1, FIX_1, ERROR_2, FIX_2, ERROR_3, FIX_3, CTA, HANDLE |
 | `po-36` | Testimonio de cliente (sin nombre propio: sector + tamaño) | COPETE, TESTIMONIO, CLIENTE_TIPO, CLIENTE_DETALLE, SERVICIO, HANDLE |
-| `po-37` | Vencimientos de la semana **en el feed** — la story se va en 24 h, ésta queda para guardar | COPETE, SEMANA, DIA_1..4, MES_1..4, IMPUESTO_1..4, PERIODO_1..4, CTA, HANDLE |
 
 **Guía ángulo → template (orientativa, no obligatoria):**
 | Si el mensaje es… | Conviene |
@@ -385,7 +384,8 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 | Comparar dos caminos (hacerlo solo vs. tercerizar, monotributo vs. RI) | `po-32` |
 | Buscar comentarios / conversación | `po-33` |
 | Prueba social sin exponer al cliente | `po-36` |
-| Los vencimientos del mes, para que los guarden | `po-37` |
+| Los vencimientos del mes, para que los guarden | el carrusel de calendario: `ca-cover` + `ca-q1` + `ca-q2` |
+| Un vencimiento puntual, con la fecha grande | `sq-01` |
 
 → Si nada encaja, **diseñar un template nuevo** inspirado en estos y registrarlo (ver "Dónde vive el código").
 
@@ -415,7 +415,9 @@ JUEVES_TIPO=$(( $(date +%V) % 4 ))
 
 Dentro de las opciones con variante de color (`st-09`/`st-09b`, `st-08`/`st-08c`), elegir la que **no** figure en el historial del slot `jueves` en las últimas 4 semanas. Si ninguna figura, empezar por la versión base.
 
-> Las historias de Instagram duran 24 h. Si en alguna semana querés que el contenido del jueves quede en el feed, `po-37` (vencimientos en el feed) es la alternativa vertical: se guarda y se comparte.
+> Las historias de Instagram duran 24 h. Si en alguna semana querés que el contenido del jueves quede en el feed, la alternativa vertical es el carrusel de calendario (`ca-cover` + `ca-q1` + `ca-q2`), que se guarda y se comparte. Para un vencimiento puntual va `sq-01`, con la fecha grande.
+>
+> Antes acá iba `po-37` (vencimientos de la semana en el feed). El kit de redes del Manual de Marca 2026 no lleva vencimientos de la semana, así que esa plantilla se retiró junto con `st-07` y `st-07b`. Ver `mdo-templates/LEEME-kit-manual.md`.
 
 **Opción A — Story `st-09` / `st-09b` (ciclo = 2)**
 

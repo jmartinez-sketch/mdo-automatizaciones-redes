@@ -185,49 +185,6 @@ function SqNoticiaMinimal(props) {
   );
 }
 
-// ── po-06b · Voz experta sin foto (variante de po-06) ───────────────
-// Para cuando no hay retrato disponible: el nombre en itálica grande ocupa el
-// lugar de la foto. Mejor esto que un hueco rotulado.
-// Slots: COPETE, NOMBRE, ROL, BIO, TAG_1..4, HANDLE
-function PoEquipoNoPhoto(props) {
-  const p = Object.assign({
-    copete: '[COPETE]', nombre: '[NOMBRE]', rol: '[ROL]', bio: '[BIO]',
-    tag_1: '[TAG_1]', tag_2: '[TAG_2]', tag_3: '[TAG_3]', tag_4: '[TAG_4]',
-    handle: '[HANDLE]',
-  }, props);
-
-  const tags = [p.tag_1, p.tag_2, p.tag_3, p.tag_4].filter(Boolean);
-  const nSize = fitSize(p.nombre, [[16, 62], [26, 50], [36, 41]], 34);
-  const bioSize = fitSize(p.bio, [[150, 16], [220, 14.5]], 13.5);
-
-  return (
-    <div className="tpl white" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
-      <TplHeader chip={p.copete} size={40} />
-
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div className="display-serif" style={{ fontSize: nSize, color: 'var(--ink)',
-          lineHeight: 0.98 }}><em>{p.nombre}</em></div>
-        <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 12,
-          letterSpacing: '0.2em', color: 'var(--blue-mid)', textTransform: 'uppercase',
-          marginTop: 14 }}>{p.rol}</div>
-
-        <div className="hair-navy" style={{ width: 56, marginTop: 26, marginBottom: 22 }}></div>
-
-        <div className="lede" style={{ fontSize: bioSize, lineHeight: 1.5 }}>{p.bio}</div>
-      </div>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 4 }}>
-        {tags.map((a, i) => (
-          <span key={i} style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10,
-            letterSpacing: '0.1em', padding: '4px 8px', border: '1px solid var(--hair-2)',
-            textTransform: 'uppercase', color: 'var(--navy)', whiteSpace: 'nowrap' }}>{a}</span>
-        ))}
-      </div>
-      <HandleFooter handle={p.handle} />
-    </div>
-  );
-}
-
 // ── po-13c · Noticia portrait minimal ───────────────────────────────
 // ⚠️ ÉSTA es la que generó las placas de junio con el hueco vertical en el
 // medio: tenía un flex:1 suelto que empujaba el título arriba y el cierre
@@ -268,66 +225,6 @@ function PoNoticiaMinimal(props) {
 
       <SourceFooter fuente={p.fuente} fecha={p.fecha} />
       <HandleFooter handle={p.handle} />
-    </div>
-  );
-}
-
-// ── st-07b · Vencimientos story en papel (variante de st-07) ────────
-// Tres columnas fijas: fecha 72, impuesto flexible, hora 64. La hora nunca se
-// comprime; el impuesto es el que cede.
-// Slots: COPETE, SEMANA, FECHA_1..4, IMPUESTO_1..4, PERIODO_1..4, HORA_1..4, CTA, HANDLE
-function StVencimientosLight(props) {
-  const p = Object.assign({
-    copete: '[COPETE]', semana: '[SEMANA]', cta: '[CTA]', handle: '[HANDLE]', chip: 'Agenda',
-  }, props);
-
-  const items = [1, 2, 3, 4].map(i => ({
-    date: p['fecha_' + i] || '[FECHA_' + i + ']',
-    tax: p['impuesto_' + i] || '[IMPUESTO_' + i + ']',
-    period: p['periodo_' + i] || '[PERIODO_' + i + ']',
-    due: p['hora_' + i] || '[HORA_' + i + ']',
-  }));
-
-  const sSize = fitSize(p.semana, [[16, 60], [24, 50], [34, 42]], 34);
-
-  return (
-    <div className="tpl white" style={{ padding: ST_PAD_L, display: 'flex',
-      flexDirection: 'column', overflow: 'hidden' }}>
-      <TplHeader chip={p.chip} size={40} />
-
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div className="eyebrow" style={{ marginBottom: 12 }}>{p.copete}</div>
-        <div className="display-serif" style={{ fontSize: sSize, color: 'var(--ink)',
-          lineHeight: 1.0 }}><em>{p.semana}</em></div>
-
-        <div style={{ marginTop: 30 }}>
-          <div className="hair-navy"></div>
-          {items.map((it, i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: '72px 1fr 64px',
-              alignItems: 'center', gap: 8, padding: '15px 0',
-              borderBottom: '1px solid var(--hair)' }}>
-              <div style={{ fontFamily: 'var(--font-accent)', fontWeight: 400, fontSize: 13.5,
-                letterSpacing: '0.06em', color: 'var(--blue-mid)' }}>{it.date}</div>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: 18, fontWeight: 600,
-                  color: 'var(--ink)', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{it.tax}</div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: 11.5,
-                  color: 'var(--ink-55)', marginTop: 2 }}>{it.period}</div>
-              </div>
-              <div style={{ textAlign: 'right', fontFamily: 'var(--font-accent)', fontSize: 11.5,
-                letterSpacing: '0.04em', color: 'var(--ink-55)',
-                whiteSpace: 'nowrap' }}>{it.due} h</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <div className="display-serif" style={{ fontSize: 26, color: 'var(--blue-mid)' }}>
-          <em>{p.cta}</em>
-        </div>
-        <HandleFooter handle={p.handle} style={{ marginTop: 16 }} />
-      </div>
     </div>
   );
 }
@@ -386,12 +283,6 @@ const EXAMPLES_VARIANTS_LIGHT = {
     bajada: 'La prórroga aplica a personas humanas. Nuevo vencimiento: 30 de junio.',
     fuente: 'ARCA · Comunicado oficial', fecha: '19 jun 2026', handle: '@mdoconsultores',
   },
-  PoEquipoNoPhoto: {
-    copete: 'Voz experta', nombre: 'Lucía Martínez', rol: 'Socia · Impuestos',
-    bio: 'Sobre la reforma del monotributo: los nuevos topes corren desde julio y obligan a recategorizar antes de fin de mes. Cuidado con los pagos por billetera virtual — ARCA cruza CBU, billeteras y tarjetas en la misma consulta.',
-    tag_1: 'Ganancias', tag_2: 'IVA', tag_3: 'Bienes personales', tag_4: 'Fiscalizaciones ARCA',
-    handle: '@mdoconsultores',
-  },
   PoNoticiaMinimal: {
     categoria: 'Económico · Indicadores',
     titular: 'El BCRA modifica el régimen de pago para importaciones de servicios',
@@ -399,13 +290,7 @@ const EXAMPLES_VARIANTS_LIGHT = {
     cierre: 'Una medida que acompaña la apertura gradual del mercado de cambios.',
     fuente: 'BCRA · Comunicación «A» 7984', fecha: '20 jun 2026', handle: '@mdoconsultores',
   },
-  StVencimientosLight: Object.assign({}, (window.EXAMPLES_STORY || {}).StVencimientos,
-    { chip: 'Agenda' }),
   StCitaMinimal: Object.assign({}, (window.EXAMPLES_STORY || {}).StCita),
 };
 
-Object.assign(window, {
-  SqVencimientoLight, SqCitaMinimal, SqNumeroLight, SqNoticiaMinimal,
-  PoEquipoNoPhoto, PoNoticiaMinimal, StVencimientosLight, StCitaMinimal,
-  EXAMPLES_VARIANTS_LIGHT,
-});
+Object.assign(window, { SqVencimientoLight, SqCitaMinimal, SqNumeroLight, SqNoticiaMinimal, PoNoticiaMinimal, StCitaMinimal, EXAMPLES_VARIANTS_LIGHT });

@@ -1,5 +1,7 @@
 # MDO Consultores · IG Templates — Render API
 
+> **Retiradas.** `po-06`, `po-06b`, `po-13`, `po-37`, `st-07` y `st-07b` ya no están en el catálogo: el kit de redes del Manual de Marca 2026 no las incluye. Lo que va en su lugar está en [LEEME-kit-manual.md](LEEME-kit-manual.md).
+
 Plantillas de Instagram para Martinez, De Orta & Gutierrez Taboada. Diseñadas
 para automatización vía Claude Code: cada plantilla acepta contenido por
 **placeholders literales** entre corchetes `[CORCHETES]` que se reemplazan

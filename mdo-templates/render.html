@@ -48,7 +48,6 @@
     'sq-03': { c: SqNumero,      baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
     'po-04': { c: PoServicio,    baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-05': { c: PoAnuncio, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
-    'po-06': { c: PoEquipo,      baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-16': { c: PoSpotlight, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     // Viernes — 5 templates de gestión PyME (po-21..po-25)
     'po-21': { c: PoPreguntaHero, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
@@ -62,7 +61,6 @@
     'po-28': { c: PoProcesoIconos,baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-29': { c: PoIconoFrase,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-30': { c: PoGridIconos,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
-    'st-07': { c: StVencimientos,baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'st-08': { c: StCita,        baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'st-09': { c: StCTA,         baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'ca-cover': { c: CalCover,   baseW: 420, baseH: 420, outW: 1080, outH: 1080, mode: 'feed' },
@@ -73,7 +71,6 @@
     'cb-tip2':  { c: TipSlide3,  baseW: 420, baseH: 525, outW: 1080, outH: 1350, mode: 'feed' },
     'cb-tip3':  { c: TipSlide4,  baseW: 420, baseH: 525, outW: 1080, outH: 1350, mode: 'feed' },
     'sq-12':    { c: SqNoticia,  baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
-    'po-13':    { c: PoNoticia,  baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     // Variants
     'sq-02b':   { c: SqCitaNavy,        baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
     'sq-03b':   { c: SqNumeroSerif,     baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
@@ -88,9 +85,7 @@
     'sq-02c':   { c: SqCitaMinimal,      baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
     'sq-03c':   { c: SqNumeroLight,      baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
     'sq-12c':   { c: SqNoticiaMinimal,   baseW: 540, baseH: 540, outW: 1080, outH: 1080, mode: 'feed' },
-    'po-06b':   { c: PoEquipoNoPhoto,    baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-13c':   { c: PoNoticiaMinimal,   baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
-    'st-07b':   { c: StVencimientosLight,baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     'st-08c':   { c: StCitaMinimal,      baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     // Noticia v2 (recomendadas en lugar de po-13c / sq-12c)
     'po-13d': { c: PoNoticia,        baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
@@ -102,7 +97,6 @@
     'po-34':  { c: PoMitoRealidad,     baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-35':  { c: PoErrores,          baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'po-36':  { c: PoTestimonio,       baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
-    'po-37':  { c: PoVencimientosFeed, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     // Story
     'st-10':  { c: StEncuesta,         baseW: 480, baseH: 853, outW: 1080, outH: 1920, mode: 'story' },
     // LinkedIn 1.91:1
@@ -160,6 +154,12 @@
   // This is what makes the page robust to preview hosts adding their own `t`.
   const rawTpl = get('t');
   const tplId = (rawTpl && TEMPLATES[rawTpl]) ? rawTpl : 'sq-01';
+  // ...pero ese fallback silencioso es una trampa para el render automático: si
+  // la rutina pide una plantilla retirada o con el id mal escrito, saldría un
+  // PNG de sq-01 como si nada. Se deja anotado para que scripts/render.js pueda
+  // frenar en vez de publicar la placa equivocada.
+  window.__mdoTemplatePedido = rawTpl || null;
+  window.__mdoTemplateFaltante = (rawTpl && !TEMPLATES[rawTpl]) ? rawTpl : null;
   const showExample = (get('example') === '1') || (get('mode') === 'example');
   const showSafe = get('safe') === '1';
 
@@ -206,6 +206,7 @@
     }
 
     // Tell host (Claude Code's headless browser) we're ready to screenshot
+    window.__mdoTemplates = TEMPLATES;
     document.title = 'MDO · ' + tplId + (showExample ? ' (ejemplo)' : ' (placeholders)');
     // Custom event for puppeteer/playwright waitForFunction()
     window.__mdoReady = true;

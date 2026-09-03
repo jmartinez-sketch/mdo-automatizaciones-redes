@@ -70,6 +70,19 @@ async function render({ template, slots, outPath }) {
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
 
     await page.waitForFunction(() => window.__mdoReady === true, { timeout: 30000 });
+
+    // render.html cae en sq-01 cuando el id no existe, para aguantar que un
+    // host de preview le agregue su propio `t`. Acá eso no sirve: si la
+    // plantilla no está, hay que frenar, no publicar la placa equivocada.
+    const faltante = await page.evaluate(() => window.__mdoTemplateFaltante);
+    if (faltante) {
+      const ids = await page.evaluate(() => Object.keys(window.__mdoTemplates || {}));
+      throw new Error(
+        `La plantilla "${faltante}" no existe.` +
+        (ids.length ? ` Hay ${ids.length} disponibles; ver mdo-templates/PLACEHOLDERS.md.` : '')
+      );
+    }
+
     await page.evaluate(() => document.fonts && document.fonts.ready);
 
     if (slots && Object.keys(slots).length) {

@@ -14,62 +14,6 @@
 // no lo reemplaces por un número más chico: el lockup y el pie quedan tapados.
 const ST_PAD = '120px 40px 155px';
 
-// ── st-07 · Vencimientos de la semana (navy) ────────────────────────
-// Slots: COPETE, SEMANA, FECHA_1..4, IMPUESTO_1..4, PERIODO_1..4, HORA_1..4, CTA, HANDLE
-function StVencimientos(props) {
-  const p = Object.assign({
-    copete: '[COPETE]', semana: '[SEMANA]',
-    fecha_1: '[FECHA_1]', impuesto_1: '[IMPUESTO_1]', periodo_1: '[PERIODO_1]', hora_1: '[HORA_1]',
-    fecha_2: '[FECHA_2]', impuesto_2: '[IMPUESTO_2]', periodo_2: '[PERIODO_2]', hora_2: '[HORA_2]',
-    fecha_3: '[FECHA_3]', impuesto_3: '[IMPUESTO_3]', periodo_3: '[PERIODO_3]', hora_3: '[HORA_3]',
-    fecha_4: '[FECHA_4]', impuesto_4: '[IMPUESTO_4]', periodo_4: '[PERIODO_4]', hora_4: '[HORA_4]',
-    cta: '[CTA]', handle: '[HANDLE]',
-  }, props);
-
-  const items = [1, 2, 3, 4].map(i => ({
-    d: p['fecha_' + i], t: p['impuesto_' + i], per: p['periodo_' + i], h: p['hora_' + i],
-  })).filter(it => it.d && it.t);
-
-  return (
-    <div className="tpl navy" style={{ padding: ST_PAD, display: 'flex', flexDirection: 'column',
-      overflow: 'hidden' }}>
-      <TplHeader chip={p.semana} mode="light" size={40} />
-
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        gap: 26 }}>
-        <span className="eyebrow">{p.copete}</span>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {items.map((f, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 18,
-              padding: '18px 0', borderTop: '1px solid rgba(248,246,246,0.15)' }}>
-              <span className="number-xl" style={{ fontSize: 46, color: 'var(--paper)',
-                minWidth: 78, lineHeight: 0.9 }}>{f.d}</span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: 21,
-                  color: 'var(--paper)', lineHeight: 1.15 }}>{f.t}</div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: 13,
-                  color: 'var(--slate-40)', marginTop: 3 }}>{f.per}</div>
-              </div>
-              <span style={{ fontFamily: 'var(--font-accent)', fontSize: 12, letterSpacing: '0.1em',
-                color: 'var(--grey)', whiteSpace: 'nowrap' }}>{f.h}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <div style={{ padding: '16px 20px', background: 'var(--paper)', color: 'var(--navy)',
-          fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 700, display: 'flex',
-          justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-          <span>{p.cta}</span>
-          <span>→</span>
-        </div>
-        <HandleFooter handle={p.handle} mode="light" style={{ marginTop: 14 }} />
-      </div>
-    </div>
-  );
-}
-
 // ── st-08 · Cita vertical (blanco) ──────────────────────────────────
 // La comilla de apertura cuelga fuera del margen a propósito.
 // Slots: COPETE, CITA, AUTOR, ROL_AUTOR, HANDLE
@@ -223,14 +167,6 @@ function StEncuesta(props) {
 }
 
 const EXAMPLES_STORY = {
-  StVencimientos: {
-    copete: 'Vencimientos de la semana', semana: 'Semana 34 · 2026',
-    fecha_1: '18', impuesto_1: 'IVA', periodo_1: 'Posición mensual 07/2026', hora_1: '23:59',
-    fecha_2: '19', impuesto_2: 'SUSS · F.931', periodo_2: 'Cargas sociales 07/2026', hora_2: '23:59',
-    fecha_3: '21', impuesto_3: 'Ingresos Brutos', periodo_3: 'Convenio Multilateral', hora_3: '23:59',
-    fecha_4: '22', impuesto_4: 'Ganancias', periodo_4: 'Anticipo sociedades', hora_4: '23:59',
-    cta: 'Te lo presentamos nosotros', handle: '@mdoconsultores',
-  },
   StCita: {
     copete: 'Pensamiento',
     cita: 'Un buen asesor no responde preguntas: ayuda a formular las correctas.',
@@ -252,4 +188,4 @@ const EXAMPLES_STORY = {
   },
 };
 
-Object.assign(window, { StVencimientos, StCita, StCTA, StEncuesta, EXAMPLES_STORY });
+Object.assign(window, { StCita, StCTA, StEncuesta, EXAMPLES_STORY });
