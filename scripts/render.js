@@ -32,7 +32,9 @@ function sizeForTemplate(id) {
   if (id.startsWith('li-')) return SIZES.linkedin;
   // (sq-12d se retiró del catálogo: era idéntica a sq-12)
   if (id.startsWith('sq-')) return SIZES.square;
-  if (id.startsWith('po-') || id.startsWith('cb-') || id.startsWith('mn-')) return SIZES.portrait;
+  // nv-/sv-/in- son las tres familias del kit 4.4: todas 4:5, como las del manual.
+  if (id.startsWith('po-') || id.startsWith('cb-') || id.startsWith('mn-')
+    || id.startsWith('nv-') || id.startsWith('sv-') || id.startsWith('in-')) return SIZES.portrait;
   return SIZES.square;
 }
 

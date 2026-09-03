@@ -34,6 +34,7 @@
 <script type="text/babel" src="templates-utilidad.jsx"></script>
 <script type="text/babel" src="templates-linkedin.jsx"></script>
 <script type="text/babel" src="templates-manual.jsx"></script>
+<script type="text/babel" src="templates-kit-manual.jsx"></script>
 <script type="text/babel" src="templates-destacadas.jsx"></script>
 
 <script type="text/babel">
@@ -131,6 +132,17 @@
     'mn-07':  { c: ManClaimFoto,     baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
     'mn-08':  { c: ManInstitucional, baseW: 540, baseH: 675, outW: 1080, outH: 1350, mode: 'feed' },
   };
+
+  // Las 24 del kit 4.4 de Claude Design ("Kit de redes — según el manual"),
+  // copiadas tal cual: nv-* Novedades ARCA, sv-* Servicios, in-* Institucional.
+  // Vienen maquetadas directo a 1080×1350, así que base y salida coinciden y no
+  // se escalan. Ver templates-kit-manual.jsx.
+  (window.KIT_MANUAL_IDS || []).forEach((id) => {
+    TEMPLATES[id] = {
+      c: (props) => <KitManualPlate id={id} {...props} />,
+      baseW: 1080, baseH: 1350, outW: 1080, outH: 1350, mode: 'feed',
+    };
+  });
 
   const EXAMPLES = {
     ...EXAMPLES_SQUARE, ...EXAMPLES_PORTRAIT, ...EXAMPLES_STORY, ...EXAMPLES_CAROUSEL, ...EXAMPLES_NEWS, ...EXAMPLES_VARIANTS, ...EXAMPLES_VARIANTS_LIGHT, ...EXAMPLES_FRIDAY, ...EXAMPLES_FRIDAY_B,
