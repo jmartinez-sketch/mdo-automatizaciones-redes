@@ -122,60 +122,6 @@ function PoAnuncio(props) {
   );
 }
 
-// ── po-06 · Voz experta / Equipo (blanco) ───────────────────────────
-// La única con foto en el bloque superior (320px). La bio se estira y los
-// tags quedan pegados al pie.
-// Slots: COPETE, NOMBRE, ROL, BIO, TAG_1..4, FOTO_CAPTION, HANDLE
-function PoEquipo(props) {
-  const p = Object.assign({
-    copete: '[COPETE]', nombre: '[NOMBRE]', rol: '[ROL]', bio: '[BIO]',
-    tag_1: '[TAG_1]', tag_2: '[TAG_2]', tag_3: '[TAG_3]', tag_4: '[TAG_4]',
-    foto_caption: '[FOTO_CAPTION]', handle: '[HANDLE]',
-  }, props);
-
-  const tags = [p.tag_1, p.tag_2, p.tag_3, p.tag_4].filter(Boolean);
-  const nSize = fitSize(p.nombre, [[16, 44], [26, 37], [36, 31]], 27);
-  const bioSize = fitSize(p.bio, [[130, 14.5], [190, 13.5]], 12.5);
-
-  return (
-    <div className="tpl white" style={{ padding: 0, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ height: 320, position: 'relative', flexShrink: 0 }}>
-        <div className="slot" style={{ width: '100%', height: '100%', border: 'none' }}></div>
-        <span className="slot-cap" style={{ left: 'auto', right: 12, top: 12, bottom: 'auto' }}>
-          {p.foto_caption}
-        </span>
-        <div style={{ position: 'absolute', left: 36, top: 24 }}><Lockup size={40} /></div>
-        <div style={{ position: 'absolute', left: 36, bottom: 18 }}>
-          <span className="chip solid">{p.copete}</span>
-        </div>
-      </div>
-
-      <div style={{ flex: 1, padding: '26px 40px 28px', display: 'flex', flexDirection: 'column',
-        minHeight: 0 }}>
-        <div className="display-serif" style={{ fontSize: nSize, color: 'var(--navy)',
-          lineHeight: 1.02 }}><em>{p.nombre}</em></div>
-        <div style={{ marginTop: 6, fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 11,
-          letterSpacing: '0.18em', textTransform: 'uppercase',
-          color: 'var(--blue-mid)' }}>{p.rol}</div>
-
-        <div className="hair" style={{ marginTop: 16, marginBottom: 14, width: '40%' }}></div>
-
-        <div className="lede" style={{ flex: 1, fontSize: bioSize }}>{p.bio}</div>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 14 }}>
-          {tags.map((a, i) => (
-            <span key={i} style={{ fontFamily: 'var(--font-accent)', fontWeight: 700, fontSize: 10,
-              letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 8px',
-              border: '1px solid var(--hair-2)', color: 'var(--navy)',
-              whiteSpace: 'nowrap' }}>{a}</span>
-          ))}
-        </div>
-        <HandleFooter handle={p.handle} />
-      </div>
-    </div>
-  );
-}
-
 // ── po-16 · Spotlight de servicio (navy) ────────────────────────────
 // Margen mínimo 64. Es la placa de marca: navy, título grande y nada más.
 // Slots: COPETE, TITULO, BAJADA, HANDLE
@@ -228,12 +174,6 @@ const EXAMPLES_PORTRAIT = {
     bloque_1: 'Impuestos', bloque_2: 'Sociedades', bloque_3: 'Sueldos',
     fecha_hora: 'Jueves 19 · 19:00 h', handle: '@mdoconsultores',
   },
-  PoEquipo: {
-    copete: 'Voz experta · MDO', nombre: 'Lucía Martínez', rol: 'Socia · Impuestos',
-    bio: 'Sobre la reforma del monotributo: los nuevos topes corren desde julio y obligan a recategorizar antes de fin de mes. Cuidado con los pagos por billetera virtual.',
-    tag_1: 'Ganancias', tag_2: 'IVA', tag_3: 'Bienes personales', tag_4: 'Fiscalizaciones ARCA',
-    foto_caption: 'Retrato · 4:5', handle: '@mdoconsultores',
-  },
   PoSpotlight: {
     copete: 'Servicios', titulo: 'Asesoramiento Impositivo',
     bajada: 'Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas.',
@@ -241,4 +181,4 @@ const EXAMPLES_PORTRAIT = {
   },
 };
 
-Object.assign(window, { PoServicio, PoAnuncio, PoEquipo, PoSpotlight, EXAMPLES_PORTRAIT });
+Object.assign(window, { PoServicio, PoAnuncio, PoSpotlight, EXAMPLES_PORTRAIT });

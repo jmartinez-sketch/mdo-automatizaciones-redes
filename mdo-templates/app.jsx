@@ -55,10 +55,6 @@ function App() {
           <PoAltaCliente {...E.PoAltaCliente} />
         </DCArtboard>
 
-        <DCArtboard id="po-06" label="06 · Voz experta / Equipo · [COPETE, NOMBRE, ROL, BIO, TAG_1..4, FOTO_CAPTION, HANDLE]"
-          width={540} height={675}>
-          <PoEquipo {...E.PoEquipo} />
-        </DCArtboard>
       </DCSection>
 
       {/* ─── STORY 9:16 — 1080×1920 ────────────────────── */}
@@ -66,11 +62,6 @@ function App() {
         id="story"
         title="Story · 9:16"
         subtitle="1080 × 1920 px · stories y reels covers">
-
-        <DCArtboard id="st-07" label="07 · Vencimientos semana · [COPETE, SEMANA, FECHA_1..4, IMPUESTO_1..4, PERIODO_1..4, HORA_1..4, CTA, HANDLE]"
-          width={480} height={853}>
-          <StVencimientos {...E.StVencimientos} />
-        </DCArtboard>
 
         <DCArtboard id="st-08" label="08 · Cita vertical · [COPETE, CITA, AUTOR, ROL_AUTOR, HANDLE]"
           width={480} height={853}>
@@ -143,10 +134,6 @@ function App() {
           <SqNoticia {...E.SqNoticia} />
         </DCArtboard>
 
-        <DCArtboard id="po-13" label="13 · Noticia Portrait + take MDO · [CATEGORIA, TITULAR, BAJADA, QUE_SABER_LABEL, QUE_SABER, FUENTE, FECHA, HANDLE]"
-          width={540} height={675}>
-          <PoNoticia {...E.PoNoticia} />
-        </DCArtboard>
       </DCSection>
 
       {/* ─── VARIANTES ─ alternative color modes / compositions ─ */}
@@ -222,19 +209,9 @@ function App() {
           <SqNoticiaMinimal {...E.SqNoticiaMinimal} />
         </DCArtboard>
 
-        <DCArtboard id="po-06b" label="po-06b · Voz experta sin foto · [COPETE, NOMBRE, ROL, BIO, TAG_1..4, HANDLE]"
-          width={540} height={675}>
-          <PoEquipoNoPhoto {...E.PoEquipoNoPhoto} />
-        </DCArtboard>
-
         <DCArtboard id="po-13c" label="po-13c · Noticia Portrait Minimal · [CATEGORIA, TITULAR, BAJADA, CIERRE, FUENTE, FECHA, HANDLE]"
           width={540} height={675}>
           <PoNoticiaMinimal {...E.PoNoticiaMinimal} />
-        </DCArtboard>
-
-        <DCArtboard id="st-07b" label="st-07b · Vencimientos Story Light · [COPETE, SEMANA, FECHA_1..4, IMPUESTO_1..4, PERIODO_1..4, HORA_1..4, CTA, HANDLE]"
-          width={480} height={853}>
-          <StVencimientosLight {...E.StVencimientosLight} />
         </DCArtboard>
 
         <DCArtboard id="st-08c" label="st-08c · Cita Story Minimal · [COPETE, CITA, AUTOR, ROL_AUTOR, HANDLE]"

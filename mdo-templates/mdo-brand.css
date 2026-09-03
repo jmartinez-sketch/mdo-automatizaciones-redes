@@ -56,13 +56,25 @@
   --ink-35:#828A96;        /* navy t5 — el hueco entre --ink-40 y --ink-25 */
   --paper-feed:#F0EDEE;    /* medido exacto en mn-03 y mn-05 */
   /* Degradés del manual (pág. 14). Sólo colores de la paleta, transición
-     suave, y el degradé es soporte del contenido: nunca protagonista. */
-  --gradient-brand:linear-gradient(180deg,#010719,#294166);
-  --gradient-brand-h:linear-gradient(90deg,#010719,#294166);
+     suave, y el degradé es soporte del contenido: nunca protagonista.
+
+     Ojo con la diferencia: la pág. 14 define los degradés del LOGO, y los que
+     usan las placas de feed no son esos. Estos dos están medidos sobre las 8
+     originales (assets de referencia en jmartinez-sketch/mdo-brand,
+     assets/redes-referencia/Feed/): son DIAGONALES, con el eje de la esquina
+     inferior izquierda a la superior derecha, y el punto medio corrido hacia
+     el extremo oscuro. Antes acá había un `180deg` vertical, que daba la
+     placa oscura arriba y clara abajo — al revés que el original. */
+  --gradient-navy:linear-gradient(to top right,#00081D 0%,#0A1A36 55%,#273F63 100%);
+  --gradient-navy-h:linear-gradient(90deg,#00081D,#273F63);
+  --gradient-brand:var(--gradient-navy);
+  --gradient-brand-h:var(--gradient-navy-h);
+  /* Éste sí es de la pág. 14: el degradé gris del logo. No lo usa ninguna placa. */
   --gradient-gris:linear-gradient(180deg,#647083,#D8D8D8);
-  /* Degradé claro, sólo mn-04. Dos tintas de la escala del gris azulado; el
-     PNG de referencia mide #C2C6CE de punta a punta, que es el promedio. */
-  --gradient-light:linear-gradient(160deg,#BDC1C8,#CBCDD3);
+  /* Degradé claro, sólo mn-04. Es un brillo blanco en la esquina inferior
+     izquierda que abre a #C2C6CE, no una rampa lineal: medido sobre la placa
+     de servicios del manual. */
+  --gradient-light:radial-gradient(120% 95% at 0% 100%,#FFFFFF 0%,#DCDEE2 30%,#C8CCD4 62%,#C2C6CE 100%);
   /* Tipografías */
   --font-body:'Open Sans',system-ui,sans-serif;
   --font-display:'Open Sans',system-ui,sans-serif;
@@ -145,17 +157,25 @@ body{font-family:var(--font-body);color:var(--ink)}
 .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 
 /* ============================================================
-   PENDIENTE al commitear esto en mdo-automatizaciones-redes:
-   · cambiar el <link> de Google Fonts en render.html y en
-     "Canva IG Templates.html" (Montserrat / Instrument Serif / Geist Mono →
-     Open Sans / Chivo);
-   · reemplazar los PNG de logo de mdo-templates/assets/ por los SVG del
-     repo de marca (assets/logos/isotipo-navy.svg e isotipo-paper.svg);
-   · corregir el nombre escrito a mano en brand.jsx: hoy dice
-     "Martinez, De Orta" + "& Asociados"; el vigente es MDO CONSULTORES y
-     el lockup secundario MARTINEZ · DE ORTA · GUTIERREZ TABOADA;
-   · en brand.jsx, dar vuelta el reparto tipográfico: los titulares pasan a
-     Open Sans y Chivo queda sólo en volantas, chips, rótulos y cifras;
-   · re-renderizar los posts agendados sin publicar: si no, salen con la
-     marca anterior.
+   ESTADO DE LA MIGRACIÓN A LA MARCA v2.0 — verificado el 2026-09-03
+
+   Lo que este archivo listaba como pendiente ya está hecho en el repo:
+
+   ✔ El <link> de Google Fonts carga Open Sans + Chivo en render.html,
+     preview-nuevas.html y "Canva IG Templates.html".
+   ✔ mdo-templates/assets/ tiene sólo SVG: no queda ningún PNG de logo.
+   ✔ brand.jsx usa los SVG del manual y el lockup secundario vigente
+     (MARTINEZ · DE ORTA · GUTIERREZ TABOADA). El nombre no se escribe a mano.
+   ✔ El reparto tipográfico está dado vuelta: --font-display es Open Sans y
+     Chivo queda sólo como acento (volantas, chips, rótulos y cifras).
+
+   Lo que faltaba y se corrigió acá: los degradés de las placas de feed
+   estaban con los valores provisorios (una rampa vertical de 180deg), que
+   daba la placa oscura arriba y clara abajo — al revés que las 8 originales
+   del manual. Ahora son los medidos sobre esas 8: ver el bloque de degradés
+   en :root.
+
+   Queda una tarea operativa, no de código: re-renderizar los posts que
+   estén agendados en Metricool y todavía sin publicar. Los que ya salieron
+   quedan con la marca vieja y no se tocan.
    ============================================================ */

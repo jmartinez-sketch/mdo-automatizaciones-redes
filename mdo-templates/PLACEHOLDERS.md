@@ -1,5 +1,7 @@
 # MDO Consultores · IG Templates — Render API
 
+> **Retiradas.** `po-06`, `po-06b`, `po-13`, `po-37`, `st-07` y `st-07b` ya no están en el catálogo: el kit de redes del Manual de Marca 2026 no las incluye. Lo que va en su lugar está en [LEEME-kit-manual.md](LEEME-kit-manual.md).
+
 Plantillas de Instagram para Martinez, De Orta & Gutierrez Taboada. Diseñadas
 para automatización vía Claude Code: cada plantilla acepta contenido por
 **placeholders literales** entre corchetes `[CORCHETES]` que se reemplazan
@@ -137,7 +139,10 @@ Composiciones limpias con tipografía protagonista. Pensadas para feed editorial
 
 Ver [NUEVAS-PLANTILLAS.md](NUEVAS-PLANTILLAS.md) para el detalle de qué se corrigió en las 45
 originales (zona segura de Instagram en las historias, tipografía que se adapta al largo del
-texto, pie que ya no se parte en dos líneas, y el azul unificado con el de los mails: `#1f4e79`).
+texto y pie que ya no se parte en dos líneas).
+
+> **Color, al día de hoy:** el azul vigente es el noche **`#06162D`** de la marca v2.0
+> (Manual de Marca 2026), no el `#1f4e79` de julio. Los valores están en `mdo-brand.css`.
 
 ### Noticia rearmada — reemplazan a `po-13c` / `sq-12c`
 
