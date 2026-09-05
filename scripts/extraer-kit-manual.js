@@ -44,7 +44,11 @@ const LOGOS = {
   '../../assets/logos/logo-principal-navy.svg': 'assets/logo-mdo-principal.svg',
   '../../assets/logos/logo-principal-paper.svg': 'assets/logo-mdo-principal-white.svg',
   '../../assets/logos/logo-secundario-navy.svg': 'assets/logo-mdo-secundario.svg',
-  '../../assets/logos/logo-secundario-paper.svg': 'assets/logo-mdo-secundario-white.svg',
+  '../../assets/logos/logo-secundario-paper.svg': 'assets/logo-mdo-secundario-white.svg',  // Fotos de las placas institucionales (in-*): mismas imágenes, misma regla.
+  '../../assets/redes/fotos/calle-corporativa.jpg': 'assets/fotos/calle-corporativa.jpg',
+  '../../assets/redes/fotos/arquitectura-navy.jpg': 'assets/fotos/arquitectura-navy.jpg',
+  '../../assets/redes/fotos/torres-cielo.jpg': 'assets/fotos/torres-cielo.jpg',
+  '../../assets/redes/fotos/manos-teclado.jpg': 'assets/fotos/manos-teclado.jpg',
 };
 
 const placas = {};
