@@ -6,11 +6,16 @@ const path = require('path');
 const [, , rawPath, outPath] = process.argv;
 const s = JSON.parse(fs.readFileSync(rawPath, 'utf8')).content;
 
+// Descartadas el 2026-09-05 (decisión de Juan): dependen de fotos que superan el
+// tope de lectura de DesignSync (192 KiB) y llegan truncadas. Si algún día se
+// suben esas fotos a mdo-templates/assets/fotos/, sacar el id de esta lista.
+const DESCARTADAS = new Set(['in-01', 'in-05', 'in-06']);
+
 const IDS = [
   ...Array.from({ length: 10 }, (_, i) => 'nv-' + String(i + 1).padStart(2, '0')),
   ...Array.from({ length: 8 }, (_, i) => 'sv-' + String(i + 1).padStart(2, '0')),
   ...Array.from({ length: 6 }, (_, i) => 'in-' + String(i + 1).padStart(2, '0')),
-];
+].filter((id) => !DESCARTADAS.has(id));
 
 // Corta el div de la placa contando llaves de apertura/cierre de <div>.
 function extraer(id) {
@@ -74,13 +79,14 @@ if (faltan.length) {
   process.exit(1);
 }
 
-const cabecera = `// templates-kit-manual.jsx — las 24 placas nuevas del kit 4.4 de Claude Design
+const cabecera = `// templates-kit-manual.jsx — las placas nuevas del kit 4.4 de Claude Design
 // ("Kit de redes — según el manual"), copiadas TAL CUAL del proyecto MDO - Diseño.
 //
 // Tres familias, según la guía de redes de la página 23 del Manual de Marca 2026:
 //   nv-01..nv-10  A · Novedades impositivas / ARCA   — fondo navy con degradé diagonal
 //   sv-01..sv-08  B · Servicios                      — degradés claros, isotipo gigante
-//   in-01..in-06  D · Institucional / Marca          — foto con velo navy, o papel
+//   in-02..in-04  D · Institucional / Marca          — foto con velo navy, o papel
+//                 (in-01, in-05 e in-06 descartadas: ver DESCARTADAS más abajo)
 //
 // Se diferencian del resto del catálogo en tres cosas, y son del manual:
 //   · no llevan lockup arriba, ni chip, ni pie con @handle;

@@ -1,4 +1,4 @@
-# Kit de redes según el manual — las 24 placas nuevas
+# Kit de redes según el manual — las 21 placas nuevas
 
 Estas placas vienen del proyecto de Claude Design **MDO - Diseño**, plantilla
 **4.4 · Kit de redes — según el manual**. Están copiadas **tal cual**: el HTML es
@@ -15,7 +15,7 @@ Salen de la guía de redes de la página 23 del Manual de Marca 2026.
 |---|---|---|---|
 | **A · Novedades impositivas / ARCA** | `nv-01` … `nv-10` | navy con degradé diagonal | Novedades normativas, vencimientos, ARCA y ANSES |
 | **B · Servicios** | `sv-01` … `sv-08` | degradé claro con el isotipo gigante | Lo comercial: qué hace el estudio |
-| **D · Institucional / Marca** | `in-01` … `in-06` | foto con velo navy, o papel | Posicionamiento, filosofía, valores |
+| **D · Institucional / Marca** | `in-02`, `in-03`, `in-04` | foto con velo navy, o papel | Posicionamiento, filosofía, valores |
 
 El manual define una cuarta familia, **MDO Explica / contenido educativo**. El
 estudio decidió **no usarla**: el contenido educativo se publica como Novedades
@@ -71,9 +71,11 @@ de la rutina semanal.
 
 | ID | Qué era | Por qué se cae | Qué usar en su lugar |
 |---|---|---|---|
-| `po-06`, `po-06b` | Voz experta / equipo | El kit nuevo no lleva voz experta | `in-01` … `in-06`, la familia institucional |
+| `po-06`, `po-06b` | Voz experta / equipo | El kit nuevo no lleva voz experta | `in-02` … `in-04`, la familia institucional |
 | `po-13` | Noticia, versión vieja | Ya renderizaba lo mismo que `po-13d`: las dos apuntaban al mismo componente | `po-13d` o `po-13e` |
 | `po-37`, `st-07`, `st-07b` | Vencimientos de la semana | El kit nuevo no lleva vencimientos de la semana | el carrusel de calendario (`ca-cover` + `ca-q1` + `ca-q2`), o `sq-01` para un vencimiento puntual |
+
+| `in-01`, `in-05`, `in-06` | Institucional con foto | Dependen de `calle-corporativa.jpg` y `torres-cielo.jpg`, que superan el tope de lectura de DesignSync (192 KiB) y no se pueden bajar completas. Descartadas el 2026-09-05 | `in-02`, `in-03`, `in-04` |
 
 Pedir una de éstas ahora **falla**, con el id que no existe en el mensaje. Antes
 no: `render.html` caía en `sq-01` sin avisar, así que un id retirado o mal
