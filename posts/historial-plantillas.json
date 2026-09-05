@@ -150,31 +150,35 @@
       "nota": "Contabilidad · antes/después (cerrar el mes a ciegas vs. saber el resultado a tiempo) · (po-34, po-31 y po-24 bloqueadas por historial) · un solo draft IG+LinkedIn, vertical compartida"
     },
     {
-      "semana": 36,
       "fecha": "2026-09-02",
+      "semana_iso": 36,
       "slot": "noticia",
-      "plantilla": "po-13e",
+      "template": "po-13e",
+      "linkedin": null,
       "nota": "ANSES crea el Domicilio Electronico de la Seguridad Social (buzon digital con efectos de domicilio constituido) · navy por alternancia (las 2 anteriores fueron po-13d) · un solo draft IG+LinkedIn, vertical compartida"
     },
     {
-      "semana": 36,
       "fecha": "2026-09-03",
+      "semana_iso": 36,
       "slot": "jueves",
-      "plantilla": "cb-cover + cb-tip1/2/3",
+      "template": "cb-cover + cb-tip1/2/3",
+      "linkedin": null,
       "nota": "Carrusel de 4: 'Que cambia en septiembre si tenes empleados' (asignaciones familiares / topes previsionales / SICOSS 47.0) · ciclo 36%4=0 · IG+LinkedIn en el mismo draft"
     },
     {
-      "semana": 36,
       "fecha": "2026-09-04",
+      "semana_iso": 36,
       "slot": "gestion",
-      "plantilla": "po-23",
+      "template": "po-23",
+      "linkedin": null,
       "nota": "Tributario · revisar la estructura fiscal cuando el negocio ya cambio ('elegiste como tributar cuando tu empresa era otra') · po-34/po-31/po-24/po-22 bloqueadas por historial · DESCARTADO el titular original 'planificar impuestos no es pagar menos, es saber cuanto vas a pagar': aforismo cliche y ademas repetia el angulo de planificacion tributaria ya publicado el 26/06 y el 31/07"
     },
     {
-      "semana": 36,
       "fecha": "2026-09-05",
+      "semana_iso": 36,
       "slot": "spotlight",
-      "plantilla": "mn-04",
+      "template": "mn-04",
+      "linkedin": null,
       "nota": "Servicios · Asesoramiento impositivo (plantilla de Servicios del Manual de Marca 2026, gris azulado) · po-16 y po-25 bloqueadas por historial · solo Instagram"
     }
   ],
