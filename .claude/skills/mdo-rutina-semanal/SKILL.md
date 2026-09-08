@@ -469,6 +469,13 @@ El formato de mayor interacción: Instagram permite pegarle el sticker de encues
 
 Contenido: una pregunta de gestión real, sin datos normativos. Anclarla al servicio de la semana (`SERVICIO_IDX`). Las 2 opciones tienen que ser ambas **razonables** — no una obviamente mala, o nadie vota.
 
+⚠️ **REGLA DURA — la pregunta tiene que ser sobre algo que MDO factura, no sobre una herramienta o práctica ajena al servicio.** El servicio de la semana fija el TEMA (ej. Laboral → liquidación de sueldos, altas, convenios, cargas sociales), no cualquier tema que "suene" a ese área. Antes de dar la pregunta por buena, preguntarse: *"¿un cliente entendería por qué su estudio contable le pregunta esto?"* Si la respuesta reciente a un servicio no es algo que el estudio hace (ver "Servicios de MDO Consultores" al final del documento), descartarla y elegir otra dentro del mismo servicio.
+
+- ❌ Descartada el 08/09/2026: "¿Cómo controlás hoy la asistencia del equipo? En papel/planilla vs. con fichado digital" — el control de asistencia (software de fichaje) no es un servicio de MDO; quedó desconectada de lo que el estudio factura (liquidación de sueldos) y el usuario no entendió a qué se refería, la borró del planificador.
+- ✅ Alternativa correcta para el mismo servicio (Laboral): algo directamente sobre cómo hoy liquidan sueldos, dan de alta empleados, o gestionan cargas sociales — ej. "¿Cómo liquidás hoy los sueldos de tu equipo? Vos mismo con planillas / Con un estudio contable".
+
+Esta regla aplica también a las demás secciones que anclan al servicio de la semana (viernes en 3, sábado en 3c): el ángulo puede ser libre, pero el tema tiene que ser una tarea real de la lista de "Servicios de MDO Consultores", nunca una herramienta o práctica adyacente que el estudio no ofrece.
+
 ⚠️ Al crear el draft, avisar al usuario en el reporte final que **le tiene que pegar el sticker de encuesta a mano en Instagram** (Metricool sube la imagen, el sticker interactivo se agrega en la app).
 
 **Opción D — Story cita `st-08` / `st-08c` (ciclo = 3)**
