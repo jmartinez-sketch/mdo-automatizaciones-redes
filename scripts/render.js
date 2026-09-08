@@ -27,7 +27,19 @@ const SIZES = {
   linkedin: { w: 1200, h: 628 },
 };
 
+// Las placas del kit 4.4 traen su tamaño en templates-kit-manual.jsx (KIT_MANUAL_SIZE):
+// vienen maquetadas a tamaño final y no siguen la convención por prefijo.
+function kitSize(id) {
+  try {
+    const jsx = fs.readFileSync(path.resolve(__dirname, '..', 'mdo-templates', 'templates-kit-manual.jsx'), 'utf8');
+    const m = jsx.match(/const KIT_MANUAL_SIZE = (\{[^;]*\});/);
+    const sizes = m ? JSON.parse(m[1]) : {};
+    return sizes[id] ? { w: sizes[id][0], h: sizes[id][1] } : null;
+  } catch { return null; }
+}
+
 function sizeForTemplate(id) {
+  const k = kitSize(id); if (k) return k;
   if (id.startsWith('st-') || id.startsWith('hl-')) return SIZES.story;
   if (id.startsWith('li-')) return SIZES.linkedin;
   // (sq-12d se retiró del catálogo: era idéntica a sq-12)

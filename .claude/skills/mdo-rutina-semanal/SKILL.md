@@ -10,6 +10,8 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y crea los drafts. El primer post de la semana sale el **miércoles**. ❌ Nunca crear un draft con fecha de lunes.
 
+> ⚠️ **Slots vigentes = `mdo-templates/PLACEHOLDERS-kit.md`.** Las plantillas se renderizan con la versión del kit 4.4 de Claude Design, que pisa a la vieja del mismo id y usa otros slots (FECHA, VOLANTA, TITULAR_1/TITULAR_2, BAJADA, CIERRE, ITEM_n…; no existen CATEGORIA, FUENTE ni HANDLE). Antes de armar el `--slots` de una placa, leer su tabla ahí. El TITULAR se corta en dos partes: TITULAR_1 negrita + TITULAR_2 normal.
+
 ## ⚠️ Marca 2026 — regla dura
 
 El estudio **rebrandeó**. Todo lo que se publique tiene que salir con la marca nueva:

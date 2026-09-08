@@ -131,10 +131,12 @@
   // copiadas tal cual: nv-* Novedades ARCA, sv-* Servicios, in-* Institucional.
   // Vienen maquetadas directo a 1080×1350, así que base y salida coinciden y no
   // se escalan. Ver templates-kit-manual.jsx.
+  // Pisan al catálogo: si un id existe en las dos, manda la versión del kit.
   (window.KIT_MANUAL_IDS || []).forEach((id) => {
+    const [w, hh] = (window.KIT_MANUAL_SIZE || {})[id] || [1080, 1350];
     TEMPLATES[id] = {
       c: (props) => <KitManualPlate id={id} {...props} />,
-      baseW: 1080, baseH: 1350, outW: 1080, outH: 1350, mode: 'feed',
+      baseW: w, baseH: hh, outW: w, outH: hh, mode: hh === 1920 ? 'story' : 'feed',
     };
   });
 

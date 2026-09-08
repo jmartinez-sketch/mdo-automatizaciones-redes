@@ -1,11 +1,11 @@
-# Kit de redes según el manual — las 21 placas nuevas
+# Kit de redes según el manual — el catálogo entero, rehecho en Claude Design
 
 Estas placas vienen del proyecto de Claude Design **MDO - Diseño**, plantilla
 **4.4 · Kit de redes — según el manual**. Están copiadas **tal cual**: el HTML es
 el mismo que genera Claude Design, con sus estilos en línea. No se reinterpretó
 nada, así que la placa del repo es idéntica a la del design system.
 
-Viven en [`templates-kit-manual.jsx`](templates-kit-manual.jsx).
+Viven en [`templates-kit-manual.jsx`](templates-kit-manual.jsx). Son **79 placas**: las 53 heredadas del catálogo rehechas con la gramática del manual (mismo id, **pisan a la versión vieja**) más las nuevas `nv-`/`sv-`/`in-`. Los slots de cada una están en [PLACEHOLDERS-kit.md](PLACEHOLDERS-kit.md) y se definen en `kit-slots.json`.
 
 ## Las tres familias
 
