@@ -180,6 +180,30 @@
       "template": "mn-04",
       "linkedin": null,
       "nota": "Servicios · Asesoramiento impositivo (plantilla de Servicios del Manual de Marca 2026, gris azulado) · po-16 y po-25 bloqueadas por historial · solo Instagram"
+    },
+    {
+      "fecha": "2026-09-09",
+      "semana_iso": 37,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Salario Mínimo, Vital y Móvil: nuevos montos hasta abril de 2027 (R. CNEPSMVM 4/2026), base de topes indemnizatorios y del capital mínimo de SAS · papel por defecto (últimas 2 no fueron ambas po-13d) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-10",
+      "semana_iso": 37,
+      "slot": "jueves",
+      "template": "st-10",
+      "linkedin": "li-02",
+      "nota": "Encuesta A/B · Laboral (control de asistencia: planilla propia vs. fichado digital) · ciclo 37%4=1 · draft de story IG (sin texto) + draft aparte de LinkedIn con li-02"
+    },
+    {
+      "fecha": "2026-09-11",
+      "semana_iso": 37,
+      "slot": "gestion",
+      "template": "po-04",
+      "linkedin": null,
+      "nota": "Laboral · guía de 4 pasos antes de contratar al primer empleado (categoría/convenio, cargas sociales, circuito de alta, costo de una eventual baja) · po-31/po-24/po-22/po-23 bloqueadas por historial · fondo claro (familia 'MDO explica') · un solo draft IG+LinkedIn, vertical compartida"
     }
   ],
   "temas_previos": [
@@ -397,6 +421,21 @@
       "fecha": "2026-09-05",
       "slot": "spotlight",
       "tema": "Asesoramiento impositivo"
+    },
+    {
+      "fecha": "2026-09-09",
+      "slot": "noticia",
+      "tema": "Salario Mínimo, Vital y Móvil: nuevos montos hasta abril de 2027"
+    },
+    {
+      "fecha": "2026-09-10",
+      "slot": "jueves",
+      "tema": "Encuesta: cómo controlás la asistencia del equipo (planilla vs. fichado digital)"
+    },
+    {
+      "fecha": "2026-09-11",
+      "slot": "gestion",
+      "tema": "Qué resolver antes de contratar al primer empleado"
     }
   ]
 }
