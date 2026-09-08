@@ -65,6 +65,7 @@ function dataUri(rel) {
 
 const posts = spec.posts.map((p) => ({
   dia: p.dia, hora: p.hora, redes: p.redes || [], plantilla: p.plantilla || '',
+  nota: p.nota || '', esStory: !!p.esStory,
   id: p.id, uuid: String(p.uuid), plannerUrl: p.plannerUrl || '',
   blogId: String(p.blogId || spec.blogId),
   info: limpiarInfo(p.info),
@@ -111,6 +112,10 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
     letter-spacing: .18em; text-transform: uppercase; color: var(--ink-3); }
   h1 { margin: 2px 0 0; font-size: 26px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
   .resumen { font-family: 'Chivo', sans-serif; font-weight: 300; font-style: italic; font-size: 18px; color: var(--ink-2); }
+  .header-der { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .nota { background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px; padding: 8px 12px; font-size: 13px; }
+  .placas.story img { max-width: 220px; }
+  .listo { font-size: 13px; color: var(--ok-ink); }
   .aviso { background: var(--card); border: 1px solid var(--line); border-radius: 8px;
     padding: 12px 16px; color: var(--ink-2); font-size: 14px; margin-bottom: 22px; }
   .aviso[hidden] { display: none; }
@@ -155,7 +160,10 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
       <div class="eyebrow">MDO Consultores · redes</div>
       <h1>Semana ${esc(spec.semana)} · ${esc(spec.rango || '')}</h1>
     </div>
-    <div class="resumen" id="resumen"></div>
+    <div class="header-der">
+      <div class="resumen" id="resumen"></div>
+      <button id="aprobar-todos" hidden>Aprobar todos los pendientes</button>
+    </div>
   </header>
 
   <div class="aviso" id="aviso-sin-mcp" hidden>
@@ -223,13 +231,19 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
     $('resumen').textContent = POSTS.length + (POSTS.length === 1 ? ' posteo' : ' posteos') + ' · ' + aprobados + (aprobados === 1 ? ' aprobado' : ' aprobados');
     $('aviso-sin-mcp').hidden = !(mcpResuelto && !mcp);
     $('aviso-permiso').hidden = !(mcp && !Object.values(estado).some((s) => s.consentido));
+    const pendientes = POSTS.filter((p) => estado[p.uuid].draft || !estado[p.uuid].autoPublish);
+    const ocupado = Object.values(estado).some((s) => s.busy);
+    const btnTodos = $('aprobar-todos');
+    btnTodos.hidden = !(mcp && POSTS.length > 1 && pendientes.length > 1);
+    btnTodos.disabled = ocupado;
+    btnTodos.textContent = ocupado ? 'Aplicando…' : 'Aprobar todos los pendientes (' + pendientes.length + ')';
 
     lista.innerHTML = POSTS.map((p) => {
       const s = estado[p.uuid];
       const programado = !s.draft && s.autoPublish;
       const varias = p.imagenes.length > 1;
       return '<article class="post" data-uuid="' + esc(p.uuid) + '">' +
-        '<div class="placas' + (varias ? ' varias' : '') + '">' +
+        '<div class="placas' + (varias ? ' varias' : '') + (p.esStory ? ' story' : '') + '">' +
           p.imagenes.map((src, i) => '<img src="' + src + '" alt="Placa ' + (i + 1) + ' de ' + esc(p.dia) + '">').join('') +
         '</div>' +
         '<div class="meta">' +
@@ -238,7 +252,9 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
             (p.plantilla ? '<span class="chip">' + esc(p.plantilla) + '</span>' : '') + '</div>' +
           '<div class="estado ' + (programado ? 'programado' : 'borrador') + '"><span class="punto"></span>' +
             (programado ? 'Programado · sale solo' : 'Borrador · no se publica') + '</div>' +
-          (p.info.text ? '<details><summary>Texto del posteo</summary><p class="texto">' + esc(p.info.text) + '</p></details>' : '') +
+          (p.nota ? '<div class="nota">' + esc(p.nota) + '</div>' : '') +
+          (p.info.text && !p.esStory ? '<details><summary>Texto del posteo</summary><p class="texto">' + esc(p.info.text) + '</p></details>' : '') +
+          (programado && s.recien ? '<div class="listo">Listo. Sale el ' + esc(p.dia.toLowerCase()) + ' a las ' + esc(p.hora) + ' hs.</div>' : '') +
           (s.error ? '<div class="error" role="alert">' + copiaError(s.error, p) + '</div>' : '') +
           '<div class="acciones">' +
             (programado
@@ -271,6 +287,7 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
         if (data.id != null) s.id = data.id;       // Metricool cambia el id en cada update
         s.draft = !!data.draft;
         s.autoPublish = !!data.autoPublish;
+        s.recien = programar && !s.draft && s.autoPublish;
         p.info = Object.assign({}, p.info, info, { media: data.media || info.media });
       } else {
         s.error = { code: 'sin_respuesta' };
@@ -286,6 +303,14 @@ const html = `<title>Posteos MDO · Semana ${esc(spec.semana)}</title>
     if (!btn) return;
     const uuid = btn.closest('article').dataset.uuid;
     cambiar(uuid, btn.dataset.accion === 'aprobar');
+  });
+
+  $('aprobar-todos').addEventListener('click', async () => {
+    // Uno por vez, en orden: si uno falla, los demás siguen y cada error queda en su tarjeta.
+    for (const p of POSTS) {
+      const s = estado[p.uuid];
+      if (s.draft || !s.autoPublish) await cambiar(p.uuid, true);
+    }
   });
 
   render();
