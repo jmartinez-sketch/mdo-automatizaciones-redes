@@ -2,10 +2,14 @@
 // Renderea un template de mdo-templates/ a PNG.
 //
 // Uso:
+//   node scripts/render.js --template po-13d --list-slots      ← qué slots tiene la placa
 //   node scripts/render.js \
-//     --template sq-12 \
-//     --out out/test.png \
-//     --slots '{"CATEGORIA":"Impuestos","TITULAR":"...","BAJADA":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
+//     --template po-13d \
+//     --out posts/2026-09-09-2.png \
+//     --slots '{"FECHA":"09.09.2026","TITULAR_1":"...","TITULAR_2":"...","BAJADA":"...","CIERRE":"..."}'
+//
+// Los slots se validan contra la placa: un slot que la placa no tiene, o uno
+// que falta, frena el render con error. No hay reemplazo silencioso.
 
 const path = require('path');
 const fs = require('fs');
@@ -15,7 +19,11 @@ function parseArgs(argv) {
   const out = {};
   for (let i = 2; i < argv.length; i++) {
     const k = argv[i];
-    if (k.startsWith('--')) out[k.slice(2)] = argv[++i];
+    if (k.startsWith('--')) {
+      const next = argv[i + 1];
+      if (next === undefined || next.startsWith('--')) out[k.slice(2)] = true;
+      else out[k.slice(2)] = argv[++i];
+    }
   }
   return out;
 }
@@ -50,7 +58,7 @@ function sizeForTemplate(id) {
   return SIZES.square;
 }
 
-async function render({ template, slots, outPath }) {
+async function render({ template, slots, outPath, listSlots = false }) {
   const templatesDir = path.resolve(__dirname, '..', 'mdo-templates');
   const renderHtml = path.join(templatesDir, 'render.html');
   if (!fs.existsSync(renderHtml)) throw new Error(`No existe ${renderHtml}`);
@@ -97,7 +105,39 @@ async function render({ template, slots, outPath }) {
 
     await page.evaluate(() => document.fonts && document.fonts.ready);
 
-    if (slots && Object.keys(slots).length) {
+    // Los slots son los marcadores [NOMBRE] que trae la placa renderizada con
+    // sus valores por defecto. Se validan contra la placa REAL, no contra una
+    // tabla: así da igual si el id viene del kit 4.4 o del catálogo viejo.
+    const presentes = await page.evaluate(() => {
+      const html = document.getElementById('stage').innerHTML;
+      return [...new Set(html.match(/\[[A-Z][A-Z0-9_]*\]/g) || [])].map((m) => m.slice(1, -1));
+    });
+
+    if (listSlots) {
+      console.log(`Slots de ${template} (${presentes.length}):`);
+      presentes.forEach((k) => console.log('  ' + k));
+      return { slots: presentes };
+    }
+
+    const pasados = Object.keys(slots || {});
+    const desconocidos = pasados.filter((k) => !presentes.includes(k));
+    if (desconocidos.length) {
+      throw new Error(
+        `La plantilla "${template}" no tiene los slots: ${desconocidos.join(', ')}.\n` +
+        `Slots válidos de esta placa: ${presentes.join(', ')}.\n` +
+        `(Consultá siempre con: node scripts/render.js --template ${template} --list-slots)`
+      );
+    }
+    const faltan = presentes.filter((k) => !pasados.includes(k));
+    if (faltan.length) {
+      throw new Error(
+        `Faltan slots para "${template}": ${faltan.join(', ')}. ` +
+        `Si no se llenan, la placa sale con el marcador [${faltan[0]}] impreso. ` +
+        `Pasá los ${presentes.length} slots: ${presentes.join(', ')}.`
+      );
+    }
+
+    if (pasados.length) {
       await page.evaluate((data) => {
         const stage = document.getElementById('stage');
         stage.innerHTML = Object.entries(data).reduce(
@@ -107,6 +147,7 @@ async function render({ template, slots, outPath }) {
       }, slots);
     }
 
+    if (fs.existsSync(outPath)) console.log('(pisando el PNG anterior:', outPath + ')');
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     await page.screenshot({
       path: outPath,
@@ -125,11 +166,12 @@ if (require.main === module) {
     console.error('Falta --template (ej: sq-12)');
     process.exit(1);
   }
+  const listSlots = 'list-slots' in args;
   const slots = args.slots ? JSON.parse(args.slots) : {};
   const outPath = path.resolve(args.out || `out/${args.template}.png`);
-  render({ template: args.template, slots, outPath })
-    .then(() => console.log('OK →', outPath))
-    .catch((err) => { console.error('ERROR:', err); process.exit(1); });
+  render({ template: args.template, slots, outPath, listSlots })
+    .then(() => { if (!listSlots) console.log('OK →', outPath); })
+    .catch((err) => { console.error('ERROR:', err.message || err); process.exit(1); });
 }
 
 module.exports = { render };

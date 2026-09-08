@@ -10,7 +10,27 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y crea los drafts. El primer post de la semana sale el **miércoles**. ❌ Nunca crear un draft con fecha de lunes.
 
-> ⚠️ **Slots vigentes = `mdo-templates/PLACEHOLDERS-kit.md`.** Las plantillas se renderizan con la versión del kit 4.4 de Claude Design, que pisa a la vieja del mismo id y usa otros slots (FECHA, VOLANTA, TITULAR_1/TITULAR_2, BAJADA, CIERRE, ITEM_n…; no existen CATEGORIA, FUENTE ni HANDLE). Antes de armar el `--slots` de una placa, leer su tabla ahí. El TITULAR se corta en dos partes: TITULAR_1 negrita + TITULAR_2 normal.
+## ⚠️ Kit de redes 4.4 — regla dura (desde el 08/09/2026)
+
+**Las placas son las del kit 4.4 de Claude Design**, extraídas tal cual a `mdo-templates/templates-kit-manual.jsx`. Pisan al catálogo viejo con el **mismo id**: `po-13d` sigue llamándose `po-13d`, pero es la placa del Manual 2026. No hay que elegir "versión nueva o vieja": la vieja ya no se renderiza.
+
+**Los slots cambiaron.** Los nombres viejos (`CATEGORIA`, `TITULO`, `TITULAR`, `COPETE`, `FUENTE`, `HANDLE`, `CTA`, `BULLET_n`, `PREGUNTA`, `CLAIM`…) **ya no existen en ninguna placa**. Los vigentes son del tipo `FECHA`, `VOLANTA`, `TITULAR_1`/`TITULAR_2`(/`TITULAR_3`), `BAJADA`, `CIERRE`, `ITEM_n`, `OPCION_A`/`OPCION_B`. El titular va **partido en dos**: `TITULAR_1` en negrita y `TITULAR_2` en normal, y la placa los apila.
+
+**Cómo saber los slots de una placa — única fuente válida:**
+
+```bash
+node scripts/render.js --template po-13d --list-slots
+```
+
+Eso lee la placa real y lista sus slots. **Hacerlo SIEMPRE antes de armar el `--slots` de cada placa.** Las columnas "Slots" de las tablas de este documento describen *qué contenido lleva* cada placa, no los nombres técnicos: los nombres técnicos salen solo de `--list-slots` (o de `mdo-templates/PLACEHOLDERS-kit.md`, que es lo mismo en tabla).
+
+**`render.js` frena si el `--slots` está mal.** Un slot que la placa no tiene, o uno que falta, es error y no genera PNG. Si pasa, **no improvisar**: leer la lista que imprime el error y reintentar con esos nombres. No hay reemplazo silencioso ni placa "casi bien".
+
+**Renderizar SIEMPRE de cero.** Cada corrida genera sus PNGs con `render.js` en ese momento. ❌ **Nunca** copiar, recuperar ni reutilizar un PNG de `main`, de otra rama o de una corrida anterior, aunque tenga el nombre exacto que hace falta: puede estar hecho con plantillas viejas. Si el archivo ya existe, se pisa. Un PNG que no salió de `render.js` en **esta** corrida no se publica.
+
+> Esto pasó el 08/09/2026: la corrida manual encontró en `main` las 4 placas del lunes (renderizadas antes de que entrara el kit), las "recuperó" sin renderizar y las publicó con el diseño viejo.
+
+**Las placas del kit no llevan lockup arriba, ni chip, ni pie con `@mdoconsultores`.** Es una regla del manual, no un error: la marca va en el logo centrado, el isotipo chico, el lockup secundario o la marca de agua. No intentar agregarlos.
 
 ## ⚠️ Marca 2026 — regla dura
 
@@ -128,6 +148,8 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 
 ### 0. Leer el historial de plantillas (SIEMPRE primero)
 
+⚠️ **Si el historial ya tiene entradas de la semana ISO actual, o en `posts/` ya hay PNGs con las fechas de esta semana, es una re-corrida** (la anterior falló o se está probando a mano). En ese caso: **borrar esas entradas del historial y esos PNGs, y generar todo de nuevo.** No dar la semana por hecha, no reutilizar nada.
+
 ⚠️ **Ojo con de dónde se lee.** Cada corrida semanal trabaja en su propia rama efímera (`claude/*`) que **no se mergea a `main`**. Por eso el historial más nuevo puede estar en `main` **o** en la rama de una corrida anterior. Buscar el más completo de los dos:
 
 ```bash
@@ -209,14 +231,14 @@ Reglas:
 - **Siempre 1** noticia principal → post del **miércoles**.
 - **En semanas de carrusel** (ciclo jueves = `0`, ver 3b) elegir además una **segunda noticia temáticamente distinta** para desarrollar en el carrusel del jueves. Si el newsletter no trae una segunda noticia que valga, usar la principal y profundizarla en el carrusel.
 
-Para cada noticia extraer (slots del template `po-13d` — Noticia vertical 4:5):
-- `CATEGORIA` — eyebrow corto, ej: "Impuestos · ARCA", "Régimen Simplificado", "PyMEs"
-- `TITULAR` — máximo 70 caracteres, redactado por nosotros (no copiar el del medio)
-- `BAJADA` — 1-2 líneas (máx 180 chars) que expliquen la novedad concreta
-- `CIERRE` — frase de cierre editorial breve en serif (máx ~90 chars), ej: "Un cambio que conviene resolver con tiempo." (en noticias SÍ se pueden mencionar datos/plazos reales — la regla dura de no-números aplica solo al tip del viernes y al spotlight del sábado)
-- `FUENTE` — medio + tipo de comunicación, ej: "Cronista · Nota", "ARCA · Resolución oficial"
-- `FECHA` — fecha de la noticia, formato "21 may 2026"
-- `HANDLE` — siempre `@mdoconsultores`
+Para cada noticia extraer (slots de `po-13d`/`po-13e` en el kit 4.4 — confirmar con `--list-slots`):
+- `FECHA` — fecha de la noticia, formato del kit `09.09.2026` (día.mes.año con puntos)
+- `TITULAR_1` — primera parte del titular, en negrita: el hecho. Máx ~35 chars, ej: "Nuevo Salario Mínimo, Vital y Móvil"
+- `TITULAR_2` — segunda parte, en normal: el complemento. Máx ~35 chars, ej: "vigente hasta abril de 2027". Las dos partes juntas forman UNA frase; máx 70 chars en total, redactado por nosotros (no copiar el del medio)
+- `BAJADA` — 1-2 líneas (máx 180 chars) que expliquen la novedad concreta (en noticias SÍ se pueden mencionar datos/plazos reales — la regla dura de no-números aplica solo al tip del viernes y al spotlight del sábado)
+- `CIERRE` — frase de cierre en negrita, qué hacer (máx ~90 chars), ej: "Revisá que la liquidación de septiembre tome los valores nuevos."
+
+La **fuente** ya no va en la placa (el kit no tiene slot para eso): va en el texto del posteo (campo `text` de Metricool), ej: "Fuente: Errepar · Resolución CNEPSMVM".
 
 ### 2b. Elegir la plantilla de la noticia
 
@@ -317,15 +339,14 @@ El viernes es el post que más se nota cuando suena a manual de autoayuda para e
 
 ⚠️ Ojo con el ángulo, no solo con las palabras: **"planificación tributaria / que no te agarren de sorpresa" ya salió el 26/06 y el 31/07/2026**. Reformularlo con otras palabras sigue siendo repetirlo.
 
-Mapear a slots de `po-04`:
-- `COPETE` — ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar `"Gestión PyME"` o el nombre del servicio de la semana, ej: "Gestión PyME", "Contabilidad", "Asesoramiento impositivo"
-- `TITULO` — headline corto del hook (máx 50 chars). Que entre en **máximo 3 líneas** en el render
-- `BAJADA` — explicación breve (máx 150 chars)
-- `BULLET_1`..`BULLET_4` — **siempre los 4** (si pasás menos, el template muestra el placeholder `[BULLET_N]`). Cada bullet **de 1 línea** (máx ~36 chars): si son de 2 líneas, el contenido desborda y **se corta el pie**
-- `CTA` — frase de cierre que referencia un servicio real de MDO. Ver lista completa abajo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." / "Asesoramiento impositivo para tu empresa. Consultanos." — ❌ NO inventar servicios que MDO no presta
-- `HANDLE` — `@mdoconsultores`
+Mapear al contenido de la placa elegida (los nombres técnicos, con `--list-slots`; casi todas las del viernes usan éstos):
+- `VOLANTA` — la etiqueta chica de arriba. ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar el nombre del servicio de la semana o "Gestión PyME", ej: "Liquidación de sueldos", "Contabilidad", "Asesoramiento impositivo"
+- `TITULAR_1` + `TITULAR_2` — el gancho, partido en dos: la primera parte en negrita, la segunda en normal. Juntas máx ~50 chars
+- `BAJADA` (si la placa la tiene) — explicación breve (máx 150 chars)
+- `ITEM_1`..`ITEM_n` (si la placa los tiene) — **siempre todos los que lista `--list-slots`**. Cada ítem de 1 línea (máx ~45 chars)
+- `CIERRE` — frase de cierre que referencia un servicio real de MDO. Ver lista completa abajo. Ej: "Llevamos la contabilidad de tu PyME. Consultanos." — ❌ NO inventar servicios que MDO no presta
 
-⚠️ **Al renderizar `po-04`, verificar SIEMPRE que el pie (`@mdoconsultores · Buenos Aires`) quede visible.** Si no se ve, el texto desbordó: acortar bullets a 1 línea cada uno y/o el título.
+Ya no existen `COPETE`, `TITULO`, `BULLET_n`, `CTA` ni `HANDLE`: si los pasás, `render.js` frena.
 
 #### Catálogo de templates del viernes (referencia — se pueden variar)
 
@@ -423,16 +444,14 @@ Dentro de las opciones con variante de color (`st-09`/`st-09b`, `st-08`/`st-08c`
 
 **Opción A — Story `st-09` / `st-09b` (ciclo = 2)**
 
-Slots del template:
-- `COPETE` — ej: "Consultanos"
+Slots en el kit 4.4 (confirmar con `--list-slots`):
+- `VOLANTA` — frase de contexto, ej: "Estás pensando en armar tu empresa"
 - `TITULAR_1` — beneficio clave, **máx 10 chars** (1 palabra o 2 muy cortas), ej: "Ordená", "Crecé", "Hablemos"
-- `TITULAR_2` — segundo punto, **máx 10 chars** (el serif es 92px, el más grande del template), ej: "tu PyME", "con MDO", "antes"
+- `TITULAR_2` — segundo punto, **máx 10 chars**, ej: "tu PyME", "con MDO", "antes"
 - `TITULAR_3` — remate, **máx 12 chars** con punto, ej: "con MDO.", "hoy mismo.", "de firmar."
 - `BAJADA` — cierre breve, ej: "Contabilidad, impuestos y nómina. Un solo equipo."
-- `CANAL_1_LABEL` / `CANAL_1_VALOR` — ej: "Web" / "mdo-consultores.com.ar"
-- `CANAL_2_LABEL` / `CANAL_2_VALOR` — ej: "IG" / "@mdoconsultores"
-- `CANAL_3_LABEL` / `CANAL_3_VALOR` — ej: "Mail" / "info@mdo-consultores.com.ar"
-- `HANDLE` — `@mdoconsultores`
+
+Ya no hay slots de canales ni handle: el kit no los lleva.
 
 ⚠️ **CONSTRAINT CRÍTICO st-09**: El template usa 72px (TITULAR_1/3) y 92px (TITULAR_2) sobre un artboard de 480px (→ 400px útiles con padding). Frases largas DESBORDAN el borde derecho y se cortan. Usar SIEMPRE palabras sueltas o frases de máximo 2-3 palabras muy cortas. Verificar mentalmente: ~40px por carácter bold a 72px.
 
@@ -440,14 +459,13 @@ Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
 
 **Opción C — Story encuesta `st-10` (ciclo = 1)**
 
-El formato de mayor interacción: Instagram permite pegarle el sticker de encuesta encima. Slots:
+El formato de mayor interacción: Instagram permite pegarle el sticker de encuesta encima. Slots en el kit 4.4 (confirmar con `--list-slots`):
 
-- `COPETE` — ej: "Gestión PyME", "Contanos"
-- `PREGUNTA` — la pregunta, **máx ~50 chars**. El cuerpo se ajusta solo por tramos (44px hasta 28 chars · 38px hasta 46 · 32px hasta 66), así que ~35 chars ocupan 3 líneas y entran cómodas. Ej: "¿Cómo llevás la caja de tu empresa?"
-- `OPCION_A` — primera opción, **máx ~30 chars**. Ej: "Planilla de Excel"
-- `OPCION_B` — segunda opción, **máx ~30 chars**. Ej: "Sistema de gestión"
-- `PIE` — cierre breve. Ej: "Respondé en la encuesta 👆"
-- `HANDLE` — `@mdoconsultores`
+- `VOLANTA` — ej: "Encuesta", "Gestión PyME"
+- `TITULAR_1` + `TITULAR_2` — la pregunta partida en dos renglones (primera parte en negrita), **máx ~25 chars cada uno**. Ej: "¿Cómo llevás hoy" / "la facturación?"
+- `OPCION_A` — primera opción, **máx ~30 chars**. Ej: "En una planilla propia"
+- `OPCION_B` — segunda opción, **máx ~30 chars**. Ej: "Directo en el portal de ARCA"
+- `CIERRE` — cierre breve. Ej: "Respondé en la encuesta y te contamos qué conviene."
 
 Contenido: una pregunta de gestión real, sin datos normativos. Anclarla al servicio de la semana (`SERVICIO_IDX`). Las 2 opciones tienen que ser ambas **razonables** — no una obviamente mala, o nadie vota.
 
@@ -455,13 +473,9 @@ Contenido: una pregunta de gestión real, sin datos normativos. Anclarla al serv
 
 **Opción D — Story cita `st-08` / `st-08c` (ciclo = 3)**
 
-Slots (los mismos en las 3 variantes de color):
+Slots en el kit 4.4 (los mismos en las 3 variantes; confirmar con `--list-slots`):
 
-- `COPETE` — ej: "Pensamiento", "Nuestra mirada"
-- `CITA` — frase propia del estudio sobre gestión o asesoramiento, **máx ~110 chars**. NO citar a terceros ni inventar autores célebres.
-- `AUTOR` — `"Estudio MDO"`
-- `ROL_AUTOR` — ej: "Consultores en gestión"
-- `HANDLE` — `@mdoconsultores`
+- `TITULAR_1`, `TITULAR_2`, `TITULAR_3` — la frase propia del estudio sobre gestión o asesoramiento, **partida en tres renglones**, máx ~110 chars en total. NO citar a terceros ni inventar autores célebres. La firma del estudio la pone la placa.
 
 Variantes: `st-08` (base), `st-08b` (navy), `st-08c` (minimal blanca). Elegir la que no esté en el historial.
 
@@ -518,11 +532,12 @@ Notas del pool:
 - `po-30` (grid de servicios) es el único que **no** se ancla a un solo servicio: muestra la amplitud del estudio. Usarlo como máximo **1 vez cada 2 meses**.
 - `po-36` (testimonio) requiere un testimonio **real o claramente genérico**. ❌ Nunca inventar una cita atribuida a un cliente identificable. Describir al cliente por sector y tamaño ("PyME textil, 12 empleados"), nunca por nombre.
 
-Slots de `po-16` (el más usado del pool):
-- `COPETE` — siempre "Servicios"
-- `TITULO` — nombre del servicio en grande (máx ~24 chars/línea, entra en 2 líneas serif). Ej: "Asesoramiento Impositivo", "Liquidación de Sueldos", "Contabilidad para PyMEs"
+Slots de `po-16` en el kit 4.4 (confirmar con `--list-slots`):
+- `VOLANTA` — siempre "Servicios"
+- `TITULAR_1` — nombre del servicio (máx ~24 chars). Ej: "Asesoramiento impositivo", "Liquidación de sueldos", "Contabilidad para PyMEs"
 - `BAJADA` — **UNA** línea de beneficio (máx ~110 chars). NO listar tareas ni repetir el título. Hablar del beneficio para el cliente, no del "qué hacemos".
-- `HANDLE` — `@mdoconsultores`
+
+Para el sábado también sirven las placas de Servicios del kit, `sv-01`…`sv-08` (degradé claro con el isotipo gigante, que es exactamente la familia "Servicios" del manual). `sv-05` es Laboral, `sv-06` Impositivo, `sv-01` Societario, `sv-02` Contabilidad.
 
 Líneas de beneficio de referencia (escribir una nueva en ese estilo, NO copiar literal):
 - **Tributario**: "Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas."
@@ -537,14 +552,23 @@ Nombre del archivo: `posts/YYYY-MM-DD-5.png` (fecha = sábado de publicación).
 
 ### 4. Renderizar las imágenes de Instagram
 
-Para cada post:
+⚠️ **Siempre de cero, en esta corrida, con `render.js`.** Nunca reutilizar un PNG existente (ver la regla dura del kit al principio). Si el archivo ya existe, `render.js` lo pisa y lo avisa.
+
+Para cada post, **primero** los slots de la placa, **después** el render:
 
 ```bash
+node scripts/render.js --template po-13d --list-slots
+# → FECHA, TITULAR_1, TITULAR_2, BAJADA, CIERRE
+
 node scripts/render.js \
   --template po-13d \
   --out posts/YYYY-MM-DD-N.png \
-  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","CIERRE":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
+  --slots '{"FECHA":"09.09.2026","TITULAR_1":"...","TITULAR_2":"...","BAJADA":"...","CIERRE":"..."}'
 ```
+
+Si `render.js` devuelve `ERROR: La plantilla "..." no tiene los slots ...` o `Faltan slots ...`, corregir el JSON con los nombres que imprime y reintentar. **No hay PNG hasta que pase.**
+
+**Verificación obligatoria después de cada render:** abrir el PNG (herramienta Read) y mirar que (a) no quede ningún `[NOMBRE]` impreso, (b) el texto no se salga de la placa, y (c) el diseño sea el del kit: fondo navy con degradé y fecha en itálica para noticias, degradé claro con isotipo gigante para servicios; **sin** lockup arriba ni `@mdoconsultores` al pie. Si aparece un lockup arriba a la izquierda con un chip a la derecha, es la plantilla vieja: algo está mal en el repo, frenar y reportarlo.
 
 Templates por día (todos verticales — ver "Formatos correctos de imagen"):
 
@@ -579,18 +603,21 @@ Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 Las tres plantillas horizontales siguen disponibles por si en alguna semana se justifica (`li-01` noticia, `li-02` claim, `li-03` dato), pero la rutina normal solo usa `li-02` los jueves de story.
 
 ```bash
+node scripts/render.js --template li-02 --list-slots
+# → TITULAR_1, TITULAR_2
+
 node scripts/render.js \
-  --template li-01 \
-  --out posts/YYYY-MM-DD-N-li.png \
-  --slots '{"CATEGORIA":"...","TITULAR":"...","BAJADA":"...","FUENTE":"...","FECHA":"...","HANDLE":"@mdoconsultores"}'
+  --template li-02 \
+  --out posts/YYYY-MM-DD-3-li.png \
+  --slots '{"TITULAR_1":"Los sueldos de tu equipo,","TITULAR_2":"al día y sin sobresaltos."}'
 ```
 
 Nombrado: **mismo nombre que la vertical + sufijo `-li`** → `posts/YYYY-MM-DD-3-li.png` (el `3` es el jueves, el único día que la usa).
 
-Slots de los templates LinkedIn:
-- `li-01` (noticia): `CATEGORIA`, `TITULAR`, `BAJADA`, `FUENTE`, `FECHA`, `HANDLE`
-- `li-02` (claim institucional): `COPETE`, `CLAIM`, `SERVICIO_1..3`, `CTA`, `HANDLE`
-- `li-03` (dato clave): `CATEGORIA`, `NUMERO`, `UNIDAD`, `DESCRIPCION`, `FUENTE`, `HANDLE`
+Slots de las horizontales en el kit 4.4 (confirmar con `--list-slots`):
+- `li-01` (noticia): `FECHA`, `TITULAR_1`, `TITULAR_2`, `CIERRE`
+- `li-02` (claim institucional): `TITULAR_1`, `TITULAR_2` — **solo dos**: es una frase en dos renglones, la primera en negrita. Máx ~30 chars cada uno
+- `li-03` (dato clave): `NUMERO`, `BAJADA`, `TITULAR_1`, `TITULAR_2`, `CIERRE`
 
 ⚠️ `li-03` lleva un **número**. Si el post es el de gestión PyME del viernes, aplica la regla dura: el número **no puede** ser un monto, alícuota o tope normativo. Solo sirve para cantidades atemporales (ej: "3 hábitos", "12 meses"). Si no hay un número legítimo, usar `li-02`.
 
