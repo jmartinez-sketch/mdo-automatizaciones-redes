@@ -1,4 +1,4 @@
-// Extrae las placas nuevas del kit 4.4 de Claude Design, tal cual vienen,
+// Extrae el kit 4.4 completo de Claude Design, tal cual vienen,
 // y arma mdo-templates/templates-kit-manual.jsx.
 const fs = require('fs');
 const path = require('path');
@@ -9,7 +9,7 @@ const s = JSON.parse(fs.readFileSync(rawPath, 'utf8')).content;
 // Descartadas el 2026-09-05 (decisión de Juan): dependen de fotos que superan el
 // tope de lectura de DesignSync (192 KiB) y llegan truncadas. Si algún día se
 // suben esas fotos a mdo-templates/assets/fotos/, sacar el id de esta lista.
-const DESCARTADAS = new Set(['in-01', 'in-05', 'in-06']);
+const DESCARTADAS = new Set(['in-01', 'in-05', 'in-06', 'mn-06', 'sq-02b']);
 
 const IDS = [
   ...Array.from({ length: 10 }, (_, i) => 'nv-' + String(i + 1).padStart(2, '0')),
@@ -56,17 +56,44 @@ const LOGOS = {
   '../../assets/redes/fotos/manos-teclado.jpg': 'assets/fotos/manos-teclado.jpg',
 };
 
+// Slots por placa: mdo-templates/kit-slots.json (generado por rol tipográfico
+// desde el kit y editable a mano). Cada entrada es {texto, slot} en orden de
+// aparición; el extractor reemplaza el texto de ejemplo por [SLOT] avanzando un
+// cursor, así que los textos repetidos dentro de una placa no se confunden.
+const SLOTEADAS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'mdo-templates', 'kit-slots.json'), 'utf8'));
+
+function tamano(html) {
+  const m = html.match(/width:(\d+)px;height:(\d+)px;overflow:hidden/);
+  return m ? [Number(m[1]), Number(m[2])] : null;
+}
+
 const placas = {};
+const tamanos = {};
+const slotsPorPlaca = {};
 const faltan = [];
 const sinMapear = new Set();
-for (const id of IDS) {
+// Todas las placas del kit (el catálogo entero rehecho + las nuevas), menos las descartadas.
+const TODAS = Object.keys(SLOTEADAS).filter((id) => !DESCARTADAS.has(id));
+for (const id of TODAS) {
   let html = extraer(id);
-  if (!html || !html.includes('1350px')) { faltan.push(id); continue; }
+  const tam = html && tamano(html);
+  if (!html || !tam) { faltan.push(id); continue; }
   for (const [de, a] of Object.entries(LOGOS)) html = html.split(de).join(a);
   for (const m of html.matchAll(/src="([^"]*)"/g)) {
     if (!m[1].startsWith('assets/')) sinMapear.add(m[1]);
   }
+  if (SLOTEADAS[id] && SLOTEADAS[id].length) {
+    let cursor = 0;
+    for (const { texto, slot } of SLOTEADAS[id]) {
+      const at = html.indexOf(texto, cursor);
+      if (at < 0) { console.error(`SLOT ${slot} en ${id}: no encuentro el texto: ${texto}`); process.exit(1); }
+      html = html.slice(0, at) + '[' + slot + ']' + html.slice(at + texto.length);
+      cursor = at + slot.length + 2;
+    }
+    slotsPorPlaca[id] = SLOTEADAS[id].map((s) => ({ slot: s.slot, ejemplo: s.texto }));
+  }
   placas[id] = html;
+  tamanos[id] = tam;
 }
 
 if (sinMapear.size) {
@@ -79,7 +106,7 @@ if (faltan.length) {
   process.exit(1);
 }
 
-const cabecera = `// templates-kit-manual.jsx — las placas nuevas del kit 4.4 de Claude Design
+const cabecera = `// templates-kit-manual.jsx — el kit 4.4 completo de Claude Design
 // ("Kit de redes — según el manual"), copiadas TAL CUAL del proyecto MDO - Diseño.
 //
 // Tres familias, según la guía de redes de la página 23 del Manual de Marca 2026:
@@ -118,8 +145,13 @@ function KitManualPlate({ id }) {
 }
 
 const KIT_MANUAL_IDS = Object.keys(KIT_MANUAL_HTML);
+// Tamaño de salida por placa (ancho, alto). Vienen maquetadas a tamaño final.
+const KIT_MANUAL_SIZE = ${JSON.stringify(tamanos)};
+// Placas del kit que ya tienen [SLOTS] y por lo tanto la rutina puede llenar.
+// Las demás traen el texto de ejemplo del kit.
+const KIT_MANUAL_SLOTS = ${JSON.stringify(slotsPorPlaca)};
 
-Object.assign(window, { KitManualPlate, KIT_MANUAL_IDS, KIT_MANUAL_HTML });
+Object.assign(window, { KitManualPlate, KIT_MANUAL_IDS, KIT_MANUAL_HTML, KIT_MANUAL_SIZE, KIT_MANUAL_SLOTS });
 `;
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });

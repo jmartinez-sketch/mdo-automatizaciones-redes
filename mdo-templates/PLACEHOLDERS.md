@@ -1,4 +1,6 @@
 # MDO Consultores · IG Templates — Render API
+> **Kit 4.4 (Claude Design) — manda sobre esta lista.** Todas las placas de este catálogo fueron rehechas en el design system y ahora se renderizan con esa versión, que tiene **otro vocabulario de slots** (sin CATEGORIA/FUENTE/HANDLE, titular en dos tonos). Los slots vigentes por id están en [PLACEHOLDERS-kit.md](PLACEHOLDERS-kit.md). Esta lista queda como referencia histórica de la composición.
+
 
 > **Retiradas.** `po-06`, `po-06b`, `po-13`, `po-37`, `st-07` y `st-07b` ya no están en el catálogo: el kit de redes del Manual de Marca 2026 no las incluye. Lo que va en su lugar está en [LEEME-kit-manual.md](LEEME-kit-manual.md).
 

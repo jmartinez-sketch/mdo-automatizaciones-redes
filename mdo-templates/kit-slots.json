@@ -1,0 +1,1758 @@
+{
+ "mn-02": [
+  {
+   "texto": "28.07.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA pide informar",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "socios, directores y beneficiarios",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Las sociedades deberán informar ante ARCA a los titulares de participaciones, directores y beneficiarios finales, conforme al régimen vigente y con vencimientos escalonados durante el mes.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Confirmá que tu sociedad se encuentre al día con esta obligación.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-01": [
+  {
+   "texto": "Vencimiento · junio 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "21",
+   "slot": "NUMERO"
+  },
+  {
+   "texto": "jun",
+   "slot": "UNIDAD"
+  },
+  {
+   "texto": "IVA",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "posición mensual 05/2026",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Hasta las 23:59. Te lo presentamos nosotros.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-03": [
+  {
+   "texto": "En cifras · 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "libros societarios y contables",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "bajo control del estudio",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Folios y custodia relevados uno por uno.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-13d": [
+  {
+   "texto": "19.08.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Nuevo régimen de facturación",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para responsables inscriptos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Cambia el plazo de emisión y el detalle obligatorio del comprobante.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisamos tu circuito de facturación antes de que aplique.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-13e": [
+  {
+   "texto": "19.08.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Nuevo régimen de facturación",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para responsables inscriptos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Cambia el plazo de emisión y el detalle obligatorio del comprobante.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisamos tu circuito de facturación antes de que aplique.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-24": [
+  {
+   "texto": "Contabilidad",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Tu PyME tiene",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "esto resuelto?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Balances y libros al día, sin corridas.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Cuentas conciliadas todos los meses.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Reportes claros para tomar decisiones.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Si te falta alguno, hablemos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-26": [
+  {
+   "texto": "Servicios · tres frentes",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Un solo equipo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para tres frentes",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Impuestos: liquidación y planificación.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Contabilidad: registración y balances.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Laboral: sueldos y cargas sociales.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Todo con un mismo interlocutor.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-21": [
+  {
+   "texto": "Pregunta",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Sabés cuánto te cuesta",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cada empleado por mes?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "El sueldo bruto es sólo una parte: cargas sociales, ART, sindicato y provisión de aguinaldo suman.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Lo calculamos con vos, sin compromiso.",
+   "slot": "CIERRE"
+  }
+ ],
+ "st-10": [
+  {
+   "texto": "Encuesta",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Cómo llevás hoy",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "la facturación?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "En una planilla propia",
+   "slot": "OPCION_A"
+  },
+  {
+   "texto": "Directo en el portal de ARCA",
+   "slot": "OPCION_B"
+  },
+  {
+   "texto": "Respondé en la encuesta y te contamos qué conviene.",
+   "slot": "CIERRE"
+  }
+ ],
+ "li-01": [
+  {
+   "texto": "11.06.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA abre la Moratoria Laboral",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para empleadores",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Permite regularizar personal no registrado con condiciones que no suelen repetirse.",
+   "slot": "CIERRE"
+  }
+ ],
+ "li-03": [
+  {
+   "texto": "128",
+   "slot": "NUMERO"
+  },
+  {
+   "texto": "En cifras · 2026",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "libros societarios y contables",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "bajo control del estudio",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Folios y custodia relevados uno por uno.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-12": [
+  {
+   "texto": "19.06.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA extiende el plazo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para presentar la DDJJ de Ganancias",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "La prórroga aplica a personas humanas. Nuevo vencimiento: 30 de junio.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Si todavía no presentaste, hay tiempo. Consultanos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-31": [
+  {
+   "texto": "Impuestos · guía",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Cómo recategorizarte",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "en tres pasos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Sumá la facturación de los últimos doce meses.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Compará con la escala vigente de ARCA.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Confirmá la categoría nueva antes del día 20.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Lo revisamos con vos antes de confirmar.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-32": [
+  {
+   "texto": "Comparativa",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Monotributo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "o Responsable Inscripto",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Monotributo",
+   "slot": "LABEL_1"
+  },
+  {
+   "texto": "Cuota fija mensual, simple de liquidar.",
+   "slot": "LABEL_1_ITEM_1"
+  },
+  {
+   "texto": "No discrimina IVA en tus facturas.",
+   "slot": "LABEL_1_ITEM_2"
+  },
+  {
+   "texto": "Tiene topes de facturación anual.",
+   "slot": "LABEL_1_ITEM_3"
+  },
+  {
+   "texto": "Responsable inscripto",
+   "slot": "LABEL_2"
+  },
+  {
+   "texto": "Liquidás IVA y Ganancias por separado.",
+   "slot": "LABEL_2_ITEM_1"
+  },
+  {
+   "texto": "Podés computar el IVA de tus compras.",
+   "slot": "LABEL_2_ITEM_2"
+  },
+  {
+   "texto": "Sin tope: acompaña el crecimiento.",
+   "slot": "LABEL_2_ITEM_3"
+  },
+  {
+   "texto": "No hay una mejor: hay una que le sirve a tu estructura de costos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-33": [
+  {
+   "texto": "Elegí tu caso",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Qué te describe",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "mejor hoy?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Facturo solo y estoy en monotributo.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Tengo empleados y soy responsable inscripto.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Tengo una sociedad con socios.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Cada caso tiene su plan. Escribinos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-34": [
+  {
+   "texto": "Mito y realidad",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "«Si soy monotributista, no tengo que llevar contabilidad.»",
+   "slot": "MITO"
+  },
+  {
+   "texto": "Sin registros no hay forma de saber si la categoría sigue siendo la correcta.",
+   "slot": "REALIDAD"
+  }
+ ],
+ "po-35": [
+  {
+   "texto": "Laboral · errores frecuentes",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Cinco errores",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "al liquidar sueldos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "No actualizar los topes previsionales del mes.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Omitir el F.572 de los empleados.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Liquidar vacaciones sin el plus correspondiente.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Presentar el F.931 fuera de término.",
+   "slot": "ITEM_4"
+  },
+  {
+   "texto": "Revisamos tu liquidación antes de pagar.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-27": [
+  {
+   "texto": "Pregunta",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Sabés cuánto te cuesta",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cada empleado por mes?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "El sueldo bruto es sólo una parte: cargas sociales, ART, sindicato y provisión de aguinaldo suman.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Lo calculamos con vos, sin compromiso.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-28": [
+  {
+   "texto": "Societario · proceso",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Constituir una S.A.S.",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "en tres pasos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Reservá el nombre y definí el instrumento constitutivo.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Firmá digitalmente e integrá el capital mínimo.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Inscribí en el Registro Público y obtené el CUIT.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Acompañamos todo el trámite.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-29": [
+  {
+   "texto": "Pregunta",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Sabés cuánto te cuesta",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cada empleado por mes?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "El sueldo bruto es sólo una parte: cargas sociales, ART, sindicato y provisión de aguinaldo suman.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Lo calculamos con vos, sin compromiso.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-30": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Cuatro cosas que",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "resolvemos por vos",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Vencimientos y presentaciones ante ARCA.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Libros societarios y trámites en IGJ.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Sueldos, F.931 y convenios.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Balances y certificaciones.",
+   "slot": "ITEM_4"
+  },
+  {
+   "texto": "Consultanos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "ca-cover": [
+  {
+   "texto": "Calendario impositivo",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Junio",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "2026",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Vencimientos de ARCA, IGJ y previsionales del mes en un solo lugar.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Deslizá",
+   "slot": "DESTACADO"
+  }
+ ],
+ "ca-q1": [
+  {
+   "texto": "Primera quincena · junio 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Vencimientos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "del 7 al 14",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "07",
+   "slot": "DIA_1"
+  },
+  {
+   "texto": "Aportes autónomos",
+   "slot": "ITEM_1_TITULO"
+  },
+  {
+   "texto": "Cat. I-V · 05/26",
+   "slot": "ITEM_1_DETALLE"
+  },
+  {
+   "texto": "11",
+   "slot": "DIA_2"
+  },
+  {
+   "texto": "Ingresos Brutos",
+   "slot": "ITEM_2_TITULO"
+  },
+  {
+   "texto": "CABA · Anticipo 05/26",
+   "slot": "ITEM_2_DETALLE"
+  },
+  {
+   "texto": "12",
+   "slot": "DIA_3"
+  },
+  {
+   "texto": "Convenio Multilateral",
+   "slot": "ITEM_3_TITULO"
+  },
+  {
+   "texto": "CM05 · 05/26",
+   "slot": "ITEM_3_DETALLE"
+  },
+  {
+   "texto": "13",
+   "slot": "DIA_4"
+  },
+  {
+   "texto": "IVA",
+   "slot": "ITEM_4_TITULO"
+  },
+  {
+   "texto": "Posición 05/2026",
+   "slot": "ITEM_4_DETALLE"
+  },
+  {
+   "texto": "14",
+   "slot": "DIA_5"
+  },
+  {
+   "texto": "Sueldos · F.931",
+   "slot": "ITEM_5_TITULO"
+  },
+  {
+   "texto": "Devengado 05/2026",
+   "slot": "ITEM_5_DETALLE"
+  },
+  {
+   "texto": "Guardá el post para tenerlo a mano.",
+   "slot": "DESTACADO"
+  }
+ ],
+ "ca-q2": [
+  {
+   "texto": "Segunda quincena · junio 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Vencimientos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "del 15 al 30",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "18",
+   "slot": "DIA_1"
+  },
+  {
+   "texto": "Ganancias · PH",
+   "slot": "ITEM_1_TITULO"
+  },
+  {
+   "texto": "DDJJ anual 2025",
+   "slot": "ITEM_1_DETALLE"
+  },
+  {
+   "texto": "20",
+   "slot": "DIA_2"
+  },
+  {
+   "texto": "IVA",
+   "slot": "ITEM_2_TITULO"
+  },
+  {
+   "texto": "Posición 05/2026",
+   "slot": "ITEM_2_DETALLE"
+  },
+  {
+   "texto": "22",
+   "slot": "DIA_3"
+  },
+  {
+   "texto": "Bienes Personales",
+   "slot": "ITEM_3_TITULO"
+  },
+  {
+   "texto": "DDJJ anual 2025",
+   "slot": "ITEM_3_DETALLE"
+  },
+  {
+   "texto": "26",
+   "slot": "DIA_4"
+  },
+  {
+   "texto": "SiCoRe",
+   "slot": "ITEM_4_TITULO"
+  },
+  {
+   "texto": "Retenciones · 05/26",
+   "slot": "ITEM_4_DETALLE"
+  },
+  {
+   "texto": "30",
+   "slot": "DIA_5"
+  },
+  {
+   "texto": "Ganancias · Sociedades",
+   "slot": "ITEM_5_TITULO"
+  },
+  {
+   "texto": "Anticipo",
+   "slot": "ITEM_5_DETALLE"
+  },
+  {
+   "texto": "Te lo presentamos nosotros.",
+   "slot": "DESTACADO"
+  }
+ ],
+ "cb-cover": [
+  {
+   "texto": "Gestión PyME · Monotributo",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Monotributo 2026",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cuatro cosas que conviene entender",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Antes de fin de año, revisá estos puntos con tu contador.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Deslizá",
+   "slot": "DESTACADO"
+  }
+ ],
+ "cb-tip1": [
+  {
+   "texto": "Punto 1 de 3",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "La categoría",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es para siempre.",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "ARCA revisa cada seis meses tu facturación, alquileres y consumos. Si te corrés de la escala, hay que recategorizar; si no, llega la baja de oficio.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Revisalo en enero y en julio.",
+   "slot": "DESTACADO"
+  }
+ ],
+ "cb-tip2": [
+  {
+   "texto": "Punto 2 de 3",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Tu obra social",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "también suma.",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "El componente de obra social cubre el grupo familiar primario, pero por cada integrante adicional pagás un aporte extra.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Pedí el detalle a tu contador.",
+   "slot": "DESTACADO"
+  }
+ ],
+ "cb-tip3": [
+  {
+   "texto": "Punto 3 de 3",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Facturá",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "todo lo que cobrás.",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Los pagos por billetera virtual también cuentan para la escala. ARCA cruza esa información con tu categoría.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Sin sorpresas en la recategorización.",
+   "slot": "DESTACADO"
+  }
+ ],
+ "sq-03b": [
+  {
+   "texto": "En cifras · 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "libros societarios y contables",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "bajo control del estudio",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Folios y custodia relevados uno por uno.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-12b": [
+  {
+   "texto": "Último momento · 19.06.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA extiende el plazo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para Ganancias",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Nuevo vencimiento: 30 de junio.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-13b": [
+  {
+   "texto": "19.08.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Cambia el plazo de emisión",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "y el detalle del comprobante",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Nuevo régimen de facturación para responsables inscriptos: ARCA fija el nuevo alcance por resolución general.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisamos tu circuito antes de que aplique.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-01b": [
+  {
+   "texto": "Vencimiento · junio 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "21",
+   "slot": "NUMERO"
+  },
+  {
+   "texto": "jun",
+   "slot": "UNIDAD"
+  },
+  {
+   "texto": "IVA",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "posición mensual 05/2026",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Hasta las 23:59. Te lo presentamos nosotros.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-03c": [
+  {
+   "texto": "En cifras · 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "libros societarios y contables",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "bajo control del estudio",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Folios y custodia relevados uno por uno.",
+   "slot": "CIERRE"
+  }
+ ],
+ "sq-12c": [
+  {
+   "texto": "19.06.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA extiende el plazo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para presentar la DDJJ de Ganancias",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "La prórroga aplica a personas humanas. Nuevo vencimiento: 30 de junio.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Si todavía no presentaste, hay tiempo. Consultanos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-13c": [
+  {
+   "texto": "11.06.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA abre la Moratoria Laboral",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para empleadores",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Permite regularizar personal no registrado y deudas laborales con condiciones que no suelen repetirse.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Evaluamos si a tu empresa le conviene entrar.",
+   "slot": "CIERRE"
+  }
+ ],
+ "po-22": [
+  {
+   "texto": "Antes / después",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Cerrar el balance",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "sin correr en marzo",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Comprobantes sueltos, conciliaciones a último momento y el balance firmado el día del vencimiento.",
+   "slot": "ANTES"
+  },
+  {
+   "texto": "Registración mensual, cierres trimestrales y el balance listo un mes antes.",
+   "slot": "DESPUES"
+  },
+  {
+   "texto": "El orden no es un gasto: es tiempo que recuperás.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-01": [
+  {
+   "texto": "05.09.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "ARCA prorroga Ganancias",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "y Bienes Personales de sociedades",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "El nuevo cronograma corre los vencimientos de septiembre según terminación de CUIT.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Confirmá tu fecha antes de programar el pago.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-02": [
+  {
+   "texto": "02.09.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Nuevo régimen de información",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para operaciones con billeteras virtuales",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Las plataformas informan a ARCA saldos y movimientos mensuales por titular a partir de octubre.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Ordená tus cobros antes de que cruce la información.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-03": [
+  {
+   "texto": "01.09.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Actualizan la escala",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "del impuesto a las Ganancias",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Los tramos se ajustan por IPC. Cambia la retención mensual de los empleados en relación de dependencia.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisá tu recibo de este mes.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-04": [
+  {
+   "texto": "28.08.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "IGJ exige balances",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "en formato digital",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Desde octubre las presentaciones se hacen sólo por trámite a distancia, con firma digital del representante.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Adecuamos tus libros y presentaciones.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-05": [
+  {
+   "texto": "27.08.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Nuevo tope",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para las asignaciones familiares",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "ANSES actualizó rangos y montos con un incremento del 2,11 %. Impacta en la liquidación de septiembre.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisá que tu liquidación tome los valores nuevos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-06": [
+  {
+   "texto": "Vencimiento anual · 2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "30",
+   "slot": "NUMERO"
+  },
+  {
+   "texto": "sep",
+   "slot": "UNIDAD"
+  },
+  {
+   "texto": "Ganancias sociedades",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cierre de ejercicio 05/2026",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Presentación y pago. Te lo gestionamos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-07": [
+  {
+   "texto": "Cierre 31.12",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Cerrás ejercicio",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "el 31 de diciembre",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Los balances se presentan en IGJ y ARCA dentro de los plazos legales. Empezá el inventario en noviembre.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Planificamos el cierre con vos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-08": [
+  {
+   "texto": "Monotributo · julio y enero",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Recategorización",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "semestral del monotributo",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "ARCA compara tu facturación de los últimos doce meses con la escala vigente. Si cambiás de tramo, tenés hasta el 20.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Lo revisamos y confirmamos por vos.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-09": [
+  {
+   "texto": "Pregunta",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Tu sociedad tiene",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "los libros al día?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Actas, registro de accionistas, inventarios y balances. IGJ los pide en cada trámite.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Hacemos el relevamiento sin costo.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-10": [
+  {
+   "texto": "Dato clave",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "días",
+   "slot": "UNIDAD"
+  },
+  {
+   "texto": "para responder",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "una intimación de ARCA",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Si te llegó una, escribinos hoy.",
+   "slot": "CIERRE"
+  }
+ ],
+ "mn-04": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Liquidación de sueldos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Nos encargamos de tus sueldos y cargas sociales para que vos te enfoques en tu negocio.",
+   "slot": "BAJADA"
+  }
+ ],
+ "li-02": [
+  {
+   "texto": "Mejores decisiones.",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Negocios más sólidos.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "po-04": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Auditoría externa",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Auditoría de estados contables anuales",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Revisión limitada de información intermedia",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Informes especiales sobre patrimonio y resultados",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Atención de requerimientos ARCA / IGJ / CNV",
+   "slot": "ITEM_4"
+  }
+ ],
+ "po-05": [
+  {
+   "texto": "Novedad del estudio",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Nueva oficina en Núñez",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Desde septiembre atendemos también en Av. del Libertador. Misma gente, más cerca.",
+   "slot": "BAJADA"
+  }
+ ],
+ "po-16": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Asesoramiento impositivo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas.",
+   "slot": "BAJADA"
+  }
+ ],
+ "st-09": [
+  {
+   "texto": "Estás pensando en armar tu empresa",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Hablemos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "antes",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "de firmar.",
+   "slot": "TITULAR_3"
+  },
+  {
+   "texto": "Constitución de sociedades, planificación impositiva, contabilidad y nómina, en un solo equipo.",
+   "slot": "BAJADA"
+  }
+ ],
+ "po-36": [
+  {
+   "texto": "Clientes",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "«Con MDO dejamos de correr detrás de los vencimientos. Ahora planificamos.»",
+   "slot": "CITA"
+  },
+  {
+   "texto": "Gerente de Administración",
+   "slot": "AUTOR"
+  },
+  {
+   "texto": "Empresa de logística · cliente desde 2019",
+   "slot": "AUTOR_DETALLE"
+  }
+ ],
+ "po-04b": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Auditoría externa",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Auditoría de estados contables anuales",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Revisión limitada de información intermedia",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Informes especiales sobre patrimonio y resultados",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Atención de requerimientos ARCA / IGJ / CNV",
+   "slot": "ITEM_4"
+  }
+ ],
+ "po-05b": [
+  {
+   "texto": "Novedad del estudio",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Nueva oficina en Núñez",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Desde septiembre atendemos también en Av. del Libertador. Misma gente, más cerca.",
+   "slot": "BAJADA"
+  }
+ ],
+ "st-09b": [
+  {
+   "texto": "Estás pensando en armar tu empresa",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Hablemos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "antes",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "de firmar.",
+   "slot": "TITULAR_3"
+  },
+  {
+   "texto": "Constitución de sociedades, planificación impositiva, contabilidad y nómina, en un solo equipo.",
+   "slot": "BAJADA"
+  }
+ ],
+ "po-23": [
+  {
+   "texto": "Asesoramiento impositivo",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Elegiste cómo tributar",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "cuando tu empresa era otra.",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "La estructura fiscal se define al arrancar y después nadie la vuelve a mirar. Revisarla no es un trámite: es lo que define cuánto te cuesta crecer.",
+   "slot": "BAJADA"
+  }
+ ],
+ "po-25": [
+  {
+   "texto": "Una idea",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Planificar impuestos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es pagar menos.",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Es pagar bien.",
+   "slot": "TITULAR_3"
+  }
+ ],
+ "sv-01": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Apoyo societario",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Actas, asambleas, libros digitales y trámites ante IGJ, al día y sin demoras.",
+   "slot": "BAJADA"
+  }
+ ],
+ "sv-02": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Registración contable",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Registramos tus operaciones mes a mes y armamos el balance con ajuste por inflación.",
+   "slot": "BAJADA"
+  }
+ ],
+ "sv-03": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Outsourcing administrativo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Conciliaciones, pagos, cobranzas y reporting mensual. Tu back office, llevado por nosotros.",
+   "slot": "BAJADA"
+  }
+ ],
+ "sv-04": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Precios de transferencia",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Estudio, Master File e informe local para tus operaciones con el exterior.",
+   "slot": "BAJADA"
+  }
+ ],
+ "sv-05": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Laboral y previsional",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Liquidación mensual de haberes",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "F.931 y cargas sociales",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Altas, bajas y Libro de Sueldos Digital",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Liquidaciones finales e indemnizaciones",
+   "slot": "ITEM_4"
+  }
+ ],
+ "sv-06": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Impositivo",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "IVA, Ingresos Brutos y Convenio Multilateral",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Ganancias y Bienes Personales",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Regímenes de retención y percepción",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Planificación fiscal y trámites ante ARCA",
+   "slot": "ITEM_4"
+  }
+ ],
+ "sv-07": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Todo lo que hacemos por tu empresa",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Impositivo",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Societario",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "Contabilidad",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Auditoría",
+   "slot": "ITEM_4"
+  },
+  {
+   "texto": "Laboral",
+   "slot": "ITEM_5"
+  },
+  {
+   "texto": "Outsourcing administrativo",
+   "slot": "ITEM_6"
+  }
+ ],
+ "sv-08": [
+  {
+   "texto": "Servicios",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "¿Hablamos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "de tu empresa?",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Sin compromiso.",
+   "slot": "TITULAR_3"
+  },
+  {
+   "texto": "Escribinos por mensaje directo y coordinamos una primera reunión.",
+   "slot": "BAJADA"
+  }
+ ],
+ "mn-01": [],
+ "mn-03": [
+  {
+   "texto": "¿Tu empresa está tomando decisiones",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "con información actualizada?",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "mn-05": [
+  {
+   "texto": "Mejores decisiones.",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Negocios más sólidos.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "mn-06": [],
+ "mn-07": [
+  {
+   "texto": "Transformamos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "la complejidad tributaria y contable",
+   "slot": "CITA"
+  },
+  {
+   "texto": "estratégicas.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "mn-08": [],
+ "sq-02": [
+  {
+   "texto": "La planificación impositiva no es un costo:",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "es la primera decisión estratégica del año.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "st-08": [
+  {
+   "texto": "La planificación impositiva",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es un costo:",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "estratégica",
+   "slot": "TITULAR_3"
+  }
+ ],
+ "sq-02b": [
+  {
+   "texto": "La planificación impositiva",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es un costo:",
+   "slot": "CITA"
+  },
+  {
+   "texto": "estratégica del año.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "st-08b": [
+  {
+   "texto": "La planificación impositiva",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es un costo:",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "estratégica",
+   "slot": "TITULAR_3"
+  }
+ ],
+ "sq-02c": [
+  {
+   "texto": "La planificación impositiva no es un costo:",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "es la primera decisión estratégica del año.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "st-08c": [
+  {
+   "texto": "La planificación impositiva",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "no es un costo:",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "estratégica",
+   "slot": "TITULAR_3"
+  }
+ ],
+ "in-01": [
+  {
+   "texto": "Rigor técnico",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "y trato personalizado.",
+   "slot": "CITA"
+  },
+  {
+   "texto": "equipo.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "in-02": [
+  {
+   "texto": "Anticipamos",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "los desafíos de tu negocio",
+   "slot": "CITA"
+  },
+  {
+   "texto": "claridad.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "in-03": [
+  {
+   "texto": "Más de treinta años",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "acompañando empresas.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "in-04": [
+  {
+   "texto": "Estratégico. Claro.",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "Seguro. Cercano.",
+   "slot": "TITULAR_2"
+  }
+ ],
+ "in-05": [],
+ "in-06": [
+  {
+   "texto": "Buenos Aires · desde 1990",
+   "slot": "BAJADA"
+  }
+ ]
+}
