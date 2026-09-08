@@ -779,6 +779,51 @@ Reglas de texto:
 | Emojis | solo 📞 en el CTA | mejor ninguno |
 | Story de IG | `text` **vacío** (Instagram no admite caption en stories) | acá va el texto completo |
 
+### 7b. Publicar la página de aprobación (OBLIGATORIO)
+
+El usuario **no entra a Metricool a aprobar**: aprueba desde una página con las placas y un botón por post. La página llama a su conector de Metricool y pasa el post de borrador a **programado con autopublicación**. Lo que no aprueba queda en borrador y no sale. Por eso los drafts se crean siempre con `draft: true` / `autoPublish: false` (paso 6): la aprobación es lo único que los enciende.
+
+**1. Escribir `posts/aprobacion-semana-NN.json`** con una entrada por post creado en el paso 6 (`NN` = semana ISO). El campo `info` es el objeto `data` que devolvió `createScheduledPost`, tal cual: el generador se queda con lo que Metricool necesita de vuelta y tira el resto.
+
+```json
+{
+  "semana": 37,
+  "rango": "9 al 13 de septiembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 09/09", "hora": "9:00", "redes": ["Instagram", "LinkedIn"],
+      "plantilla": "po-13d", "imagenes": ["posts/2026-09-09-2.png"],
+      "id": 372948937, "uuid": "3036042435413101255",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=3036042435413101255",
+      "info": { "...": "el data de createScheduledPost" }
+    }
+  ]
+}
+```
+
+- `imagenes`: las placas de ese post, en orden (el carrusel lleva las 4; la story del jueves lleva la vertical, y el draft de LinkedIn del jueves es otra entrada con la `-li`).
+- `id`, `uuid`, `plannerUrl`: de la respuesta de `createScheduledPost`. ⚠️ Metricool **cambia el `id` en cada actualización**; el `uuid` es el estable. La página ya lo contempla, pero por eso el JSON tiene que ser el de la creación, no uno copiado de otra semana.
+
+**2. Generar la página:**
+
+```bash
+node scripts/pagina-aprobacion.js posts/aprobacion-semana-NN.json out/aprobacion-semana-NN.html
+```
+
+**3. Publicarla con la herramienta `Artifact`**, declarando el permiso para el conector (sin esto los botones no pueden hacer nada):
+
+- `file_path`: el HTML generado
+- `favicon`: `✅`
+- `description`: "Aprobá los posteos de la semana NN: cada botón pasa el post a programado con autopublicación."
+- `capabilities`: `{"mcp": {"servers": [{"server": "Metricool", "tools": ["updateScheduledPost"]}]}}`
+
+Es una página **nueva por semana** (archivo distinto → URL distinta). No reutilizar la de la semana anterior.
+
+**4. Commitear el JSON** junto con el historial en el paso 8.
+
+⚠️ Si la herramienta `Artifact` no está disponible o falla, **no frenar la rutina**: los drafts ya existen. Reportar el problema y decirle al usuario que esa semana aprueba directo en Metricool (`https://app.metricool.com/planner`).
+
 ### 8. Escribir el historial de plantillas (OBLIGATORIO)
 
 Una vez creados todos los drafts, **agregar una entrada al array `historial` de `posts/historial-plantillas.json` por cada post** (no por cada draft: el post del miércoles es una sola entrada aunque haya generado 2 drafts).
@@ -880,7 +925,8 @@ Cuando todos los drafts estén creados y el historial escrito:
    - URLs de las imágenes en GitHub (vertical y `-li` de cada post).
    - `id` y `uuid` de cada draft en Metricool, agrupados por día y aclarando cuál es el de Instagram y cuál el de LinkedIn.
    - Si el jueves fue **encuesta `st-10`**: recordarle que **el sticker de encuesta se agrega a mano en Instagram**.
-   - Recordatorio: "Revisá los drafts en https://app.metricool.com/planner y aprobalos antes de que llegue cada fecha de publicación"
+   - **El link de la página de aprobación** (paso 7b), con la aclaración: "Tocá Aprobar en los que quieras que salgan. Lo que no apruebes queda en borrador y no se publica. La primera vez claude.ai te pide permiso para usar tu Metricool."
+   - Si la página no se pudo publicar: decirlo, y que esa semana apruebe en https://app.metricool.com/planner.
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
 
 ### Chequeo final de variedad
@@ -898,4 +944,5 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Templates disponibles**: **76 en total** (incluye las `mn-*` del manual y las `hl-*` de destacadas). Ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo con todos los slots. La rutina pone ~35 en rotación real; el resto son variantes cuadradas (excluidas a propósito del feed) o superadas por versiones nuevas.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
+- **Página de aprobación**: `scripts/pagina-aprobacion.js` genera el HTML; se publica con la herramienta `Artifact` declarando `capabilities.mcp` para `Metricool` / `updateScheduledPost`. La página corre con las credenciales del que la abre (el usuario), no con las de la rutina. La rutina automática necesita tener permitida la herramienta `Artifact`; si el permiso no está, ver la salida de emergencia del paso 7b.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.
