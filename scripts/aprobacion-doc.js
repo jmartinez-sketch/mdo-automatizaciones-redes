@@ -39,6 +39,13 @@ function limpiarInfo(info) {
   out.smartLinkData = out.smartLinkData || { ids: [] };
   out.firstCommentText = out.firstCommentText || '';
   if (Array.isArray(out.providers)) out.providers = out.providers.map((p) => ({ network: p.network }));
+  // Metricool devuelve al crear un bloque de datos por red aunque la red no
+  // esté en el post (ej. instagramData vacío en un post solo de LinkedIn), y
+  // después rechaza el update si se lo mandan de vuelta: "networkData contains
+  // data for network 'instagram' not listed in providers". Se descartan.
+  const redes = new Set((out.providers || []).map((p) => p.network));
+  if (!redes.has('instagram')) delete out.instagramData;
+  if (!redes.has('linkedin')) delete out.linkedinData;
   if (Array.isArray(out.mediaAltText)) out.mediaAltText = out.mediaAltText.map((t) => t || '');
   return out;
 }
