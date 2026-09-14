@@ -1,0 +1,266 @@
+{
+  "semana": 38,
+  "rango": "16 al 19 de septiembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 16/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-13d",
+      "imagenes": [
+        "posts/2026-09-16-2.png"
+      ],
+      "id": 375641725,
+      "uuid": "5939708908637473862",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=5939708908637473862",
+      "nota": "Noticia · Ingresos Brutos CABA: DDJJ anual 2025 vence del 21 al 25 de septiembre.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-14508866451853688538.png"
+        ],
+        "mediaAltText": [
+          "Ingresos Brutos CABA: vence la declaración jurada anual 2025, del 21 al 25 de septiembre"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-16T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Ingresos Brutos CABA: del 21 al 25 de septiembre vence la declaración jurada anual 2025.\n\nLa Ciudad fijó las fechas para que los contribuyentes locales del impuesto sobre los Ingresos Brutos presenten la DDJJ anual del período fiscal 2025. El calendario es para quienes tributan solo en CABA; los inscriptos en Convenio Multilateral tienen el suyo propio.\n\nQué implica en la práctica: la anual consolida lo que ya declaraste mes a mes durante 2025. Si algún anticipo quedó mal encuadrado o con una alícuota distinta, es el momento de detectarlo y corregirlo antes de presentar.\n\nSi tu empresa factura en CABA, conviene tener cerrados los números de 2025 esta semana y revisar que la anual cierre con lo que ya pagaste.\n\n—\n\n📞 Consultanos: mdo-consultores.com.ar\n\n#MDOConsultores #IngresosBrutos #CABA #PyMEs #Impuestos",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        },
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    },
+    {
+      "dia": "Jueves 17/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · historia"
+      ],
+      "plantilla": "st-09b",
+      "imagenes": [
+        "posts/2026-09-17-3.png"
+      ],
+      "esStory": true,
+      "id": 375641755,
+      "uuid": "-7215125408631732610",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=-7215125408631732610",
+      "nota": "Historia CTA institucional (Societario): \"Pasá a una sociedad\". Sin texto, la historia no lleva caption.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-3010656390626407127.png"
+        ],
+        "mediaAltText": [
+          "Tu empresa creció y sigue a tu nombre: pasá a una sociedad. SRL o SAS, MDO Consultores"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-17T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "STORY",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        }
+      }
+    },
+    {
+      "dia": "Jueves 17/09",
+      "hora": "9:00",
+      "redes": [
+        "LinkedIn"
+      ],
+      "plantilla": "li-02",
+      "imagenes": [
+        "posts/2026-09-17-3-li.png"
+      ],
+      "id": 375641792,
+      "uuid": "-727621356747274506",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=-727621356747274506",
+      "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): claim horizontal + texto.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-14627905540612008697.png"
+        ],
+        "mediaAltText": [
+          "Tu empresa creció, su estructura también debería. MDO Consultores"
+        ],
+        "providers": [
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-17T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Tu empresa creció, su estructura también debería.\n\nMuchas empresas arrancan a nombre de su dueño y siguen así años después, cuando ya tienen empleados, clientes grandes y patrimonio en juego. En ese punto, seguir operando como persona física mezcla lo personal con lo comercial y complica sumar socios, pedir financiamiento o vender el negocio.\n\nPasar a una sociedad (SRL o SAS, según el caso) ordena esa separación. En MDO Consultores te ayudamos a elegir la forma que corresponde y hacemos el trámite completo: instrumento constitutivo, inscripción y puesta en marcha.\n\nSi tu empresa ya no es la de los primeros años, hablemos.\n\nmdo-consultores.com.ar\n\n#MDOConsultores #Societario #PyMEs",
+        "instagramData": {
+          "autoPublish": false,
+          "isAiGenerated": false
+        },
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    },
+    {
+      "dia": "Viernes 18/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-35",
+      "imagenes": [
+        "posts/2026-09-18-4.png"
+      ],
+      "id": 375641852,
+      "uuid": "2371546262868215827",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=2371546262868215827",
+      "nota": "Gestión PyME · Societario: \"Hace años que no hacés una asamblea\", cuatro pendientes societarios frecuentes.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-16484123547469386602.png"
+        ],
+        "mediaAltText": [
+          "Hace años que no hacés una asamblea: cuatro pendientes societarios frecuentes en PyMEs"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-18T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Societario\n\nHace años que no hacés una asamblea. La sociedad funciona igual, hasta que un banco, un cliente grande o la IGJ te piden los papeles.\n\nLo que suele aparecer cuando abrimos los libros de una PyME:\n01. Balances cerrados que nadie aprobó en acta.\n02. Autoridades con el mandato vencido.\n03. Un cambio de sede que nunca se inscribió.\n04. Aportes de socios que entraron sin documentar.\n\nPor qué importa: cada uno de esos puntos se resuelve rápido si se hace a tiempo, y se vuelve un problema cuando hay que regularizar todo junto y contra reloj.\n\n—\n\n📞 Ponemos al día las actas y los trámites de tu sociedad: mdo-consultores.com.ar\n\n#MDOConsultores #Societario #GestiónPyME #PyMEs #Argentina",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        },
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    },
+    {
+      "dia": "Sábado 19/09",
+      "hora": "11:00",
+      "redes": [
+        "Instagram"
+      ],
+      "plantilla": "sv-01",
+      "imagenes": [
+        "posts/2026-09-19-5.png"
+      ],
+      "id": 375641901,
+      "uuid": "8650580339634815261",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=8650580339634815261",
+      "nota": "Spotlight de servicio (semana par): Asesoramiento societario. Solo Instagram.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-11745150369865813693.png"
+        ],
+        "mediaAltText": [
+          "Servicios MDO Consultores: asesoramiento societario"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-19T11:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Asesoramiento societario\n\nConstituimos tu sociedad y la mantenemos en regla: actas, asambleas, designación de autoridades y trámites ante IGJ y registros provinciales.\n\nTambién acompañamos los cambios: aumentos de capital, reforma de estatutos, cambio de sede, transformaciones y fusiones.\n\n—\n\n📞 Consultanos: mdo-consultores.com.ar\n\n#MDOConsultores #Societario #PyMEs #Argentina",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        }
+      }
+    }
+  ]
+}

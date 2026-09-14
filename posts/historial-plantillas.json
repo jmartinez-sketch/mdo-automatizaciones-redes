@@ -204,6 +204,38 @@
       "template": "po-04",
       "linkedin": null,
       "nota": "Laboral · guía de 4 pasos antes de contratar al primer empleado (categoría/convenio, cargas sociales, circuito de alta, costo de una eventual baja) · po-31/po-24/po-22/po-23 bloqueadas por historial · fondo claro (familia 'MDO explica') · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-16",
+      "semana_iso": 38,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "nota": "Ingresos Brutos CABA: vencimiento de la DDJJ anual 2025 para contribuyentes locales (21 al 25 de septiembre) · papel por defecto (las 2 anteriores fueron po-13e y po-13d) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-17",
+      "semana_iso": 38,
+      "slot": "jueves",
+      "template": "st-09b",
+      "linkedin": "li-02",
+      "nota": "Story CTA institucional · Societario: \"Tu empresa creció y sigue a tu nombre / Pasá a una sociedad\" (st-09 base bloqueada: usada semana 34; texto distinto de los CTAs previos) · ciclo 38%4=2 · draft de story IG (sin texto) + draft aparte de LinkedIn con li-02 \"Tu empresa creció, su estructura también debería\""
+    },
+    {
+      "fecha": "2026-09-18",
+      "semana_iso": 38,
+      "slot": "gestion",
+      "template": "po-35",
+      "linkedin": null,
+      "nota": "Societario · errores frecuentes: \"Hace años que no hacés una asamblea\" (balances sin aprobar en acta, mandatos vencidos, sede sin inscribir, aportes sin documentar) · po-24/po-22/po-23/po-04 bloqueadas por historial · navy: en el kit 4.4 casi todo el pool del viernes es navy (solo po-25 y po-36 son claras) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-19",
+      "semana_iso": 38,
+      "slot": "spotlight",
+      "template": "sv-01",
+      "linkedin": null,
+      "nota": "Servicios · Asesoramiento societario (placa de Servicios del kit, degradé claro) · po-16, po-25 y mn-04 bloqueadas por historial · solo Instagram"
     }
   ],
   "temas_previos": [
@@ -436,6 +468,26 @@
       "fecha": "2026-09-11",
       "slot": "gestion",
       "tema": "Qué resolver antes de contratar al primer empleado"
+    },
+    {
+      "fecha": "2026-09-16",
+      "slot": "noticia",
+      "tema": "Ingresos Brutos CABA: DDJJ anual 2025, vencimiento 21 al 25 de septiembre"
+    },
+    {
+      "fecha": "2026-09-17",
+      "slot": "jueves",
+      "tema": "Story CTA Societario: \"Pasá a una sociedad\" (tu empresa creció y sigue a tu nombre)"
+    },
+    {
+      "fecha": "2026-09-18",
+      "slot": "gestion",
+      "tema": "Societario: hace años que no hacés una asamblea, pendientes societarios frecuentes"
+    },
+    {
+      "fecha": "2026-09-19",
+      "slot": "spotlight",
+      "tema": "Asesoramiento societario"
     }
   ]
 }
