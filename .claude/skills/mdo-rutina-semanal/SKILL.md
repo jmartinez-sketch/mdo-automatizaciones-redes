@@ -813,12 +813,14 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
 node scripts/aprobacion-doc.js posts/aprobacion-semana-NN.json out/paneles-publicaciones.json
 ```
 
-**3. Guardarlo en la base de Dirección MDO con la herramienta `Artifact`:**
+**3. Guardarlo en la base de Dirección MDO con la herramienta `Artifact`, en dos llamadas:**
 
-- `action`: `write_db` · `db_op`: `set`
-- `url`: `https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790`
-- `collection`: `paneles` · `doc_id`: `publicaciones`
-- `file_path`: `out/paneles-publicaciones.json`
+⚠️ El documento ya existe (lo escribió la semana anterior), y la base **rechaza un `set` que no traiga la versión actual** (`version_mismatch`, no escribe nada). Pasó el 14/09/2026. Por eso primero se lee, después se escribe:
+
+1. Leer la versión actual — `action`: `read_db` · `db_op`: `get` · `collection`: `paneles` · `doc_id`: `publicaciones` · `url`: `https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `out_dir`: una carpeta del scratchpad (el documento pesa ~150 KB; con `out_dir` se guarda en un archivo en vez de volcarse en el chat). El resultado dice `version N`.
+2. Escribir — `action`: `write_db` · `db_op`: `set` · misma `url`, `collection` y `doc_id` · `file_path`: `out/paneles-publicaciones.json` · **`if_version`: N** (el número que devolvió la lectura).
+
+Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre las dos llamadas (por ejemplo, el usuario aprobó un post): repetir la lectura y el `set` con la versión nueva. Si el documento no existe (primera vez), el `set` va sin `if_version`.
 
 `set` **reemplaza** el documento: la semana nueva pisa a la anterior, que es lo que se quiere (el panel muestra siempre la semana en curso). No hace falta publicar nada ni tocar el HTML del artifact.
 
