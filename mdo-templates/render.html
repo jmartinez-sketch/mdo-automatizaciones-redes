@@ -8,6 +8,30 @@
 <title>MDO · Render</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="mdo-brand.css" />
+  <script>
+    // El kit del design system "MDO - Diseño" trae las fotos con <image-slot>,
+    // un elemento propio de Claude Design (src, fit, shape). Sin esta definición
+    // el navegador lo ignora y la placa sale sin foto (fondo navy liso): pasaba
+    // con mn-07, mn-08, st-08/b/c e in-02. Acá se dibuja como una <img> que
+    // llena su caja, que es lo que hace el elemento original.
+    customElements.define('image-slot', class extends HTMLElement {
+      connectedCallback() {
+        if (this.__montado) return;
+        this.__montado = true;
+        this.style.display = 'block';
+        this.style.width = '100%';
+        this.style.height = '100%';
+        const src = this.getAttribute('src');
+        if (!src) return;
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.style.cssText = 'display:block;width:100%;height:100%;object-fit:' + (this.getAttribute('fit') || 'cover');
+        if (this.getAttribute('shape') === 'circle') img.style.borderRadius = '50%';
+        this.appendChild(img);
+      }
+    });
+  </script>
 </head>
 <body>
 

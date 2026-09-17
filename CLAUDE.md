@@ -8,6 +8,19 @@ Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del est
 - Habla español rioplatense. **Cero jerga técnica sin explicar**.
 - Cuando le ofrezcas opciones, **NO más de 3-4** y dale tu recomendación primero.
 
+## Fuente de diseño: el design system «MDO - Diseño» (regla dura)
+
+**Desde el 17/09/2026, todo lo de marca se lee y se cambia en un solo lugar:** el design system **«MDO - Diseño»**, https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b. Plantillas de redes, colores, tipografías y logos viven ahí. Este repo **no es dueño del diseño**: guarda una copia sincronizada para poder renderizar las placas.
+
+- **Qué archivo del design system alimenta qué archivo del repo:**
+  - `project/templates/kit-redes-manual/KitRedesManual.dc.html` (kit 4.4, las 79 placas) → `mdo-templates/templates-kit-manual.jsx`
+  - `project/ui_kits/redes/mdo-brand.css` (colores, tipografías) → `mdo-templates/mdo-brand.css`
+  - `project/components/assets/logos/*.svg` (+ el asset `49b43af7d306c5f26383c300225b5816`, secundario en papel) → `mdo-templates/assets/logo-mdo-*.svg`
+- **Cómo se sincroniza:** se bajan esos archivos con la herramienta `Artifact` (action `read`) y se corre `node scripts/sincronizar-diseno.js <carpeta bajada>`. La rutina semanal lo hace sola en su paso 0b. El detalle está en `mdo-templates/LEEME-kit-manual.md`.
+- **Dónde leer la marca:** `project/README.md` (brand book), `project/tokens.json` (tokens), `project/assets/manual/SALVEDADES.md` (decisiones del estudio que se apartan del manual; hoy la principal para redes: **no se usa la familia «MDO Explica»**, el contenido educativo va como Novedades o Servicios).
+- ❌ **Nunca editar a mano** `templates-kit-manual.jsx`, `mdo-brand.css` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se pide **en el design system** y después se sincroniza.
+- Fuentes anteriores que **ya no mandan**: el repo `jmartinez-sketch/mdo-brand` y el proyecto viejo de Claude Design (`cc21dedf-…`). El design system los absorbió.
+
 ## Setup en sesiones frescas
 
 Antes de hacer cualquier render o ejecutar la rutina, correr:
@@ -35,15 +48,22 @@ La skill vive en `.claude/skills/mdo-rutina-semanal/SKILL.md` y describe el fluj
 ## Estructura del repo
 
 ```
-mdo-templates/          Templates IG (HTML+JSX+assets) diseñados en Claude Design
+mdo-templates/          Copia sincronizada del diseño (la fuente es el design system, ver arriba)
   render.html           Punto de entrada para renderizar UN template a PNG
-  templates-*.jsx       Componentes React de cada plantilla
-  assets/               Logos MDO
+  templates-kit-manual.jsx  Las 79 placas del kit 4.4 — GENERADO por sincronizar-diseno.js, no editar
+  mdo-brand.css         Colores y tipografías de las placas — copia del design system, no editar
+  assets/               Logos MDO (SVG) y fotos — copia del design system, no editar
+  kit-slots.json        Qué texto de ejemplo de cada placa es cada slot [NOMBRE]
+  templates-*.jsx       Catálogo viejo (pisado por el kit para todo lo que usa la rutina)
   vendor/               React + Babel locales (CDN unpkg está bloqueado en cloud)
-  PLACEHOLDERS.md       Catálogo completo de templates y sus slots
+  PLACEHOLDERS-kit.md   Slots de cada placa del kit (la fuente viva es --list-slots)
+  LEEME-kit-manual.md   Cómo se sincroniza el kit desde el design system
 
 scripts/
   render.js             Renderiza cualquier template a PNG via Puppeteer
+  sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
+  extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
+  aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO)
   setup.sh              Instalación de deps + Chromium para sesiones frescas
 
 posts/                  PNGs generados por la rutina (commiteados a git → URL pública)
@@ -69,7 +89,7 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ❌ Canva-IA descartado para diseño (no respeta hex codes ni edita colores en free)
 - ❌ Vercel descartado (el render corre dentro de la sesión cloud)
 - ✅ Render local en sesión cloud con Puppeteer + render.html (anduvo, ver `scripts/render.js`)
-- ✅ Templates HTML+JSX de Claude Design (Anthropic Labs) como base de diseño
+- ✅ El diseño vive en el design system «MDO - Diseño» (artifact); el repo sólo sincroniza (decisión de Juan, 17/09/2026). Antes: templates HTML+JSX de Claude Design copiados a mano.
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
 
 ## Regla dura sobre el tip PyME (viernes)

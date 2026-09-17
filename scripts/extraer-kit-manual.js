@@ -1,14 +1,25 @@
-// Extrae el kit 4.4 completo de Claude Design, tal cual vienen,
+// Extrae el kit 4.4 completo del design system "MDO - Diseño", tal cual viene,
 // y arma mdo-templates/templates-kit-manual.jsx.
+//
+// Entrada: el archivo project/templates/kit-redes-manual/KitRedesManual.dc.html
+// del design system (bajado con la herramienta Artifact), o un JSON {content}
+// con ese HTML adentro (formato de la vieja bajada por DesignSync).
+// Normalmente no se llama a mano: lo corre scripts/sincronizar-diseno.js.
 const fs = require('fs');
 const path = require('path');
 
 const [, , rawPath, outPath] = process.argv;
-const s = JSON.parse(fs.readFileSync(rawPath, 'utf8')).content;
+if (!rawPath || !outPath) {
+  console.error('Uso: node scripts/extraer-kit-manual.js <KitRedesManual.dc.html | bajada.json> <salida.jsx>');
+  process.exit(1);
+}
+const crudo = fs.readFileSync(rawPath, 'utf8');
+const s = rawPath.endsWith('.json') ? JSON.parse(crudo).content : crudo;
 
-// Descartadas el 2026-09-05 (decisión de Juan): dependen de fotos que superan el
-// tope de lectura de DesignSync (192 KiB) y llegan truncadas. Si algún día se
-// suben esas fotos a mdo-templates/assets/fotos/, sacar el id de esta lista.
+// Descartadas el 2026-09-05 (decisión de Juan): dependen de fotos que en su
+// momento no se pudieron bajar completas (tope de 192 KiB de DesignSync). Hoy
+// las fotos están en el design system como assets (ver LEEME-kit-manual.md):
+// si algún día se bajan a mdo-templates/assets/fotos/, sacar el id de esta lista.
 const DESCARTADAS = new Set(['in-01', 'in-05', 'in-06', 'mn-06', 'sq-02b']);
 
 const IDS = [
@@ -40,7 +51,7 @@ function extraer(id) {
   return lienzo;
 }
 
-// Los logos: en Claude Design viven en assets/logos/ con los nombres del manual;
+// Los logos: en el design system viven en assets/logos/ con los nombres del manual;
 // en el repo están en mdo-templates/assets/ con los nombres de siempre. Es el
 // mismo archivo, sólo cambia dónde está guardado.
 const LOGOS = {
@@ -67,6 +78,20 @@ function tamano(html) {
   return m ? [Number(m[1]), Number(m[2])] : null;
 }
 
+// Ajustes puntuales después de poner los slots. El kit trae textos de ejemplo
+// donde el slot cubre sólo UNA PARTE de la línea; la rutina llena la línea
+// entera, así que el resto del ejemplo tiene que irse. Cada entrada: id → lista
+// de [regex, reemplazo]. Si el design system cambia y el regex no matchea, el
+// extractor avisa (no falla) para que se revise la placa.
+const AJUSTES = {
+  // Historias de cita: la tercera línea venía como
+  //   es la primera decisión <span uppercase>[TITULAR_3]</span> del año.
+  // y el texto de la rutina quedaba incrustado en el medio, en mayúsculas.
+  'st-08':  [[/es la primera decisión <span[^>]*>\[TITULAR_3\]<\/span> del año\./, '[TITULAR_3]']],
+  'st-08b': [[/es la primera decisión <span[^>]*>\[TITULAR_3\]<\/span> del año\./, '[TITULAR_3]']],
+  'st-08c': [[/es la primera decisión <span[^>]*>\[TITULAR_3\]<\/span> del año\./, '[TITULAR_3]']],
+};
+
 const placas = {};
 const tamanos = {};
 const slotsPorPlaca = {};
@@ -92,6 +117,10 @@ for (const id of TODAS) {
     }
     slotsPorPlaca[id] = SLOTEADAS[id].map((s) => ({ slot: s.slot, ejemplo: s.texto }));
   }
+  for (const [re, a] of AJUSTES[id] || []) {
+    if (!re.test(html)) { console.error(`AVISO ${id}: el ajuste ${re} ya no matchea; revisar la placa en el design system.`); continue; }
+    html = html.replace(re, a);
+  }
   placas[id] = html;
   tamanos[id] = tam;
 }
@@ -106,7 +135,7 @@ if (faltan.length) {
   process.exit(1);
 }
 
-const cabecera = `// templates-kit-manual.jsx — el kit 4.4 completo de Claude Design
+const cabecera = `// templates-kit-manual.jsx — el kit 4.4 completo del design system "MDO - Diseño"
 // ("Kit de redes — según el manual"), copiadas TAL CUAL del proyecto MDO - Diseño.
 //
 // Tres familias, según la guía de redes de la página 23 del Manual de Marca 2026:
@@ -120,12 +149,12 @@ const cabecera = `// templates-kit-manual.jsx — el kit 4.4 completo de Claude 
 //   · están maquetadas directo a 1080×1350, no en base 540 escalada;
 //   · el margen es de 130 px en los cuatro lados y no se baja.
 //
-// El HTML va literal, con los estilos en línea que trae Claude Design: así la
+// El HTML va literal, con los estilos en línea que trae el design system: así la
 // placa es idéntica a la del design system, sin reinterpretación. El texto que
 // viene es el de ejemplo del kit; la rutina lo reemplaza por find/replace, igual
 // que con el resto de las plantillas (ver PLACEHOLDERS.md).
 //
-// Para regenerar este archivo desde Claude Design, ver LEEME-kit-manual.md.
+// NO editar a mano: se regenera con scripts/sincronizar-diseno.js (ver LEEME-kit-manual.md).
 
 const KIT_MANUAL_HTML = {
 `;

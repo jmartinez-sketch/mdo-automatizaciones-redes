@@ -1,7 +1,7 @@
 ---
 name: mdo-rutina-semanal
 model: opus
-description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes branded con los templates Claude Design y crea 4 drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares), cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes con las placas del design system «MDO - Diseño» (kit 4.4) y crea 4 drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares), cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
@@ -12,7 +12,7 @@ Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la 
 
 ## ⚠️ Kit de redes 4.4 — regla dura (desde el 08/09/2026)
 
-**Las placas son las del kit 4.4 de Claude Design**, extraídas tal cual a `mdo-templates/templates-kit-manual.jsx`. Pisan al catálogo viejo con el **mismo id**: `po-13d` sigue llamándose `po-13d`, pero es la placa del Manual 2026. No hay que elegir "versión nueva o vieja": la vieja ya no se renderiza.
+**Las placas son las del kit 4.4 del design system «MDO - Diseño»** (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b), archivo `project/templates/kit-redes-manual/KitRedesManual.dc.html`. Están copiadas tal cual a `mdo-templates/templates-kit-manual.jsx` por `scripts/sincronizar-diseno.js` (paso 0b): **ese archivo no se edita a mano**, se regenera. Pisan al catálogo viejo con el **mismo id**: `po-13d` sigue llamándose `po-13d`, pero es la placa del Manual 2026. No hay que elegir "versión nueva o vieja": la vieja ya no se renderiza.
 
 **Los slots cambiaron.** Los nombres viejos (`CATEGORIA`, `TITULO`, `TITULAR`, `COPETE`, `FUENTE`, `HANDLE`, `CTA`, `BULLET_n`, `PREGUNTA`, `CLAIM`…) **ya no existen en ninguna placa**. Los vigentes son del tipo `FECHA`, `VOLANTA`, `TITULAR_1`/`TITULAR_2`(/`TITULAR_3`), `BAJADA`, `CIERRE`, `ITEM_n`, `OPCION_A`/`OPCION_B`. El titular va **partido en dos**: `TITULAR_1` en negrita y `TITULAR_2` en normal, y la placa los apila.
 
@@ -41,25 +41,25 @@ El estudio **rebrandeó**. Todo lo que se publique tiene que salir con la marca 
 - **Tipografías**: **Open Sans** en todo (títulos incluidos) y **Chivo** solo como acento en palabras o frases cortas. ❌ No hay monoespaciada: lo que antes iba en Geist Mono va en Chivo 700 con versalitas.
 - **Nunca escribir hex a mano** en una plantilla: usar las variables de `mdo-brand.css`. Los nombres de variable no cambiaron, así que una plantilla bien escrita adopta la marca sola.
 
-La fuente de verdad es el repo **`jmartinez-sketch/mdo-brand`** (`actual/tokens.css` y `actual/brand.json`). Si hay una duda de marca, se resuelve ahí, no acá.
+**La fuente de verdad de la marca es el design system «MDO - Diseño»** (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b). Plantillas, colores, tipografías y logos **se leen de ahí y se cambian ahí**; este repo guarda una copia sincronizada (paso 0b) sólo para renderizar. Si hay una duda de marca, se resuelve leyendo `project/README.md` (el brand book), `project/tokens.json` (los tokens) y `project/assets/manual/SALVEDADES.md` (las decisiones del estudio que se apartan del manual a propósito) con la herramienta Artifact, no acá. El repo `mdo-brand` y el proyecto viejo de Claude Design ya no son fuente: el design system los absorbió.
 
 ⚠️ **Placas renderizadas antes del 19/08/2026 llevan la marca vieja.** Si hay que reprogramar un post viejo, re-renderizar la imagen primero.
 
 
 ### Familias de contenido del manual (regla de fondo por slot)
 
-El Manual de Marca 2026 define **cuatro familias** para redes, cada una con su tratamiento de fondo. No es decorativo: es cómo el manual quiere que se distingan los tipos de contenido en la grilla. Cada slot de la rutina cae en una:
+El Manual de Marca 2026 define cuatro familias para redes, pero **el estudio usa tres** (salvedad 1 de `project/assets/manual/SALVEDADES.md`, Juan, 03/09/2026: la familia «MDO Explica / contenido educativo» **no se produce**). Cada slot de la rutina cae en una:
 
-| Slot de la rutina | Familia del manual | Fondo que corresponde | Estructura |
+| Slot de la rutina | Familia | Fondo que corresponde | Estructura |
 |---|---|---|---|
-| **Miércoles · noticia** | Novedades impositivas | Navy con degradados sutiles | Fecha, título, desarrollo y destacado |
-| **Jueves · story/carrusel** | Institucional | Fotografía tratada dentro de la paleta | Mensajes breves de alto impacto, tipografía simple y editorial |
-| **Viernes · gestión PyME** | MDO explica | **Claro, con mucho aire** | Composición editorial; jerarquías por peso tipográfico, no por color |
-| **Sábado · spotlight** | Servicios | Gris azulado o tonos intermedios | Recursos gráficos del universo MDO a gran escala |
+| **Miércoles · noticia** | Novedades impositivas / ARCA | Navy con degradé diagonal | Fecha, título en dos tonos, filete, desarrollo y destacado |
+| **Jueves · story/carrusel** | Institucional / Marca | Fotografía con velo navy | Mensaje breve de alto impacto, isotipo chico |
+| **Viernes · gestión PyME** | Novedades (navy) o Servicios (claro) | Navy con degradé, o degradé claro con isotipo gigante | El contenido educativo va como Novedades o como Servicios, nunca como una cuarta familia |
+| **Sábado · spotlight** | Servicios | Degradé claro con el isotipo a gran escala | Volanta, título en mayúsculas, filete corto, bajada. **Los servicios nunca van en navy** |
 
 Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coincida con su familia**. Si el pool no tiene ninguna que encaje, es preferible repetir estructura con el fondo correcto que acertar la estructura con el fondo equivocado.
 
-⚠️ El viernes es el que más se desvía hoy: "MDO explica" pide **fondo claro y aire**, así que las variantes navy cargadas de texto no son las indicadas para ese slot.
+> Hasta el 17/09/2026 esta tabla pedía «fondo claro y aire» para el viernes (familia MDO Explica). Se corrigió al alinear el skill con el design system: por eso casi todo el pool del viernes en el kit 4.4 es navy, y está bien que lo sea.
 
 **Tono de marca** (manual pág. 5, "This is how we talk"): **Estratégico · Claro · Seguro · Cercano**. Los cuatro juntos — ni frío ni informal.
 
@@ -196,6 +196,34 @@ Reglas de bloqueo:
 Si el archivo no existe o `historial` está vacío (primera corrida), no hay nada bloqueado: elegir libremente y crear el archivo en el paso 8.
 
 ⚠️ **No saltear este paso.** Sin leer el historial no hay forma de cumplir las reglas de variedad, y la rutina vuelve a repetir siempre las mismas plantillas.
+
+### 0b. Sincronizar con el design system (SIEMPRE, después del historial)
+
+La marca vive en el design system **«MDO - Diseño»** (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b) y este repo sólo guarda una copia para renderizar. Antes de renderizar nada, traer la copia al día. Son dos pasos:
+
+**1. Bajar los archivos con la herramienta `Artifact`** (`action: read`, `url` la de arriba, `path` cada uno de éstos). Se guardan solos en `<scratchpad>/artifact-files/44406cc7-a5b6-4e92-8bc3-ba5e9090747b/…`; no hace falta leerlos:
+
+- `project/design-system.json` (el índice: trae la fecha y la nota del último cambio)
+- `project/templates/kit-redes-manual/KitRedesManual.dc.html` (el kit 4.4, las placas)
+- `project/ui_kits/redes/mdo-brand.css` (colores y tipografías de las placas)
+- `project/components/assets/logos/isotipo-navy.svg`, `isotipo-paper.svg`, `logo-principal-navy.svg`, `logo-principal-paper.svg`, `logo-secundario-navy.svg`
+- el logo secundario en papel, que es un asset suelto: `path: 49b43af7d306c5f26383c300225b5816`
+
+**2. Correr el sincronizador** sobre esa carpeta:
+
+```bash
+node scripts/sincronizar-diseno.js <scratchpad>/artifact-files/44406cc7-a5b6-4e92-8bc3-ba5e9090747b
+```
+
+Compara y escribe **sólo lo que cambió** (`templates-kit-manual.jsx`, `mdo-brand.css`, los logos) y lo lista. Si dice «El repo ya estaba al día», seguir. Si actualizó algo:
+
+1. Renderizar una placa de prueba de cada cosa tocada (por ejemplo `po-13d` si cambió el kit o el CSS, `sv-01` o `mn-08` si cambiaron los logos), **mirarla** y confirmar que es el diseño del kit.
+2. Commitear y pushear a `main` **antes** de renderizar las placas de la semana: `git commit -am "diseño: sincronizado con MDO - Diseño (<fecha del último cambio>)"`.
+3. Si `--list-slots` de una placa cambió respecto de lo que dice este documento, mandan los slots reales (regla del kit, arriba).
+
+⚠️ Si la herramienta `Artifact` no está disponible o la lectura falla, **no frenar la rutina**: renderizar con la copia que tiene el repo y **avisarlo en el reporte final** («no pude sincronizar con el design system; usé la copia del repo del <fecha del último commit de diseño>»).
+
+❌ Nunca editar a mano `templates-kit-manual.jsx`, `mdo-brand.css` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se hace **en el design system** y después se sincroniza.
 
 ### 1. Leer Gmail
 
@@ -418,11 +446,10 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 - Anclar al servicio de la semana (rotación `SERVICIO_IDX`, ver 3.1).
 - **Verificar siempre la imagen renderizada**: pie/footer visible, nada cortado, márgenes ok.
 
-**Dónde vive el código (por si hay que crear uno nuevo o variar):**
-- `po-04` → `mdo-templates/templates-portrait.jsx`
-- `po-21`–`po-25` → `mdo-templates/templates-friday.jsx`
-- `po-26`–`po-30` → `mdo-templates/templates-friday-b.jsx` (incluye el set de íconos SVG line-style)
-- Para un template nuevo: escribir el componente reusando el sistema de marca **v2.0** (variables de `mdo-brand.css` — NUNCA hex a mano; `var(--font-body)` Open Sans para todo, `var(--font-accent)` Chivo solo para acentos cortos; `Lockup`, `IsoWatermark`, clases `.tpl`/`.navy`) y registrarlo en `render.html` (`TEMPLATES`). Mantener padding generoso (margen seguro de grilla).
+**Dónde vive el diseño (por si hay que crear una placa nueva o variar una):**
+- **En el design system «MDO - Diseño»** (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b), plantilla **4.4 · Kit de redes** (`project/templates/kit-redes-manual/KitRedesManual.dc.html`). Todas las placas que usa la rutina salen de ahí y llegan al repo por `scripts/sincronizar-diseno.js` como `mdo-templates/templates-kit-manual.jsx`.
+- Los archivos viejos del repo (`templates-portrait.jsx`, `templates-friday.jsx`, `templates-friday-b.jsx`, …) quedaron **pisados** por el kit para todos los ids que la rutina usa: no se editan.
+- Para una placa nueva o un cambio de diseño: **se hace en el design system** (misma gramática del kit: `mdo-brand.css`, Open Sans en todo, Chivo sólo acento, margen 130 px, sin lockup arriba ni pie con @handle) y después se sincroniza. Si la placa nueva lleva slots, agregarla a `mdo-templates/kit-slots.json` (texto de ejemplo → nombre del slot) para que el extractor la marque. ❌ No escribir placas a mano en el repo.
 
 ### 3b. Generar contenido del jueves
 
@@ -947,7 +974,8 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
-- **Templates disponibles**: **76 en total** (incluye las `mn-*` del manual y las `hl-*` de destacadas). Ver `mdo-templates/PLACEHOLDERS.md` para el catálogo completo con todos los slots. La rutina pone ~35 en rotación real; el resto son variantes cuadradas (excluidas a propósito del feed) o superadas por versiones nuevas.
+- **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.
+- **Templates disponibles**: las **79 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Panel de aprobación**: vive en el artifact Dirección MDO (Marketing → Publicaciones) y lee el documento `paneles/publicaciones` de su base. `scripts/aprobacion-doc.js` arma ese documento; la rutina lo guarda con `Artifact` → `write_db`. El botón "Aprobar" corre con las credenciales del que abre el panel (el usuario), no con las de la rutina. La rutina automática necesita tener permitida la herramienta `Artifact`; si el permiso no está, ver la salida de emergencia del paso 7b. El artifact declara `capabilities.mcp` para `Metricool` / `updateScheduledPost` (además de lo que ya usaba); si alguien lo republica, tiene que restatear eso o los botones dejan de andar.

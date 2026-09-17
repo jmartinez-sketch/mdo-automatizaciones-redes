@@ -147,6 +147,12 @@ async function render({ template, slots, outPath, listSlots = false }) {
       }, slots);
     }
 
+    // Las fotos (<image-slot> del kit) se vuelven a crear al reemplazar los
+    // slots: esperar a que carguen antes de la captura.
+    await page.evaluate(() => Promise.all(
+      Array.from(document.images).map((img) => img.complete ? null : new Promise((ok) => { img.onload = ok; img.onerror = ok; }))
+    ));
+
     if (fs.existsSync(outPath)) console.log('(pisando el PNG anterior:', outPath + ')');
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     await page.screenshot({

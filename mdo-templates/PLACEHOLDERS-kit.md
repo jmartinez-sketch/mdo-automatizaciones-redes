@@ -697,14 +697,14 @@ _Sin texto variable (sólo marca/foto)._
 |---|---|
 | `TITULAR_1` | La planificación impositiva |
 | `TITULAR_2` | no es un costo: |
-| `TITULAR_3` | estratégica |
+| `TITULAR_3` | es la primera decisión estratégica del año. (la línea entera: el kit sólo destacaba «estratégica», ver AJUSTES en `scripts/extraer-kit-manual.js`) |
 
 ### `st-08b` · 1080×1920 · story 9:16
 | Slot | Ejemplo en el kit |
 |---|---|
 | `TITULAR_1` | La planificación impositiva |
 | `TITULAR_2` | no es un costo: |
-| `TITULAR_3` | estratégica |
+| `TITULAR_3` | es la primera decisión estratégica del año. (la línea entera: el kit sólo destacaba «estratégica», ver AJUSTES en `scripts/extraer-kit-manual.js`) |
 
 ### `sq-02c` · 1080×1350 · feed 4:5
 | Slot | Ejemplo en el kit |
@@ -717,7 +717,7 @@ _Sin texto variable (sólo marca/foto)._
 |---|---|
 | `TITULAR_1` | La planificación impositiva |
 | `TITULAR_2` | no es un costo: |
-| `TITULAR_3` | estratégica |
+| `TITULAR_3` | es la primera decisión estratégica del año. (la línea entera: el kit sólo destacaba «estratégica», ver AJUSTES en `scripts/extraer-kit-manual.js`) |
 
 ### `in-02` · 1080×1350 · feed 4:5
 | Slot | Ejemplo en el kit |
