@@ -1,0 +1,14 @@
+<!-- @dsCard group="Forma" viewport="700x180" name="Estados e interaccion" subtitle="Hover por opacidad o superficie, foco visible, sin animacion de escala" -->
+<!doctype html><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>*{box-sizing:border-box}body{margin:0;padding:20px 24px;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:14px;line-height:1.5}.row{display:flex;gap:14px;align-items:stretch}.col{display:flex;flex-direction:column;gap:6px}.lbl{font-family:var(--font-accent);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-55)}.hex{font-family:var(--font-accent);font-weight:900;font-size:12.5px;letter-spacing:-.01em}.use{font-size:11px;color:var(--ink-70);line-height:1.35}</style>
+<div style="display:flex;flex-direction:column;gap:12px">
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button style="font:inherit;font-size:13.5px;font-weight:700;color:var(--paper);background:var(--navy);border:none;border-radius:6px;padding:8px 16px">Primario</button>
+    <button style="font:inherit;font-size:13.5px;font-weight:700;color:var(--paper);background:var(--navy);border:none;border-radius:6px;padding:8px 16px;opacity:.9">Primario · hover .9</button>
+    <button style="font:inherit;font-size:13.5px;color:var(--ink-70);background:var(--paper);border:1px solid var(--hair);border-radius:6px;padding:8px 16px">Secundario</button>
+    <button style="font:inherit;font-size:13.5px;color:var(--ink);background:var(--grey-pale);border:1px solid var(--hair);border-radius:6px;padding:8px 16px">Secundario · hover</button>
+    <button style="font:inherit;font-size:13.5px;color:var(--ink-70);background:var(--paper);border:1px solid var(--hair);border-radius:6px;padding:8px 16px;outline:2px solid var(--navy);outline-offset:2px">Foco</button>
+    <button style="font:inherit;font-size:13.5px;color:var(--ink-70);background:var(--paper);border:1px solid var(--hair);border-radius:6px;padding:8px 16px;opacity:.5">Deshabilitado</button>
+  </div>
+  <span class="use">Transicion 180ms cubic-bezier(.2,0,.2,1) en color y opacidad. Nada de escalado, rebote ni sombra al presionar. `prefers-reduced-motion` apaga todo.</span>
+</div>
