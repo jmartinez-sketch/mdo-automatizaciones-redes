@@ -236,6 +236,30 @@
       "template": "sv-01",
       "linkedin": null,
       "nota": "Servicios · Asesoramiento societario (placa de Servicios del kit, degradé claro) · po-16, po-25 y mn-04 bloqueadas por historial · solo Instagram"
+    },
+    {
+      "fecha": "2026-09-23",
+      "semana_iso": 39,
+      "slot": "noticia",
+      "template": "po-13e",
+      "linkedin": null,
+      "nota": "Fondo de Asistencia Laboral (FAL): la CNV reglamentó los Productos de Inversión Colectiva (RG CNV 1167/2026, decreto 408/2026), UIF exceptúa aportes de controles de lavado; rige desde el 1/11/2026 · po-13e por alternancia (las 2 anteriores fueron po-13d) · DESCARTADA Inocencia Fiscal II convertida en ley (Senado 17/09): ya publicada como dictamen el 26/08 · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-24",
+      "semana_iso": 39,
+      "slot": "jueves",
+      "template": "st-08",
+      "linkedin": "li-02",
+      "nota": "Story cita institucional (Auditoría): \"Antes de que un tercero mire tus números, miralos con alguien de afuera\" (st-08 base: st-08c bloqueada, usada semana 35; primera vez que la placa del kit sale con foto y tercera línea completa) · ciclo 39%4=3 · draft de story IG (sin texto) + draft aparte de LinkedIn con li-02 \"Tus números, revisados antes de que los revise otro\""
+    },
+    {
+      "fecha": "2026-09-25",
+      "semana_iso": 39,
+      "slot": "gestion",
+      "template": "po-32",
+      "linkedin": null,
+      "nota": "Auditoría · comparativa A/B: certificación vs. auditoría de estados contables (\"El banco te pidió el balance. ¿Certificado o auditado?\") · po-22/po-23/po-04/po-35 bloqueadas por historial; se evitaron los ángulos ya usados de Auditoría (señales de que necesitás auditoría 17/07, checklist autodiagnóstico 21/08) · un solo draft IG+LinkedIn, vertical compartida"
     }
   ],
   "temas_previos": [
@@ -488,6 +512,21 @@
       "fecha": "2026-09-19",
       "slot": "spotlight",
       "tema": "Asesoramiento societario"
+    },
+    {
+      "fecha": "2026-09-23",
+      "slot": "noticia",
+      "tema": "FAL: CNV reglamenta los fondos (RG 1167/2026), vigencia 1 de noviembre"
+    },
+    {
+      "fecha": "2026-09-24",
+      "slot": "jueves",
+      "tema": "Story cita Auditoría: mirar los números con alguien de afuera antes de que los mire un tercero"
+    },
+    {
+      "fecha": "2026-09-25",
+      "slot": "gestion",
+      "tema": "Auditoría: diferencia entre balance certificado y balance auditado"
     }
   ]
 }

@@ -1,0 +1,214 @@
+{
+  "semana": 39,
+  "rango": "23 al 25 de septiembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 23/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-13e",
+      "imagenes": [
+        "posts/2026-09-23-2.png"
+      ],
+      "id": 379360949,
+      "uuid": "2906016482532937396",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=2906016482532937396",
+      "nota": "Noticia · Fondo de Asistencia Laboral: la CNV reglamentó los fondos (RG 1167/2026); rige desde el 1 de noviembre.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-2098949910132199862.png"
+        ],
+        "mediaAltText": [
+          "Fondo de Asistencia Laboral: la CNV ya reglamentó cómo funciona. Rige desde el 1 de noviembre"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-23T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Fondo de Asistencia Laboral: la CNV ya reglamentó cómo va a funcionar.\n\nEl Fondo de Asistencia Laboral (FAL) es el esquema que creó la Ley de Modernización Laboral para cubrir las indemnizaciones por despido con aportes del empleador, como alternativa al régimen tradicional. Faltaba la reglamentación de los fondos donde se invierte esa plata: la Comisión Nacional de Valores la dictó con la Resolución General 1167/2026.\n\nQué define: qué entidades pueden administrar los fondos, las condiciones operativas, los topes de honorarios, comisiones y gastos, y cómo se asigna cada trabajador, cómo se traslada si cambia de empleo y qué información tiene que publicarse. Además, la UIF exceptuó a los aportes al FAL de los controles habituales de lavado de activos.\n\nEl régimen rige desde el 1 de noviembre. Si tenés empleados, conviene analizar ahora con tu contador si te conviene adherir y qué implica en tu costo laboral mensual.\n\nFuente: Errepar · Decreto 408/2026, RG CNV 1167/2026 y resolución UIF.\n\n—\n\n📞 Consultanos: mdo-consultores.com.ar\n\n#MDOConsultores #Laboral #PyMEs #Empleadores #Argentina",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        },
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    },
+    {
+      "dia": "Jueves 24/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · historia"
+      ],
+      "plantilla": "st-08",
+      "imagenes": [
+        "posts/2026-09-24-3.png"
+      ],
+      "esStory": true,
+      "id": 379360968,
+      "uuid": "-3184938350392621999",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=-3184938350392621999",
+      "nota": "Historia de cita (Auditoría): \"Antes de que un tercero mire tus números, miralos con alguien de afuera.\" Sin texto, la historia no lleva caption.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-17168737492258214650.png"
+        ],
+        "mediaAltText": [
+          "Antes de que un tercero mire tus números, miralos con alguien de afuera. MDO Consultores"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-24T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "STORY",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        }
+      }
+    },
+    {
+      "dia": "Jueves 24/09",
+      "hora": "9:00",
+      "redes": [
+        "LinkedIn"
+      ],
+      "plantilla": "li-02",
+      "imagenes": [
+        "posts/2026-09-24-3-li.png"
+      ],
+      "id": 379361047,
+      "uuid": "5932419347718884983",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=5932419347718884983",
+      "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): claim horizontal + texto sobre auditoría.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-2849056991287449130.png"
+        ],
+        "mediaAltText": [
+          "Tus números, revisados antes de que los revise otro. MDO Consultores"
+        ],
+        "providers": [
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-24T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Tus números, revisados antes de que los revise otro.\n\nTarde o temprano alguien de afuera va a mirar los estados contables de tu empresa: un banco que evalúa un crédito, un inversor, un comprador, un organismo de control. Ese día, los números ya tienen que estar defendidos.\n\nUna auditoría de estados contables hace ese trabajo antes: revisa comprobantes, saldos y criterios, detecta lo que está flojo y termina en un informe con una opinión independiente. Para el dueño, es la diferencia entre presentar un balance y presentar un balance que ya pasó una revisión seria.\n\nEn MDO Consultores auditamos estados contables, hacemos revisiones limitadas y certificaciones, y acompañamos a la empresa en lo que la revisión deja a la vista.\n\nSi este año vas a necesitar mostrar tus números, hablemos antes.\n\nmdo-consultores.com.ar\n\n#MDOConsultores #Auditoría #PyMEs",
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    },
+    {
+      "dia": "Viernes 25/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-32",
+      "imagenes": [
+        "posts/2026-09-25-4.png"
+      ],
+      "id": 379361138,
+      "uuid": "7952237300928365092",
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=7952237300928365092",
+      "nota": "Gestión PyME · Auditoría: \"El banco te pidió el balance. ¿Certificado o auditado?\", comparativa en dos columnas.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://static.metricool.com/planner/202609/6267636-file-14527062466330866905.png"
+        ],
+        "mediaAltText": [
+          "El banco te pidió el balance: certificado o auditado, en qué se diferencian"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-25T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Auditoría\n\nEl banco te pidió el balance. ¿Certificado o auditado? No es lo mismo, y la diferencia suele aparecer justo cuando hay apuro.\n\nCertificación: el contador constata que el balance coincide con los libros y registros de la empresa. No opina sobre si las cifras son razonables. Alcanza para muchos trámites y presentaciones.\n\nAuditoría: se revisan comprobantes, saldos y los criterios con los que se armó el balance, y el trabajo termina en un informe con una opinión sobre los estados contables. Es lo que suelen exigir bancos, inversores y licitaciones grandes.\n\nPor qué importa: si te piden un balance auditado y tenés uno certificado, no hay forma de convertir uno en otro en dos días. La auditoría lleva tiempo de trabajo sobre la documentación del ejercicio. Saber cuál te van a pedir, antes de cerrar el balance, te ahorra la corrida.\n\n—\n\n📞 Auditamos los estados contables de tu empresa: mdo-consultores.com.ar\n\n#MDOConsultores #Auditoría #GestiónPyME #PyMEs #Argentina",
+        "instagramData": {
+          "autoPublish": false,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        },
+        "linkedinData": {
+          "previewIncluded": true,
+          "type": "POST"
+        }
+      }
+    }
+  ]
+}
