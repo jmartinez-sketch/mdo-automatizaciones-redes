@@ -1,0 +1,44 @@
+/* MDO — alias semanticos. Es lo que conviene usar al maquetar:
+   los tokens de arriba dicen QUE color es, estos dicen PARA QUE sirve.
+   Tomados de mdo-brand/design-system/plantilla.html. */
+:root{
+  --ground:#f0f0f0;          /* fondo de documento: tinta 6 del gris */
+  --surface-card:var(--paper);
+  --surface-sunken:var(--grey-pale);
+  --surface-inverse:var(--navy);
+
+  --text-title:var(--navy);
+  --text-body:var(--ink-70);
+  --text-muted:var(--ink-55);
+  --text-decorative:var(--ink-25);
+  --text-on-inverse:var(--paper);
+  --text-body-on-inverse:#cbcdd3;
+  --text-muted-on-inverse:#9ba2ab;
+
+  --rule:var(--hair);
+  --rule-strong:var(--hair-2);
+  --rule-on-inverse:rgba(248,246,246,0.15);
+  --rule-on-inverse-strong:rgba(248,246,246,0.30);
+  --chip-bg:rgba(6,22,45,0.06);
+
+  --link:var(--navy);
+  --link-hover:var(--navy-lift);
+
+  --state-ok:var(--ok);      --state-ok-bg:var(--ok-bg);
+  --state-warn:var(--warn);  --state-warn-bg:var(--warn-bg);
+  --state-bad:var(--no);     --state-bad-bg:var(--no-bg);
+}
+:root[data-theme="dark"]{
+  --ground:#06162d;
+  --surface-card:#0a2039;
+  --surface-sunken:#12293f;
+  --text-title:var(--paper);
+  --text-body:#c3c8cf;
+  --text-muted:#9aa3ae;
+  --rule:rgba(248,246,246,0.15);
+  --rule-strong:rgba(248,246,246,0.30);
+  --chip-bg:rgba(248,246,246,0.08);
+  --state-ok:#6fbf9d;   --state-ok-bg:rgba(111,191,157,0.14);
+  --state-warn:#dcb264; --state-warn-bg:rgba(220,178,100,0.14);
+  --state-bad:#e08a80;  --state-bad-bg:rgba(224,138,128,0.14);
+}

@@ -1,0 +1,51 @@
+/* MDO — tipografia. Escala tomada de mdo-brand/design-system/plantilla.html
+   (pagina de marca v2) y del panel de libros societarios. */
+:root{
+  /* OJO con el reparto: es contraintuitivo y el manual es explícito (pág. 15).
+     Open Sans va en TODO, títulos incluidos. Chivo es SOLO acento, para
+     palabras y frases cortas (volantas, chips, rótulos): nunca texto corrido.
+     Antes de la corrección de agosto 2026 esto estaba al revés. */
+  --font-body:'Open Sans',system-ui,-apple-system,sans-serif;
+  --font-display:'Open Sans',system-ui,-apple-system,sans-serif;
+  --font-accent:'Chivo','Helvetica Neue',system-ui,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* Pesos disponibles */
+  --w-light:300;    /* @kind font */ /* el wordmark del lockup esta trazado en este peso */
+  --w-regular:400; /* @kind font */
+  --w-semi:600;     /* @kind font */ /* solo Open Sans */
+  --w-bold:700; /* @kind font */
+  --w-black:900;    /* @kind font */ /* solo Chivo - titulares */
+
+  /* Escala editorial (paginas y placas) */
+  --fs-h1:clamp(2.1rem,5.5vw,3.6rem); /* @kind font */
+  --fs-h2:clamp(1.35rem,2.6vw,1.9rem); /* @kind font */
+  --fs-h3:1.02rem; /* @kind font */
+  --fs-lede:clamp(1rem,1.5vw,1.13rem); /* @kind font */
+  --fs-body:1rem; /* @kind font */      /* 16px */
+  --fs-note:0.9rem; /* @kind font */
+  --fs-eyebrow:0.69rem; /* @kind font */
+  --fs-micro:0.63rem; /* @kind font */
+
+  /* Escala de aplicacion (paneles y tablas internas) */
+  --fs-app-h1:23px; /* @kind font */
+  --fs-app-cifra:27px; /* @kind font */
+  --fs-app-base:14px; /* @kind font */
+  --fs-app-table:13px; /* @kind font */
+  --fs-app-meta:12.5px; /* @kind font */
+  --fs-app-rotulo:10.5px; /* @kind font */
+
+  /* Interlineado */
+  --lh-display:1.1; /* @kind other */
+  --lh-title:1.25; /* @kind other */
+  --lh-body:1.65; /* @kind other */
+  --lh-app:1.5; /* @kind other */
+
+  /* Tracking */
+  --ls-h1:-0.025em; /* @kind other */
+  --ls-h2:-0.015em; /* @kind other */
+  --ls-display:-0.02em; /* @kind other */
+  --ls-eyebrow:0.16em; /* @kind other */
+  --ls-rotulo:0.07em; /* @kind other */
+  --ls-chip:0.14em; /* @kind other */
+}
