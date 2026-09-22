@@ -57,7 +57,16 @@
           "previewIncluded": true,
           "type": "POST"
         }
-      }
+      },
+      "slots": [
+        {
+          "FECHA": "23.09.2026",
+          "TITULAR_1": "Fondo de Asistencia Laboral:",
+          "TITULAR_2": "la CNV ya reglamentó cómo funciona",
+          "BAJADA": "La Resolución General 1167/2026 define qué entidades pueden administrar los fondos, los topes de comisiones y cómo se asigna y traslada cada trabajador. El régimen rige desde el 1 de noviembre.",
+          "CIERRE": "Si tenés empleados, es el momento de decidir cómo vas a encarar el nuevo esquema."
+        }
+      ]
     },
     {
       "dia": "Jueves 24/09",
@@ -106,7 +115,14 @@
           "showReelOnFeed": true,
           "isAiGenerated": false
         }
-      }
+      },
+      "slots": [
+        {
+          "TITULAR_1": "Antes de que un tercero",
+          "TITULAR_2": "mire tus números,",
+          "TITULAR_3": "miralos con alguien de afuera."
+        }
+      ]
     },
     {
       "dia": "Jueves 24/09",
@@ -152,7 +168,13 @@
           "previewIncluded": true,
           "type": "POST"
         }
-      }
+      },
+      "slots": [
+        {
+          "TITULAR_1": "Tus números, revisados",
+          "TITULAR_2": "antes de que los revise otro."
+        }
+      ]
     },
     {
       "dia": "Viernes 25/09",
@@ -208,7 +230,23 @@
           "previewIncluded": true,
           "type": "POST"
         }
-      }
+      },
+      "slots": [
+        {
+          "VOLANTA": "Auditoría",
+          "TITULAR_1": "El banco te pidió el balance.",
+          "TITULAR_2": "¿Certificado o auditado?",
+          "LABEL_1": "Certificación",
+          "LABEL_1_ITEM_1": "El contador constata que el balance coincide con los libros.",
+          "LABEL_1_ITEM_2": "No opina sobre si las cifras son razonables.",
+          "LABEL_1_ITEM_3": "Alcanza para muchos trámites y presentaciones.",
+          "LABEL_2": "Auditoría",
+          "LABEL_2_ITEM_1": "Se revisan comprobantes, saldos y criterios contables.",
+          "LABEL_2_ITEM_2": "Termina en un informe con opinión sobre los estados.",
+          "LABEL_2_ITEM_3": "La piden bancos, inversores y licitaciones grandes.",
+          "CIERRE": "Auditamos los estados contables de tu empresa. Consultanos."
+        }
+      ]
     }
   ]
 }

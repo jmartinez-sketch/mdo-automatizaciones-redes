@@ -60,10 +60,11 @@ mdo-templates/          Copia sincronizada del diseño (la fuente es el design s
   LEEME-kit-manual.md   Cómo se sincroniza el kit desde el design system
 
 scripts/
-  render.js             Renderiza cualquier template a PNG via Puppeteer
+  render.js             Renderiza cualquier template a PNG (--dump-html vuelca el HTML de la placa) via Puppeteer
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
-  aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO)
+  aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
+                        con el HTML de cada placa para el botón "Regenerar"
   setup.sh              Instalación de deps + Chromium para sesiones frescas
 
 posts/                  PNGs generados por la rutina (commiteados a git → URL pública)
@@ -91,6 +92,7 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ Render local en sesión cloud con Puppeteer + render.html (anduvo, ver `scripts/render.js`)
 - ✅ El diseño vive en el design system «MDO - Diseño» (artifact); el repo sólo sincroniza (decisión de Juan, 17/09/2026). Antes: templates HTML+JSX de Claude Design copiados a mano.
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
+- ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026): Juan pide otra versión de un post sin esperar a nadie. El texto se actualiza solo en Metricool; **la imagen no puede viajar sola** (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una), así que la placa nueva se baja como PNG o la repone la rutina leyendo `pendienteImagen`. Ver el paso 7c de la skill.
 
 ## Regla dura sobre el tip PyME (viernes)
 

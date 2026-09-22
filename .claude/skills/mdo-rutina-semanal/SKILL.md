@@ -823,6 +823,7 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
     {
       "dia": "Miércoles 09/09", "hora": "9:00", "redes": ["Instagram", "LinkedIn"],
       "plantilla": "po-13d", "imagenes": ["posts/2026-09-09-2.png"],
+      "slots": [{ "CATEGORIA": "...", "TITULAR": "...", "...": "los slots con los que se renderizó" }],
       "id": 372948937, "uuid": "3036042435413101255",
       "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=3036042435413101255",
       "info": { "...": "el data de createScheduledPost" }
@@ -832,6 +833,8 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
 ```
 
 - `imagenes`: las placas de ese post, en orden (el carrusel lleva las 4; la story del jueves lleva la vertical, y el draft de LinkedIn del jueves es otra entrada con la `-li`).
+- `slots` (**obligatorio**): un objeto **por imagen**, en el mismo orden, con los slots exactos que se le pasaron a `scripts/render.js`. Es lo que hace andar el botón **Regenerar** del panel (ver 7c): sin esto, Juan ve la placa pero no puede pedir otra versión.
+- `plantillas`: sólo para carruseles, la lista de ids en el orden de las imágenes (`["cb-cover","cb-tip1","cb-tip2","cb-tip3"]`). Para un post de una sola placa alcanza con `plantilla`.
 - `id`, `uuid`, `plannerUrl`: de la respuesta de `createScheduledPost`. ⚠️ Metricool **cambia el `id` en cada actualización**; el `uuid` es el estable. La página ya lo contempla, pero por eso el JSON tiene que ser el de la creación, no uno copiado de otra semana.
 
 **2. Generar el documento del panel** (achica las placas a JPEG chicos y arma el JSON que lee el panel):
@@ -856,6 +859,27 @@ Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre la
 ⚠️ Si la herramienta `Artifact` no está disponible o `write_db` falla, **no frenar la rutina**: los drafts ya existen. Reportar el problema y decirle al usuario que esa semana aprueba directo en Metricool (`https://app.metricool.com/planner`).
 
 > `scripts/pagina-aprobacion.js` genera la misma vista como página suelta. Ya no es el camino normal; sirve para una muestra o si el panel de Dirección MDO no está disponible.
+
+### 7c. Reponer las placas que Juan regeneró desde el panel (OBLIGATORIO, al empezar)
+
+Desde el 22/09/2026 el panel tiene un botón **Regenerar** por post: Juan pide otra versión sin esperar a nadie, Claude le reescribe los textos ahí mismo y la placa se vuelve a dibujar en el navegador. Cuando acepta una versión:
+
+- el **texto del posteo ya queda actualizado en Metricool** (lo hace el panel);
+- la **imagen no**, porque Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. El panel le ofrece bajar el PNG y subirlo a mano, y además deja el pedido anotado en el post, en el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`).
+
+**Antes de armar la semana nueva**, al leer el documento `paneles/publicaciones` (paso 0), revisar si algún post trae `pendienteImagen`. Si lo trae y ese post **todavía no salió**:
+
+1. Re-renderizar la placa con los slots de `pendienteImagen`:
+   ```bash
+   node scripts/render.js --template <plantilla> --out posts/<fecha>-<n>.png --slots '<los slots>'
+   ```
+2. Commitear el PNG y pushear (la URL pública de `raw.githubusercontent.com` es lo que Metricool puede bajar).
+3. Actualizar el post con `mcp__Metricool__updateScheduledPost`: el mismo `info` que ya tiene, cambiando `media` por la URL nueva. Ojo con el `id`: usar el que está en el documento, que el panel ya actualizó.
+4. Sacar `pendienteImagen` del post en el documento del panel.
+
+Si el post ya salió, no tocar nada: sólo avisar en el reporte final.
+
+⚠️ El botón sólo aparece si el post trae `placas` y `slots` en el documento. `scripts/aprobacion-doc.js` arma `placas` solo (vuelca el HTML de cada plantilla con `render.js --dump-html`); los `slots` los tiene que anotar la rutina en el paso 1 de 7b.
 
 ### 8. Escribir el historial de plantillas (OBLIGATORIO)
 
@@ -978,5 +1002,6 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Templates disponibles**: las **79 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
+- **Botón Regenerar**: el panel le pide el texto nuevo a Claude (capacidad `sample` del artifact) y vuelve a dibujar la placa en el navegador con el HTML que `scripts/render.js --dump-html` dejó en el documento. La vista previa es fiel porque es el mismo DOM que se fotografía en el render de verdad; el PNG para bajar lo arma html2canvas dentro de un iframe. Ver 7c.
 - **Panel de aprobación**: vive en el artifact Dirección MDO (Marketing → Publicaciones) y lee el documento `paneles/publicaciones` de su base. `scripts/aprobacion-doc.js` arma ese documento; la rutina lo guarda con `Artifact` → `write_db`. El botón "Aprobar" corre con las credenciales del que abre el panel (el usuario), no con las de la rutina. La rutina automática necesita tener permitida la herramienta `Artifact`; si el permiso no está, ver la salida de emergencia del paso 7b. El artifact declara `capabilities.mcp` para `Metricool` / `updateScheduledPost` (además de lo que ya usaba); si alguien lo republica, tiene que restatear eso o los botones dejan de andar.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.

@@ -3,6 +3,8 @@
 //
 // Uso:
 //   node scripts/render.js --template po-13d --list-slots      ← qué slots tiene la placa
+//   node scripts/render.js --template po-13d --dump-html out/po-13d.json
+//                                                              ← el HTML de la placa con los [SLOT]
 //   node scripts/render.js \
 //     --template po-13d \
 //     --out posts/2026-09-09-2.png \
@@ -58,7 +60,7 @@ function sizeForTemplate(id) {
   return SIZES.square;
 }
 
-async function render({ template, slots, outPath, listSlots = false }) {
+async function render({ template, slots, outPath, listSlots = false, dumpHtml = null }) {
   const templatesDir = path.resolve(__dirname, '..', 'mdo-templates');
   const renderHtml = path.join(templatesDir, 'render.html');
   if (!fs.existsSync(renderHtml)) throw new Error(`No existe ${renderHtml}`);
@@ -119,6 +121,21 @@ async function render({ template, slots, outPath, listSlots = false }) {
       return { slots: presentes };
     }
 
+    // --dump-html: el HTML de la placa YA renderizada, con los marcadores
+    // [SLOT] todavía puestos. Es lo que le permite al panel "Dirección MDO"
+    // volver a dibujar la placa dentro del navegador (reemplazo de texto y
+    // listo), sin React ni Babel: el DOM es exactamente el que se fotografía
+    // acá. Lo consume scripts/aprobacion-doc.js.
+    if (dumpHtml) {
+      const html = await page.evaluate(() => document.getElementById('stage').innerHTML);
+      fs.mkdirSync(path.dirname(path.resolve(dumpHtml)), { recursive: true });
+      fs.writeFileSync(dumpHtml, JSON.stringify({ template, w, h, slots: presentes, html }));
+      console.log(`HTML de ${template} → ${path.resolve(dumpHtml)} (${Math.round(html.length / 1024)} KB)`);
+      // Sin slots, --dump-html es una consulta como --list-slots: no hay PNG
+      // que sacar y la validación de slots no corresponde.
+      if (!Object.keys(slots || {}).length) return { slots: presentes };
+    }
+
     const pasados = Object.keys(slots || {});
     const desconocidos = pasados.filter((k) => !presentes.includes(k));
     if (desconocidos.length) {
@@ -175,8 +192,9 @@ if (require.main === module) {
   const listSlots = 'list-slots' in args;
   const slots = args.slots ? JSON.parse(args.slots) : {};
   const outPath = path.resolve(args.out || `out/${args.template}.png`);
-  render({ template: args.template, slots, outPath, listSlots })
-    .then(() => { if (!listSlots) console.log('OK →', outPath); })
+  const dumpHtml = typeof args['dump-html'] === 'string' ? path.resolve(args['dump-html']) : null;
+  render({ template: args.template, slots, outPath, listSlots, dumpHtml })
+    .then(() => { if (!listSlots && Object.keys(slots).length) console.log('OK →', outPath); })
     .catch((err) => { console.error('ERROR:', err.message || err); process.exit(1); });
 }
 

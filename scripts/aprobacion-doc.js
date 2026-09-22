@@ -16,8 +16,10 @@
 // de la base no puede ser enorme. Cuatro posts entran en ~300 KB.
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const puppeteer = require('puppeteer');
+const { render } = require('./render');
 
 const [, , inPath, outPath] = process.argv;
 if (!inPath || !outPath) {
@@ -80,12 +82,53 @@ async function achicar(rutas, ancho) {
   }
 }
 
+// Qué plantilla corresponde a cada imagen del post. Un post normal tiene una
+// sola; un carrusel tiene una por slide y las declara en `plantillas`.
+function plantillasDe(p) {
+  if (Array.isArray(p.plantillas) && p.plantillas.length) return p.plantillas;
+  const ids = String(p.plantilla || '').split(/[\s,+]+/).filter(Boolean);
+  const n = (p.imagenes || []).length || 1;
+  if (!ids.length) return [];
+  // Si faltan ids, se repite el último: un carrusel mal declarado no debería
+  // frenar el documento entero.
+  return Array.from({ length: n }, (_, i) => ids[Math.min(i, ids.length - 1)]);
+}
+
+// El HTML de cada placa, con los marcadores [SLOT] todavía puestos: es lo que
+// le permite al panel volver a dibujarla en el navegador cuando Juan pide
+// regenerar. Se pide una sola vez por plantilla y se cachea.
+const cacheHtml = new Map();
+async function placaDe(templateId) {
+  if (cacheHtml.has(templateId)) return cacheHtml.get(templateId);
+  const tmp = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'mdo-placa-')), 'dump.json');
+  let out = null;
+  try {
+    await render({ template: templateId, slots: {}, outPath: tmp + '.png', dumpHtml: tmp });
+    const d = JSON.parse(fs.readFileSync(tmp, 'utf8'));
+    out = { id: templateId, w: d.w, h: d.h, slots: d.slots, html: d.html };
+  } catch (e) {
+    console.error(`AVISO: no pude volcar el HTML de "${templateId}" (${e.message}). ` +
+      'Ese post va a quedar sin botón de regenerar.');
+  }
+  cacheHtml.set(templateId, out);
+  return out;
+}
+
 (async () => {
   const posts = [];
   for (const p of spec.posts) {
     const esHorizontal = (p.redes || []).join(' ').toLowerCase().includes('linkedin')
       && !(p.redes || []).join(' ').toLowerCase().includes('instagram');
     const imagenes = await achicar(p.imagenes || [], esHorizontal ? 720 : 540);
+    const ids = plantillasDe(p);
+    // Una entrada por imagen, en el mismo orden: si una falla va `null` y el
+    // panel esconde el botón de esa placa, sin correr las demás de lugar.
+    const placas = [];
+    for (const id of ids) placas.push(await placaDe(id));
+    // Los slots con los que se renderizó cada placa: el panel se los pasa a
+    // Claude como punto de partida cuando Juan pide regenerar. Si la rutina no
+    // los anotó, el panel regenera igual, con el copy del posteo como contexto.
+    const slots = Array.isArray(p.slots) ? p.slots : (p.slots ? [p.slots] : []);
     posts.push({
       dia: p.dia, hora: p.hora, redes: p.redes || [], plantilla: p.plantilla || '',
       nota: p.nota || '', esStory: !!p.esStory,
@@ -93,6 +136,8 @@ async function achicar(rutas, ancho) {
       blogId: String(p.blogId || spec.blogId),
       info: limpiarInfo(p.info || {}),
       imagenes,
+      placas,
+      slots,
     });
   }
   const doc = {
