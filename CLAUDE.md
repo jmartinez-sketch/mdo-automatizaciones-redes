@@ -8,6 +8,16 @@ Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del est
 - Habla español rioplatense. **Cero jerga técnica sin explicar**.
 - Cuando le ofrezcas opciones, **NO más de 3-4** y dale tu recomendación primero.
 
+### Cómo contestarle (regla dura)
+
+**Lo más corto posible.** Juan pidió expresamente respuestas mucho más concisas, siempre.
+
+- Por defecto: **2 a 4 líneas**. Lo que hiciste y qué le toca a él. Nada más.
+- ❌ Nada de recapitular el proceso, listar los archivos que tocaste, explicar cómo lo resolviste ni contar lo que probaste. Si anduvo, anduvo.
+- ❌ Nada de encabezados, negritas decorativas ni listas si entra en una frase.
+- ✅ Sí decir, en una línea, lo que **no** funcionó o lo que él tiene que hacer a mano.
+- Se extiende **sólo** cuando pregunta algo que necesita explicación, cuando hay que elegir entre opciones, o cuando el reporte es el entregable (ej: el cierre de la rutina semanal).
+
 ## Fuente de diseño: el design system «MDO - Diseño» (regla dura)
 
 **Desde el 17/09/2026, todo lo de marca se lee y se cambia en un solo lugar:** el design system **«MDO - Diseño»**, https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b. Plantillas de redes, colores, tipografías y logos viven ahí. Este repo **no es dueño del diseño**: guarda una copia sincronizada para poder renderizar las placas.
