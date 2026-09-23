@@ -82,13 +82,13 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 
 `N` = el número que lleva el archivo PNG (ver paso 4). Va atado al día, no al orden: el `1` era el lunes y queda libre.
 
-| N | Día/Hora (ARG) | Tipo | Plantilla Instagram | Plantilla LinkedIn | Fuente |
-|---|---|---|---|---|---|
-| ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — |
-| 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | comparte la vertical | Gmail newsletter |
-| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` (solo si es story) | Noticias de la semana |
-| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | comparte la vertical | Generado por LLM |
-| 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | pool de 6 | — (solo IG) | Generado por LLM |
+| N | Día/Hora (ARG) | Tipo | Plantilla Instagram | Plantilla LinkedIn | Fuente | 🎬 Video |
+|---|---|---|---|---|---|---|
+| ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — | — |
+| 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | comparte la vertical | Gmail newsletter | nunca |
+| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` (solo si es story) | Noticias de la semana | **semanas impares** (la historia) |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | comparte la vertical | Generado por LLM | **semanas pares** (Reel + LinkedIn) |
+| 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | pool de 6 | — (solo IG) | Generado por LLM | nunca |
 
 (*) **Jueves — ciclo de 4 semanas**, ver sección 3b. Ya NO es "par/impar": rota entre carrusel, encuesta, CTA y cita.
 
