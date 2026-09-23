@@ -144,6 +144,20 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 - En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
 - (Opción cero-recorte: 3:4 → 1080×1440, pero requiere rediseñar la altura de los templates. El 4:5 es el estándar y ya está validado en producción.)
 
+### 🎬 Regla dura — un video por semana, alternando historia y feed (desde el 23/09/2026)
+
+Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
+
+| Semana ISO | Qué post va en video | Formato | Redes |
+|---|---|---|---|
+| **impar** (`$(( $(date +%V) % 2 )) == 1`) | **Jueves · historia** (en semanas impares el ciclo del jueves siempre cae en historia: encuesta `st-10` o cita `st-08*`) | 9:16, 1080×1920 | Instagram historia. El draft de LinkedIn del jueves sigue con su imagen `li-02` |
+| **par** | **Viernes · gestión PyME** | 4:5, 1080×1350 | Instagram (sale como Reel) + LinkedIn, el mismo video |
+
+- El video es **la misma placa animada**: mismos slots, misma plantilla, mismo texto. No se inventa contenido aparte. Lo arma `scripts/video.js` (paso 4c) con los recursos del manual: el isotipo se traza al abrir y se vuelve marca de agua o firma, filetes que se dibujan, cierre con el logo y la web.
+- El miércoles (noticia, ancla `po-13d`/`po-13e`) **no** va en video: es la placa que hace reconocible la grilla.
+- **El PNG se renderiza igual** (paso 4): es la tapa del video en la grilla y en el panel, y el respaldo si Metricool no acepta el video.
+- **Destacadas**: la historia en video puede quedar en Destacadas, pero **se agrega a mano desde la app de Instagram** después de que se publica. Ni Instagram ni Metricool permiten hacerlo por API. Recordárselo a Juan en el reporte final.
+
 ## Paso a paso
 
 ### 0. Leer el historial de plantillas (SIEMPRE primero)
@@ -666,9 +680,34 @@ Después de renderizar, **abrir cada PNG y mirarlo** (tool Read sobre el archivo
 
 Si una imagen tiene texto cortado o pegado al borde, **NO crear el draft**: acortar el texto o ajustar el template y volver a renderizar. Un post mal renderizado que ya se publicó NO se puede corregir.
 
+### 4c. Renderizar el video de la semana (OBLIGATORIO, ver la regla del video)
+
+Con **los mismos slots** que el PNG de ese post (el del jueves en semanas impares, el del viernes en semanas pares):
+
+```bash
+node scripts/video.js \
+  --template st-08 \
+  --out posts/YYYY-MM-DD-N.mp4 \
+  --slots '<exactamente el mismo JSON de slots que se usó para el PNG>'
+```
+
+- Mismo nombre que el PNG del post, con `.mp4`. Tarda uno o dos minutos.
+- La duración se calcula sola según cuánto texto hay (piso de ~10 s, techo de 30 s). Si el script avisa `queda poco tiempo para leerlo`, subir `--segundos` o acortar el texto.
+- El estilo lo elige solo según la plantilla (`institucional` para historias con foto, `secuencial` para comparativas y explicadores `po-31..35`, `editorial` para el resto). Se puede forzar con `--estilo`.
+- ❌ Las horizontales `li-*` no se animan: LinkedIn del jueves lleva su imagen.
+
+**Verificación obligatoria**: sacar una tira de cuadros y mirarla con Read antes de seguir:
+
+```bash
+node_modules/ffmpeg-static/ffmpeg -y -loglevel error -i posts/YYYY-MM-DD-N.mp4 \
+  -vf "select='eq(n\,30)+eq(n\,75)+eq(n\,150)+eq(n\,240)+eq(n\,330)',scale=216:-1,tile=5x1" -frames:v 1 out/video-cuadros.png
+```
+
+Chequear que (a) el isotipo se traza al principio, (b) la placa completa se ve igual que el PNG, sin textos cortados, y (c) cierra con el logo MDO CONSULTORES y la web. Si el video falla o se ve mal, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.
+
 ### 5. Commitear y pushear los PNGs a GitHub
 
-Antes de crear los drafts en Metricool, los PNGs deben estar en GitHub para que Metricool los descargue y los copie a su CDN:
+Antes de crear los drafts en Metricool, los PNGs **y el MP4 de la semana** deben estar en GitHub para que Metricool los descargue y los copie a su CDN (`git add posts/` los incluye a todos):
 
 ```bash
 git add posts/
@@ -713,6 +752,12 @@ Un post de Metricool tiene **un solo array `media` y un solo `text`** compartido
 **Hashtags del texto compartido**: como el texto va a las dos redes, usar **5 hashtags** — suficiente para Instagram y no spammeado para LinkedIn. (La tabla de diferencias del paso 7 aplica solo al draft de LinkedIn del jueves, que sí tiene texto propio.)
 
 > **Recordatorio de stories**: en el draft de IG Story, `instagramData.type` va como `STORY` y el campo `text` queda **vacío** (Instagram no admite caption en stories). El texto va solo en el draft de LinkedIn de ese día.
+
+> **🎬 El post que va en video** (ver la regla del video) cambia sólo esto respecto del JSON de abajo:
+> - `media`: la URL del **`.mp4`** en lugar del `.png`.
+> - Historia (semana impar): `instagramData.type: "STORY"`, igual que siempre. **No** mandar `videoThumbnailUrl`: en historias Metricool rechaza el pedido entero (`VIDEO_THUMBNAIL_NOT_APPLICABLE`).
+> - Feed (semana par): `instagramData.type: "REEL"` con `showReelOnFeed: true`, y **`videoThumbnailUrl`** con la URL del PNG de ese post, para que la grilla muestre la placa y no un cuadro cualquiera. LinkedIn va en el mismo draft y recibe el mismo video.
+> - Si `createScheduledPost` rechaza el video, crear ese draft con el PNG como cualquier otra semana y decirlo en el reporte con el mensaje de error exacto. No reintentar a ciegas: Metricool avisa que sus errores son definitivos.
 
 > ⚠️ **Metricool no tiene herramienta para borrar posts.** Si una corrida crea un draft de más, NO se puede eliminar desde acá: hay que avisarle al usuario cuál borrar a mano y pasarle el link (`plannerUrl` de la respuesta). Mejor no crearlo.
 
@@ -834,6 +879,7 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
 
 - `imagenes`: las placas de ese post, en orden (el carrusel lleva las 4; la story del jueves lleva la vertical, y el draft de LinkedIn del jueves es otra entrada con la `-li`).
 - `slots` (**obligatorio**): un objeto **por imagen**, en el mismo orden, con los slots exactos que se le pasaron a `scripts/render.js`. Es lo que hace andar el botón **Regenerar** del panel (ver 7c): sin esto, Juan ve la placa pero no puede pedir otra versión.
+- `video` (sólo el post que salió en video): `{ "archivo": "posts/YYYY-MM-DD-N.mp4", "asset": "<id>" }`. El `asset` sale de subir el MP4 al artifact **antes** de generar el documento, con la herramienta `Artifact`: `action: publish` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `file_path: posts/YYYY-MM-DD-N.mp4` · `asset: true`. La respuesta trae el id (32 caracteres). Con eso el panel muestra el video para aprobar, con el PNG de tapa. Si la subida falla, el post va sin `video` y el panel muestra la placa fija: no frena nada.
 - `plantillas`: sólo para carruseles, la lista de ids en el orden de las imágenes (`["cb-cover","cb-tip1","cb-tip2","cb-tip3"]`). Para un post de una sola placa alcanza con `plantilla`.
 - `id`, `uuid`, `plannerUrl`: de la respuesta de `createScheduledPost`. ⚠️ Metricool **cambia el `id` en cada actualización**; el `uuid` es el estable. La página ya lo contempla, pero por eso el JSON tiene que ser el de la creación, no uno copiado de otra semana.
 
@@ -877,6 +923,8 @@ Desde el 22/09/2026 el panel tiene un botón **Regenerar** por post: Juan pide o
 3. Actualizar el post con `mcp__Metricool__updateScheduledPost`: el mismo `info` que ya tiene, cambiando `media` por la URL nueva. Ojo con el `id`: usar el que está en el documento, que el panel ya actualizó.
 4. Sacar `pendienteImagen` del post en el documento del panel.
 
+Si el post **era el video de la semana** (trae `video`), además del PNG re-renderizar el MP4 con `scripts/video.js` y los slots nuevos, commitearlo, y en el `updateScheduledPost` poner la URL del MP4 nuevo en `media` (con `?v=2` para que Metricool no use la copia vieja). Subir el MP4 nuevo como asset, poner el id nuevo en `video.asset` del documento y borrar el asset viejo (`Artifact` · `action: delete` · `path: <id viejo>`).
+
 Si el post ya salió, no tocar nada: sólo avisar en el reporte final.
 
 ⚠️ El botón sólo aparece si el post trae `placas` y `slots` en el documento. `scripts/aprobacion-doc.js` arma `placas` solo (vuelca el HTML de cada plantilla con `render.js --dump-html`); los `slots` los tiene que anotar la rutina en el paso 1 de 7b.
@@ -892,6 +940,7 @@ Una vez creados todos los drafts, **agregar una entrada al array `historial` de 
   "slot": "noticia",            // noticia | jueves | gestion | spotlight
   "template": "po-13d",         // plantilla de Instagram
   "linkedin": "li-01",          // plantilla de LinkedIn, o null
+  "formato": "imagen",          // imagen | video | carrusel
   "nota": "Percepción IVA · régimen unificado"
 }
 ```
@@ -982,6 +1031,7 @@ Cuando todos los drafts estén creados y el historial escrito:
    - URLs de las imágenes en GitHub (vertical y `-li` de cada post).
    - `id` y `uuid` de cada draft en Metricool, agrupados por día y aclarando cuál es el de Instagram y cuál el de LinkedIn.
    - Si el jueves fue **encuesta `st-10`**: recordarle que **el sticker de encuesta se agrega a mano en Instagram**.
+   - **El video de la semana**: qué post fue, si Metricool lo aceptó como video o salió con el PNG de respaldo (y por qué). Si fue una historia, recordarle que **si la quiere en Destacadas la agrega a mano desde la app** después de que se publique.
    - **Dónde aprobar**: "Los posts están en Dirección MDO → Marketing → Publicaciones (https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790#publicaciones). Tocá Aprobar en los que quieras que salgan. Lo que no apruebes queda en borrador y no se publica."
    - Si el documento no se pudo escribir: decirlo, y que esa semana apruebe en https://app.metricool.com/planner.
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
@@ -996,6 +1046,7 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 ## Notas técnicas
 
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
+- **Video**: `scripts/video.js` usa el mismo `render.html` que las placas, graba cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
 - **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.

@@ -73,6 +73,7 @@ scripts/
   render.js             Renderiza cualquier template a PNG (--dump-html vuelca el HTML de la placa) via Puppeteer
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
+  video.js              Anima una placa y la graba a MP4 (el video semanal)
   aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
                         con el HTML de cada placa para el botón "Regenerar"
   setup.sh              Instalación de deps + Chromium para sesiones frescas
@@ -103,6 +104,10 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ El diseño vive en el design system «MDO - Diseño» (artifact); el repo sólo sincroniza (decisión de Juan, 17/09/2026). Antes: templates HTML+JSX de Claude Design copiados a mano.
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
 - ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026): Juan pide otra versión de un post sin esperar a nadie. El texto se actualiza solo en Metricool; **la imagen no puede viajar sola** (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una), así que la placa nueva se baja como PNG o la repone la rutina leyendo `pendienteImagen`. Ver el paso 7c de la skill.
+
+## Video semanal (desde el 23/09/2026)
+
+Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel + LinkedIn). Es la misma placa animada con `scripts/video.js`, y pasa por el panel de aprobación como el resto. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
 
 ## Regla dura sobre el tip PyME (viernes)
 
