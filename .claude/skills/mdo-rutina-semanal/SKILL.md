@@ -1,7 +1,7 @@
 ---
 name: mdo-rutina-semanal
 model: opus
-description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes con las placas del design system «MDO - Diseño» (kit 4.4) y crea 4 drafts en Metricool programados Mié/Jue/Vie 9hs Argentina (+ sábado 11hs en semanas pares), cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes con las placas del design system «MDO - Diseño» (kit 4.4) y carga 4 posts (Mié/Jue/Vie 9hs Argentina, + sábado 11hs en semanas pares) en el panel de aprobación de Dirección MDO, sin mandar nada a Metricool: el panel los crea en Metricool recién cuando Juan los aprueba, cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
 ---
 
 # Rutina semanal de posteos MDO Consultores
@@ -76,7 +76,7 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 
 ## Output esperado
 
-**4 drafts por semana** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn de **MDO Consultores** (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
+**4 posts por semana en el panel de aprobación** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn de **MDO Consultores** (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
 
 **Cada draft lleva Instagram y LinkedIn juntos**, salvo el jueves de story — ver la regla dura del paso 6.
 
@@ -725,9 +725,13 @@ https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/ma
 
 > **Cache busting**: si se **actualiza** un PNG ya referenciado en un draft (ej: corregir márgenes), Metricool tiene cacheada la versión vieja en su CDN. Al llamar `updateScheduledPost`, agregar un query param a la URL (`...-N.png?v=2`) para forzar que Metricool re-descargue la imagen nueva. `raw.githubusercontent.com` ignora el query param y sirve el archivo igual.
 
-### 6. Crear los drafts en Metricool (4 por semana, 5 si el jueves es story)
+### 6. Armar los posts para Metricool — SIN mandarlos (4 por semana, 5 si el jueves es story)
 
-Usar la MCP de Metricool: `createScheduledPost`.
+⚠️ **REGLA DURA — la rutina NO llama a `createScheduledPost` (desde el 24/09/2026).** Decisión de Juan: *"las publicaciones se aprueban y regeneran en el artifact, y RECIÉN confirmadas en el artifact se mandan a Metricool, no antes"*. La rutina arma el `info` completo de cada post (la estructura de abajo, con la URL pública de la placa o del video) y lo deja en el panel (paso 7b). Cuando Juan toca **Aprobar** en Dirección MDO, la página crea el post en Metricool con su propio conector, ya programado con autopublicación. Lo que no aprueba nunca llega a Metricool.
+
+Motivo: el 24/09/2026 Juan regeneró los dos posts del jueves en el panel, pero como ya estaban en Metricool con la imagen vieja, salieron con la imagen vieja. Si nada está en Metricool antes de aprobar, no hay versión vieja que pueda salir.
+
+Todo lo que sigue sobre cuántos posts por día y cómo se arma el `info` sigue valiendo; donde dice "draft" léase "post del panel".
 
 ⚠️ **REGLA DURA — un draft por día, con las dos redes. NO duplicar.**
 
@@ -757,7 +761,7 @@ Un post de Metricool tiene **un solo array `media` y un solo `text`** compartido
 > - `media`: la URL del **`.mp4`** en lugar del `.png`.
 > - Historia (semana impar): `instagramData.type: "STORY"`, igual que siempre. **No** mandar `videoThumbnailUrl`: en historias Metricool rechaza el pedido entero (`VIDEO_THUMBNAIL_NOT_APPLICABLE`).
 > - Feed (semana par): `instagramData.type: "REEL"` con `showReelOnFeed: true`, y **`videoThumbnailUrl`** con la URL del PNG de ese post, para que la grilla muestre la placa y no un cuadro cualquiera. LinkedIn va en el mismo draft y recibe el mismo video.
-> - Si `createScheduledPost` rechaza el video, crear ese draft con el PNG como cualquier otra semana y decirlo en el reporte con el mensaje de error exacto. No reintentar a ciegas: Metricool avisa que sus errores son definitivos.
+> - Si al aprobar Metricool rechaza el video, el panel le muestra a Juan el mensaje exacto. En ese caso la próxima corrida (o la pasada de reposición, si Juan lo pide) cambia la `media` de ese post al PNG en el documento, y Juan lo vuelve a aprobar. No reintentar a ciegas: Metricool avisa que sus errores son definitivos.
 
 > ⚠️ **Metricool no tiene herramienta para borrar posts.** Si una corrida crea un draft de más, NO se puede eliminar desde acá: hay que avisarle al usuario cuál borrar a mano y pasarle el link (`plannerUrl` de la respuesta). Mejor no crearlo.
 
@@ -794,7 +798,8 @@ Notas:
 - `draft: true` deja el post como borrador → el usuario lo aprueba a mano desde Metricool antes de que salga
 - `autoPublish: false` es red de seguridad extra (no publica solo aunque la fecha llegue)
 - Metricool descarga la imagen del repo y la copia a su CDN al crear el post, así que aunque el repo se vuelva privado después, la imagen ya queda hospedada por Metricool
-- Guardar el `id` y `uuid` de cada post creado por si hay que actualizarlo después con `updateScheduledPost`
+- ⚠️ Los `draft`/`autoPublish` del `info` quedan en `true`/`false` como red de seguridad: el panel los pone en `false`/`true` recién al crear el post aprobado.
+- No hay `id` ni `uuid` de Metricool: el post todavía no existe allá. El panel los guarda cuando lo crea.
 
 ### 7. Texto del posteo (campo `text` de Metricool)
 
@@ -853,11 +858,11 @@ Reglas de texto:
 
 ### 7b. Cargar los posts en el panel de aprobación (OBLIGATORIO)
 
-El usuario **no entra a Metricool a aprobar**: aprueba desde **Dirección MDO → Marketing → Publicaciones**, un panel con las placas y un botón por post. El panel llama a su conector de Metricool y pasa el post de borrador a **programado con autopublicación**. Lo que no aprueba queda en borrador y no sale. Por eso los drafts se crean siempre con `draft: true` / `autoPublish: false` (paso 6): la aprobación es lo único que los enciende.
+El usuario **no entra a Metricool a aprobar**: aprueba desde **Dirección MDO → Marketing → Publicaciones**, un panel con las placas y un botón por post. Al aprobar, el panel **crea** el post en Metricool con su conector (`createScheduledPost`), programado con autopublicación. Lo que no aprueba no llega a Metricool. Ver la regla dura del paso 6.
 
 El panel **no se republica**: lee el documento `paneles/publicaciones` de la base del artifact **Dirección MDO** (`https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790`). La rutina escribe ese documento cada semana y listo.
 
-**1. Escribir `posts/aprobacion-semana-NN.json`** con una entrada por post creado en el paso 6 (`NN` = semana ISO). El campo `info` es el objeto `data` que devolvió `createScheduledPost`, tal cual: el generador se queda con lo que Metricool necesita de vuelta y tira el resto.
+**1. Escribir `posts/aprobacion-semana-NN.json`** con una entrada por post armado en el paso 6 (`NN` = semana ISO). El campo `info` es el objeto que armó el paso 6, tal cual: el generador se queda con lo que Metricool necesita y tira el resto.
 
 ```json
 {
@@ -869,9 +874,7 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
       "dia": "Miércoles 09/09", "hora": "9:00", "redes": ["Instagram", "LinkedIn"],
       "plantilla": "po-13d", "imagenes": ["posts/2026-09-09-2.png"],
       "slots": [{ "CATEGORIA": "...", "TITULAR": "...", "...": "los slots con los que se renderizó" }],
-      "id": 372948937, "uuid": "3036042435413101255",
-      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6267636&openWithPostUuid=3036042435413101255",
-      "info": { "...": "el data de createScheduledPost" }
+      "info": { "...": "el info que armó el paso 6, el mismo que antes se mandaba a createScheduledPost" }
     }
   ]
 }
@@ -881,7 +884,8 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
 - `slots` (**obligatorio**): un objeto **por imagen**, en el mismo orden, con los slots exactos que se le pasaron a `scripts/render.js`. Es lo que hace andar el botón **Regenerar** del panel (ver 7c): sin esto, Juan ve la placa pero no puede pedir otra versión.
 - `video` (sólo el post que salió en video): `{ "archivo": "posts/YYYY-MM-DD-N.mp4", "asset": "<id>" }`. El `asset` sale de subir el MP4 al artifact **antes** de generar el documento, con la herramienta `Artifact`: `action: publish` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `file_path: posts/YYYY-MM-DD-N.mp4` · `asset: true`. La respuesta trae el id (32 caracteres). Con eso el panel muestra el video para aprobar, con el PNG de tapa. Si la subida falla, el post va sin `video` y el panel muestra la placa fija: no frena nada.
 - `plantillas`: sólo para carruseles, la lista de ids en el orden de las imágenes (`["cb-cover","cb-tip1","cb-tip2","cb-tip3"]`). Para un post de una sola placa alcanza con `plantilla`.
-- `id`, `uuid`, `plannerUrl`: de la respuesta de `createScheduledPost`. ⚠️ Metricool **cambia el `id` en cada actualización**; el `uuid` es el estable. La página ya lo contempla, pero por eso el JSON tiene que ser el de la creación, no uno copiado de otra semana.
+- `info`: el objeto completo que armó el paso 6 (el que antes se mandaba a `createScheduledPost`), con `publicationDate`, `media` apuntando a la URL pública ya pusheada, `providers` y los `...Data` de cada red.
+- **Sin** `id`, `uuid` ni `plannerUrl`: el post todavía no está en Metricool. `scripts/aprobacion-doc.js` le pone como clave local el nombre de la placa, y el panel guarda el id y el uuid de Metricool cuando Juan lo aprueba.
 
 **2. Generar el documento del panel** (achica las placas a JPEG chicos y arma el JSON que lee el panel):
 
@@ -906,28 +910,28 @@ Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre la
 
 > `scripts/pagina-aprobacion.js` genera la misma vista como página suelta. Ya no es el camino normal; sirve para una muestra o si el panel de Dirección MDO no está disponible.
 
-### 7c. Reponer las placas que Juan regeneró desde el panel (OBLIGATORIO, al empezar)
+### 7c. Reponer las placas que Juan regeneró desde el panel
 
-Desde el 22/09/2026 el panel tiene un botón **Regenerar** por post: Juan pide otra versión sin esperar a nadie, Claude le reescribe los textos ahí mismo y la placa se vuelve a dibujar en el navegador. Cuando acepta una versión:
+Esto lo hace la rutina **"MDO - Reponer placas regeneradas"** (8, 12 y 17 hs de lunes a sábado), y también la rutina del lunes al empezar. Es el único puente entre lo que Juan regenera en el panel y Metricool.
 
-- el **texto del posteo ya queda actualizado en Metricool** (lo hace el panel);
-- la **imagen no**, porque Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. El panel le ofrece bajar el PNG y subirlo a mano, y además deja el pedido anotado en el post, en el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`).
+Cuando Juan acepta una versión regenerada, el panel deja en el post el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`) y, si Juan lo aprueba, **`aprobado: true`**. La placa nueva no puede viajar sola: Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. Si el post ya estaba en Metricool (posts de antes del 24/09/2026, o uno que Juan aprobó y después regeneró), el panel le cambia el texto allá y lo deja **en pausa** (borrador) hasta que llegue la placa.
 
-**Antes de armar la semana nueva**, al leer el documento `paneles/publicaciones` (paso 0), revisar si algún post trae `pendienteImagen`. Si lo trae y ese post **todavía no salió**:
+Procedimiento:
 
-1. Re-renderizar la placa con los slots de `pendienteImagen`:
-   ```bash
-   node scripts/render.js --template <plantilla> --out posts/<fecha>-<n>.png --slots '<los slots>'
-   ```
-2. Commitear el PNG y pushear (la URL pública de `raw.githubusercontent.com` es lo que Metricool puede bajar).
-3. Actualizar el post con `mcp__Metricool__updateScheduledPost`: el mismo `info` que ya tiene, cambiando `media` por la URL nueva. Ojo con el `id`: usar el que está en el documento, que el panel ya actualizó.
-4. Sacar `pendienteImagen` del post en el documento del panel.
+1. Leer el documento: `ArtifactData` · `get` · `collection: paneles` · `doc_id: publicaciones` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `out_dir` en el scratchpad. Anotar la `version`.
+2. Si ningún post trae `pendienteImagen`: **terminar ahí, en una línea**. Es lo normal.
+3. `node scripts/reponer-placas.js <el json bajado> out/plan-reponer.json` — renderiza el PNG nuevo (y el MP4 si era el video de la semana) con un nombre nuevo, y arma las miniaturas. Los posts que ya salieron quedan en `saltados`: no se tocan.
+4. Commitear y pushear los archivos nuevos (`git add posts/ && git commit && git push`). URL pública: `https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/<sha del commit>/<archivo>` (con el sha, no con el nombre de la rama: así no hay caché vieja). Verificar que responda 200.
+5. Para cada post del plan, en el documento: `info.media` = la URL nueva (para video: el MP4, y `videoThumbnailUrl` = el PNG si es Reel), `imagenes` = las `miniaturas`, borrar `pendienteImagen`. Si había video, subir el MP4 nuevo como asset (`Artifact` · `publish` · `asset: true`), poner el id en `video.asset` y borrar el asset viejo.
+6. Metricool, según el plan:
+   - `enMetricool: false` y `aprobado: true` → `createScheduledPost` con `date` = `info.publicationDate.dateTime` + `-03:00` e `info` con `draft: false`, `autoPublish: true` (y `instagramData.autoPublish: true`). Guardar en el post `id`, `mcUuid` (el uuid que devuelve) y `plannerUrl`.
+   - `enMetricool: false` y `aprobado: false` → nada: queda listo en el panel para que Juan lo apruebe cuando quiera.
+   - `enMetricool: true` → `updateScheduledPost` con `id`, `uuid` = `mcUuid`, y el `info` con la media nueva; `draft: false` / `autoPublish: true` si `aprobado`, si no `draft: true` / `autoPublish: false`. Guardar el `id` nuevo que devuelve.
+   - Si la hora de publicación ya pasó o falta menos de 15 minutos, no mandarlo: dejarlo en el panel y avisar.
+7. Escribir el documento con `ArtifactData` · `set` · `if_version` de la lectura. Si choca la versión, re-leer y rehacer sólo el paso 5 sobre el documento nuevo.
+8. Reportar en una o dos líneas qué se repuso y qué se mandó a Metricool.
 
-Si el post **era el video de la semana** (trae `video`), además del PNG re-renderizar el MP4 con `scripts/video.js` y los slots nuevos, commitearlo, y en el `updateScheduledPost` poner la URL del MP4 nuevo en `media` (con `?v=2` para que Metricool no use la copia vieja). Subir el MP4 nuevo como asset, poner el id nuevo en `video.asset` del documento y borrar el asset viejo (`Artifact` · `action: delete` · `path: <id viejo>`).
-
-Si el post ya salió, no tocar nada: sólo avisar en el reporte final.
-
-⚠️ El botón sólo aparece si el post trae `placas` y `slots` en el documento. `scripts/aprobacion-doc.js` arma `placas` solo (vuelca el HTML de cada plantilla con `render.js --dump-html`); los `slots` los tiene que anotar la rutina en el paso 1 de 7b.
+⚠️ El botón Regenerar sólo aparece si el post trae `placas` y `slots` en el documento. `scripts/aprobacion-doc.js` arma `placas` solo (vuelca el HTML de cada plantilla con `render.js --dump-html`); los `slots` los tiene que anotar la rutina en el paso 1 de 7b.
 
 ### 8. Escribir el historial de plantillas (OBLIGATORIO)
 
@@ -1011,15 +1015,11 @@ Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, carga
 - Societario: "Te ayudamos a constituir tu sociedad. Consultanos."
 - Precios de Transferencia: solo relevante para empresas con operaciones entre vinculadas — no usar en posts genéricos de PyME.
 
-### 9. Verificación final en Metricool (OBLIGATORIA)
+### 9. Verificación final (OBLIGATORIA)
 
-Después de crear todo, llamar a `getScheduledPosts` con el rango de la semana (miércoles a sábado) y verificar contra la tabla del paso 6:
-
-1. **Están todos los drafts esperados.** El 17/08/2026 la corrida escribió el historial pero el draft del viernes nunca llegó a Metricool y nadie lo notó — por eso existe este paso. Si falta uno, crearlo ahí mismo.
-2. **Cada uno tiene `"draft": true` y `"autoPublish": false`** en la respuesta. Si alguno vino con otros valores, corregirlo con `updateScheduledPost` antes de terminar.
-3. **Ninguno tiene fecha de lunes.**
-
-No dar la rutina por terminada sin este chequeo: es la única forma de detectar un draft perdido o un flag mal puesto antes de que el usuario se entere por Instagram.
+1. **El panel tiene todos los posts de la semana**: releer `paneles/publicaciones` y contar contra la tabla del paso 6. Cada uno con `info.media` apuntando a una URL que responde 200, `placas` y `slots`.
+2. **Nada nuevo en Metricool**: `getScheduledPosts` de miércoles a sábado no tiene que traer posts de esta semana creados por la rutina. Si aparece alguno, es un error (la rutina no crea posts desde el 24/09/2026): avisarle a Juan cuál borrar, con su `plannerUrl`, porque no hay herramienta para borrar.
+3. **Ningún post con fecha de lunes.**
 
 ## Tareas de cierre
 
@@ -1029,10 +1029,10 @@ Cuando todos los drafts estén creados y el historial escrito:
    - **Aclarar primero que el lunes no se publica nada** — solo corrió la rutina.
    - Los contenidos elegidos, **agrupados por día** (miércoles, jueves, viernes, y sábado si es semana par), indicando para cada uno **qué plantilla se usó y por qué se eligió** (qué había bloqueado el historial).
    - URLs de las imágenes en GitHub (vertical y `-li` de cada post).
-   - `id` y `uuid` de cada draft en Metricool, agrupados por día y aclarando cuál es el de Instagram y cuál el de LinkedIn.
+   - **Nada está en Metricool todavía**: se manda recién cuando Juan aprueba en el panel.
    - Si el jueves fue **encuesta `st-10`**: recordarle que **el sticker de encuesta se agrega a mano en Instagram**.
    - **El video de la semana**: qué post fue, si Metricool lo aceptó como video o salió con el PNG de respaldo (y por qué). Si fue una historia, recordarle que **si la quiere en Destacadas la agrega a mano desde la app** después de que se publique.
-   - **Dónde aprobar**: "Los posts están en Dirección MDO → Marketing → Publicaciones (https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790#publicaciones). Tocá Aprobar en los que quieras que salgan. Lo que no apruebes queda en borrador y no se publica."
+   - **Dónde aprobar**: "Los posts están en Dirección MDO → Marketing → Publicaciones (https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790#publicaciones). Tocá Aprobar en los que quieras que salgan: recién ahí se mandan a Metricool, programados. Lo que no apruebes no se publica."
    - Si el documento no se pudo escribir: decirlo, y que esa semana apruebe en https://app.metricool.com/planner.
 2. Si algo falló (Gmail vacío, render falló, Metricool rechazó), reportar específicamente qué y NO crear drafts a medias.
 

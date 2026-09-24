@@ -82,6 +82,13 @@ async function achicar(rutas, ancho) {
   }
 }
 
+// Clave local de un post que todavía no está en Metricool: el nombre de su
+// primera placa (posts/2026-09-30-2.png → 2026-09-30-2), que es único por semana.
+function claveDe(p) {
+  const f = (p.imagenes || [])[0] || (p.video && p.video.archivo) || '';
+  return path.basename(String(f)).replace(/\.[a-z0-9]+$/i, '') || String(p.dia || 'post').replace(/\W+/g, '-');
+}
+
 // Qué plantilla corresponde a cada imagen del post. Un post normal tiene una
 // sola; un carrusel tiene una por slide y las declara en `plantillas`.
 function plantillasDe(p) {
@@ -132,7 +139,14 @@ async function placaDe(templateId) {
     posts.push({
       dia: p.dia, hora: p.hora, redes: p.redes || [], plantilla: p.plantilla || '',
       nota: p.nota || '', esStory: !!p.esStory,
-      id: p.id, uuid: String(p.uuid), plannerUrl: p.plannerUrl || '',
+      // Desde el 24/09/2026 la rutina no crea nada en Metricool: el post llega sin
+      // id y el panel lo crea recién cuando Juan lo aprueba. `uuid` queda como
+      // clave local (el nombre de la placa); el uuid de Metricool se guarda en
+      // `mcUuid` al crearlo. Los posts viejos traen id y uuid de Metricool.
+      id: p.id != null ? p.id : null,
+      uuid: String(p.uuid || claveDe(p)),
+      plannerUrl: p.plannerUrl || '',
+      aprobado: !!p.aprobado,
       blogId: String(p.blogId || spec.blogId),
       info: limpiarInfo(p.info || {}),
       imagenes,

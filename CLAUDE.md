@@ -45,7 +45,9 @@ Esto instala `node_modules` + Chromium (lleva ~30-60s la primera vez).
 
 **Trigger automático**: los lunes 9hs Argentina (12:00 UTC), configurado desde la interfaz web de Claude Code on the Web.
 
-⚠️ **El lunes la rutina corre pero NO publica nada.** El lunes solo lee el Gmail, arma el contenido y crea los drafts. Los posts salen **miércoles, jueves, viernes** (y sábado en semanas pares). Nunca crear un draft con fecha de lunes.
+⚠️ **El lunes la rutina corre pero NO publica nada, y tampoco manda nada a Metricool.** Lee el Gmail, arma el contenido y lo carga en el panel de Dirección MDO. Juan aprueba o regenera ahí, y **recién al aprobar** el post se crea en Metricool, programado (decisión de Juan, 24/09/2026). Los posts salen **miércoles, jueves, viernes** (y sábado en semanas pares). Nunca un post con fecha de lunes.
+
+La rutina **"MDO - Reponer placas regeneradas"** (8, 12 y 17 hs, lunes a sábado) publica las placas que Juan regeneró en el panel y manda a Metricool las que ya aprobó (paso 7c de la skill).
 
 **Trigger manual**: cualquiera de estos prompts dispara la skill `mdo-rutina-semanal`:
 
@@ -103,7 +105,8 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ Render local en sesión cloud con Puppeteer + render.html (anduvo, ver `scripts/render.js`)
 - ✅ El diseño vive en el design system «MDO - Diseño» (artifact); el repo sólo sincroniza (decisión de Juan, 17/09/2026). Antes: templates HTML+JSX de Claude Design copiados a mano.
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
-- ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026): Juan pide otra versión de un post sin esperar a nadie. El texto se actualiza solo en Metricool; **la imagen no puede viajar sola** (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una), así que la placa nueva se baja como PNG o la repone la rutina leyendo `pendienteImagen`. Ver el paso 7c de la skill.
+- ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026). **La imagen no puede viajar sola** desde el panel (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una): la placa nueva la publica la rutina de reposición leyendo `pendienteImagen`. Ver el paso 7c de la skill.
+- ✅ Aprobar primero, Metricool después (24/09/2026): la rutina no crea posts en Metricool; los crea el panel al aprobar. El 24/09 dos posts regenerados salieron con la imagen vieja porque ya estaban en Metricool: esto lo evita.
 
 ## Video semanal (desde el 23/09/2026)
 
