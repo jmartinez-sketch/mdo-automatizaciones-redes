@@ -90,6 +90,8 @@ const jsxTmp = jsxDestino + '.sync-tmp';
 execFileSync('node', [path.join(__dirname, 'extraer-kit-manual.js'), kit, jsxTmp], { stdio: ['ignore', 'pipe', 'inherit'] });
 copiarSiCambio(jsxTmp, 'mdo-templates/templates-kit-manual.jsx', 'kit 4.4 → templates-kit-manual.jsx');
 fs.unlinkSync(jsxTmp);
+// Qué ids del kit son la misma placa (para la regla de variedad): se recalcula con el kit nuevo.
+execFileSync('node', [path.join(__dirname, 'grupos-kit.js')], { stdio: ['ignore', 'inherit', 'inherit'] });
 
 // 2. CSS de marca
 copiarSiCambio(path.join(project, 'ui_kits', 'redes', 'mdo-brand.css'), 'mdo-templates/mdo-brand.css', 'mdo-brand.css');

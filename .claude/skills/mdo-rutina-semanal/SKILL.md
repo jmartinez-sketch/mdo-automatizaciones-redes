@@ -68,9 +68,18 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 ## Contexto del negocio
 
 - **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
-- **Audiencia IG**: dueños de PyMEs, profesionales independientes, monotributistas
+- **Audiencia**: **empresas y PyMEs** (dueños y administradores). Desde el 25/09/2026 lo orgánico se alinea con la publicidad, que le habla sólo a empresas (ver abajo). Hasta entonces esta línea decía "profesionales independientes, monotributistas": ya no.
 - **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar
+
+### 📣 Contexto comercial — leer `CONTEXTO-PUBLICIDAD.md` antes de elegir contenido (regla dura)
+
+El archivo [`CONTEXTO-PUBLICIDAD.md`](CONTEXTO-PUBLICIDAD.md), en esta misma carpeta, resume lo que el estudio está diciendo en la pauta paga: a quién le habla, qué servicios empuja, qué ganchos funcionan, qué palabras no se usan y qué página de la web corresponde a cada tema. Viene del repo `mdo-publicidad` (pedido de Juan, 25/09/2026: lo orgánico tiene que tener ese contexto de **contenido**; el diseño sigue siendo el del design system). **Leerlo entero en cada armado**, y actualizarlo como dice su encabezado si el repo de publicidad está en la sesión. Lo que más pesa:
+
+- **Todo encuadrado para empresas** ("tu empresa"). Ningún post centrado en un tema que es sólo de persona física (recategorización del monotributo, Bienes Personales personal, jubilación), ni tutoriales de "hacelo vos".
+- **Nunca invitar a llamar**: el contacto es por WhatsApp, correo o la web. ❌ "llamanos", ❌ 📞.
+- **Datos fiscales en condicional**; Ingresos Brutos es "el fisco", no ARCA; MiPyME = "IVA a 90 días en lugar de al mes siguiente".
+- Mientras dure la pauta (hasta el 24/10/2026), cuando el viernes cae en Tributario, preferir ángulos de **Ingresos Brutos** o **Certificado MiPyME**.
 
 ⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
 
@@ -116,7 +125,7 @@ Esto no es teórico — pasó de verdad (auditoría del 17/08/2026 sobre 3 meses
 
 ### ⚠️ Regla dura — variedad de plantillas
 
-La rutina tiene **76 plantillas disponibles** y el riesgo real es caer siempre en las mismas 5-6. Por eso:
+La rutina tiene **79 ids de plantilla, que son 44 placas distintas** (varios ids son el mismo diseño, ver el paso 0), y el riesgo real es caer siempre en las mismas 5-6. Por eso:
 
 1. **Antes de elegir cualquier plantilla, leer `posts/historial-plantillas.json`** (paso 0). Lo usado en las últimas 4 semanas queda **descartado**, salvo la ancla `po-13d`.
 2. **Al terminar, escribir el historial** (paso 8). Si no se escribe, la próxima corrida no tiene memoria y la variedad se rompe.
@@ -209,6 +218,15 @@ Reglas de bloqueo:
 | `gestion` | últimas 4 semanas | si el pool se agota, usar la **menos reciente** |
 | `spotlight` | últimas 4 corridas quincenales | si el pool se agota, usar la **menos reciente** |
 
+⚠️ **Se bloquea la PLACA, no el id** (desde el 25/09/2026). El kit 4.4 trae 79 ids pero sólo 44 placas distintas: varios ids son exactamente el mismo diseño con otro nombre (ej. `po-24` = `po-26` = `po-28` = `po-31` = `po-33`, `po-30` = `po-35`, `st-09` = `st-09b`, `po-16` = `sv-01` = `sv-04` = `mn-04`). Usar `po-31` una semana y `po-24` la siguiente es repetir. La lista de bloqueadas sale de:
+
+```bash
+node scripts/grupos-kit.js --bloqueadas      # lo usado en las 4 semanas anteriores + sus equivalentes
+node scripts/grupos-kit.js --grupo po-31     # con qué ids es la misma placa
+```
+
+Esa lista **manda** sobre lo que se deduzca a mano del historial. Los grupos están en `mdo-templates/kit-grupos.json`, que regenera `sincronizar-diseno.js` en el paso 0b (no editarlo a mano). La horizontal `li-02` del jueves no cuenta: se repite a propósito. Al anotar el historial (paso 8), poner el id que se usó de verdad; en la `nota`, si se descartó una placa por ser equivalente a otra, decirlo.
+
 Si el archivo no existe o `historial` está vacío (primera corrida), no hay nada bloqueado: elegir libremente y crear el archivo en el paso 8.
 
 ⚠️ **No saltear este paso.** Sin leer el historial no hay forma de cumplir las reglas de variedad, y la rutina vuelve a repetir siempre las mismas plantillas.
@@ -269,6 +287,7 @@ Reglas:
 
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
+- **Preferir lo que le cambia algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Una noticia que sólo afecta a personas físicas (monotributo, Bienes Personales, jubilaciones) pierde contra cualquier novedad para empresas de peso parecido; si es la única fuerte, contarla desde lo que cambia para la empresa y sus empleados
 
 **Cuántas noticias elegir:**
 
@@ -292,6 +311,8 @@ Regla de alternancia de color (para que no se fosilice):
 
 - Por defecto: **`po-13d`** (papel/blanco).
 - Si las **últimas 2 noticias** del historial fueron `po-13d` → usar **`po-13e`** (misma composición exacta, en navy). Anotarlo en el historial como `po-13e`.
+
+> ⚠️ **Hoy (kit 4.4) `po-13d` y `po-13e` son la misma placa, las dos navy**: la alternancia no cambia nada en la grilla (verificable con `node scripts/grupos-kit.js --grupo po-13d`). Se sigue anotando igual por si el design system vuelve a separarlas. Para tener la versión papel hay que pedirla **en el design system**, no editar el repo.
 
 > Este umbral era 3 y se bajó a 2 el 11/08/2026: con una sola noticia por semana, esperar 3 dejaba tres semanas seguidas de placas idénticas en la grilla, que es justo lo que la rotación tiene que evitar. Con 2 alterna cada dos semanas y el feed respira.
 - `po-13e` tiene **los mismos 7 slots** que `po-13d` (`CATEGORIA`, `TITULAR`, `BAJADA`, `CIERRE`, `FUENTE`, `FECHA`, `HANDLE`) — no hay que cambiar nada del contenido, solo el id del template.
@@ -403,7 +424,9 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 - Si el pool quedó vacío (las 18 usadas en 4 semanas — improbable), elegir la **menos reciente** del historial.
 - Si ningún template existente encaja bien con el ángulo, **crear uno nuevo** usando estos como referencia de estilo (mismo sistema de marca).
 
-⚠️ **Los 18 templates del viernes son un pool real, no una lista decorativa.** Con 18 opciones y bloqueo de 4 semanas, cada viernes hay como mínimo 14 plantillas disponibles: no hay excusa para repetir. Si te encontrás eligiendo `po-04` por default, revisá el historial de nuevo.
+⚠️ **Ojo: en el kit 4.4 estos 18 ids son sólo 11 placas distintas.** `po-24` = `po-26` = `po-28` = `po-31` = `po-33`, `po-21` = `po-27` = `po-29` y `po-30` = `po-35`. Las descripciones y slots de las tablas de abajo son del catálogo viejo: sirven como idea de qué ángulo encaja, pero cómo se ve cada id hoy y qué slots tiene sale de `--list-slots` y de renderizarlo. Para bloquear, `node scripts/grupos-kit.js --bloqueadas` (paso 0).
+
+⚠️ **Los templates del viernes son un pool real, no una lista decorativa.** Con 18 opciones y bloqueo de 4 semanas, cada viernes hay como mínimo 14 plantillas disponibles: no hay excusa para repetir. Si te encontrás eligiendo `po-04` por default, revisá el historial de nuevo.
 
 **Texto-driven:**
 | ID | Estilo | Slots |
@@ -448,7 +471,7 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 | Tip con varios puntos prácticos | `po-04` |
 | Corregir una creencia equivocada del cliente | `po-34` |
 | Advertir sobre errores que se cometen seguido | `po-35` |
-| Comparar dos caminos (hacerlo solo vs. tercerizar, monotributo vs. RI) | `po-32` |
+| Comparar dos caminos (certificar vs. auditar, SRL vs. SAS, hacerlo en la empresa vs. tercerizar) | `po-32` |
 | Buscar comentarios / conversación | `po-33` |
 | Prueba social sin exponer al cliente | `po-36` |
 | Los vencimientos del mes, para que los guarden | el carrusel de calendario: `ca-cover` + `ca-q1` + `ca-q2` |
@@ -833,7 +856,7 @@ Impacto: qué significa esto en la práctica para vos / tu PyME.
 
 —
 
-📞 Consultanos: mdo-consultores.com.ar
+Si tu empresa necesita revisarlo, escribinos: mdo-consultores.com.ar/servicios/<la página del tema>
 
 #MDOConsultores #Impuestos #Contabilidad #PyMEs #Argentina #ARCA
 ```
@@ -849,7 +872,7 @@ Por qué importa: [breve explicación].
 
 —
 
-📞 Auditá tu setup contable con nosotros: mdo-consultores.com.ar
+Lo revisamos con tu empresa. Escribinos: mdo-consultores.com.ar/servicios/<la página del servicio>
 
 #MDOConsultores #GestiónPyME #Contabilidad #Argentina
 ```
@@ -858,7 +881,8 @@ Reglas de texto:
 
 - Largo total: entre 600-1200 caracteres
 - Español rioplatense, "vos" no "tú"
-- Sin emojis salvo el 📞 al CTA
+- Sin emojis. ❌ Nunca 📞 ni "llamanos": el contacto es por WhatsApp, correo o la web (decisión de Juan, 25/09/2026)
+- El CTA cierra con **la página del servicio** del post (tabla de `CONTEXTO-PUBLICIDAD.md`), no con la home, salvo que el tema no tenga página
 - Hashtags al final, máximo 8
 - Siempre incluir `#MDOConsultores`
 - ❌ **Nunca el hashtag `#AFIP`** — solo `#ARCA` (aplica la regla dura de arriba también a los hashtags)
@@ -870,7 +894,7 @@ Reglas de texto:
 | Hashtags | hasta 8, al final | **máximo 3** — en LinkedIn más de 3 se ve spam |
 | Tono | directo, cercano | un punto más formal, sin perder el "vos" |
 | Largo | 600-1200 chars | puede ir más largo; LinkedIn premia el desarrollo |
-| Emojis | solo 📞 en el CTA | mejor ninguno |
+| Emojis | ninguno (❌ 📞) | ninguno |
 | Story de IG | `text` **vacío** (Instagram no admite caption en stories) | acá va el texto completo |
 
 ### 7b. Cargar los posts en el panel de aprobación (OBLIGATORIO)
@@ -1057,7 +1081,7 @@ Cuando todos los drafts estén creados y el historial escrito:
 
 Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas anteriores del historial:
 
-- ¿Alguna plantilla se repite respecto de las últimas 4 semanas (fuera de la ancla `po-13d`/`po-13e`)? → **es un error**: volver a elegir y re-renderizar.
+- ¿Alguna plantilla se repite respecto de las últimas 4 semanas (fuera de la ancla `po-13d`/`po-13e`)? → **es un error**: volver a elegir y re-renderizar. Se compara por placa, no por id: si `node scripts/grupos-kit.js --grupo <id>` muestra que la elegida es equivalente a una bloqueada, también es repetición.
 - ¿Los posts de la semana se ven distintos entre sí en la grilla (modo de color, composición)? Si los 3-4 quedaron todos en navy o todos en papel, cambiar uno.
 
 ## Notas técnicas
