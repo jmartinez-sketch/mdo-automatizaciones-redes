@@ -43,11 +43,14 @@ Esto instala `node_modules` + Chromium (lleva ~30-60s la primera vez).
 
 ## Cómo se dispara la rutina
 
-**Trigger automático**: los lunes 9hs Argentina (12:00 UTC), configurado desde la interfaz web de Claude Code on the Web.
+**Trigger automático**: una sola rutina, **«MDO - Automatizaciones Redes»** (Claude Code on the Web), que corre a las **7:50, 11:50 y 16:50 hs Argentina, de lunes a sábado**, y decide sola qué toca:
+
+- **Lunes** (o martes, si el lunes no llegó a cargar el panel): arma la semana completa.
+- **Las demás pasadas**: repone las placas que Juan regeneró en el panel y manda a Metricool las que ya aprobó (paso 7c de la skill). Si no hay nada, termina en una línea.
+
+Hasta el 25/09/2026 eran dos rutinas (la semanal y «MDO - Reponer placas regeneradas»); Juan pidió juntarlas.
 
 ⚠️ **El lunes la rutina corre pero NO publica nada, y tampoco manda nada a Metricool.** Lee el Gmail, arma el contenido y lo carga en el panel de Dirección MDO. Juan aprueba o regenera ahí, y **recién al aprobar** el post se crea en Metricool, programado (decisión de Juan, 24/09/2026). Los posts salen **miércoles, jueves, viernes** (y sábado en semanas pares). Nunca un post con fecha de lunes.
-
-La rutina **"MDO - Reponer placas regeneradas"** (8, 12 y 17 hs, lunes a sábado) publica las placas que Juan regeneró en el panel y manda a Metricool las que ya aprobó (paso 7c de la skill).
 
 **Trigger manual**: cualquiera de estos prompts dispara la skill `mdo-rutina-semanal`:
 
@@ -110,7 +113,9 @@ out/                    PNGs de prueba locales (en .gitignore)
 
 ## Video semanal (desde el 23/09/2026)
 
-Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel + LinkedIn). Es la misma placa animada con `scripts/video.js`, y pasa por el panel de aprobación como el resto. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
+Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn). Es la misma placa animada con `scripts/video.js`, y pasa por el panel de aprobación como el resto. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
+
+Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisa la tira de cuadros y dos cuadros a tamaño real con la tabla de chequeo del paso 4c, y se corrige lo que falle. El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`).
 
 ## Regla dura sobre el tip PyME (viernes)
 

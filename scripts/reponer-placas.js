@@ -14,7 +14,7 @@
 //     con un nombre nuevo para que Metricool no use la copia vieja de su caché;
 //   - arma la miniatura JPEG que muestra el panel.
 // Escribe un plan con lo que falta hacer afuera (push, Metricool, base del panel).
-// Lo usa la rutina "Reponer placas regeneradas" (paso 7c de la skill).
+// Lo usa la rutina "MDO - Automatizaciones Redes" en cada pasada (paso 7c de la skill).
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
@@ -80,8 +80,9 @@ async function miniatura(browser, abs, ancho) {
       if (p.video && p.video.asset) {
         const { video: grabar } = require('./video');
         const rel = archivos[0].replace(/\.png$/, '.mp4');
-        await grabar({ template: pi.plantillas[0], slots: pi.slots[0], outPath: path.join(ROOT, rel) });
-        video = { archivo: rel, assetViejo: p.video.asset };
+        const r = await grabar({ template: pi.plantillas[0], slots: pi.slots[0], outPath: path.join(ROOT, rel) });
+        // La portada (el cuadro 9:16 con la placa completa) es la tapa del Reel: videoThumbnailUrl.
+        video = { archivo: rel, portada: r.portada ? path.relative(ROOT, r.portada) : null, assetViejo: p.video.asset };
       }
       plan.reponer.push({
         uuid: p.uuid, id: p.id, mcUuid: p.mcUuid || (p.id != null ? p.uuid : null),
@@ -96,7 +97,7 @@ async function miniatura(browser, abs, ancho) {
         publicacion: f || null,
         archivos, miniaturas, video,
       });
-      console.log(`${p.dia} (${pi.plantillas.join(', ')}) → ${archivos.join(', ')}${video ? ' + ' + video.archivo : ''}`);
+      console.log(`${p.dia} (${pi.plantillas.join(', ')}) → ${archivos.join(', ')}${video ? ' + ' + video.archivo + (video.portada ? ' + ' + video.portada : '') : ''}`);
     }
   } finally { await browser.close(); }
   fs.writeFileSync(planPath, JSON.stringify(plan, null, 2));

@@ -1,14 +1,14 @@
 ---
 name: mdo-rutina-semanal
 model: opus
-description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes con las placas del design system «MDO - Diseño» (kit 4.4) y carga 4 posts (Mié/Jue/Vie 9hs Argentina, + sábado 11hs en semanas pares) en el panel de aprobación de Dirección MDO, sin mandar nada a Metricool: el panel los crea en Metricool recién cuando Juan los aprueba, cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando se dispare por trigger los lunes 9am Argentina.
+description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO publica ese día. Lee el Gmail del usuario (label MDO/AUTOMATIZACIONES/Claude/Newsletter, últimos 7 días), elige la noticia más impactante, arma un post de gestión PyME, renderiza las imágenes con las placas del design system «MDO - Diseño» (kit 4.4) y carga 4 posts (Mié/Jue/Vie 9hs Argentina, + sábado 11hs en semanas pares) en el panel de aprobación de Dirección MDO, sin mandar nada a Metricool: el panel los crea en Metricool recién cuando Juan los aprueba, cada uno con Instagram y LinkedIn juntos salvo el jueves de story para la cuenta IG+LinkedIn @mdoconsultores. Rota plantillas usando posts/historial-plantillas.json para no repetir las de las últimas 4 semanas. Usar cuando el usuario diga "corré la rutina semanal", "armá los posts de la semana", "ejecutá rutina MDO", o cuando la rutina «MDO - Automatizaciones Redes» la dispare el lunes a las 7:50 (Argentina).
 ---
 
 # Rutina semanal de posteos MDO Consultores
 
-Ejecutar **todos los lunes 9hs Argentina (UTC-3)** para armar los posteos de la semana como drafts en Metricool.
+Corre **los lunes a las 7:50 hs Argentina (UTC-3)**, dentro de la rutina «MDO - Automatizaciones Redes», para armar los posteos de la semana y cargarlos en el panel de aprobación de Dirección MDO. Nada va a Metricool hasta que Juan aprueba (paso 6). La misma rutina pasa a las 7:50, 11:50 y 16:50 de lunes a sábado: el lunes (o el martes, si el lunes no llegó a cargar el panel) arma la semana; en las demás pasadas sólo repone lo que Juan regeneró en el panel (paso 7c).
 
-⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y crea los drafts. El primer post de la semana sale el **miércoles**. ❌ Nunca crear un draft con fecha de lunes.
+⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y lo carga en el panel. El primer post de la semana sale el **miércoles**. ❌ Nunca un post con fecha de lunes.
 
 ## ⚠️ Kit de redes 4.4 — regla dura (desde el 08/09/2026)
 
@@ -151,11 +151,13 @@ Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
 | Semana ISO | Qué post va en video | Formato | Redes |
 |---|---|---|---|
 | **impar** (`$(( $(date +%V) % 2 )) == 1`) | **Jueves · historia** (en semanas impares el ciclo del jueves siempre cae en historia: encuesta `st-10` o cita `st-08*`) | 9:16, 1080×1920 | Instagram historia. El draft de LinkedIn del jueves sigue con su imagen `li-02` |
-| **par** | **Viernes · gestión PyME** | 4:5, 1080×1350 | Instagram (sale como Reel) + LinkedIn, el mismo video |
+| **par** | **Viernes · gestión PyME** | Reel 9:16, 1080×1920: la placa 4:5 al centro y el fondo extendido arriba y abajo (el feed y la grilla muestran justo la placa) | Instagram (sale como Reel) + LinkedIn, el mismo video |
 
 - El video es **la misma placa animada**: mismos slots, misma plantilla, mismo texto. No se inventa contenido aparte. Lo arma `scripts/video.js` (paso 4c) con los recursos del manual: el isotipo se traza al abrir y se vuelve marca de agua o firma, filetes que se dibujan, cierre con el logo y la web.
+- **Es la pieza de la semana que más se mira: va con esfuerzo de dirección de arte, no como trámite** (pedido de Juan, 25/09/2026). Ver el paso 4c: elegir una placa que luzca animada, revisar la tira y los cuadros a tamaño real, y corregir antes de subir.
+- **En semanas pares, el viernes conviene una placa con estructura** (lista `ITEM_n`, pasos, comparativa, antes/después, mito y realidad): el video muestra cada bloque al ritmo de lectura y ahí es donde más luce. Una placa de un solo bloque de texto también anda, pero queda más quieta. La regla de variedad del paso 0 sigue mandando.
 - El miércoles (noticia, ancla `po-13d`/`po-13e`) **no** va en video: es la placa que hace reconocible la grilla.
-- **El PNG se renderiza igual** (paso 4): es la tapa del video en la grilla y en el panel, y el respaldo si Metricool no acepta el video.
+- **El PNG se renderiza igual** (paso 4): es la tapa del video en el panel y el respaldo si Metricool no acepta el video. La tapa del Reel en Instagram es otra: la **portada** 9:16 que arma `video.js` (paso 4c).
 - **Destacadas**: la historia en video puede quedar en Destacadas, pero **se agrega a mano desde la app de Instagram** después de que se publica. Ni Instagram ni Metricool permiten hacerlo por API. Recordárselo a Juan en el reporte final.
 
 ## Paso a paso
@@ -682,32 +684,47 @@ Si una imagen tiene texto cortado o pegado al borde, **NO crear el draft**: acor
 
 ### 4c. Renderizar el video de la semana (OBLIGATORIO, ver la regla del video)
 
-Con **los mismos slots** que el PNG de ese post (el del jueves en semanas impares, el del viernes en semanas pares):
+Es la pieza que más se mira de la semana: **hacerla con esfuerzo de dirección de arte**. Nada de renderizar y subir sin mirar. Usa **los mismos slots** que el PNG de ese post (el del jueves en semanas impares, el del viernes en semanas pares).
+
+**1. Prueba rápida, sin codificar** (tarda ~30 s):
 
 ```bash
-node scripts/video.js \
-  --template st-08 \
-  --out posts/YYYY-MM-DD-N.mp4 \
-  --slots '<exactamente el mismo JSON de slots que se usó para el PNG>'
+node scripts/video.js --template <id> --out posts/YYYY-MM-DD-N.mp4 \
+  --slots '<exactamente el mismo JSON de slots que se usó para el PNG>' \
+  --tira out/video-tira.png --solo-tira
 ```
 
-- Mismo nombre que el PNG del post, con `.mp4`. Tarda uno o dos minutos.
-- La duración se calcula sola según cuánto texto hay (piso de ~10 s, techo de 30 s). Si el script avisa `queda poco tiempo para leerlo`, subir `--segundos` o acortar el texto.
-- El estilo lo elige solo según la plantilla (`institucional` para historias con foto, `secuencial` para comparativas y explicadores `po-31..35`, `editorial` para el resto). Se puede forzar con `--estilo`.
+Deja `out/video-tira.png` (14 cuadros en orden: apertura, entrada bloque por bloque, placa completa, salida y firma) y dos cuadros a tamaño real al lado: `out/video-tira-entrada.png` y `out/video-tira-completa.png`. **Mirar los tres con Read** y chequear, uno por uno:
+
+| | Qué tiene que pasar | Si no |
+|---|---|---|
+| a | **Apertura**: el isotipo se traza y se llena al centro; navy en placa clara, blanco en placa oscura | ver la línea `placa clara/oscura` que imprime el script |
+| b | **Entrada**: los bloques entran en orden de lectura, uno por vez; ningún texto cortado, montado o corrido; cada línea divisoria aparece con su texto, no antes; nada salta de lugar | acortar el texto del bloque que falla |
+| c | **Placa completa** (`-completa.png`): el texto idéntico al PNG del post, con los mismos cortes de renglón, y legible a tamaño celular. El fondo puede sumar la marca de agua del isotipo: es a propósito | es un problema de la placa: arreglar el texto y re-renderizar también el PNG |
+| d | **Cierre**: el texto se va antes de que aparezca el logo; MDO CONSULTORES con buen contraste y la web `mdo-consultores.com.ar` debajo; la firma queda quieta al final | — |
+| e | **Ritmo**: el titular ya se lee antes de los 3 s; entre 10 y 25 s en total (el script imprime la duración) | acortar texto, o `--segundos N` |
+
+Si algo falla por un error de `scripts/video.js` (no del texto), **corregir el script** — es código nuestro, no del design system — y volver a probar con la tira. No subir un video con un defecto visible "porque es chico".
+
+**2. Render final** (2 a 3 minutos):
+
+```bash
+node scripts/video.js --template <id> --out posts/YYYY-MM-DD-N.mp4 --slots '<el mismo JSON>'
+```
+
+Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 con pista de audio muda) y **`posts/YYYY-MM-DD-N-portada.png`**, el cuadro con la placa completa que va de tapa del Reel.
+
+- Mismo nombre que el PNG del post, con `.mp4`.
+- La duración se calcula sola: cada bloque aparece al ritmo de lectura (~3 palabras por segundo) y al final queda un rato la placa completa. Si el script avisa `queda poco tiempo para leerlo`, subir `--segundos` o acortar el texto.
+- El formato por defecto es **Reel 9:16**: la placa 4:5 al centro y el fondo extendido arriba y abajo, así la UI de Instagram no tapa nada y el feed muestra la placa entera. Las historias ya son 9:16. (`--formato placa` graba al tamaño de la plantilla, sólo para pruebas.)
+- El estilo lo elige solo según la plantilla (`institucional` para historias y placas con foto, con persianas al ritmo de la grilla; `secuencial` para comparativas y explicadores `po-31..35`; `editorial` para el resto). Se puede forzar con `--estilo`.
 - ❌ Las horizontales `li-*` no se animan: LinkedIn del jueves lleva su imagen.
 
-**Verificación obligatoria**: sacar una tira de cuadros y mirarla con Read antes de seguir:
-
-```bash
-node_modules/ffmpeg-static/ffmpeg -y -loglevel error -i posts/YYYY-MM-DD-N.mp4 \
-  -vf "select='eq(n\,30)+eq(n\,75)+eq(n\,150)+eq(n\,240)+eq(n\,330)',scale=216:-1,tile=5x1" -frames:v 1 out/video-cuadros.png
-```
-
-Chequear que (a) el isotipo se traza al principio, (b) la placa completa se ve igual que el PNG, sin textos cortados, y (c) cierra con el logo MDO CONSULTORES y la web. Si el video falla o se ve mal, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.
+Si el video falla o no queda bien después de corregirlo, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
-Antes de crear los drafts en Metricool, los PNGs **y el MP4 de la semana** deben estar en GitHub para que Metricool los descargue y los copie a su CDN (`git add posts/` los incluye a todos):
+Antes de cargar el panel, los PNGs, **el MP4 de la semana y su portada** (`-portada.png`) deben estar en GitHub: cuando Juan aprueba, Metricool los descarga de ahí y los copia a su CDN (`git add posts/` los incluye a todos):
 
 ```bash
 git add posts/
@@ -760,7 +777,7 @@ Un post de Metricool tiene **un solo array `media` y un solo `text`** compartido
 > **🎬 El post que va en video** (ver la regla del video) cambia sólo esto respecto del JSON de abajo:
 > - `media`: la URL del **`.mp4`** en lugar del `.png`.
 > - Historia (semana impar): `instagramData.type: "STORY"`, igual que siempre. **No** mandar `videoThumbnailUrl`: en historias Metricool rechaza el pedido entero (`VIDEO_THUMBNAIL_NOT_APPLICABLE`).
-> - Feed (semana par): `instagramData.type: "REEL"` con `showReelOnFeed: true`, y **`videoThumbnailUrl`** con la URL del PNG de ese post, para que la grilla muestre la placa y no un cuadro cualquiera. LinkedIn va en el mismo draft y recibe el mismo video.
+> - Feed (semana par): `instagramData.type: "REEL"` con `showReelOnFeed: true`, y **`videoThumbnailUrl`** con la URL de la **portada** (`posts/YYYY-MM-DD-N-portada.png`, 9:16), para que la grilla muestre la placa y no un cuadro cualquiera. No usar el PNG 4:5 de tapa: no tiene la proporción del video. LinkedIn va en el mismo draft y recibe el mismo video.
 > - Si al aprobar Metricool rechaza el video, el panel le muestra a Juan el mensaje exacto. En ese caso la próxima corrida (o la pasada de reposición, si Juan lo pide) cambia la `media` de ese post al PNG en el documento, y Juan lo vuelve a aprobar. No reintentar a ciegas: Metricool avisa que sus errores son definitivos.
 
 > ⚠️ **Metricool no tiene herramienta para borrar posts.** Si una corrida crea un draft de más, NO se puede eliminar desde acá: hay que avisarle al usuario cuál borrar a mano y pasarle el link (`plannerUrl` de la respuesta). Mejor no crearlo.
@@ -912,7 +929,7 @@ Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre la
 
 ### 7c. Reponer las placas que Juan regeneró desde el panel
 
-Esto lo hace la rutina **"MDO - Reponer placas regeneradas"** (8, 12 y 17 hs de lunes a sábado), y también la rutina del lunes al empezar. Es el único puente entre lo que Juan regenera en el panel y Metricool.
+Esto lo hace la rutina **«MDO - Automatizaciones Redes»** en cada pasada (7:50, 11:50 y 16:50 de lunes a sábado; el lunes, antes de armar la semana nueva). Es el único puente entre lo que Juan regenera en el panel y Metricool. Hasta el 25/09/2026 lo hacía una rutina aparte («MDO - Reponer placas regeneradas»); Juan pidió que todo quede en una sola.
 
 Cuando Juan acepta una versión regenerada, el panel deja en el post el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`) y, si Juan lo aprueba, **`aprobado: true`**. La placa nueva no puede viajar sola: Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. Si el post ya estaba en Metricool (posts de antes del 24/09/2026, o uno que Juan aprobó y después regeneró), el panel le cambia el texto allá y lo deja **en pausa** (borrador) hasta que llegue la placa.
 
@@ -922,7 +939,7 @@ Procedimiento:
 2. Si ningún post trae `pendienteImagen`: **terminar ahí, en una línea**. Es lo normal.
 3. `node scripts/reponer-placas.js <el json bajado> out/plan-reponer.json` — renderiza el PNG nuevo (y el MP4 si era el video de la semana) con un nombre nuevo, y arma las miniaturas. Los posts que ya salieron quedan en `saltados`: no se tocan.
 4. Commitear y pushear los archivos nuevos (`git add posts/ && git commit && git push`). URL pública: `https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/<sha del commit>/<archivo>` (con el sha, no con el nombre de la rama: así no hay caché vieja). Verificar que responda 200.
-5. Para cada post del plan, en el documento: `info.media` = la URL nueva (para video: el MP4, y `videoThumbnailUrl` = el PNG si es Reel), `imagenes` = las `miniaturas`, borrar `pendienteImagen`. Si había video, subir el MP4 nuevo como asset (`Artifact` · `publish` · `asset: true`), poner el id en `video.asset` y borrar el asset viejo.
+5. Para cada post del plan, en el documento: `info.media` = la URL nueva (para video: el MP4, y si es Reel `instagramData.videoThumbnailUrl` = la URL de `video.portada` del plan), `imagenes` = las `miniaturas`, borrar `pendienteImagen`. Si había video, subir el MP4 nuevo como asset (`Artifact` · `publish` · `asset: true`), poner el id en `video.asset` y borrar el asset viejo.
 6. Metricool, según el plan:
    - `enMetricool: false` y `aprobado: true` → `createScheduledPost` con `date` = `info.publicationDate.dateTime` + `-03:00` e `info` con `draft: false`, `autoPublish: true` (y `instagramData.autoPublish: true`). Guardar en el post `id`, `mcUuid` (el uuid que devuelve) y `plannerUrl`.
    - `enMetricool: false` y `aprobado: false` → nada: queda listo en el panel para que Juan lo apruebe cuando quiera.
@@ -1046,9 +1063,9 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 ## Notas técnicas
 
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
-- **Video**: `scripts/video.js` usa el mismo `render.html` que las placas, graba cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
+- **Video**: `scripts/video.js` usa el mismo `render.html` que las placas, anima la placa real con la Web Animations API, la graba cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). El texto se parte en palabras sólo si el armado queda idéntico al PNG; el tono (placa clara u oscura) se mide sobre la imagen real, no sobre el CSS. `--tira` + `--solo-tira` sirven para probar en segundos; `--cuadros 9000,15000` saca cuadros sueltos a tamaño real. El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
-- **Timezone**: Argentina = UTC-3. Sin DST. Lunes 9hs ARG = Lunes 12:00 UTC.
+- **Timezone**: Argentina = UTC-3. Sin DST. La rutina pasa a las 7:50, 11:50 y 16:50 ARG (lunes a sábado; el cron está escrito con `CRON_TZ=America/Argentina/Buenos_Aires`). El armado de la semana es la pasada del lunes a las 7:50: la de las 7:50 llega antes de los posts de las 9.
 - **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.
 - **Templates disponibles**: las **79 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
