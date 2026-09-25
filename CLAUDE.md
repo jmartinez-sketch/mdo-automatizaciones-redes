@@ -118,9 +118,15 @@ Todas las semanas sale **un video**, alternando: semana ISO **impar** → la his
 
 Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisa la tira de cuadros y dos cuadros a tamaño real con la tabla de chequeo del paso 4c, y se corrige lo que falle. El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`).
 
-## Contenido alineado con la publicidad (desde el 25/09/2026)
+## Estrategia de contenido (desde el 25/09/2026)
 
-Lo orgánico dice lo mismo que la pauta paga del repo `jmartinez-sketch/mdo-publicidad`: **se le habla a empresas**, nunca se invita a llamar (WhatsApp, correo o web), los datos fiscales van en condicional y cada post cierra con la página de su servicio. El resumen vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-PUBLICIDAD.md` y la rutina lo lee en cada armado. Es contexto de **contenido**: el diseño sigue siendo el del design system.
+La estrategia de las redes vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-PUBLICIDAD.md` y la rutina la lee en cada armado. Sale del análisis de la pauta de Meta y Google (`jmartinez-sketch/mdo-publicidad`), de las páginas de servicio de la web (`jmartinez-sketch/mdo-web`) y del rendimiento orgánico en Metricool.
+
+- El estudio trabaja **sólo para empresas**.
+- El orgánico es la vidriera para quien llega desde un anuncio, y la noticia del miércoles se publica como nota en la web.
+- Ejes por peso comercial: Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores, contabilidad.
+- Cada post cierra con la página de su servicio. Nunca se invita a llamar.
+- Es contenido; el diseño sigue siendo el del design system.
 
 ## Regla dura sobre el tip PyME (viernes)
 

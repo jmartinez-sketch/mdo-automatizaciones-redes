@@ -68,18 +68,20 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 ## Contexto del negocio
 
 - **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
-- **Audiencia**: **empresas y PyMEs** (dueños y administradores). Desde el 25/09/2026 lo orgánico se alinea con la publicidad, que le habla sólo a empresas (ver abajo). Hasta entonces esta línea decía "profesionales independientes, monotributistas": ya no.
+- **Audiencia**: **empresas y PyMEs** (dueños y administradores). El estudio no atiende personas físicas: no se publica nada pensado para ellas.
 - **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar
 
-### 📣 Contexto comercial — leer `CONTEXTO-PUBLICIDAD.md` antes de elegir contenido (regla dura)
+### 📣 Estrategia de contenido — leer `CONTEXTO-PUBLICIDAD.md` antes de elegir nada (regla dura)
 
-El archivo [`CONTEXTO-PUBLICIDAD.md`](CONTEXTO-PUBLICIDAD.md), en esta misma carpeta, resume lo que el estudio está diciendo en la pauta paga: a quién le habla, qué servicios empuja, qué ganchos funcionan, qué palabras no se usan y qué página de la web corresponde a cada tema. Viene del repo `mdo-publicidad` (pedido de Juan, 25/09/2026: lo orgánico tiene que tener ese contexto de **contenido**; el diseño sigue siendo el del design system). **Leerlo entero en cada armado**, y actualizarlo como dice su encabezado si el repo de publicidad está en la sesión. Lo que más pesa:
+[`CONTEXTO-PUBLICIDAD.md`](CONTEXTO-PUBLICIDAD.md), en esta carpeta, es **la estrategia de contenido de las redes**: el análisis de la pauta de Meta y Google (repo `mdo-publicidad`), de las páginas de servicio de la web (`mdo-web`) y de lo que rindió el orgánico en Metricool (pedido de Juan, 25/09/2026). Es contenido, no diseño. **Leerlo entero en cada armado** y actualizarlo como dice su encabezado. Lo esencial:
 
-- **Todo encuadrado para empresas** ("tu empresa"). Ningún post centrado en un tema que es sólo de persona física (recategorización del monotributo, Bienes Personales personal, jubilación), ni tutoriales de "hacelo vos".
-- **Nunca invitar a llamar**: el contacto es por WhatsApp, correo o la web. ❌ "llamanos", ❌ 📞.
-- **Datos fiscales en condicional**; Ingresos Brutos es "el fisco", no ARCA; MiPyME = "IVA a 90 días en lugar de al mes siguiente".
-- Mientras dure la pauta (hasta el 24/10/2026), cuando el viernes cae en Tributario, preferir ángulos de **Ingresos Brutos** o **Certificado MiPyME**.
+- **Para qué sirve el orgánico**: es la vidriera que mira el que llega desde un anuncio, la noticia del miércoles se vuelve nota de la web (SEO) y cualquier post puede terminar promocionado. Solo, no trae clientes (30 a 90 personas por post).
+- **Rinde la obligación nueva que le cae a la empresa** contada con qué hacer (~60 de alcance); rinde menos el aviso que describe un servicio (~46, y los peores de septiembre fueron del sábado).
+- **Todo para empresas**, con un problema de plata o de riesgo concreto en la primera línea, contado por el estudio que lo resuelve. Nunca tutoriales de "hacelo vos".
+- **Nunca invitar a llamar** (WhatsApp, correo o web; ❌ 📞). Datos en condicional; Ingresos Brutos es "el fisco".
+- **Cada post cierra con la página de su servicio** (tabla de la sección 5 del archivo).
+- **Ejes, por peso comercial**: Ingresos Brutos · IVA/MiPyME/planificación · Sociedades · Auditoría y due diligence · Empleadores · Contabilidad y back office. Mientras duren las campañas de Meta (hasta el 24/10/2026), primero los dos de impuestos.
 
 ⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
 
@@ -287,7 +289,7 @@ Reglas:
 
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
-- **Preferir lo que le cambia algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Una noticia que sólo afecta a personas físicas (monotributo, Bienes Personales, jubilaciones) pierde contra cualquier novedad para empresas de peso parecido; si es la única fuerte, contarla desde lo que cambia para la empresa y sus empleados
+- **Sólo novedades que le cambian algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Lo que es sólo de personas físicas (monotributo, Bienes Personales o Ganancias personales, jubilaciones) no se publica: se elige la siguiente. Entre dos de peso parecido, gana la que toca un eje de la estrategia (Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores). Las que mejor rindieron en orgánico son obligaciones nuevas para la empresa con qué hacer (rúbrica laboral, beneficiario final, facturación, domicilio electrónico IGJ)
 
 **Cuántas noticias elegir:**
 
@@ -332,28 +334,32 @@ Regla de alternancia de color (para que no se fosilice):
 
 > Internamente lo llamamos "el tip", pero ⚠️ **la palabra "Tip" NUNCA aparece en la placa ni en el texto publicado** (ver regla del `COPETE` más abajo).
 
-**3.1 — Determinar el servicio de la semana (rotación fija)**:
+**3.1 — Determinar el eje de la semana (rotación fija)**:
 
-El servicio sobre el que se enfoca el tip del viernes NO se elige a criterio: se calcula por semana ISO para garantizar cobertura pareja de los 5 servicios PyME-relevantes (Precios de Transferencia queda fuera del ciclo: no aplica a audiencia PyME).
+El eje del viernes NO se elige a criterio: sale de la semana ISO. Desde el 25/09/2026 la rotación sigue los **ejes de la estrategia de contenido** (`CONTEXTO-PUBLICIDAD.md`), con los dos de impuestos más seguido porque son los de la pauta. El corrimiento `+ 2` hace que la semana 40 (2/10) caiga en Ingresos Brutos y la 43 (23/10) en IVA/MiPyME, las dos dentro de las campañas de Meta.
 
 ```bash
-SERVICIO_IDX=$(( $(date +%V) % 5 ))
-# 0 = Contabilidad
-# 1 = Tributario
-# 2 = Laboral
-# 3 = Societario
-# 4 = Auditoría
+SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))
+# 0 = Impuestos · Ingresos Brutos
+# 1 = Contabilidad y back office
+# 2 = Societario
+# 3 = Impuestos · IVA, MiPyME y planificación
+# 4 = Laboral (empleadores)
+# 5 = Auditoría y due diligence
 ```
 
-El tip y el CTA deben girar en torno al servicio que toque esa semana. El **ángulo creativo y la redacción siguen siendo libres** (ver regla de creatividad abajo), pero el servicio queda fijado por el cálculo. Ver la lista completa de tareas de cada servicio en la sección "Servicios de MDO Consultores".
+El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacción son libres** (ver la regla de creatividad), pero el eje queda fijado por el cálculo y el tema tiene que ser un servicio real de la web (tabla de la sección 5 de `CONTEXTO-PUBLICIDAD.md`).
 
-| IDX | Servicio | CTA sugerido |
-|---|---|---|
-| 0 | Contabilidad | "Llevamos la contabilidad de tu PyME. Consultanos." |
-| 1 | Tributario | "Asesoramiento impositivo para tu empresa. Consultanos." |
-| 2 | Laboral | "Liquidamos los sueldos de tu empresa. Consultanos." |
-| 3 | Societario | "Te ayudamos a constituir tu sociedad. Consultanos." |
-| 4 | Auditoría | "Auditamos los estados contables de tu empresa. Consultanos." |
+| IDX | Eje | Ángulos que funcionan | CTA (cierre) y página |
+|---|---|---|---|
+| 0 | Ingresos Brutos | Retenciones y percepciones que superan el impuesto, saldo a favor que inmoviliza capital, jurisdicciones de más, Convenio Multilateral | "Revisamos cómo liquida Ingresos Brutos tu empresa. Escribinos." → `/servicios/analisis-ingresos-brutos` |
+| 1 | Contabilidad y back office | Balance para decidir (no sólo para cumplir), back office tercerizado, conciliaciones, reporting | "Llevamos la contabilidad y el back office de tu empresa. Escribinos." → `/servicios/contabilidad-pymes` o `/servicios/outsourcing-administrativo` |
+| 2 | Societario | Sociedad al día ante IGJ (actas, autoridades, balances), elegir SA/SRL/SAS, socios que entran o salen | "Ponemos al día tu sociedad. Escribinos." → `/servicios/societario-igj` |
+| 3 | IVA, MiPyME y planificación | Diferir el IVA con el Certificado MiPyME, cheque a cuenta de Ganancias, anticipos sobre un año que ya no existe, decidir con el impacto fiscal a la vista | "Revisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos." → `/servicios/certificado-mipyme` o `/servicios/impuestos-nacionales` |
+| 4 | Laboral (empleadores) | Costo real de un empleado, convenio que aplica, inspecciones, altas y bajas | "Liquidamos los sueldos de tu empresa. Escribinos." → `/servicios/liquidacion-de-sueldos` |
+| 5 | Auditoría y due diligence | Cuando el banco, un socio o un comprador piden los números; certificar vs. auditar; due diligence antes de comprar | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` o `/servicios/fusiones-adquisiciones-reorganizaciones` |
+
+> Hasta el 25/09/2026 la rotación era `% 5` sobre Contabilidad, Tributario, Laboral, Societario y Auditoría.
 
 **REGLAS DURAS — no negociables**:
 
@@ -584,11 +590,11 @@ En Metricool, el carrusel se crea como un único post con todas las imágenes en
 
 Este post es **quincenal**: solo se genera cuando la semana ISO es par (`$(( $(date +%V) % 2 )) == 0`). En semanas impares, **omitir este paso** (la rutina genera 3 posts, no 4).
 
-Objetivo: variar el formato del feed con un post **institucional de marca**, no de noticias ni de tips. Logo con presencia + un servicio + una sola línea de beneficio.
+Objetivo: un post de **Servicios** que funcione como un anuncio: **un problema concreto de la empresa + el servicio que lo resuelve**, en una línea. ❌ No describir el servicio con su lista de tareas: los avisos que describen servicios fueron los peores posts de septiembre (alcance 24 a 41, ver `CONTEXTO-PUBLICIDAD.md`). Mientras duren las campañas de Meta (hasta el 24/10/2026), preferir **Análisis integral de Ingresos Brutos** o **Certificado MiPyME** cuando el eje de la semana es de impuestos.
 
 - **Día/hora**: sábado de esa semana, 11hs Argentina (`-03:00`)
 - **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
-- **Servicio**: el **mismo que tocó el tip del viernes de esa semana** → reutilizar `SERVICIO_IDX=$(( $(date +%V) % 5 ))` (ver tabla en sección 3). El sábado refuerza el servicio de la quincena.
+- **Servicio**: uno del **mismo eje que el viernes de esa semana** → `SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))` (tabla del paso 3.1), con el nombre exacto que tiene en la web.
 
 **Template — pool de 6, descartando las últimas 4 del historial** (slot `spotlight`):
 
@@ -607,17 +613,18 @@ Notas del pool:
 
 Slots de `po-16` en el kit 4.4 (confirmar con `--list-slots`):
 - `VOLANTA` — siempre "Servicios"
-- `TITULAR_1` — nombre del servicio (máx ~24 chars). Ej: "Asesoramiento impositivo", "Liquidación de sueldos", "Contabilidad para PyMEs"
-- `BAJADA` — **UNA** línea de beneficio (máx ~110 chars). NO listar tareas ni repetir el título. Hablar del beneficio para el cliente, no del "qué hacemos".
+- `TITULAR_1` — nombre del servicio como figura en la web (máx ~24 chars). Ej: "Análisis de Ingresos Brutos", "Certificado MiPyME", "Liquidación de sueldos"
+- `BAJADA` — **UNA** línea con el problema que resuelve para la empresa (máx ~110 chars). NO listar tareas ni repetir el título.
 
 Para el sábado también sirven las placas de Servicios del kit, `sv-01`…`sv-08` (degradé claro con el isotipo gigante, que es exactamente la familia "Servicios" del manual). `sv-05` es Laboral, `sv-06` Impositivo, `sv-01` Societario, `sv-02` Contabilidad.
 
-Líneas de beneficio de referencia (escribir una nueva en ese estilo, NO copiar literal):
-- **Tributario**: "Planificamos la carga fiscal de tu PyME para que pagues lo justo, sin sorpresas."
-- **Contabilidad**: "Tus balances y tu gestión al día, para decidir con números reales."
-- **Laboral**: "Liquidamos los sueldos de tu equipo y te sacamos el peso de encima."
-- **Societario**: "Te acompañamos desde la constitución de tu sociedad hasta cada trámite en IGJ."
-- **Auditoría**: "Auditamos tus estados contables con la mirada que tu empresa necesita."
+Líneas de referencia (escribir una nueva en ese estilo, NO copiar literal):
+- **Ingresos Brutos**: "Si las retenciones superan el impuesto, tu empresa está financiando al fisco."
+- **IVA / MiPyME**: "Si tu empresa califica, puede diferir el pago del IVA sin costo."
+- **Societario**: "Actas, autoridades y balances en regla antes de que un banco o la IGJ te los pidan."
+- **Auditoría**: "Números auditados para cuando el banco, un socio o un comprador los piden."
+- **Laboral**: "El costo real de cada empleado, liquidado bien desde el primer recibo."
+- **Contabilidad**: "Un balance que te sirve para decidir, no sólo para presentar."
 
 Nombre del archivo: `posts/YYYY-MM-DD-5.png` (fecha = sábado de publicación).
 
@@ -845,6 +852,8 @@ Notas:
 
 Instagram NO soporta HTML — usar texto plano con saltos de línea (`\n` reales en el JSON, o `\n\n` para párrafo).
 
+⚠️ **El texto de la noticia del miércoles se publica solo como nota en la web** (rutina «MDO - Novedades web»): la **primera oración es el título de la nota**, el párrafo siguiente es el resumen y los hashtags son los temas. Por eso la primera línea es un titular claro con el tema (sin emoji, hasta ~90 caracteres), el cuerpo se sostiene solo como nota corta, y el cierre lleva la página del servicio (es la regla de SEO de publicidad: cada novedad enlazada a su servicio).
+
 Estructura recomendada para noticias:
 
 ```
@@ -1024,37 +1033,9 @@ Es un archivo con un solo escritor (esta rutina), así que no hay riesgo de conf
 
 Para que el archivo no crezca sin control, si `historial` pasa de **80 entradas**, borrar las más viejas hasta dejar 80 — pero **nunca borrar entradas de menos de 14 semanas**, porque la regla de contenido necesita 13 semanas de memoria. Lo mismo para `temas_previos`: se pueden podar las entradas de más de 14 semanas (el historial nuevo ya las cubre con sus notas).
 
-## Servicios de MDO Consultores (fuente: archivo web oficial)
+## Servicios de MDO Consultores
 
-Usar exclusivamente estos servicios para los CTAs del viernes y cualquier referencia a lo que hace el estudio. ❌ NO mencionar servicios fuera de esta lista (ej: monotributo, análisis de rentabilidad, consultoría financiera).
-
-### 1. Tributario — Asesoramiento Impositivo y Previsional
-Liquidación de IVA, Portal IVA, Ingresos Brutos / Convenio Multilateral, Ganancias, Bienes Personales, DDJJ mensuales y anuales, reintegros IVA por exportaciones, recupero de créditos fiscales, exenciones, exclusión de regímenes de retención/percepción, planes de pago y moratorias, planificación fiscal, due diligence impositivo y previsional, ajuste por inflación impositivo, reorganización de empresas, inspecciones AFIP/ARCA/ARBA/AGIP, patrocinio ante el Tribunal Fiscal.
-
-### 2. Precios de Transferencia
-Estudios de precios de transferencia, transacciones entre partes vinculadas, Master File, Country by Country Report (CbCR), documentación y DDJJ, defensa ante ARCA (auditorías, APAs y ajustes).
-
-### 3. Auditoría — Estados Contables
-Auditoría de estados contables, revisiones limitadas, auditoría operativa y de procesos, auditoría interna, control interno y gestión de riesgos, procedimientos acordados, certificaciones contables, informes periciales (pericia contable), implementación de NIIF/IFRS, prevención de lavado de activos, valuación de empresas.
-
-### 4. Societario
-Constitución de sociedades (SA, SRL, SAS), trámites IGJ y registros provinciales, actas societarias, aumento de capital, reforma de estatutos, designación de autoridades / cambio de sede, fusiones y adquisiciones, escisiones y transformaciones, transferencia de fondo de comercio, contratos comerciales.
-
-### 5. Contabilidad y Gestión para PyMEs
-Balances, estados contables, asesoría contable, registración de operaciones, conciliaciones de cuentas, libros de comercio, reportes de gestión, gestión de pagos y cobranzas, control presupuestario económico y financiero, ajuste por inflación contable, certificación de ingresos, certificación de origen de fondos.
-
-### 6. Laboral — Liquidación de Sueldos
-Liquidación de sueldos y jornales, recibos de sueldos, alta de empleados, cargas sociales, convenios colectivos de trabajo, ART y Seguro de Vida Obligatorio, cálculo de indemnizaciones, asesoramiento laboral, inspecciones laborales.
-
----
-
-**CTAs válidos por servicio** (ejemplos):
-- Tributario: "Asesoramiento impositivo para tu empresa. Consultanos."
-- Auditoría: "Auditamos los estados contables de tu empresa. Consultanos."
-- Contabilidad: "Llevamos la contabilidad de tu PyME. Consultanos."
-- Laboral: "Liquidamos los sueldos de tu empresa. Consultanos."
-- Societario: "Te ayudamos a constituir tu sociedad. Consultanos."
-- Precios de Transferencia: solo relevante para empresas con operaciones entre vinculadas — no usar en posts genéricos de PyME.
+La lista de servicios, con la página de la web de cada uno, está en la **sección 5 de `CONTEXTO-PUBLICIDAD.md`** (fuente: `src/data/services.ts` de `mdo-web`). ❌ No nombrar servicios fuera de esa lista, ni servicios para personas físicas (monotributo, Bienes Personales personal, jubilaciones). Los CTAs por eje están en la tabla del paso 3.1: siempre "Escribinos" y la página del servicio, nunca "llamanos".
 
 ### 9. Verificación final (OBLIGATORIA)
 
