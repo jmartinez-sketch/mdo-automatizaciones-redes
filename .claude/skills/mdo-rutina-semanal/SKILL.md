@@ -743,14 +743,14 @@ Si algo falla por un error de `scripts/video.js` (no del texto), **corregir el s
 node scripts/video.js --template <id> --out posts/YYYY-MM-DD-N.mp4 --slots '<el mismo JSON>'
 ```
 
-Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 **con sonido**) y **`posts/YYYY-MM-DD-N-portada.png`**, el cuadro con la placa completa que va de tapa del Reel.
+Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 con pista de audio muda) y **`posts/YYYY-MM-DD-N-portada.png`**, el cuadro con la placa completa que va de tapa del Reel.
 
 - Mismo nombre que el PNG del post, con `.mp4`.
 - La duración se calcula sola: cada bloque aparece al ritmo de lectura (~3 palabras por segundo) y al final queda un rato la placa completa. Si el script avisa `queda poco tiempo para leerlo`, subir `--segundos` o acortar el texto.
 - El formato por defecto es **Reel 9:16**: la placa 4:5 al centro y el fondo extendido arriba y abajo, así la UI de Instagram no tapa nada y el feed muestra la placa entera. Las historias ya son 9:16. (`--formato placa` graba al tamaño de la plantilla, sólo para pruebas.)
 - El estilo lo elige solo según la plantilla (`institucional` para historias y placas con foto, con persianas al ritmo de la grilla; `secuencial` para comparativas y explicadores `po-31..35`; `editorial` para el resto). Se puede forzar con `--estilo`.
 - ❌ Las horizontales `li-*` no se animan: LinkedIn del jueves lleva su imagen.
-- **Sonido** (desde el 28/09/2026): lo arma solo `scripts/sonido.js` con los momentos del video. Son toques sintetizados por nosotros, sin música ni muestras de terceros, así que no hay derechos que cuidar. Suenan la apertura, cada titular (un toque que sube por la escala), la retirada y la firma; el texto corrido no suena y mientras se lee hay silencio. `--sin-sonido` deja la pista muda; `--solo-sonido out/x.wav` arma sólo el audio en segundos, para probar.
+- **Sin sonido**: el video va con pista muda. El 28/09/2026 se probó un sonido sintetizado y Juan lo descartó («ese sonido no va»); no volver a agregarlo sin que lo pida.
 
 Si el video falla o no queda bien después de corregirlo, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.
 
