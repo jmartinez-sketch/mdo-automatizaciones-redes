@@ -1,0 +1,284 @@
+{
+  "semana": 40,
+  "rango": "30 de septiembre al 3 de octubre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 30/09",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-13d",
+      "imagenes": [
+        "posts/2026-09-30-2.png"
+      ],
+      "nota": "Noticia · Sociedades: la IGJ simplifica la constitución (sin dictamen de precalificación obligatorio, objeto social libre, sedes electrónicas).",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-09-30-2.png"
+        ],
+        "mediaAltText": [
+          "La IGJ simplifica la constitución de sociedades"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-09-30T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "La IGJ simplificó la constitución de sociedades en la Ciudad de Buenos Aires.\n\nLa Inspección General de Justicia reformó su régimen registral para agilizar las inscripciones y bajar los costos de cumplimiento. El dictamen profesional de precalificación deja de ser obligatorio para constituir una sociedad (RG IGJ 11/2026), se eliminan las restricciones al objeto social, se admite integrar capital con activos virtuales custodiados en plataformas inscriptas ante la CNV y se habilitan sedes electrónicas complementarias.\n\nQué cambia en la práctica: armar una SA, SRL o SAS en CABA puede ser más rápido y con menos requisitos formales. Menos controles previos no significa menos responsabilidad: el estatuto, el objeto y la integración del capital siguen definiendo cómo funciona la empresa y qué le van a pedir un banco o un inversor.\n\nSi tu empresa está por constituir una sociedad o reformar su estatuto, conviene revisar el trámite con las reglas nuevas.\n\nFuente: Errepar · IGJ, RG 11/2026\n\n—\n\nTe ayudamos con la constitución y los trámites de tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/societario-igj\n\n#MDOConsultores #Sociedades #IGJ #PyMEs #Argentina",
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      },
+      "slots": [
+        {
+          "FECHA": "22.09.2026",
+          "TITULAR_1": "La IGJ simplifica",
+          "TITULAR_2": "la constitución de sociedades",
+          "BAJADA": "Deja de ser obligatorio el dictamen de precalificación, se liberan las restricciones al objeto social y se suman sedes electrónicas complementarias.",
+          "CIERRE": "Antes de constituir o reformar tu sociedad, revisá qué cambió en el trámite."
+        }
+      ]
+    },
+    {
+      "dia": "Jueves 01/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "cb-cover cb-tip1 cb-tip2 cb-tip3",
+      "plantillas": [
+        "cb-cover",
+        "cb-tip1",
+        "cb-tip2",
+        "cb-tip3"
+      ],
+      "imagenes": [
+        "posts/2026-10-01-3-cover.png",
+        "posts/2026-10-01-3-s1.png",
+        "posts/2026-10-01-3-s2.png",
+        "posts/2026-10-01-3-s3.png"
+      ],
+      "nota": "Carrusel · Ingresos Brutos: el fallo «Milk World SA» que frenó retenciones de AGIP con saldos inabsorbibles, y qué revisar en la empresa.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-01-3-cover.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-01-3-s1.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-01-3-s2.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-01-3-s3.png"
+        ],
+        "mediaAltText": [
+          "Retenciones que superan el impuesto: qué dijo la Justicia",
+          "Qué pasó en el caso Milk World",
+          "Por qué importa aunque no sea tu caso",
+          "Qué conviene revisar en tu empresa"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-01T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Un fallo en CABA frenó retenciones de Ingresos Brutos que dejaban a una empresa con saldo a favor sin poder usarlo.\n\nEn la causa «Milk World SA», la Cámara de Apelaciones en lo Contencioso Administrativo, Tributario y de Relaciones de Consumo de la Ciudad frenó retenciones de AGIP que acumulaban saldos inabsorbibles. Para el tribunal, un régimen de recaudación anticipada que genera saldos que nunca se pueden usar vulnera la propiedad y el principio de reserva de ley.\n\nPor qué importa: según la actividad, el tipo de clientes y la situación fiscal, a una empresa le pueden retener o percibir más de lo que corresponde pagar. Esa diferencia no es un trámite pendiente: es capital de trabajo inmovilizado.\n\nUn fallo resuelve un caso concreto; no cambia solo la situación de las demás empresas. Lo que sí conviene es revisar si la tuya está en esa situación y qué herramientas tiene.\n\nFuente: Errepar · CCAyT CABA, «Milk World SA»\n\n—\n\nRevisamos cómo liquida Ingresos Brutos tu empresa. Escribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\n#MDOConsultores #IngresosBrutos #AGIP #PyMEs #Impuestos",
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      },
+      "slots": [
+        {
+          "VOLANTA": "Ingresos Brutos · Fallo",
+          "TITULAR_1": "Retenciones que superan",
+          "TITULAR_2": "el impuesto: qué dijo la Justicia",
+          "BAJADA": "Un fallo en CABA frenó retenciones de AGIP que generaban saldos a favor imposibles de absorber.",
+          "DESTACADO": "Deslizá"
+        },
+        {
+          "VOLANTA": "1 de 3",
+          "TITULAR_1": "Qué pasó",
+          "TITULAR_2": "en el caso Milk World.",
+          "ITEM_1": "La Cámara porteña en lo Contencioso Administrativo y Tributario frenó retenciones de AGIP que dejaban a la empresa con un saldo a favor que no podía usar, y las calificó como un «acto de despojo».",
+          "DESTACADO": "Recaudar por adelantado tiene un límite."
+        },
+        {
+          "VOLANTA": "2 de 3",
+          "TITULAR_1": "Por qué importa",
+          "TITULAR_2": "aunque no sea tu caso.",
+          "ITEM_1": "Cuando las retenciones y percepciones superan el impuesto que corresponde, la diferencia se acumula como saldo a favor: capital de trabajo que la empresa ya pagó y no puede usar.",
+          "DESTACADO": "Un saldo que crece todos los meses es una señal."
+        },
+        {
+          "VOLANTA": "3 de 3",
+          "TITULAR_1": "Qué conviene revisar",
+          "TITULAR_2": "en tu empresa.",
+          "ITEM_1": "En qué jurisdicciones corresponde estar inscripta, qué regímenes le aplican y si hay lugar para una exclusión o un certificado de no retención. Un fallo resuelve un caso: no cambia solo la situación de las demás.",
+          "DESTACADO": "Lo analizamos con tu empresa."
+        }
+      ]
+    },
+    {
+      "dia": "Viernes 02/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · Reel",
+        "LinkedIn"
+      ],
+      "plantilla": "po-24",
+      "imagenes": [
+        "posts/2026-10-02-4.png"
+      ],
+      "nota": "Gestión PyME · Ingresos Brutos, en video (Reel): tres señales de que la empresa está financiando al fisco.",
+      "video": {
+        "asset": "a333f4c59f7b08eb4445d84759cdaa1e",
+        "archivo": "posts/2026-10-02-4.mp4"
+      },
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-02-4.mp4"
+        ],
+        "mediaAltText": [
+          "¿Tu empresa está financiando al fisco? Tres señales en Ingresos Brutos"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-02T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Ingresos Brutos\n\n¿Tu empresa está financiando al fisco?\n\nSegún la actividad, el tipo de clientes y dónde vende, las retenciones y percepciones de Ingresos Brutos pueden superar el impuesto que corresponde pagar. La diferencia queda como saldo a favor: plata que la empresa ya pagó y no puede usar para operar.\n\nTres señales para mirar en las declaraciones:\n01. Las retenciones del mes superan el impuesto.\n02. El saldo a favor crece de una declaración a la otra.\n03. Te retienen en provincias donde casi no vendés.\n\nSi aparece alguna, vale la pena revisar en qué jurisdicciones corresponde que la empresa esté inscripta, qué regímenes le aplican y si hay lugar para una exclusión o un certificado de no retención.\n\n—\n\nRevisamos cómo liquida Ingresos Brutos tu empresa. Escribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\n#MDOConsultores #IngresosBrutos #GestiónPyME #PyMEs #Argentina",
+        "instagramData": {
+          "type": "REEL",
+          "showReelOnFeed": true,
+          "collaborators": [],
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-02-4-portada.png"
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      },
+      "slots": [
+        {
+          "VOLANTA": "Ingresos Brutos",
+          "TITULAR_1": "¿Tu empresa está",
+          "TITULAR_2": "financiando al fisco?",
+          "ITEM_1": "Las retenciones superan el impuesto del mes.",
+          "ITEM_2": "El saldo a favor crece en cada declaración.",
+          "ITEM_3": "Te retienen en provincias donde casi no vendés.",
+          "CIERRE": "Revisamos cómo liquida Ingresos Brutos tu empresa."
+        }
+      ]
+    },
+    {
+      "dia": "Sábado 03/10",
+      "hora": "11:00",
+      "redes": [
+        "Instagram"
+      ],
+      "plantilla": "sv-02",
+      "imagenes": [
+        "posts/2026-10-03-5.png"
+      ],
+      "nota": "Servicios · Análisis integral de Ingresos Brutos: vender a varias provincias y pagar donde no corresponde.",
+      "info": {
+        "draft": true,
+        "autoPublish": false,
+        "shortener": false,
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-03-5.png"
+        ],
+        "mediaAltText": [
+          "Análisis de Ingresos Brutos para empresas"
+        ],
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-03T11:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "text": "Análisis integral de Ingresos Brutos\n\n¿Tu empresa vende a varias provincias? Puede estar pagando Ingresos Brutos donde no corresponde, o acumulando retenciones que después quedan como saldo a favor.\n\nRevisamos en qué jurisdicciones corresponde que tu empresa esté inscripta, cómo se distribuyen los ingresos en el Convenio Multilateral, qué regímenes de retención y percepción le aplican y qué costo financiero tiene el saldo acumulado. Si ya tenés contador, funciona como una segunda opinión técnica.\n\n—\n\nEscribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\n#MDOConsultores #IngresosBrutos #ConvenioMultilateral #PyMEs #Impuestos",
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      },
+      "slots": [
+        {
+          "VOLANTA": "Servicios",
+          "TITULAR_1": "Análisis de Ingresos Brutos",
+          "BAJADA": "¿Tu empresa vende a varias provincias? Puede estar pagando Ingresos Brutos donde no corresponde."
+        }
+      ]
+    }
+  ]
+}

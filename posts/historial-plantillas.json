@@ -260,6 +260,42 @@
       "template": "po-32",
       "linkedin": null,
       "nota": "Auditoría · comparativa A/B: certificación vs. auditoría de estados contables (\"El banco te pidió el balance. ¿Certificado o auditado?\") · po-22/po-23/po-04/po-35 bloqueadas por historial; se evitaron los ángulos ya usados de Auditoría (señales de que necesitás auditoría 17/07, checklist autodiagnóstico 21/08) · un solo draft IG+LinkedIn, vertical compartida"
+    },
+    {
+      "fecha": "2026-09-30",
+      "semana_iso": 40,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "formato": "imagen",
+      "nota": "IGJ reforma el régimen registral: constitución de sociedades sin dictamen de precalificación obligatorio (RG IGJ 11/2026), objeto social sin restricciones, capital con activos virtuales, sedes electrónicas · po-13d por defecto (las 2 anteriores fueron po-13d y po-13e) · un solo draft IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-01",
+      "semana_iso": 40,
+      "slot": "jueves",
+      "template": "cb-cover+cb-tip1+cb-tip2+cb-tip3",
+      "linkedin": null,
+      "formato": "carrusel",
+      "nota": "Carrusel · Ingresos Brutos: fallo «Milk World SA» (CCAyT CABA) que frenó retenciones de AGIP con saldos inabsorbibles; por qué importa y qué revisar en la empresa · ciclo 40%4=0 · un solo draft IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-02",
+      "semana_iso": 40,
+      "slot": "gestion",
+      "template": "po-24",
+      "linkedin": null,
+      "formato": "video",
+      "nota": "Ingresos Brutos (eje 0 de la rotación nueva) · checklist: tres señales de que la empresa financia al fisco (retenciones que superan el impuesto, saldo a favor que crece, retenciones en provincias donde casi no vende) · Reel 9:16 · bloqueadas por placa: po-04, po-23, po-32, po-35/po-30 · un solo draft IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-03",
+      "semana_iso": 40,
+      "slot": "spotlight",
+      "template": "sv-02",
+      "linkedin": null,
+      "formato": "imagen",
+      "nota": "Servicios · Análisis integral de Ingresos Brutos: vender a varias provincias y pagar IIBB donde no corresponde (problema + servicio) · sv-01/po-16/sv-04/mn-04 bloqueadas · solo Instagram"
     }
   ],
   "temas_previos": [
