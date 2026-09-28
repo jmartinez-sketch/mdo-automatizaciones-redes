@@ -950,6 +950,8 @@ node scripts/aprobacion-doc.js posts/aprobacion-semana-NN.json out/paneles-publi
 1. Leer la versión actual — `action`: `read_db` · `db_op`: `get` · `collection`: `paneles` · `doc_id`: `publicaciones` · `url`: `https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `out_dir`: una carpeta del scratchpad (el documento pesa ~150 KB; con `out_dir` se guarda en un archivo en vez de volcarse en el chat). El resultado dice `version N`.
 2. Escribir — `action`: `write_db` · `db_op`: `set` · misma `url`, `collection` y `doc_id` · `file_path`: `out/paneles-publicaciones.json` · **`if_version`: N** (el número que devolvió la lectura).
 
+⚠️ **Límite de tamaño**: la base rechaza documentos de más de ~256 KB con un `invalid-argument` que no dice por qué (pasó el 28/09/2026 con el carrusel de 4 placas). `aprobacion-doc.js` avisa si pasa de 240 KB: en ese caso, bajar la calidad de los JPEG antes de escribir.
+
 Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre las dos llamadas (por ejemplo, el usuario aprobó un post): repetir la lectura y el `set` con la versión nueva. Si el documento no existe (primera vez), el `set` va sin `if_version`.
 
 `set` **reemplaza** el documento: la semana nueva pisa a la anterior, que es lo que se quiere (el panel muestra siempre la semana en curso). No hace falta publicar nada ni tocar el HTML del artifact.

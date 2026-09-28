@@ -13,7 +13,7 @@
 //
 // Las placas van adentro del documento como JPEG chicos (540 px de ancho) en
 // base64: la página no puede cargar imágenes de otros dominios, y un documento
-// de la base no puede ser enorme. Cuatro posts entran en ~300 KB.
+// de la base no puede pasar de ~256 KB. Una semana con carrusel queda en ~230 KB.
 
 const fs = require('fs');
 const os = require('os');
@@ -72,7 +72,7 @@ async function achicar(rutas, ancho) {
         const ctx = c.getContext('2d');
         ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
         ctx.drawImage(img, 0, 0, c.width, c.height);
-        return c.toDataURL('image/jpeg', 0.82);
+        return c.toDataURL('image/jpeg', 0.7);
       }, 'data:image/png;base64,' + b64, ancho);
       out.push(jpeg);
     }
@@ -169,5 +169,7 @@ async function placaDe(templateId) {
   fs.writeFileSync(outPath, JSON.stringify(doc));
   const kb = Math.round(Buffer.byteLength(JSON.stringify(doc)) / 1024);
   console.log(`OK → ${path.resolve(outPath)} (${posts.length} posts, ${kb} KB)`);
-  if (kb > 800) console.error('⚠️ El documento pasa los 800 KB: bajar la calidad o el ancho de las placas.');
+  // La base del artifact rechaza documentos de más de ~256 KB con un "invalid-argument" que no dice
+  // por qué (pasó el 28/09/2026 con un carrusel de 4 placas: 255 KB a calidad 0,82).
+  if (kb > 240) console.error('⚠️ El documento pasa los 240 KB y la base lo puede rechazar: bajar la calidad o el ancho de las placas.');
 })().catch((e) => { console.error('ERROR:', e.message || e); process.exit(1); });
