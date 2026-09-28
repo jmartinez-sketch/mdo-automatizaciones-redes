@@ -79,6 +79,7 @@ scripts/
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
   video.js              Anima una placa y la graba a MP4 (el video semanal)
+  sonido.js             El sonido del video (toques sintetizados, sin derechos de terceros)
   grupos-kit.js         Qué ids del kit son la misma placa, y qué queda bloqueado por el historial
   aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
                         con el HTML de cada placa para el botón "Regenerar"
@@ -116,7 +117,7 @@ out/                    PNGs de prueba locales (en .gitignore)
 
 Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn). Es la misma placa animada con `scripts/video.js`, y pasa por el panel de aprobación como el resto. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
 
-Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisa la tira de cuadros y dos cuadros a tamaño real con la tabla de chequeo del paso 4c, y se corrige lo que falle. El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`).
+Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisa la tira de cuadros y dos cuadros a tamaño real con la tabla de chequeo del paso 4c, y se corrige lo que falle. El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`). Desde el 28/09/2026 los videos llevan sonido propio (`scripts/sonido.js`, sintetizado, sin derechos de terceros) y el script avisa si algo se mueve a los saltos. Se evaluó la skill `onetake` (feitangyuan/onetake): su licencia es no comercial, así que no se usa su código; se tomaron las ideas.
 
 ## Estrategia de contenido (desde el 25/09/2026)
 

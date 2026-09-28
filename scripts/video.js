@@ -16,6 +16,8 @@
 //                          tamaño real (-entrada.png, -completa.png). Con --solo-tira no codifica el
 //                          video: sirve para probar rápido
 //   --cuadros 9000,12000   además, esos cuadros a tamaño real (ms), para mirar detalles
+//   --sin-sonido           pista muda (por defecto lleva el sonido de scripts/sonido.js)
+//   --solo-sonido ruta.wav sólo el sonido, sin grabar el video (para escucharlo rápido)
 //
 // Recursos del Manual de Marca 2026 (design system «MDO - Diseño»):
 //   1. Apertura: el isotipo se traza y se llena, y se vuelve marca de agua gigante (Novedades /
@@ -25,7 +27,9 @@
 //      palabra), los filetes se dibujan, los rótulos en Chivo abren el tracking, la foto se acerca.
 //   3. Salida: el texto se retira hacia arriba y sobre el mismo fondo se traza el logo principal,
 //      con la web debajo. En Institucional, las persianas se cierran antes del logo.
-// Sin blur, sin rebotes, sin contadores (manual, sección 6).
+// Sin blur, sin rebotes, sin contadores (manual, sección 6). Como no hay desenfoque de movimiento, se
+// mide la velocidad de todo lo que se mueve y se avisa si algo salta más de 80 px entre cuadros.
+// Sonido: scripts/sonido.js, a partir de los momentos que marca E().
 //
 // La placa es la misma que fotografía render.js: el texto se parte en palabras sólo si el armado
 // queda idéntico (se compara línea por línea antes y después); si no, ese bloque entra entero.
@@ -34,6 +38,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 const puppeteer = require('puppeteer');
 const FFMPEG = require('ffmpeg-static');
+const { mezclar } = require('./sonido');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -70,7 +75,7 @@ function estiloPorDefecto(id) {
 
 const svg = (f) => fs.readFileSync(path.join(ROOT, 'mdo-templates', 'assets', f), 'utf8').replace(/<\?xml[^>]*>/, '');
 
-async function video({ template, slots, outPath, estilo, segundos, formato = 'reel', portada, fps = 30, tira, soloTira = false, cuadros = [] }) {
+async function video({ template, slots, outPath, estilo, segundos, formato = 'reel', portada, fps = 30, tira, soloTira = false, cuadros = [], sonido = true, soloSonido }) {
   const [W, H] = tamano(template);
   if (H < 1000) throw new Error('Las placas horizontales (li-*) no se animan: LinkedIn lleva la imagen.');
   const HO = formato === 'placa' ? H : Math.max(H, 1920);
@@ -136,7 +141,9 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
       // Todas las formas del SVG, no sólo <path>: el logo principal dibuja la L, la T y la E de
       // CONSULTORES con <polygon>, y sin esto quedaban visibles todo el video.
       const FORMAS = 'path,polygon,polyline,rect,circle,ellipse,line';
-      const salida = 'cubic-bezier(.16,1,.3,1)', suave = 'cubic-bezier(.2,0,.2,1)', trazo = 'cubic-bezier(.45,0,.25,1)';
+      // dibujo: para las líneas que se trazan. Con la curva de salida la punta de una línea de 900 px
+      // saltaba 160 px en el primer cuadro; ésta arranca a un tercio de esa velocidad.
+      const salida = 'cubic-bezier(.16,1,.3,1)', dibujo = 'cubic-bezier(.33,.66,.2,1)', suave = 'cubic-bezier(.2,0,.2,1)', trazo = 'cubic-bezier(.45,0,.25,1)';
       const anims = [];
       // Entradas: fill 'both' (esperan ocultas y quedan en su lugar). Salidas: fill 'forwards', si no,
       // su primer cuadro taparía la entrada durante todo el video.
@@ -150,6 +157,12 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
       document.body.style.width = W + 'px'; document.body.style.height = HO + 'px';
       st.style.position = 'relative'; st.style.overflow = 'hidden'; st.style.width = W + 'px'; st.style.height = HO + 'px';
       if (off > 0) { wrap.style.position = 'absolute'; wrap.style.left = '0'; wrap.style.top = off + 'px'; }
+      // Momentos que suenan (scripts/sonido.js): cuándo, qué, y dónde en la pantalla (0 a 1, para el paneo).
+      const eventos = [];
+      const E = (t, tipo, el, dur) => {
+        const r = el ? el.getBoundingClientRect() : null;
+        eventos.push({ t: Math.round(t), tipo, x: r ? (r.left + r.width / 2) / W : 0.5, dur: dur || 0 });
+      };
       const capa = (z, css) => { const d = document.createElement('div'); d.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:' + z + ';' + (css || ''); st.appendChild(d); return d; };
 
       const fotos = [...placa.querySelectorAll('img')].filter((im) => /fotos\//.test(im.getAttribute('src') || ''));
@@ -293,8 +306,8 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
         if (filetes.includes(el)) {
           const r = el.getBoundingClientRect(), vert = r.height > r.width;
           A(el, [{ transform: vert ? 'scaleY(0)' : 'scaleX(0)', transformOrigin: vert ? 'top' : 'left' },
-                 { transform: 'none', transformOrigin: vert ? 'top' : 'left' }], { duration: 900, delay: t, easing: salida });
-          salidas.push(el); tFin = Math.max(tFin, t + 900); t += 200 * ritmo; return;
+                 { transform: 'none', transformOrigin: vert ? 'top' : 'left' }], { duration: 1000, delay: t, easing: dibujo });
+          E(t, 'filete', el); salidas.push(el); tFin = Math.max(tFin, t + 900); t += 200 * ritmo; return;
         }
         const tamLetra = parseFloat(cs.fontSize) || 20;
         const esRotulo = cs.textTransform === 'uppercase' && parseFloat(cs.letterSpacing) > 2 && tamLetra < 40;
@@ -313,9 +326,11 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
         }
         if (esRotulo && trackingSeguro) {
           A(el, [{ opacity: 0, letterSpacing: '0.02em' }, { opacity: 1, letterSpacing: tracking }], { duration: 1100, delay: t, easing: salida });
+          E(t, 'rotulo', el);
           salidas.push(el); tFin = Math.max(tFin, t + 1100); t += 380 * ritmo + pausa(el); return;
         }
         const grande = tamLetra >= 50;
+        E(t, grande ? 'titular' : esRotulo ? 'rotulo' : 'texto', el);
         const renglones = partir(el);
         if (!renglones) {
           // No se pudo partir sin mover nada: entra el bloque entero, con la misma máscara.
@@ -370,7 +385,7 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
           capaLineas.appendChild(d);
           el.style['border' + l + 'Color'] = 'transparent';
           A(d, [{ transform: o === 'h' ? 'scaleX(0)' : 'scaleY(0)' }, { transform: 'none' }],
-            { duration: 900, delay: Math.max(tPlaca, tb - 120 + k * 60), easing: salida });
+            { duration: 1000, delay: Math.max(tPlaca, tb - 120 + k * 60), easing: dibujo });
           lineasBorde.push(d);
         });
       });
@@ -412,6 +427,8 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
                { strokeDashoffset: 0, fillOpacity: 0, strokeOpacity: 1, offset: (tTrazo - t0) / (tSale - t0) },
                { strokeDashoffset: 0, fillOpacity: 1, strokeOpacity: 0 }], { duration: tSale - t0, delay: t0, easing: trazo });
       });
+      E(t0, 'trazo', null, tSale - t0);
+      E(tSale, inst ? 'persianas' : 'expansion');
       A(iso, !grandeFinal
         ? [{ transform: desdeCentro, opacity: 1 }, { transform: 'none', opacity: fo }]
         : [{ transform: desdeCentro, opacity: 1 }, { opacity: 0.3, offset: 0.08 }, { opacity: Math.min(0.12, fo * 1.6), offset: 0.22 },
@@ -456,6 +473,7 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
         S(envIso, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, delay: tSalida + 200 });
       }
       const tLogo = tSalida + (inst ? 900 : 650);
+      E(tSalida, 'salida'); E(tLogo, 'logo'); E(tLogo + 900, 'web');
       const fin = capa(40, 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:' + Math.round(HO * 0.035) + 'px');
       const lw = 0.5 * W, env = document.createElement('div'); env.innerHTML = LOGO;
       const lg = env.querySelector('svg'); lg.setAttribute('width', lw); lg.setAttribute('height', lw * 191.41 / 456.52);
@@ -476,12 +494,45 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
 
       anims.forEach((a) => a.pause());
       window.__anims = anims;
-      return { T, tPortada, tPlaca, tLogo, bloques: bloques.length, revertidos, enteros, palabras: palabrasTotal, claro, lumPix, tFin, tSalida, off };
+
+      // Velocidad por cuadro: cuánto se corre lo visible de un cuadro al siguiente. Sin desenfoque de
+      // movimiento (el manual no lo admite), pasar de ~80 px por cuadro a 30 fps en una pantalla de
+      // 1920 se ve a saltos. Se pondera por opacidad: lo que viaja casi transparente no se nota.
+      const seguidos = [['isotipo', iso], ['logo', lg], ...salidas.slice(0, 80).map((el) => [(el.innerText || el.tagName).trim().slice(0, 24), el])];
+      const opac = (el) => { let o = 1; for (let e = el; e && e !== document.body; e = e.parentElement) o *= parseFloat(getComputedStyle(e).opacity); return o; };
+      window.__velocidad = (fps) => {
+        const k = 1920 / Math.max(W, HO);
+        let prev = null, pico = { px: 0, t: 0, que: '' };
+        const porEl = seguidos.map(() => ({ px: 0, t: 0 }));
+        for (let f = 0; f * 1000 / fps < T; f++) {
+          const ms = f * 1000 / fps;
+          anims.forEach((a) => { a.currentTime = ms; });
+          const ahora = seguidos.map(([, el]) => { const r = el.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom, opac(el)]; });
+          if (prev) ahora.forEach((r, i) => {
+            const p = prev[i], o = Math.min(r[4], p[4]);
+            if (o < 0.05) return;
+            const d = Math.max(Math.hypot(r[0] - p[0], r[1] - p[1]), Math.hypot(r[2] - p[2], r[3] - p[3])) * k * o;
+            if (d > pico.px) pico = { px: d, t: ms, que: seguidos[i][0] };
+            if (d > porEl[i].px) porEl[i] = { px: d, t: ms };
+          });
+          prev = ahora;
+        }
+        pico.top = porEl.map((v, i) => ({ ...v, que: seguidos[i][0] })).sort((a, b) => b.px - a.px).slice(0, 8)
+          .map((v) => v.que + ' ' + Math.round(v.px) + '@' + (v.t / 1000).toFixed(2));
+        return pico;
+      };
+      return { T, eventos, tPortada, tPlaca, tLogo, bloques: bloques.length, revertidos, enteros, palabras: palabrasTotal, claro, lumPix, tFin, tSalida, off };
     }, { estilo, segundos: segundos ? +segundos : 0, W, H, HO, logos, lumPix });
 
     if (plan.tFin > plan.tSalida - 2500) {
       console.error(`AVISO: el texto termina de entrar a los ${(plan.tFin / 1000).toFixed(1)} s y se retira a los ` +
         `${(plan.tSalida / 1000).toFixed(1)} s: queda poco tiempo para leerlo. Subí --segundos o acortá el texto.`);
+    }
+    const vel = await page.evaluate((f) => window.__velocidad(f), fps);
+    plan.velocidad = vel;
+    if (vel.px > 80) {
+      console.error(`AVISO: «${vel.que}» se mueve ${Math.round(vel.px)} px por cuadro a los ${(vel.t / 1000).toFixed(2)} s ` +
+        `(más de 80 se ve a saltos): alargar ese movimiento o suavizar la curva.`);
     }
     if (plan.revertidos) {
       console.error(`AVISO: ${plan.revertidos} bloque(s) no se pudieron partir en renglones sin mover el armado: entran enteros.`);
@@ -489,6 +540,10 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
     }
 
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    if (soloSonido) {
+      mezclar({ T: plan.T, eventos: plan.eventos, claro: plan.claro }, soloSonido);
+      return { ...plan, estilo, W, H: HO, outPath: null, soloSonido };
+    }
     const clip = { x: 0, y: 0, width: W, height: HO };
     const enCuadro = (ms) => page.evaluate((m) => window.__anims.forEach((a) => { a.currentTime = m; }), ms);
 
@@ -522,13 +577,16 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
     }
     if (tira && soloTira) return { ...plan, estilo, W, H: HO, outPath: null, portada: null, tira, fps, sueltos };
 
+    // Sonido (scripts/sonido.js), o una pista muda con --sin-sonido: Instagram pide que haya pista.
+    const wav = sonido ? path.join(require('os').tmpdir(), 'mdo-sonido-' + process.pid + '.wav') : null;
+    if (wav) mezclar({ T: plan.T, eventos: plan.eventos, claro: plan.claro }, wav);
     const ff = spawn(FFMPEG, ['-y',
       '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'png', '-i', '-',
-      '-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000',
+      ...(wav ? ['-i', wav] : ['-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000']),
       '-map', '0:v', '-map', '1:a',
       '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-preset', 'slow', '-crf', '17',
       '-g', String(fps * 2), '-r', String(fps),
-      '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', outPath], { stdio: ['pipe', 'ignore', 'pipe'] });
+      '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', outPath], { stdio: ['pipe', 'ignore', 'pipe'] });
     let err = ''; ff.stderr.on('data', (d) => { err += d; });
     const nCuadros = Math.round(plan.T / 1000 * fps);
     for (let f = 0; f < nCuadros; f++) {
@@ -538,6 +596,7 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
     }
     ff.stdin.end();
     await new Promise((ok, ko) => ff.on('close', (c) => (c === 0 ? ok() : ko(new Error('ffmpeg: ' + err.slice(-500))))));
+    if (wav) fs.rmSync(wav, { force: true });
 
     if (portada) {
       await enCuadro(plan.tPortada);
@@ -553,7 +612,7 @@ if (require.main === module) {
   const a = parseArgs(process.argv);
   if (!a.template || !a.out) {
     console.error('Uso: node scripts/video.js --template <id> --out posts/AAAA-MM-DD-N.mp4 --slots \'{...}\' ' +
-      '[--formato reel|placa] [--estilo ...] [--segundos N] [--portada ruta.png] [--fps 30|60] [--tira ruta.png [--solo-tira]]');
+      '[--formato reel|placa] [--estilo ...] [--segundos N] [--portada ruta.png] [--fps 30|60] [--tira ruta.png [--solo-tira]] [--sin-sonido] [--solo-sonido ruta.wav]');
     process.exit(1);
   }
   const slots = a.slots ? JSON.parse(a.slots) : {};
@@ -562,8 +621,9 @@ if (require.main === module) {
     formato: a.formato || 'reel', portada: a.portada ? path.resolve(a.portada) : undefined, fps: a.fps || 30,
     tira: a.tira ? path.resolve(a.tira) : undefined, soloTira: !!a['solo-tira'],
     cuadros: typeof a.cuadros === 'string' ? a.cuadros.split(',').map(Number).filter((n) => n >= 0) : [],
+    sonido: !a['sin-sonido'], soloSonido: typeof a['solo-sonido'] === 'string' ? path.resolve(a['solo-sonido']) : undefined,
   })
-    .then((r) => r.outPath === null ? console.log(`Tira → ${r.tira} · ${(r.T / 1000).toFixed(1)} s · ${r.claro ? "placa clara" : "placa oscura"} (lum ${r.lumPix.toFixed(2)}) · ${r.bloques} bloques (${r.revertidos} enteros)`) : console.log(`OK → ${r.outPath} · ${(r.T / 1000).toFixed(1)} s · ${r.W}×${r.H} · ${r.fps} fps · estilo ${r.estilo}` +
+    .then((r) => r.soloSonido ? console.log(`Sonido → ${r.soloSonido} · ${(r.T / 1000).toFixed(1)} s · ${r.eventos.length} momentos`) : r.outPath === null ? console.log(`Tira → ${r.tira} · ${(r.T / 1000).toFixed(1)} s · ${r.claro ? "placa clara" : "placa oscura"} (lum ${r.lumPix.toFixed(2)}) · ${r.bloques} bloques (${r.revertidos} enteros)`) : console.log(`OK → ${r.outPath} · ${(r.T / 1000).toFixed(1)} s · ${r.W}×${r.H} · ${r.fps} fps · estilo ${r.estilo}` +
       ` · ${r.claro ? 'placa clara' : 'placa oscura'} · ${r.bloques} bloques (${r.revertidos} enteros)` +
       ` · ${Math.round(fs.statSync(r.outPath).size / 1024)} KB` + (r.portada ? ` · portada → ${r.portada}` : '') + (r.tira ? ` · tira → ${r.tira}` : '')))
     .catch((e) => { console.error('ERROR:', e.message || e); process.exit(1); });
