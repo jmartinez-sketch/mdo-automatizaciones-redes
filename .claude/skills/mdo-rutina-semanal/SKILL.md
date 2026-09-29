@@ -724,7 +724,7 @@ node scripts/video.js --template <id> --out posts/YYYY-MM-DD-N.mp4 \
   --tira out/video-tira.png --solo-tira
 ```
 
-Deja `out/video-tira.png` (14 cuadros en orden: apertura, entrada bloque por bloque, placa completa, salida y firma) y dos cuadros a tamaño real al lado: `out/video-tira-entrada.png` y `out/video-tira-completa.png`. **Mirar los tres con Read** y chequear, uno por uno:
+Deja `out/video-tira.png` (14 cuadros en orden: apertura, entrada bloque por bloque, placa completa, salida y firma) y dos cuadros a tamaño real al lado: `out/video-tira-entrada.png` y `out/video-tira-completa.png`. Además deja dos hojas del video entero: `out/video-tira-contacto.png` (un cuadro cada medio segundo) y `out/video-tira-celular.png` (uno por segundo, a 360 px de ancho: como se ve en un teléfono). **Mirar todo con Read** y chequear, uno por uno:
 
 | | Qué tiene que pasar | Si no |
 |---|---|---|
@@ -734,6 +734,21 @@ Deja `out/video-tira.png` (14 cuadros en orden: apertura, entrada bloque por blo
 | d | **Cierre**: el texto se va antes de que aparezca el logo; MDO CONSULTORES con buen contraste y la web `mdo-consultores.com.ar` debajo; la firma queda quieta al final | — |
 | e | **Ritmo**: el titular ya se lee antes de los 3 s; entre 10 y 25 s en total (el script imprime la duración) | acortar texto, o `--segundos N` |
 | f | **Nada a los saltos**: el script no imprime `AVISO: «…» se mueve N px por cuadro` (mide cada cosa que se mueve; más de 80 px por cuadro se ve entrecortado, y el manual no admite desenfoque para disimularlo) | es del script: alargar ese movimiento o suavizar su curva en `video.js` |
+
+**Puntaje (con la hoja de contacto y la del celular).** Mirar como un director de arte exigente, no como el autor. Poner de 1 a 10:
+
+| Criterio | Qué se mira |
+|---|---|
+| Gancho | a los 2 s ya hay algo que leer o que mirar, no sólo fondo |
+| Lectura en el celular | en `-celular.png` cada texto se lee sin hacer zoom. Si los ítems chicos no se leen, acortar el texto o elegir para el video otra placa con letra más grande (el tamaño es del design system, no se toca) |
+| Movimiento | nada lineal ni a los saltos; cada cosa arranca y frena con peso; nada se apaga ni aparece de golpe |
+| Ritmo | algo nuevo cada 2 a 4 s mientras entra el texto. La placa completa quieta para leer es el descanso y no cuenta como falla, salvo que pase de ~6 s |
+| Composición | nada montado, cortado ni pegado a los bordes; la zona segura del Reel libre |
+| Exactitud | el texto es idéntico al del PNG y al del copy; ARCA, nunca AFIP; ningún dato inventado |
+
+Anotar los **3 peores problemas con su segundo** (ej. "1,27 s: el isotipo se apaga de golpe"), corregirlos y volver a probar con la tira. **Se sigue hasta que todo tenga 8 o más.** Los avisos del script (`AVISO: ... se mueve`, `AVISO: salto a los ...`) cuentan como problemas.
+
+Lo que **no** se usa, aunque lo recomienden las guías de motion (ver `CLAUDE.md`): desenfoque de movimiento y resortes con rebote (el manual pide "sin blur, sin rebotes"), y sonido (Juan lo descartó el 28/09/2026).
 
 Si algo falla por un error de `scripts/video.js` (no del texto), **corregir el script** — es código nuestro, no del design system — y volver a probar con la tira. No subir un video con un defecto visible "porque es chico".
 
@@ -750,6 +765,8 @@ Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 con pista de audio muda
 - El formato por defecto es **Reel 9:16**: la placa 4:5 al centro y el fondo extendido arriba y abajo, así la UI de Instagram no tapa nada y el feed muestra la placa entera. Las historias ya son 9:16. (`--formato placa` graba al tamaño de la plantilla, sólo para pruebas.)
 - El estilo lo elige solo según la plantilla (`institucional` para historias y placas con foto, con persianas al ritmo de la grilla; `secuencial` para comparativas y explicadores `po-31..35`; `editorial` para el resto). Se puede forzar con `--estilo`.
 - ❌ Las horizontales `li-*` no se animan: LinkedIn del jueves lleva su imagen.
+- Al terminar, el script revisa el MP4 ya codificado y avisa `AVISO: salto a los N s` si un cuadro cambia mucho más que los de al lado (un parpadeo que nadie diseñó). Mirarlo con `--cuadros` y corregirlo antes de subir.
+- El color sale en BT.709 y etiquetado, para que el navy de la marca no cambie según el teléfono.
 - **Sin sonido**: el video va con pista muda. El 28/09/2026 se probó un sonido sintetizado y Juan lo descartó («ese sonido no va»); no volver a agregarlo sin que lo pida.
 
 Si el video falla o no queda bien después de corregirlo, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.

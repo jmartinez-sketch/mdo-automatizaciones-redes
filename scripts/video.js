@@ -71,6 +71,22 @@ function estiloPorDefecto(id) {
 
 const svg = (f) => fs.readFileSync(path.join(ROOT, 'mdo-templates', 'assets', f), 'utf8').replace(/<\?xml[^>]*>/, '');
 
+// Cuadros que cambian mucho más que los de al lado (medido por ffmpeg sobre el MP4 ya codificado).
+async function saltos(mp4, fps) {
+  const out = await new Promise((ok) => {
+    const p = spawn(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-i', mp4, '-an',
+      '-vf', "scale=270:-1,select='gte(scene,0)',metadata=print:file=-", '-f', 'null', '-'], { stdio: ['ignore', 'pipe', 'ignore'] });
+    let s = ''; p.stdout.on('data', (d) => { s += d; }); p.on('close', () => ok(s));
+  });
+  const v = [...out.matchAll(/scene_score=([\d.]+)/g)].map((m) => +m[1]);
+  const res = [];
+  for (let i = 2; i < v.length - 2; i++) {
+    const vec = (v[i - 2] + v[i - 1] + v[i + 1] + v[i + 2]) / 4;
+    if (v[i] > 0.02 && v[i] > 4 * vec) res.push({ t: i / fps, veces: Math.round(v[i] / Math.max(vec, 1e-4)) });
+  }
+  return res;
+}
+
 async function video({ template, slots, outPath, estilo, segundos, formato = 'reel', portada, fps = 30, tira, soloTira = false, cuadros = [] }) {
   const [W, H] = tamano(template);
   if (H < 1000) throw new Error('Las placas horizontales (li-*) no se animan: LinkedIn lleva la imagen.');
@@ -417,9 +433,11 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
       });
       A(iso, !grandeFinal
         ? [{ transform: desdeCentro, opacity: 1 }, { transform: 'none', opacity: fo }]
-        : [{ transform: desdeCentro, opacity: 1 }, { opacity: 0.3, offset: 0.08 }, { opacity: Math.min(0.12, fo * 1.6), offset: 0.22 },
-           { opacity: fo, offset: 0.5 }, { transform: 'none', opacity: fo }],
-        { duration: tMorf, delay: tSale, easing: salida });
+        // Marca de agua: crece arrancando despacio y frenando al final (tiene peso, sin rebote), y se
+        // apaga en medio segundo parejo. Antes pasaba de blanco a gris en un cuadro: un parpadeo.
+        : [{ transform: desdeCentro }, { transform: 'none' }],
+        { duration: grandeFinal ? tMorf + 250 : tMorf, delay: tSale, easing: grandeFinal ? 'cubic-bezier(.55,0,.15,1)' : salida });
+      if (grandeFinal) A(iso, [{ opacity: 1 }, { opacity: fo }], { duration: 520, delay: tSale, easing: 'cubic-bezier(.3,0,.3,1)' });
 
       const n = 17, bw = W / n;
       const persianas = (alAbrir) => {
@@ -530,17 +548,28 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
 
     // Tira de control: 14 cuadros en los momentos que importan (apertura, entrada, placa completa,
     // salida, firma), achicados y en dos filas. Es lo que se mira antes de dar el video por bueno.
+    // Una hoja de cuadros: los momentos (ms) achicados a `ancho` px, en `cols` columnas.
+    const hoja = async (ruta, momentos, ancho, cols) => {
+      const filas = Math.ceil(momentos.length / cols);
+      const ft = spawn(FFMPEG, ['-y', '-f', 'image2pipe', '-framerate', '1', '-c:v', 'png', '-i', '-',
+        '-vf', `scale=${ancho}:-1,tile=${cols}x${filas}:padding=6:color=white`, '-frames:v', '1', ruta], { stdio: ['pipe', 'ignore', 'pipe'] });
+      let e2 = ''; ft.stderr.on('data', (d) => { e2 += d; });
+      for (const m of momentos) { await enCuadro(Math.max(0, Math.min(plan.T - 1, Math.round(m)))); ft.stdin.write(await page.screenshot({ type: 'png', clip })); }
+      ft.stdin.end();
+      await new Promise((ok, ko) => ft.on('close', (c) => (c === 0 ? ok() : ko(new Error('ffmpeg (hoja): ' + e2.slice(-300))))));
+    };
     if (tira) {
       const T = plan.T, tS = plan.tSalida;
       const entrada = [1, 2, 3, 4, 5].map((k) => plan.tPlaca + (plan.tFin - plan.tPlaca) * k / 6);
       const momentos = [300, 700, 1100, plan.tPlaca, ...entrada, plan.tFin, plan.tPortada, tS + 350, plan.tLogo + 700, T - 60]
         .map((m) => Math.max(0, Math.min(T - 1, Math.round(m)))).sort((a, b) => a - b);
-      const ft = spawn(FFMPEG, ['-y', '-f', 'image2pipe', '-framerate', '1', '-c:v', 'png', '-i', '-',
-        '-vf', 'scale=270:-1,tile=7x2:padding=6:color=white', '-frames:v', '1', tira], { stdio: ['pipe', 'ignore', 'pipe'] });
-      let e2 = ''; ft.stderr.on('data', (d) => { e2 += d; });
-      for (const m of momentos) { await enCuadro(m); ft.stdin.write(await page.screenshot({ type: 'png', clip })); }
-      ft.stdin.end();
-      await new Promise((ok, ko) => ft.on('close', (c) => (c === 0 ? ok() : ko(new Error('ffmpeg (tira): ' + e2.slice(-300))))));
+      await hoja(tira, momentos, 270, 7);
+      // Para puntuar el video entero (paso 4c): un cuadro cada medio segundo, y uno por segundo al ancho
+      // de un celular (360 px), que es donde se ve si el texto se lee.
+      const base = tira.replace(/\.png$/i, '');
+      const cada = (ms) => Array.from({ length: Math.floor((T - 1) / ms) + 1 }, (_, i) => i * ms);
+      await hoja(base + '-contacto.png', cada(500), 180, 10);
+      await hoja(base + '-celular.png', cada(1000), 360, 6);
       // Y dos cuadros a tamaño real, que la tira no deja ver en detalle: a mitad de la entrada y la
       // placa completa (el mismo cuadro de la portada).
       for (const [nombre, ms] of [['entrada', (plan.tPlaca + plan.tFin) / 2], ['completa', plan.tPortada]]) {
@@ -562,7 +591,11 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
       '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'png', '-i', '-',
       '-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000',
       '-map', '0:v', '-map', '1:a',
-      '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-preset', 'slow', '-crf', '17',
+      // Color: la captura es sRGB; se pasa a BT.709 en rango TV y se etiqueta, así los teléfonos no
+      // corren el navy de la marca (sin etiqueta, cada reproductor adivina la matriz).
+      '-vf', 'scale=out_color_matrix=bt709:out_range=tv,format=yuv420p',
+      '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
+      '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '17',
       '-g', String(fps * 2), '-r', String(fps),
       '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', outPath], { stdio: ['pipe', 'ignore', 'pipe'] });
     let err = ''; ff.stderr.on('data', (d) => { err += d; });
@@ -574,6 +607,13 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
     }
     ff.stdin.end();
     await new Promise((ok, ko) => ff.on('close', (c) => (c === 0 ? ok() : ko(new Error('ffmpeg: ' + err.slice(-500))))));
+
+    // Saltos en el video terminado: un cuadro que cambia mucho más que sus vecinos es un parpadeo o un
+    // corte que nadie diseñó (el isotipo que se apagaba de golpe lo encontró esto).
+    plan.saltos = await saltos(outPath, fps);
+    for (const x of plan.saltos) {
+      console.error(`AVISO: salto a los ${x.t.toFixed(2)} s (el cuadro cambia ${x.veces}× más que sus vecinos): mirarlo con --cuadros ${Math.round(x.t * 1000 - 70)},${Math.round(x.t * 1000)}.`);
+    }
 
     if (portada) {
       await enCuadro(plan.tPortada);
