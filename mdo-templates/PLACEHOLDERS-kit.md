@@ -729,7 +729,7 @@ _Sin texto variable (sólo marca/foto)._
 ### `in-03` · 1080×1350 · feed 4:5
 | Slot | Ejemplo en el kit |
 |---|---|
-| `TITULAR_1` | Más de treinta años |
+| `TITULAR_1` | 30 años |
 | `TITULAR_2` | acompañando empresas. |
 
 ### `in-04` · 1080×1350 · feed 4:5
