@@ -143,7 +143,7 @@ const EXAMPLES_LINKEDIN = {
   },
   LiClaim: {
     copete: 'Martinez · De Orta · Gutierrez Taboada',
-    claim: 'Más de 50 años ordenando los números de empresas argentinas.',
+    claim: '30 años ordenando los números de empresas argentinas.',
     servicio_1: 'Impuestos', servicio_2: 'Contabilidad', servicio_3: 'Sueldos',
     cta: 'Conversemos sobre tu empresa', handle: 'mdo-consultores.com.ar',
   },

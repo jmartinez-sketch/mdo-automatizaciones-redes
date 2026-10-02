@@ -276,7 +276,7 @@ function StCitaMinimal(props) {
 const EXAMPLES_VARIANTS_LIGHT = {
   SqVencimientoLight: Object.assign({}, (window.EXAMPLES_SQUARE || {}).SqVencimiento),
   SqCitaMinimal: Object.assign({}, (window.EXAMPLES_SQUARE || {}).SqCita),
-  SqNumeroLight: Object.assign({}, (window.EXAMPLES_SQUARE || {}).SqNumero, { pie: 'Est. 1972' }),
+  SqNumeroLight: Object.assign({}, (window.EXAMPLES_SQUARE || {}).SqNumero, { pie: 'Buenos Aires' }),
   SqNoticiaMinimal: {
     categoria: 'Impuestos · ARCA',
     titular: 'ARCA extiende el plazo para presentar Ganancias',

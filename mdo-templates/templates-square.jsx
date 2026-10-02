@@ -119,7 +119,7 @@ function SqNumero(props) {
 
   return (
     <div className="tpl tint" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
-      <TplHeader chip="Est. 1972" size={40} />
+      <TplHeader chip="30 años" size={40} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <span className="eyebrow" style={{ marginBottom: 14 }}>{p.copete}</span>
@@ -193,9 +193,9 @@ const EXAMPLES_SQUARE = {
   },
   SqNumero: {
     copete: 'En cifras · MDO Consultores',
-    numero: '+50', unidad: 'años',
+    numero: '30', unidad: 'años',
     descripcion: 'acompañando empresas argentinas en la gestión impositiva, contable y previsional.',
-    pie: 'Desde 1972 · Buenos Aires',
+    pie: 'Buenos Aires',
     handle: '@mdoconsultores',
   },
   SqNoticia: {

@@ -70,7 +70,7 @@ function SqNumeroSerif(props) {
 
   return (
     <div className="tpl pale" style={{ padding: 44, display: 'flex', flexDirection: 'column' }}>
-      <TplHeader chip="Est. 1972" size={40} />
+      <TplHeader chip="30 años" size={40} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="eyebrow" style={{ marginBottom: 16 }}>{p.copete}</div>
