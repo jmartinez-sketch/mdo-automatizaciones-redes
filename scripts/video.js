@@ -289,7 +289,7 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
       // ---------- Tiempos ----------
       // En Institucional el texto espera a que las persianas terminen de abrirse: si entra antes, se
       // ve cortado en tiras.
-      const t0 = 80, tTrazo = 850, tSale = 1250, tMorf = 900, tPlaca = inst ? 2000 : 1400;
+      const t0 = 80, tTrazo = 850, tSale = 1250, tMorf = 900, tPlaca = inst ? 1800 : 1400;
       const ritmo = estilo === 'secuencial' ? 0.75 : inst ? 1.35 : 1;
       let t = tPlaca;
       const salidas = []; // [el, orden] para la retirada
@@ -436,7 +436,9 @@ async function video({ template, slots, outPath, estilo, segundos, formato = 're
         // Marca de agua: crece arrancando despacio y frenando al final (tiene peso, sin rebote), y se
         // apaga en medio segundo parejo. Antes pasaba de blanco a gris en un cuadro: un parpadeo.
         : [{ transform: desdeCentro }, { transform: 'none' }],
-        { duration: grandeFinal ? tMorf + 250 : tMorf, delay: tSale, easing: grandeFinal ? 'cubic-bezier(.55,0,.15,1)' : salida });
+        // Las dos (marca de agua y firma chica) con la misma curva de peso: con la de salida, el isotipo
+        // que viaja a la firma de las historias saltaba 166 px en un cuadro.
+        { duration: tMorf + 400, delay: tSale, easing: 'cubic-bezier(.5,0,.2,1)' });
       if (grandeFinal) A(iso, [{ opacity: 1 }, { opacity: fo }], { duration: 520, delay: tSale, easing: 'cubic-bezier(.3,0,.3,1)' });
 
       const n = 17, bw = W / n;
