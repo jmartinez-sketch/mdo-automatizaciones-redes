@@ -53,6 +53,11 @@
    "slot": "VOLANTA"
   },
   {
+   "texto": "128",
+   "slot": "NUMERO",
+   "tras": "tabular-nums\">"
+  },
+  {
    "texto": "libros societarios y contables",
    "slot": "TITULAR_1"
   },
@@ -817,6 +822,11 @@
    "slot": "VOLANTA"
   },
   {
+   "texto": "128",
+   "slot": "NUMERO",
+   "tras": "tabular-nums\">"
+  },
+  {
    "texto": "libros societarios y contables",
    "slot": "TITULAR_1"
   },
@@ -899,6 +909,11 @@
   {
    "texto": "En cifras · 2026",
    "slot": "VOLANTA"
+  },
+  {
+   "texto": "128",
+   "slot": "NUMERO",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "libros societarios y contables",
@@ -1189,6 +1204,11 @@
   {
    "texto": "Dato clave",
    "slot": "VOLANTA"
+  },
+  {
+   "texto": "10",
+   "slot": "NUMERO",
+   "tras": "color:#f8f6f6\">"
   },
   {
    "texto": "días",

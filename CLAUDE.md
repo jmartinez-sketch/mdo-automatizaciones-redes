@@ -43,7 +43,7 @@ Esto instala `node_modules` + Chromium (lleva ~30-60s la primera vez).
 
 ## Cómo se dispara la rutina
 
-**Trigger automático**: una sola rutina, **«MDO - Automatizaciones Redes»** (Claude Code on the Web), que corre a las **7:50, 11:50 y 16:50 hs Argentina, de lunes a sábado**, y decide sola qué toca:
+**Trigger automático**: una sola rutina, **«MDO - Automatizaciones Redes»** (Claude Code on the Web), que corre **cada hora, de 7:50 a 19:50 hs Argentina, de lunes a sábado** (desde el 05/10/2026; antes 3 veces por día), y decide sola qué toca:
 
 - **Lunes** (o martes, si el lunes no llegó a cargar el panel): arma la semana completa.
 - **Las demás pasadas**: repone las placas que Juan regeneró en el panel y manda a Metricool las que ya aprobó (paso 7c de la skill). Si no hay nada, termina en una línea.
@@ -127,6 +127,7 @@ La estrategia de las redes vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-P
 - Ejes por peso comercial: Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores, contabilidad.
 - Cada post cierra con la página de su servicio. Nunca se invita a llamar.
 - Es contenido; el diseño sigue siendo el del design system.
+- **Variedad visual** (05/10/2026): cada semana al menos una placa con foto o número grande, nunca dos de texto sobre navy seguidas en la grilla, el miércoles con número grande si la noticia lo trae, y carrusel de calendario la primera semana del mes. Detalle en la regla «Variedad visual» de la skill.
 
 ## Regla dura sobre el tip PyME (viernes)
 

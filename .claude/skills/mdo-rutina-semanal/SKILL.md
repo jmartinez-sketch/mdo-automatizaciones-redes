@@ -6,7 +6,7 @@ description: Rutina semanal de posteos MDO Consultores. Corre los lunes pero NO 
 
 # Rutina semanal de posteos MDO Consultores
 
-Corre **los lunes a las 7:50 hs Argentina (UTC-3)**, dentro de la rutina «MDO - Automatizaciones Redes», para armar los posteos de la semana y cargarlos en el panel de aprobación de Dirección MDO. Nada va a Metricool hasta que Juan aprueba (paso 6). La misma rutina pasa a las 7:50, 11:50 y 16:50 de lunes a sábado: el lunes (o el martes, si el lunes no llegó a cargar el panel) arma la semana; en las demás pasadas sólo repone lo que Juan regeneró en el panel (paso 7c).
+Corre **los lunes a las 7:50 hs Argentina (UTC-3)**, dentro de la rutina «MDO - Automatizaciones Redes», para armar los posteos de la semana y cargarlos en el panel de aprobación de Dirección MDO. Nada va a Metricool hasta que Juan aprueba (paso 6). La misma rutina pasa cada hora, de 7:50 a 19:50, de lunes a sábado: el lunes (o el martes, si el lunes no llegó a cargar el panel) arma la semana; en las demás pasadas sólo repone lo que Juan regeneró en el panel (paso 7c).
 
 ⚠️ **REGLA DURA — el lunes NO se publica nada.** El lunes es solo el día en que *corre* la rutina: lee el Gmail, arma el contenido y lo carga en el panel. El primer post de la semana sale el **miércoles**. ❌ Nunca un post con fecha de lunes.
 
@@ -133,6 +133,33 @@ La rutina tiene **79 ids de plantilla, que son 44 placas distintas** (varios ids
 2. **Al terminar, escribir el historial** (paso 8). Si no se escribe, la próxima corrida no tiene memoria y la variedad se rompe.
 3. Si un pool se agotó (todas sus plantillas usadas en las últimas 4 semanas), reiniciar ese pool y elegir la **menos reciente**, no la primera de la lista.
 4. **Nunca** elegir una plantilla "porque es la que siempre funciona". El catálogo existe para usarse.
+
+### 🎨 Regla dura — variedad visual (desde el 05/10/2026)
+
+Pedido de Juan: *"los diseños de las placas están siendo muy similares"*. Al 05/10/2026, **21 de las 44 placas distintas del kit nunca se usaron**, y casi todo lo publicado era texto sobre navy: la noticia del miércoles salió 11 veces con la misma placa. La regla de variedad de plantillas (la de arriba) evita repetir el mismo id, pero no alcanza para que la grilla cambie. Por eso, además:
+
+1. **Cada semana, por lo menos una placa con foto o con número grande** (tabla de abajo).
+2. **Nunca dos placas de texto sobre navy seguidas en la grilla del feed.** Se mira el orden de publicación, contando el último post de feed de la semana anterior. Las historias no cuentan: no aparecen en la grilla.
+3. **Miércoles: si la noticia trae una fecha o un número propio, va con una placa de número grande** en lugar de `po-13d`. Puede ser un vencimiento o un plazo («15 días para…»), o una cantidad («3 jurisdicciones»). `po-13d` sigue siendo la placa por defecto cuando la noticia no tiene un número que la represente. El número tiene que estar en la fuente: no se inventa ni se redondea.
+4. **La primera semana del mes (el jueves cae entre el 1 y el 7), el jueves va con el carrusel de calendario** (`ca-cover` + `ca-q1` + `ca-q2`), con los vencimientos del mes que le tocan a una empresa: IVA, Ganancias sociedades, F.931, Ingresos Brutos y Convenio Multilateral. **Cada fecha tiene que salir del calendario oficial** (ARCA, o el calendario mensual de Errepar). Si no se puede verificar cada fecha, ese mes no hay carrusel y el jueves sigue su ciclo normal. Si esa semana es impar, el video pasa al viernes (Reel), porque el carrusel no se anima.
+5. **Entre dos placas que sirven igual, gana la que nunca se usó** o la menos usada. Para saber cuántas veces salió cada una: `node scripts/grupos-kit.js --bloqueadas` y el historial.
+
+**Placas que nunca se usaron hasta el 05/10/2026** (slots con `--list-slots`; el catálogo visual se arma con las 44 placas renderizadas, ver el reporte del 05/10):
+
+| Recurso | Placas | Slots | Dónde encajan |
+|---|---|---|---|
+| **Número grande** con fecha | `sq-01` (= `sq-01b`), `nv-06` | VOLANTA, NUMERO (día), UNIDAD (mes), TITULAR_1, TITULAR_2, CIERRE | Miércoles con vencimiento o fecha de vigencia |
+| **Número grande** con unidad | `nv-10` | VOLANTA, NUMERO, UNIDAD («días»), TITULAR_1, TITULAR_2, CIERRE | Miércoles con plazo; viernes sólo con cantidades atemporales («3 señales»), nunca un plazo normativo |
+| **Cifra** | `sq-03` (= `sq-03b` = `sq-03c`) | VOLANTA, NUMERO, TITULAR_1, TITULAR_2, CIERRE | Miércoles con una cantidad de la fuente; viernes con un conteo atemporal |
+| **Foto** | `in-02`, `mn-07` | TITULAR_1, CITA, TITULAR_2 | Jueves de cita, sábado institucional |
+| **Foto** (sin texto variable) | `mn-08` | — | Sólo como placa de marca, nunca como único post de la semana |
+| **Historia con foto** | `st-08b` | TITULAR_1..3 | Jueves de cita (ciclo 3) |
+| **Calendario** | `ca-cover`, `ca-q1`, `ca-q2` | ca-cover: VOLANTA, TITULAR_1 (mes), TITULAR_2 (año), BAJADA, DESTACADO · ca-q1/q2: VOLANTA, TITULAR_1/2, DIA_n, ITEM_n_TITULO, ITEM_n_DETALLE (n = 1..5), DESTACADO | Jueves de la primera semana del mes (regla 4) |
+| **Servicios en fondo claro** | `sv-06`, `sv-07` (lista de ítems), `sv-08` (invitación), `po-04b` | ver `--list-slots` | Sábado; `sv-08` cierra «Escribinos», nunca «llamanos» |
+| **Novedad del estudio** | `po-05` (= `po-05b` = `sv-03`) | VOLANTA, TITULAR_1, BAJADA | Sólo con una novedad real del estudio que Juan haya confirmado |
+| **Testimonio** | `po-36` | VOLANTA, CITA, AUTOR, AUTOR_DETALLE | Sólo con un testimonio real o aprobado por Juan; nunca inventado |
+
+> `nv-10` y `sq-03` traían el número fijo («10», «128») hasta el 05/10/2026: se agregó el slot `NUMERO` en `mdo-templates/kit-slots.json` (con `tras`, porque el número solo es ambiguo en el HTML).
 
 ### ⚠️ Formatos correctos de imagen (regla dura — Instagram 2026)
 
@@ -983,7 +1010,7 @@ Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre la
 
 ### 7c. Reponer las placas que Juan regeneró desde el panel
 
-Esto lo hace la rutina **«MDO - Automatizaciones Redes»** en cada pasada (7:50, 11:50 y 16:50 de lunes a sábado; el lunes, antes de armar la semana nueva). Es el único puente entre lo que Juan regenera en el panel y Metricool. Hasta el 25/09/2026 lo hacía una rutina aparte («MDO - Reponer placas regeneradas»); Juan pidió que todo quede en una sola.
+Esto lo hace la rutina **«MDO - Automatizaciones Redes»** en cada pasada (cada hora, de 7:50 a 19:50, de lunes a sábado; el lunes, antes de armar la semana nueva). Pasa cada hora desde el 05/10/2026 para que lo que Juan regenera, en especial el video, esté listo enseguida. Es el único puente entre lo que Juan regenera en el panel y Metricool. Hasta el 25/09/2026 lo hacía una rutina aparte («MDO - Reponer placas regeneradas»); Juan pidió que todo quede en una sola.
 
 Cuando Juan acepta una versión regenerada, el panel deja en el post el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`) y, si Juan lo aprueba, **`aprobado: true`**. La placa nueva no puede viajar sola: Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. Si el post ya estaba en Metricool (posts de antes del 24/09/2026, o uno que Juan aprobó y después regeneró), el panel le cambia el texto allá y lo deja **en pausa** (borrador) hasta que llegue la placa.
 
@@ -1091,7 +1118,7 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
 - **Video**: `scripts/video.js` usa el mismo `render.html` que las placas, anima la placa real con la Web Animations API, la graba cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). El texto se parte en palabras sólo si el armado queda idéntico al PNG; el tono (placa clara u oscura) se mide sobre la imagen real, no sobre el CSS. `--tira` + `--solo-tira` sirven para probar en segundos; `--cuadros 9000,15000` saca cuadros sueltos a tamaño real. El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
-- **Timezone**: Argentina = UTC-3. Sin DST. La rutina pasa a las 7:50, 11:50 y 16:50 ARG (lunes a sábado; el cron está escrito con `CRON_TZ=America/Argentina/Buenos_Aires`). El armado de la semana es la pasada del lunes a las 7:50: la de las 7:50 llega antes de los posts de las 9.
+- **Timezone**: Argentina = UTC-3. Sin DST. La rutina pasa cada hora de 7:50 a 19:50 ARG (lunes a sábado; el cron está escrito con `CRON_TZ=America/Argentina/Buenos_Aires`). El armado de la semana es la pasada del lunes a las 7:50: la de las 7:50 llega antes de los posts de las 9.
 - **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.
 - **Templates disponibles**: las **79 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.

@@ -109,8 +109,11 @@ for (const id of TODAS) {
   }
   if (SLOTEADAS[id] && SLOTEADAS[id].length) {
     let cursor = 0;
-    for (const { texto, slot } of SLOTEADAS[id]) {
-      const at = html.indexOf(texto, cursor);
+    // `tras` (opcional): texto que va justo antes del de ejemplo, para cuando el ejemplo solo es
+    // ambiguo (el «10» de nv-10 aparece antes dentro de un «100%» del estilo). Sólo se reemplaza `texto`.
+    for (const { texto, slot, tras = '' } of SLOTEADAS[id]) {
+      const conTras = html.indexOf(tras + texto, cursor);
+      const at = conTras < 0 ? -1 : conTras + tras.length;
       if (at < 0) { console.error(`SLOT ${slot} en ${id}: no encuentro el texto: ${texto}`); process.exit(1); }
       html = html.slice(0, at) + '[' + slot + ']' + html.slice(at + texto.length);
       cursor = at + slot.length + 2;
