@@ -79,6 +79,8 @@ scripts/
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
   video.js              Anima una placa y la graba a MP4 (el video semanal)
+                        (la animación está en mdo-templates/animacion-placa.js, que también
+                        usa el panel para mostrar en movimiento un video regenerado)
   grupos-kit.js         Qué ids del kit son la misma placa, y qué queda bloqueado por el historial
   aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
                         con el HTML de cada placa para el botón "Regenerar"
