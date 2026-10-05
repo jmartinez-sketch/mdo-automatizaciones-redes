@@ -1,0 +1,21 @@
+/* MDO — carga de tipografias de marca.
+   Chivo (acento) y Open Sans (todo el resto). Binarios propios, copiados de
+   jmartinez-sketch/mdo-brand (assets/fonts/), NO por CDN: un @import externo
+   a Google Fonts se cuelga en este entorno de vista previa y deja la pagina
+   en blanco sin ningun error. Nunca volver a apuntar esto a fonts.googleapis.com. */
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-Semibold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-SemiboldItalic.ttf") format("truetype");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Open Sans';src:url("../assets/fonts/open-sans/OpenSans-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:'Chivo';src:url("../assets/fonts/chivo/Chivo-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}

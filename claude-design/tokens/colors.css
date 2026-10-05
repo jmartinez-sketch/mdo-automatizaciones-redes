@@ -1,0 +1,117 @@
+/* MDO — color. Copia fiel de mdo-brand/actual/tokens.css (v2.0, vigente).
+   Los cinco primeros son los UNICOS oficiales del Manual de Marca 2026,
+   leidos de adentro de los SVG originales. El resto es escala derivada. */
+:root{
+  /* ---- Colores del manual (oficiales) ----
+     Valores de la pagina de paleta del Manual de Marca 2026, con su CMYK para
+     imprenta. Son LA especificacion: no redondear ni "ajustar". */
+  --navy:#06162d;        /* PRINCIPAL azul noche · C100 M87 Y49 K67 · R6 G22 B45 */
+  --slate:#7c8392;       /* gris azulado    · C55 M40 Y29 K12 · R124 G131 B146 */
+  --warm-grey:#6e6a6f;   /* gris calido     · C54 M48 Y40 K28 · R110 G106 B111 */
+  --grey:#d9d9d9;        /* gris claro      · C18 M12 Y14 K0  · R217 G217 B217 */
+  --paper:#f8f6f6;       /* blanco roto - fondo de pagina. NO figura en la pagina
+                            de paleta: sale de los SVG. Falta confirmarlo. */
+
+  /* ---- Escala de tintas del manual (página de paleta) ----
+     Siete pasos hacia el blanco por cada color de marca. NO son invento
+     nuestro: están medidos sobre esa página y los cuatro bases coincidieron
+     exacto con los hex impresos, lo que valida la medición. */
+  --navy-10:#1f2e42; --navy-20:#384557; --navy-30:#515c6c; --navy-40:#6a7381;
+  --navy-50:#828a96; --navy-60:#9ba2ab; --navy-70:#b4b9c0;
+  --slate-10:#89909d; --slate-20:#969ca8; --slate-30:#a4a8b3; --slate-40:#b0b5be;
+  --slate-50:#bdc1c8; --slate-60:#cbcdd3; --slate-70:#d7dade;
+  --grey-10:#dddddd; --grey-20:#e1e1e1; --grey-30:#e4e4e4; --grey-40:#e8e8e8;
+  --grey-50:#ececec; --grey-60:#f0f0f0; --grey-70:#f4f4f4;
+  --warm-grey-10:#7d797e; --warm-grey-20:#8b888c; --warm-grey-30:#9a979a;
+  --warm-grey-40:#a8a6a9; --warm-grey-50:#b6b4b7; --warm-grey-60:#c5c3c5; --warm-grey-70:#d3d2d4;
+
+  /* ---- Alias por función ----
+     Cada uno apunta a una tinta REAL de la escala de arriba, elegida por
+     contraste sobre el papel. Antes eran mezclas calculadas a ojo. */
+  --navy-soft:#1f2e42;
+  --navy-lift:#384557;
+  --ink:#06162d;         /* texto principal, 16.8:1 sobre papel */
+  --ink-85:#1f2e42;      /* secundario fuerte */
+  --ink-70:#384557;      /* secundario, 9.04:1 - AA */
+  --ink-55:#515c6c;      /* apagado, sigue pasando AA */
+  --ink-40:#6a7381;      /* apagado, solo texto grande */
+  --ink-35:#9ba2ab;      /* decorativo, NO usar para texto */
+  --ink-25:#9ba2ab;
+  --ink-15:#b4b9c0;      /* bordes claros */
+  --grey-pale:#f0f0f0;   /* relleno apenas visible */
+
+  /* ---- Filetes ---- */
+  --hair:rgba(6,22,45,0.14);
+  --hair-2:rgba(6,22,45,0.28);
+
+  /* ---- Semaforo (de design-system/plantilla.html del repo de marca) ---- */
+  --ok:#2f6b56;    --ok-bg:rgba(47,107,86,0.11);
+  --warn:#8a6320;  --warn-bg:rgba(138,99,32,0.12);
+  --no:#9c3b32;    --no-bg:rgba(156,59,50,0.11);
+
+  /* ---- Degradés del manual (página 14) ----
+     El manual define las REGLAS pero no da los hex. Estos tres están medidos
+     sobre los PNG del manual, descartando el 3% de cada extremo por antialias.
+     Reglas: se construyen sólo con colores de la paleta, transición suave, y
+     el degradé es SOPORTE del contenido, nunca protagonista.
+     Ojo: CELESTE y GRIS midieron casi lo mismo — falta confirmarlo.
+     «BLANCA» no es un degradé: es la marca en color plano sobre fondo blanco. */
+  --gradient-azul:linear-gradient(to top right,#2d466f 0%,#1b2f4f 32%,#000a21 74%,#000718 100%); /* @kind color */
+  --gradient-gris:linear-gradient(135deg,#6d788a 0%,#a3a8b1 30%,#e8e6e3 52%,#a3a8b1 76%,#647083 100%); /* @kind color */
+  --gradient-celeste:var(--gradient-gris); /* @kind color */
+  --gradient-blanca:radial-gradient(95% 85% at 8% 82%,#ffffff 0%,#eef3ea 22%,#c6cbce 48%,#8a94a0 76%,#5c677f 100%); /* @kind color */
+  --azul-grad-desde:#2d466f;
+  --azul-grad-hasta:#000718;
+  /* Los tres de arriba estan MEDIDOS sobre los PNG oficiales de logo con degrade
+     (assets/logos/manual/, GRADIENTE AZUL / CELESTE / BLANCA, 1080x1080):
+     AZUL es diagonal, claro abajo a la izquierda y casi negro arriba a la derecha;
+     CELESTE (el manual lo nombra GRIS en el isotipo) es una banda clara en la
+     diagonal BL-TR con slate en las otras dos esquinas; BLANCA es una bruma
+     blanca desde abajo a la izquierda que cierra en slate oscuro. */
+
+  /* Los de las placas de feed, medidos aparte sobre las 8 originales: son
+     DIAGONALES (eje de la esquina inferior izquierda a la superior derecha) y
+     con el punto medio corrido hacia el extremo oscuro. */
+  --gradient-navy:linear-gradient(to top right,#00081d 0%,#0a1a36 55%,#273f63 100%); /* @kind color */
+  --gradient-light:radial-gradient(120% 95% at 0% 100%,#ffffff 0%,#dcdee2 30%,#c8ccd4 62%,#c2c6ce 100%); /* @kind color */
+  /* Versión horizontal, para filetes y barras finas. */
+  --gradient-navy-h:linear-gradient(90deg,#00081d,#273f63); /* @kind color */
+
+  /* Papel de las placas de feed: es un punto más cálido y oscuro que el
+     --paper de documento (#f8f6f6). Los dos son del manual. */
+  --paper-feed:#f0edee;
+  /* Trazo de la marca de agua sobre --paper-feed: apenas 4% más oscuro. */
+  --watermark-feed:#e6e3e4;
+
+  /* Alias heredados: apuntaban a un degradé armado a mano mientras no se
+     podían leer los del manual. Ahora apuntan a los reales. */
+  --gradient-provisorio:var(--gradient-navy); /* @kind color */
+  --gradient-provisorio-h:var(--gradient-navy-h); /* @kind color */
+
+  /* ---- Alias heredados de las 58 plantillas de redes ----
+     No es branding viejo: son los NOMBRES de variable que las plantillas
+     todavia piden, apuntando a colores del branding nuevo. Se borran cuando
+     se rehagan las plantillas. */
+  --navy-deep:#06162d;
+  --navy-ink:#06162d;
+  --blue-mid:#384557;
+  --blue:#7c8392;
+  --blue-lt:#9ba2ab;
+  --blue-pale:#d9d9d9;
+  --blue-tint:#f0f0f0;
+  --paper-warm:#ffffff;
+  --gradient-brand:var(--gradient-navy); /* @kind color */
+  --gradient-brand-h:var(--gradient-navy-h); /* @kind color */
+}
+
+/* ---- Textos sobre las placas de feed ----
+   Medidos sobre las placas originales del manual. */
+:root{
+  --feed-ink:#031630;         /* titular navy sobre papel */
+  --feed-body:#717682;        /* cuerpo sobre navy */
+  --feed-sub:#a4a8ae;         /* bajada clara sobre papel */
+  --feed-meta:#8a929d;        /* fecha en itálica sobre navy */
+  --feed-claim:#898387;       /* claim en gris cálido sobre papel */
+  --feed-title-2:#8f96a1;     /* segundo tono del titular en dos tonos */
+  --feed-body-light:#2b3f51;  /* cuerpo sobre el degradé claro */
+}
