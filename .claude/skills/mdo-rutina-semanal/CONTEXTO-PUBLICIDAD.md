@@ -67,7 +67,7 @@ Lectura:
   - El certificado **no vence: se renueva solo**.
 - **No prometer "pagar menos"**: la promesa es un beneficio legal vigente que quizás no se usa, o plata inmovilizada que se puede recuperar.
 - **Tono profesional.** Sin "gratis", sin "con lupa", sin giros de más. Sirven "financiamiento sin costo" y "segunda opinión técnica".
-- **Datos del estudio aprobados**: "Más de 30 años", "Equipo de más de 25 profesionales", "Un socio en cada cuenta", "Para empresas y PyMEs".
+- **Datos del estudio aprobados**: "30 años" (siempre así, sin año de fundación ni "más de": Juan, 02/10/2026, en el design system), "Equipo de más de 25 profesionales", "Un socio en cada cuenta", "Para empresas y PyMEs".
 - ❌ No nombrar otros estudios ni software.
 - ❌ No copiar el mensaje precargado de WhatsApp de las campañas ("Hola, les escribo por mi empresa…"): es el que le dice a Juan de qué anuncio viene cada consulta.
 

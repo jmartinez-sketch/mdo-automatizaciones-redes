@@ -1,0 +1,236 @@
+{
+ "semana": 41,
+ "rango": "7 al 9 de octubre de 2026",
+ "blogId": "6267636",
+ "posts": [
+  {
+   "dia": "Miércoles 07/10",
+   "hora": "9:00",
+   "redes": [
+    "Instagram",
+    "LinkedIn"
+   ],
+   "plantilla": "po-13d",
+   "imagenes": [
+    "posts/2026-10-07-2.png"
+   ],
+   "slots": [
+    {
+     "FECHA": "01.10.2026",
+     "TITULAR_1": "FAL: ARCA reglamentó la contribución",
+     "TITULAR_2": "que se paga con el F.931",
+     "BAJADA": "La RG 5907 fija cómo se identifica cada empleador alcanzado, cómo se informa el ID FAL, qué alícuota corresponde y cómo se descuenta de las contribuciones patronales.",
+     "CIERRE": "Antes de la primera liquidación con FAL, conviene revisar el encuadre de tu empresa."
+    }
+   ],
+   "nota": "Noticia · FAL: ARCA reglamentó cómo se declara y paga la contribución (RG 5907, F.931).",
+   "info": {
+    "text": "ARCA reglamentó cómo se declara y paga la contribución al Fondo de Asistencia Laboral.\n\nCon la RG 5907, ARCA completó el esquema del Fondo de Asistencia Laboral (FAL) que creó la Ley de Modernización Laboral 27.802. La norma define cómo se identifica cada empleador alcanzado, cómo se informa el ID FAL, qué alícuota corresponde ingresar y cómo se descuenta de las contribuciones patronales. El pago se hace a través del Formulario 931.\n\nQué significa para tu empresa: si tiene empleados, la liquidación mensual de cargas sociales suma un paso nuevo. Según cómo esté encuadrada (entre otras cosas, si tiene Certificado MiPyME), puede cambiar la alícuota que le corresponde.\n\nConviene revisarlo antes de la primera liquidación con FAL, para que el 931 salga bien desde el primer mes.\n\n—\n\nLiquidamos los sueldos y las cargas sociales de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/liquidacion-de-sueldos\n\nFuente: Errepar · RG (ARCA) 5907\n\n#MDOConsultores #FAL #ARCA #LiquidaciónDeSueldos #Empleadores",
+    "draft": true,
+    "autoPublish": false,
+    "providers": [
+     {
+      "network": "instagram"
+     },
+     {
+      "network": "linkedin"
+     }
+    ],
+    "publicationDate": {
+     "dateTime": "2026-10-07T09:00:00",
+     "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "media": [
+     "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-07-2.png"
+    ],
+    "mediaAltText": [
+     "FAL: ARCA reglamentó la contribución que se paga con el F.931"
+    ],
+    "shortener": false,
+    "smartLinkData": {
+     "ids": []
+    },
+    "firstCommentText": "",
+    "hasNotReadNotes": false,
+    "descendants": [],
+    "instagramData": {
+     "type": "POST",
+     "showReelOnFeed": true,
+     "collaborators": []
+    },
+    "linkedinData": {
+     "type": "post",
+     "previewIncluded": true
+    }
+   }
+  },
+  {
+   "dia": "Jueves 08/10",
+   "hora": "9:00",
+   "redes": [
+    "Instagram · historia (video)"
+   ],
+   "plantilla": "st-10",
+   "imagenes": [
+    "posts/2026-10-08-3.png"
+   ],
+   "slots": [
+    {
+     "VOLANTA": "Encuesta",
+     "TITULAR_1": "¿Quién paga hoy",
+     "TITULAR_2": "a tus proveedores?",
+     "OPCION_A": "El dueño, desde su banco",
+     "OPCION_B": "Administración, con circuito",
+     "CIERRE": "Respondé en la encuesta. El viernes te contamos qué cambia."
+    }
+   ],
+   "esStory": true,
+   "nota": "Historia encuesta (Back office), en video: ¿quién paga hoy a tus proveedores? Pegale el sticker de encuesta a mano en Instagram.",
+   "info": {
+    "text": "",
+    "draft": true,
+    "autoPublish": false,
+    "providers": [
+     {
+      "network": "instagram"
+     }
+    ],
+    "publicationDate": {
+     "dateTime": "2026-10-08T09:00:00",
+     "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "media": [
+     "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-08-3.mp4"
+    ],
+    "mediaAltText": [
+     "Encuesta: ¿quién paga hoy a tus proveedores? El dueño desde su banco o administración con circuito"
+    ],
+    "shortener": false,
+    "smartLinkData": {
+     "ids": []
+    },
+    "firstCommentText": "",
+    "hasNotReadNotes": false,
+    "descendants": [],
+    "instagramData": {
+     "type": "STORY",
+     "showReelOnFeed": true,
+     "collaborators": []
+    }
+   },
+   "video": {
+    "archivo": "posts/2026-10-08-3.mp4",
+    "asset": "cfe91ec26cf5b679b0305acff33628de"
+   }
+  },
+  {
+   "dia": "Jueves 08/10",
+   "hora": "9:00",
+   "redes": [
+    "LinkedIn"
+   ],
+   "plantilla": "li-02",
+   "imagenes": [
+    "posts/2026-10-08-3-li.png"
+   ],
+   "slots": [
+    {
+     "TITULAR_1": "Los pagos de tu empresa,",
+     "TITULAR_2": "con circuito y control."
+    }
+   ],
+   "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): claim horizontal + texto sobre el circuito de pagos.",
+   "info": {
+    "text": "¿Quién paga hoy a los proveedores de tu empresa?\n\nEn muchas PyMEs la respuesta es el dueño: desde su home banking, entre una reunión y otra, con las facturas en el mail. Funciona mientras la empresa es chica. Cuando crece, los pagos quedan atados a una sola persona y nadie más sabe qué se pagó, qué falta y qué no cierra con el banco.\n\nUn circuito de pagos con roles claros (quién carga, quién aprueba, quién paga y quién concilia) le devuelve al dueño el control sin tener que hacerlo todo él. Es parte de lo que hacemos en el outsourcing administrativo y contable: cuentas a pagar y a cobrar, conciliaciones, tesorería y reportes.\n\nEscribinos: mdo-consultores.com.ar/servicios/outsourcing-administrativo\n\n#MDOConsultores #GestiónPyME #BackOffice",
+    "draft": true,
+    "autoPublish": false,
+    "providers": [
+     {
+      "network": "linkedin"
+     }
+    ],
+    "publicationDate": {
+     "dateTime": "2026-10-08T09:00:00",
+     "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "media": [
+     "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-08-3-li.png"
+    ],
+    "mediaAltText": [
+     "Los pagos de tu empresa, con circuito y control. MDO Consultores"
+    ],
+    "shortener": false,
+    "smartLinkData": {
+     "ids": []
+    },
+    "firstCommentText": "",
+    "hasNotReadNotes": false,
+    "descendants": [],
+    "linkedinData": {
+     "type": "post",
+     "previewIncluded": true
+    }
+   }
+  },
+  {
+   "dia": "Viernes 09/10",
+   "hora": "9:00",
+   "redes": [
+    "Instagram",
+    "LinkedIn"
+   ],
+   "plantilla": "po-25",
+   "imagenes": [
+    "posts/2026-10-09-4.png"
+   ],
+   "slots": [
+    {
+     "VOLANTA": "Outsourcing administrativo",
+     "TITULAR_1": "Cada pago de tu empresa",
+     "TITULAR_2": "sale de tu celular.",
+     "TITULAR_3": "¿Y si un día no estás?"
+    }
+   ],
+   "nota": "Gestión PyME · Back office: cada pago sale del celular del dueño, ¿y si un día no está? (sigue la encuesta del jueves).",
+   "info": {
+    "text": "Cada pago de tu empresa sale de tu celular. ¿Y si un día no estás?\n\nEl jueves preguntamos quién paga hoy a los proveedores. En muchas empresas, la respuesta sigue siendo el dueño, desde su banco.\n\nSi los pagos, las conciliaciones y los reportes pasan por una sola persona, cualquier ausencia frena la empresa y nadie más sabe dónde está cada cosa.\n\nPor qué importa: un circuito con roles claros (quién carga, quién aprueba, quién paga, quién concilia) y un reporte que mirás todos los meses te devuelven el control sin tener que hacerlo todo vos.\n\n—\n\nLlevamos la contabilidad y el back office de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/outsourcing-administrativo\n\n#MDOConsultores #GestiónPyME #BackOffice #Contabilidad #PyMEs",
+    "draft": true,
+    "autoPublish": false,
+    "providers": [
+     {
+      "network": "instagram"
+     },
+     {
+      "network": "linkedin"
+     }
+    ],
+    "publicationDate": {
+     "dateTime": "2026-10-09T09:00:00",
+     "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "media": [
+     "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-09-4.png"
+    ],
+    "mediaAltText": [
+     "Cada pago de tu empresa sale de tu celular. ¿Y si un día no estás?"
+    ],
+    "shortener": false,
+    "smartLinkData": {
+     "ids": []
+    },
+    "firstCommentText": "",
+    "hasNotReadNotes": false,
+    "descendants": [],
+    "instagramData": {
+     "type": "POST",
+     "showReelOnFeed": true,
+     "collaborators": []
+    },
+    "linkedinData": {
+     "type": "post",
+     "previewIncluded": true
+    }
+   }
+  }
+ ]
+}

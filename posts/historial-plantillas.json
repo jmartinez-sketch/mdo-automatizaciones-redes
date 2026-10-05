@@ -296,6 +296,33 @@
       "linkedin": null,
       "formato": "imagen",
       "nota": "Servicios · Análisis integral de Ingresos Brutos: vender a varias provincias y pagar IIBB donde no corresponde (problema + servicio) · sv-01/po-16/sv-04/mn-04 bloqueadas · solo Instagram"
+    },
+    {
+      "fecha": "2026-10-07",
+      "semana_iso": 41,
+      "slot": "noticia",
+      "template": "po-13d",
+      "linkedin": null,
+      "formato": "imagen",
+      "nota": "FAL: ARCA reglamentó la declaración y el pago de la contribución por F.931 (RG ARCA 5907: empleadores alcanzados, ID FAL, alícuota, detracción de contribuciones patronales) · sigue a la nota de la CNV del 23/09, otro organismo y otra obligación · po-13d por defecto (las 2 anteriores fueron po-13e y po-13d) · un solo draft IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-08",
+      "semana_iso": 41,
+      "slot": "jueves",
+      "template": "st-10",
+      "linkedin": "li-02",
+      "formato": "video",
+      "nota": "Historia encuesta en video · Back office: ¿quién paga hoy a tus proveedores? (el dueño desde su banco / administración con circuito) · ciclo 41%4=1 (st-10 la fija el ciclo, aunque grupos-kit la marque usada el 10/09) · draft de historia IG + draft LinkedIn con li-02 «Los pagos de tu empresa, con circuito y control.»"
+    },
+    {
+      "fecha": "2026-10-09",
+      "semana_iso": 41,
+      "slot": "gestion",
+      "template": "po-25",
+      "linkedin": null,
+      "formato": "imagen",
+      "nota": "Contabilidad y back office (eje 1) · outsourcing administrativo: «Cada pago de tu empresa sale de tu celular. ¿Y si un día no estás?» (sigue la encuesta del jueves) · fondo claro para que la grilla no quede toda navy; se probó po-34 mito/realidad (navy) y se descartó por eso · bloqueadas por placa: po-04, po-24/26/28/31/33, po-30/35, po-32 · un solo draft IG+LinkedIn"
     }
   ],
   "temas_previos": [
@@ -563,6 +590,41 @@
       "fecha": "2026-09-25",
       "slot": "gestion",
       "tema": "Auditoría: diferencia entre balance certificado y balance auditado"
+    },
+    {
+      "fecha": "2026-09-30",
+      "slot": "noticia",
+      "tema": "IGJ reforma el régimen registral (RG IGJ 11/2026): constitución sin precalificación"
+    },
+    {
+      "fecha": "2026-10-01",
+      "slot": "jueves",
+      "tema": "Carrusel Ingresos Brutos: fallo Milk World, retenciones de AGIP con saldos inabsorbibles"
+    },
+    {
+      "fecha": "2026-10-02",
+      "slot": "gestion",
+      "tema": "Ingresos Brutos: tres señales de que la empresa financia al fisco (Reel)"
+    },
+    {
+      "fecha": "2026-10-03",
+      "slot": "spotlight",
+      "tema": "Análisis de Ingresos Brutos: pagar IIBB donde no corresponde"
+    },
+    {
+      "fecha": "2026-10-07",
+      "slot": "noticia",
+      "tema": "FAL: ARCA reglamenta declaración y pago de la contribución (RG 5907, F.931)"
+    },
+    {
+      "fecha": "2026-10-08",
+      "slot": "jueves",
+      "tema": "Encuesta: quién paga hoy a tus proveedores (dueño vs. circuito de administración)"
+    },
+    {
+      "fecha": "2026-10-09",
+      "slot": "gestion",
+      "tema": "Back office: los pagos dependen del celular del dueño"
     }
   ]
 }
