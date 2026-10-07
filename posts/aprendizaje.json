@@ -36,6 +36,12 @@
       "tema": "video",
       "regla": "Video de texto = una sola pantalla con toda la info, que aparece de a una línea, suave, como una historia nativa. Nada de varias pantallas encadenadas ni efectos de producción.",
       "origen": "Juan rechazó la versión de 5 pantallas del FAL."
+    },
+    {
+      "desde": "2026-10-07",
+      "tema": "video",
+      "regla": "Texto sobre foto con fundidos no alcanza: el video lleva gráficos animados que explican (diagramas, tarjetas, íconos que se dibujan), fondo claro y ritmo más vivo, siempre en una sola pantalla y con la paleta de la marca.",
+      "origen": "Juan, 07/10, después de aprobar la historia del FAL."
     }
   ],
   "decisiones": [
@@ -80,6 +86,13 @@
       "pieza": "Jueves 08/10 · historia en video de texto, una sola pantalla, FAL RG 5907",
       "decision": "aprobado",
       "motivo": "Lo aprobó por chat tras pedir una sola pantalla, más orgánica."
+    },
+    {
+      "fecha": "2026-10-07",
+      "semana": 41,
+      "pieza": "Formato de video en general",
+      "decision": "pedido",
+      "motivo": "«Mejoremos la creación de videos, con más animaciones, no sólo texto sobre una foto; que sea más alegre, más profesional.»"
     }
   ]
 }
