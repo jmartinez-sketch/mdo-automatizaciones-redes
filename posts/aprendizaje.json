@@ -1,16 +1,78 @@
 {
   "_leeme": "Lo que Juan aprueba, regenera, rechaza o borra, y la lección que deja. La rutina lo lee antes de elegir nada (paso 0c) y lo actualiza en cada pasada. 'lecciones' manda sobre la costumbre; 'decisiones' es el registro de donde salen.",
   "lecciones": [
-    {"desde": "2026-09-28", "tema": "video", "regla": "Los videos van sin sonido.", "origen": "Juan descartó el sonido sintetizado."},
-    {"desde": "2026-10-05", "tema": "diseño", "regla": "Las placas se parecían demasiado entre sí: cada semana, al menos una con foto o número grande, y preferir las que nunca se usaron (regla «Variedad visual»).", "origen": "Juan: «los diseños de las placas están siendo muy similares»."},
-    {"desde": "2026-10-06", "tema": "video", "regla": "No animar encuestas: una pregunta genérica con dos opciones se ve básica, «muy inteligencia artificial, poco profesional». No volver a proponerlas en video.", "origen": "Juan no aprobó la historia en video del jueves 08/10 (encuesta st-10)."},
-    {"desde": "2026-10-06", "tema": "video", "regla": "Los videos son de texto (feed o historia). Nada de gente hablando ni grabaciones de los socios o del equipo, por ahora.", "origen": "Juan, 06/10."},
-    {"desde": "2026-10-06", "tema": "texto", "regla": "Escribir como un contador que sabe: afirmar en vez de preguntar, nombrar la norma, el formulario, el área de la empresa. Nada de eslóganes, signos de exclamación, frases motivacionales ni cierres tipo «Elegí tu opción».", "origen": "Diagnóstico de la encuesta rechazada, conversado con Juan el 06/10."}
+    {
+      "desde": "2026-09-28",
+      "tema": "video",
+      "regla": "Los videos van sin sonido.",
+      "origen": "Juan descartó el sonido sintetizado."
+    },
+    {
+      "desde": "2026-10-05",
+      "tema": "diseño",
+      "regla": "Las placas se parecían demasiado entre sí: cada semana, al menos una con foto o número grande, y preferir las que nunca se usaron (regla «Variedad visual»).",
+      "origen": "Juan: «los diseños de las placas están siendo muy similares»."
+    },
+    {
+      "desde": "2026-10-06",
+      "tema": "video",
+      "regla": "No animar encuestas: una pregunta genérica con dos opciones se ve básica, «muy inteligencia artificial, poco profesional». No volver a proponerlas en video.",
+      "origen": "Juan no aprobó la historia en video del jueves 08/10 (encuesta st-10)."
+    },
+    {
+      "desde": "2026-10-06",
+      "tema": "video",
+      "regla": "Los videos son de texto (feed o historia). Nada de gente hablando ni grabaciones de los socios o del equipo, por ahora.",
+      "origen": "Juan, 06/10."
+    },
+    {
+      "desde": "2026-10-06",
+      "tema": "texto",
+      "regla": "Escribir como un contador que sabe: afirmar en vez de preguntar, nombrar la norma, el formulario, el área de la empresa. Nada de eslóganes, signos de exclamación, frases motivacionales ni cierres tipo «Elegí tu opción».",
+      "origen": "Diagnóstico de la encuesta rechazada, conversado con Juan el 06/10."
+    },
+    {
+      "desde": "2026-10-07",
+      "tema": "video",
+      "regla": "Video de texto = una sola pantalla con toda la info, que aparece de a una línea, suave, como una historia nativa. Nada de varias pantallas encadenadas ni efectos de producción.",
+      "origen": "Juan rechazó la versión de 5 pantallas del FAL."
+    }
   ],
   "decisiones": [
-    {"fecha": "2026-10-06", "semana": 41, "pieza": "Jueves 08/10 · historia en video · st-10 encuesta «¿Quién carga hoy tus comprobantes?»", "decision": "rechazado", "motivo": "Muy básico, muy IA, poco profesional."},
-    {"fecha": "2026-10-05", "semana": 41, "pieza": "Miércoles 07/10 · po-13d · FAL RG 5907", "decision": "aprobado", "motivo": ""},
-    {"fecha": "2026-10-05", "semana": 41, "pieza": "Jueves 08/10 · li-02 · circuito de pagos", "decision": "aprobado", "motivo": ""},
-    {"fecha": "2026-10-05", "semana": 41, "pieza": "Viernes 09/10 · po-25 · back office", "decision": "regenerado y aprobado", "motivo": "Lo regeneró desde el panel antes de aprobarlo."}
+    {
+      "fecha": "2026-10-06",
+      "semana": 41,
+      "pieza": "Jueves 08/10 · historia en video · st-10 encuesta «¿Quién carga hoy tus comprobantes?»",
+      "decision": "rechazado",
+      "motivo": "Muy básico, muy IA, poco profesional."
+    },
+    {
+      "fecha": "2026-10-05",
+      "semana": 41,
+      "pieza": "Miércoles 07/10 · po-13d · FAL RG 5907",
+      "decision": "aprobado",
+      "motivo": ""
+    },
+    {
+      "fecha": "2026-10-05",
+      "semana": 41,
+      "pieza": "Jueves 08/10 · li-02 · circuito de pagos",
+      "decision": "aprobado",
+      "motivo": ""
+    },
+    {
+      "fecha": "2026-10-05",
+      "semana": 41,
+      "pieza": "Viernes 09/10 · po-25 · back office",
+      "decision": "regenerado y aprobado",
+      "motivo": "Lo regeneró desde el panel antes de aprobarlo."
+    },
+    {
+      "fecha": "2026-10-07",
+      "semana": 41,
+      "pieza": "Jueves 08/10 · historia en video de texto, 5 pantallas sobre el FAL",
+      "decision": "rechazado",
+      "motivo": "«Podría estar toda la info en una pantalla, que parezca más orgánico.»"
+    }
   ]
 }
