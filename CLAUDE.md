@@ -87,6 +87,8 @@ scripts/
   setup.sh              Instalación de deps + Chromium para sesiones frescas
 
 posts/                  PNGs generados por la rutina (commiteados a git → URL pública)
+  aprendizaje.json      Lo que Juan aprueba, regenera, rechaza o borra, y las
+                        lecciones que deja. La rutina lo lee antes de elegir (paso 0c).
   historial-plantillas.json   Memoria de qué plantilla se usó cada semana.
                               La rutina lo lee para NO repetir plantillas de las
                               últimas 4 semanas. Si se borra, la variedad se rompe.

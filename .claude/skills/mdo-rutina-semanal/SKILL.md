@@ -288,6 +288,23 @@ Compara y escribe **sólo lo que cambió** (`templates-kit-manual.jsx`, `mdo-bra
 
 ❌ Nunca editar a mano `templates-kit-manual.jsx`, `mdo-brand.css` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se hace **en el design system** y después se sincroniza.
 
+### 0c. Aprender de lo que Juan aprueba y rechaza (SIEMPRE, desde el 07/10/2026)
+
+Pedido de Juan: que la rutina aprenda de lo que él aprueba y de lo que no. La memoria es **`posts/aprendizaje.json`**:
+
+- **`lecciones`**: reglas que salieron de sus decisiones. **Leerlas antes de elegir nada** y respetarlas como las reglas duras de esta skill. Si una lección choca con una regla vieja de acá, manda la lección (es más nueva y es de Juan).
+- **`decisiones`**: el registro de cada pieza con lo que hizo Juan (`aprobado`, `regenerado` + el pedido, `rechazado`, `borrado en Metricool`) y por qué, si se sabe.
+
+**Cómo se anota** (en el armado del lunes y en cada pasada de reposición, antes de terminar):
+
+1. Comparar el documento del panel con lo que la rutina cargó: los posts que pasaron a `aprobado` → `aprobado`; los que trajeron `pendienteImagen` → `regenerado`, con el texto de `pendienteImagen.pedido` como motivo (es lo que Juan pidió cambiar); los que llegaron a su hora de publicación sin aprobar → `rechazado`.
+2. El lunes, antes de armar la semana nueva, mirar en Metricool (`getScheduledPosts`) los posts de la semana anterior: si Juan borró alguno que estaba programado → `borrado en Metricool`.
+3. Lo que Juan diga en el chat sobre una pieza («esto no me gusta», «muy básico», «así sí») también va, con sus palabras.
+4. Si dos o más decisiones apuntan a lo mismo (el mismo tipo de placa rechazada, el mismo pedido al regenerar), escribir la **lección** en una línea concreta y accionable. Una sola decisión con un motivo claro de Juan también alcanza.
+5. Commitear `posts/aprendizaje.json` junto con el historial. Sólo agregar al final: no reescribir decisiones viejas.
+
+En el cierre de la rutina, si se agregó una lección nueva, contársela a Juan en una línea.
+
 ### 1. Leer Gmail
 
 Usar la MCP de Gmail. Query — **usar exactamente esta forma**, con el nombre del label entre comillas:
