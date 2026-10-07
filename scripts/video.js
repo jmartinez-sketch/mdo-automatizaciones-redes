@@ -269,4 +269,4 @@ if (require.main === module) {
     .catch((e) => { console.error('ERROR:', e.message || e); process.exit(1); });
 }
 
-module.exports = { video };
+module.exports = { video, saltos };

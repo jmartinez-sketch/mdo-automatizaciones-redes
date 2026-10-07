@@ -107,6 +107,25 @@ for (const [ds, repo] of LOGOS) {
   copiarSiCambio(origen, 'mdo-templates/assets/' + repo, `logo ${ds} → ${repo}`);
 }
 
+// 4. Íconos: el set oficial (nueve glifos de línea, viewBox 24, trazo 1.7) vive en el componente
+//    Icon del design system. Se pasa a JSON para que los videos animados (video-animado.js) los
+//    dibujen igual que las placas, sin copiarlos a mano.
+const iconJsx = path.join(project, 'components', 'src', 'components', 'iconos', 'Icon.jsx');
+if (fs.existsSync(iconJsx)) {
+  const fuente = fs.readFileSync(iconJsx, 'utf8');
+  const bloque = (fuente.match(/const PATHS = \{([\s\S]*?)\n\};/) || [])[1] || '';
+  const iconos = {};
+  for (const m of bloque.matchAll(/^\s*([a-z]+):\s*\[([\s\S]*?)\],\s*$/gm)) {
+    iconos[m[1]] = m[2].replace(/\s*key="[^"]*"/g, '').replace(/>\s*,\s*</g, '><').trim();
+  }
+  if (Object.keys(iconos).length) {
+    const tmp = path.join(root, 'mdo-templates', 'iconos-mdo.json.sync-tmp');
+    fs.writeFileSync(tmp, JSON.stringify({ _leeme: 'Copia del set de íconos del design system (Icon.jsx): viewBox 0 0 24 24, trazo 1.7, sin relleno, currentColor. La genera sincronizar-diseno.js: no editar.', iconos }, null, 2) + '\n');
+    copiarSiCambio(tmp, 'mdo-templates/iconos-mdo.json', 'íconos Icon.jsx → iconos-mdo.json');
+    fs.unlinkSync(tmp);
+  } else faltan.push('íconos (Icon.jsx sin el bloque PATHS)');
+} else faltan.push('íconos Icon.jsx');
+
 console.log('');
 if (cambios.length) { console.log('ACTUALIZADO:'); cambios.forEach((c) => console.log('  · ' + c)); }
 if (iguales.length) { console.log('Sin cambios: ' + iguales.join(', ')); }

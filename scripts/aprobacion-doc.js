@@ -154,8 +154,11 @@ async function placaDe(templateId) {
       slots,
       // Semana con video: el MP4 va como asset del artifact (la página no puede cargar
       // archivos de otros dominios). `imagenes` sigue siendo la placa fija: es la tapa
-      // del video en el panel y el respaldo si Metricool no acepta el video.
-      ...(p.video && p.video.asset ? { video: { asset: String(p.video.asset), archivo: p.video.archivo || '' } } : {}),
+      // del video en el panel y el respaldo si Metricool no acepta el video. `spec` es la
+      // receta del video animado (video-animado.js): con ella el panel lo muestra y lo
+      // regenera, y la reposición lo vuelve a grabar.
+      ...(p.video && p.video.asset ? { video: { asset: String(p.video.asset), archivo: p.video.archivo || '',
+        ...(p.video.spec ? { spec: p.video.spec } : {}) } } : {}),
     });
   }
   const doc = {

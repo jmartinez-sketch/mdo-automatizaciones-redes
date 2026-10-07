@@ -42,6 +42,24 @@
       "tema": "video",
       "regla": "Texto sobre foto con fundidos no alcanza: el video lleva gráficos animados que explican (diagramas, tarjetas, íconos que se dibujan), fondo claro y ritmo más vivo, siempre en una sola pantalla y con la paleta de la marca.",
       "origen": "Juan, 07/10, después de aprobar la historia del FAL."
+    },
+    {
+      "desde": "2026-10-07",
+      "tema": "video",
+      "regla": "El video de la semana es la escena animada de scripts/video-animado.js (receta JSON): una pantalla con fondo papel que se arma con gráficos que explican (flechas, ventanas, listas con íconos, casilleros, número grande) y cierra con la banda del logo.",
+      "origen": "Juan, sobre el prototipo del FAL: «me gusta mucho más el último video que hiciste»; «ese mismo criterio lo apliquemos para las próximas generaciones de video»."
+    },
+    {
+      "desde": "2026-10-07",
+      "tema": "video",
+      "regla": "Pocos colores: el azul noche es el único acento; fondo papel y grises del manual. Nada de ámbar, verde u otro color en un video. Íconos, sólo los del design system.",
+      "origen": "Juan, 07/10: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos»."
+    },
+    {
+      "desde": "2026-10-07",
+      "tema": "texto",
+      "regla": "La historia del jueves en semana impar es el video (sin encuesta ni cita), y antes de renderizar los textos pasan por scripts/revisar-textos.js.",
+      "origen": "Consecuencia de las lecciones del 06/10 (encuestas y voz) aplicada a la rutina."
     }
   ],
   "decisiones": [
@@ -93,6 +111,13 @@
       "pieza": "Formato de video en general",
       "decision": "pedido",
       "motivo": "«Mejoremos la creación de videos, con más animaciones, no sólo texto sobre una foto; que sea más alegre, más profesional.»"
+    },
+    {
+      "fecha": "2026-10-07",
+      "semana": 41,
+      "pieza": "Prototipo de video animado del FAL (posts/propuestas/2026-10-07-video-animado-fal.mp4)",
+      "decision": "aprobado como estilo",
+      "motivo": "«Me gusta mucho más el último video que hiciste.» Pidió aplicar ese criterio a los próximos videos, sin muchos colores, con animaciones, ventanas, flechas, cuadros e íconos."
     }
   ]
 }

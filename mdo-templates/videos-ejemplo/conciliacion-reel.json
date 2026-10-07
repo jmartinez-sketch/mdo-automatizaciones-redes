@@ -1,0 +1,15 @@
+{
+  "ceja": "Contabilidad · Cierre",
+  "titular": "Un balance prolijo empieza en la conciliación de cada mes",
+  "bloques": [
+    {"tipo": "ventana", "titulo": "Conciliación bancaria", "icono": "calculadora", "filas": [
+      {"etiqueta": "Saldo según banco", "valor": "Conciliado"},
+      {"etiqueta": "Saldo según libros", "valor": "Conciliado"},
+      {"etiqueta": "Partidas pendientes", "valor": "A revisar", "nuevo": true}]},
+    {"tipo": "lista", "marca": "tilde", "items": [
+      "Cheques emitidos que todavía **no se cobraron**",
+      "Débitos del banco **sin comprobante**",
+      "Depósitos que **no figuran** en el extracto"]},
+    {"tipo": "cierre", "texto": "Revisarlas todos los meses evita sorpresas al cierre."}
+  ]
+}

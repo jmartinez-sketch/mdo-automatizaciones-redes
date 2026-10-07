@@ -11,7 +11,10 @@
 //
 // Para cada post con `pendienteImagen` que todavía no salió:
 //   - renderiza el PNG nuevo (y el MP4 si el post era el video de la semana),
-//     con un nombre nuevo para que Metricool no use la copia vieja de su caché;
+//     con un nombre nuevo para que Metricool no use la copia vieja de su caché.
+//     El video de receta (formato del 07/10/2026) se graba con video-animado.js y
+//     la receta nueva que mandó el panel (`pendienteImagen.video`); el de antes,
+//     la placa animada, con video.js;
 //   - arma la miniatura JPEG que muestra el panel.
 // Escribe un plan con lo que falta hacer afuera (push, Metricool, base del panel).
 // Lo usa la rutina "MDO - Automatizaciones Redes" en cada pasada (paso 7c de la skill).
@@ -78,11 +81,23 @@ async function miniatura(browser, abs, ancho) {
       }
       let video = null;
       if (p.video && p.video.asset) {
-        const { video: grabar } = require('./video');
         const rel = archivos[0].replace(/\.png$/, '.mp4');
-        const r = await grabar({ template: pi.plantillas[0], slots: pi.slots[0], outPath: path.join(ROOT, rel) });
-        // La portada (el cuadro 9:16 con la placa completa) es la tapa del Reel: videoThumbnailUrl.
-        video = { archivo: rel, portada: r.portada ? path.relative(ROOT, r.portada) : null, assetViejo: p.video.asset };
+        const receta = pi.video || p.video.spec || null;
+        let r;
+        if (receta) {
+          // Si el panel no mandó receta nueva, se graba la que ya tenía: avisar, porque el texto
+          // del post pudo cambiar y el video seguiría diciendo lo de antes.
+          if (!pi.video) console.error(`AVISO: ${p.dia}: el panel no mandó una receta nueva para el video; se graba la anterior. Revisar que diga lo mismo que la placa nueva.`);
+          const { videoAnimado } = require('./video-animado');
+          r = await videoAnimado({ spec: receta, outPath: path.join(ROOT, rel) });
+          for (const a of r.avisos || []) console.error(`AVISO: ${p.dia}: ${a}`);
+        } else {
+          const { video: grabar } = require('./video');
+          r = await grabar({ template: pi.plantillas[0], slots: pi.slots[0], outPath: path.join(ROOT, rel) });
+        }
+        // La portada (el cuadro 9:16 completo) es la tapa del Reel: videoThumbnailUrl.
+        video = { archivo: rel, portada: r.portada ? path.relative(ROOT, r.portada) : null, assetViejo: p.video.asset,
+          ...(receta ? { spec: receta } : {}) };
       }
       plan.reponer.push({
         uuid: p.uuid, id: p.id, mcUuid: p.mcUuid || (p.id != null ? p.uuid : null),

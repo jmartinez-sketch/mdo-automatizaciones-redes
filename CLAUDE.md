@@ -28,7 +28,7 @@ Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del est
   - `project/components/assets/logos/*.svg` (+ el asset `49b43af7d306c5f26383c300225b5816`, secundario en papel) → `mdo-templates/assets/logo-mdo-*.svg`
 - **Cómo se sincroniza:** se bajan esos archivos con la herramienta `Artifact` (action `read`) y se corre `node scripts/sincronizar-diseno.js <carpeta bajada>`. La rutina semanal lo hace sola en su paso 0b. El detalle está en `mdo-templates/LEEME-kit-manual.md`.
 - **Dónde leer la marca:** `project/README.md` (brand book), `project/tokens.json` (tokens), `project/assets/manual/SALVEDADES.md` (decisiones del estudio que se apartan del manual; hoy la principal para redes: **no se usa la familia «MDO Explica»**, el contenido educativo va como Novedades o Servicios).
-- ❌ **Nunca editar a mano** `templates-kit-manual.jsx`, `mdo-brand.css` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se pide **en el design system** y después se sincroniza.
+- ❌ **Nunca editar a mano** `templates-kit-manual.jsx`, `mdo-brand.css`, `iconos-mdo.json` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se pide **en el design system** y después se sincroniza.
 - Fuentes anteriores que **ya no mandan**: el repo `jmartinez-sketch/mdo-brand` y el proyecto viejo de Claude Design (`cc21dedf-…`). El design system los absorbió.
 
 ## Setup en sesiones frescas
@@ -73,14 +73,22 @@ mdo-templates/          Copia sincronizada del diseño (la fuente es el design s
   vendor/               React + Babel locales (CDN unpkg está bloqueado en cloud)
   PLACEHOLDERS-kit.md   Slots de cada placa del kit (la fuente viva es --list-slots)
   LEEME-kit-manual.md   Cómo se sincroniza el kit desde el design system
+  iconos-mdo.json       Íconos oficiales (Icon.jsx) — GENERADO por sincronizar-diseno.js, no editar
+  video-animado.js      Motor de los videos: arma la escena animada de una receta JSON
+                        (lo usan scripts/video-animado.js y el panel, que lo publica a su lado)
+  video-animado.html    Punto de entrada para grabarlo
+  videos-ejemplo/       Recetas de ejemplo (la historia del FAL que aprobó Juan, …)
 
 scripts/
   render.js             Renderiza cualquier template a PNG (--dump-html vuelca el HTML de la placa) via Puppeteer
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
-  video.js              Anima una placa y la graba a MP4 (el video semanal)
-                        (la animación está en mdo-templates/animacion-placa.js, que también
-                        usa el panel para mostrar en movimiento un video regenerado)
+  video-animado.js      Graba la escena de una receta a MP4 (el video semanal, desde el 07/10/2026)
+  video.js              Formato anterior: anima una placa del kit y la graba a MP4
+                        (la animación está en mdo-templates/animacion-placa.js; queda para
+                        regenerar los posts viejos que la usaban)
+  revisar-textos.js     Control de la voz del estudio sobre placas, copys y recetas
+  reponer-placas.js     Re-renderiza lo que Juan regeneró en el panel (paso 7c)
   grupos-kit.js         Qué ids del kit son la misma placa, y qué queda bloqueado por el historial
   aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
                         con el HTML de cada placa para el botón "Regenerar"
@@ -116,11 +124,13 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026). **La imagen no puede viajar sola** desde el panel (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una): la placa nueva la publica la rutina de reposición leyendo `pendienteImagen`. Ver el paso 7c de la skill.
 - ✅ Aprobar primero, Metricool después (24/09/2026): la rutina no crea posts en Metricool; los crea el panel al aprobar. El 24/09 dos posts regenerados salieron con la imagen vieja porque ya estaban en Metricool: esto lo evita.
 
-## Video semanal (desde el 23/09/2026)
+## Video semanal (desde el 23/09/2026; formato nuevo desde el 07/10/2026)
 
-Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn). Es la misma placa animada con `scripts/video.js`, y pasa por el panel de aprobación como el resto. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
+Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn). Desde el 07/10/2026 es **una escena animada de una sola pantalla** que arma `scripts/video-animado.js` a partir de una receta JSON (`posts/…-video.json`): el titular entra palabra por palabra y aparecen gráficos que explican el tema (tarjetas unidas por flechas, ventanas, listas con íconos, casilleros que se pintan, un número grande), con **un solo color de acento, el azul noche**, y sólo los íconos del design system. Es el estilo que Juan aprobó el 07/10/2026 («me gusta mucho más el último video», «ese mismo criterio para las próximas generaciones de video»; «no meter muchos colores… pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos»). Pasa por el panel de aprobación como el resto, y el botón Regenerar rehace también la receta. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
 
-Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisa la tira de cuadros y dos cuadros a tamaño real con la tabla de chequeo del paso 4c, y se corrige lo que falle. El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`). El script avisa si algo se mueve a los saltos. Los videos van **sin sonido**: el 28/09/2026 se probó uno sintetizado y Juan lo descartó. Se evaluaron dos guías de motion: `onetake` (feitangyuan/onetake, licencia no comercial: sólo ideas) y `claude-motion-design` (howseen-ai, MIT). De ahí salen la revisión con puntaje del paso 4c (hojas de contacto y a tamaño celular, hasta 8 o más en todo), el control de saltos sobre el MP4 y el color BT.709. No se usan su desenfoque, sus resortes con rebote ni su sonido: el manual y Juan los descartan.
+Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisan las hojas de cuadros (la tira, la de contacto y la de celular) con la tabla y el puntaje del paso 4c, y se corrige lo que falle (hasta 8 o más en todo). El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`). El script avisa si algo salta en el MP4. Los videos van **sin sonido** (28/09/2026), **sin encuestas** (06/10/2026: «muy básico, muy inteligencia artificial, poco profesional») y **sin gente**. Se evaluaron dos guías de motion: `onetake` (feitangyuan/onetake, licencia no comercial: sólo ideas) y `claude-motion-design` (howseen-ai, MIT); de ahí salen la revisión con puntaje, el control de saltos y el color BT.709. No se usan su desenfoque, sus resortes con rebote ni su sonido: el manual y Juan los descartan.
+
+**La voz** (06/10/2026): Juan coincidió en que lo que suena a IA es el texto, no el diseño. Afirmar en vez de preguntar, mostrar lo que sabe el estudio (la norma, el formulario, qué se revisaría) y cerrar con lo que haría el estudio. `scripts/revisar-textos.js` atrapa lo mecánico (AFIP, «llamanos», preguntas, aforismos, frases de manual) antes de renderizar.
 
 ## Estrategia de contenido (desde el 25/09/2026)
 
