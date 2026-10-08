@@ -66,6 +66,12 @@
       "tema": "diseño",
       "regla": "El manual de marca es el del design system «MDO - Diseño», siempre. Los videos se arman con su plantilla «4.5 · Historias de redes» (familias novedades y servicios): nada de cápsulas, web al pie, tarjetas redondeadas, cifras en negrita ni papel de documento. Antes de inventar un recurso visual, buscarlo en el design system. Juan aprobó el resultado el 08/10 («muchísimo mejor así»).",
       "origen": "Juan, 08/10: «me siento que lo hiciste con el manual de marca anterior»; «el manual de marca es el que está en el design system, ya lo hablamos mil veces»."
+    },
+    {
+      "desde": "2026-10-08",
+      "tema": "texto",
+      "regla": "Todo texto se escribe con la guía de voz (.claude/brand-voice-guidelines.md, copia de project/GUIA-DE-VOZ.md del design system) y se controla contra ella antes del panel: Somos / No somos, terminología y el tono del día. Se afirma (una pregunta sólo si es un dilema real que la pieza responde), «no es… es» sólo con plata concreta y nunca como cierre, «pyme» en minúscula. Un cambio de voz se propone a Juan y se hace en el design system.",
+      "origen": "Juan aprobó la guía de voz el 08/10 con las cuatro recomendaciones («dale para adelante»)."
     }
   ],
   "decisiones": [
@@ -145,6 +151,13 @@
       "pieza": "Viernes 09/10 · gestión PyME (po-25), reescrito: «Facturas en el mail, cargadas a fin de mes: IVA computado tarde.»",
       "decision": "aprobado",
       "motivo": "«ok viernes». Reemplazó a «Dirigir no es hacer todo», una frase de manual que la regla de voz descarta."
+    },
+    {
+      "fecha": "2026-10-08",
+      "semana": 41,
+      "pieza": "Guía de voz de MDO (plugin brand-voice): borrador con cuatro preguntas abiertas",
+      "decision": "aprobado",
+      "motivo": "«Si relevaste también el sistema de diseño y esto es lo que corresponde, dale para adelante.» Aprobó las cuatro recomendaciones: afirmar, la guía en el design system, «no es… es» sólo con plata concreta, «pyme» en minúscula."
     }
   ]
 }

@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // Control de la voz del estudio sobre los textos de un post, antes de renderizar.
 //
-// Juan coincidió (06/10/2026) en que lo que hacía sonar el contenido a inteligencia artificial era
-// el texto: preguntas obvias, nada que mostrara lo que sabe el estudio y cierres de manual. Las
-// reglas están en la skill de la rutina («Cómo escribir», paso 3); esto atrapa lo mecánico.
+// La voz está en la guía de voz que aprobó Juan el 08/10/2026: vive en el design system
+// (project/GUIA-DE-VOZ.md) y el repo la copia en .claude/brand-voice-guidelines.md. La rutina
+// escribe con esa guía y controla cada texto contra ella (paso 3, «Cómo escribir»); esto atrapa lo
+// mecánico: los términos de «No se usa nunca» y «Se evita», y los vicios de «Lenguaje a evitar».
+// Antes de la guía, Juan ya había coincidido (06/10/2026) en que lo que sonaba a IA era el texto.
 //
 // Uso (se pueden combinar):
 //   node scripts/revisar-textos.js --slots '{"TITULAR_1": "...", ...}'      (o una lista, una por placa)
@@ -11,31 +13,40 @@
 //   node scripts/revisar-textos.js --spec posts/2026-10-16-4-video.json      (la receta de un video)
 //   node scripts/revisar-textos.js --semana posts/aprobacion-semana-42.json  (todos los posts de la semana)
 //
-// Un ERROR (AFIP, «& Asociados», invitar a llamar, «Tip», la web sin guion) sale con código 1 y hay
-// que corregirlo. Un AVISO obliga a releer: a veces se justifica (una noticia con un porcentaje de la
-// fuente), casi nunca (una pregunta al lector, un aforismo).
+// Un ERROR (AFIP, «& Asociados», invitar a llamar, «Tip», la web sin guion, «más de 30 años») sale con
+// código 1 y hay que corregirlo. Un AVISO obliga a releer: a veces se justifica (una noticia con un
+// porcentaje de la fuente, un dilema real en pregunta), casi nunca (una pregunta al lector, un aforismo).
 const fs = require('fs');
 const path = require('path');
 const { textosDe } = require('../mdo-templates/video-animado.js');
 
-const sinTildes = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '');
+const sinTildes = (s) => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-// [expresión sobre el texto sin tildes, mensaje]
+// [expresión, mensaje]. Cada una se prueba sobre el texto tal cual y sin tildes («años» → «anos»).
 const ERRORES = [
   [/\bAFIP\b/i, 'dice AFIP: el organismo se llama ARCA.'],
   [/&\s*asociados/i, '«& Asociados» es el nombre anterior del estudio.'],
-  [/\b(llam[ae]nos|llam[ae]n? al|llamar al|nos llames?)\b|📞/i, 'invita a llamar: el cierre es «Escribinos» o la página del servicio.'],
+  [/\b(llam[ae]nos|llam[ae]n? al|llamar al|nos llames?)\b|📞/i, 'invita a llamar: el cierre es «Escribinos» y la página del servicio.'],
   [/\btips?\b/i, 'la palabra «Tip» no va ni en la placa ni en el texto.'],
   [/(^|[^@\w-])mdoconsultores\.com/i, 'la web va con guion: mdo-consultores.com.ar.'],
+  [/\bmas de (30|treinta) anos\b|\+\s?30 anos\b/i, 'antigüedad: siempre «30 años», sin «más de» ni «+30».'],
 ];
 const AVISOS = [
-  [/[¿?]/, 'es una pregunta: afirmar suena más a estudio que preguntar.'],
+  [/[¿?]/, 'es una pregunta: se afirma. Sólo vale si es un dilema real que la pieza responde («¿Certificado o auditado?»); nunca encuestas.'],
   [/[¡!]/, 'tiene signos de exclamación.'],
-  [/\bno es\b[^.;:]{1,60}[,.;:—–-]\s*(es|sino)\b|\bno se trata de\b/i, 'aforismo de dos tiempos («X no es A, es B»): describir la situación concreta.'],
+  [/\bno es\b[^.;:]{1,60}[,.;:—–-]\s*(es|sino)\b|\bno se trata de\b/i, 'aforismo de dos tiempos («X no es A, es B»): sólo vale si la segunda parte nombra la plata concreta, una vez por pieza y nunca como cierre.'],
   [/\d+\s?%/, 'porcentaje: ¿está en la fuente? Si no, sacarlo.'],
-  [/elegi tu opcion|dirigir no es hacer todo|no esperes a que sea tarde|que no te agarre|el orden es rentabilidad|la informacion es poder|responde en la encuesta|sabias que/i, 'frase de manual: decir algo que sólo diría el estudio.'],
-  [/siguiente nivel|potencia(r|) tu|impulsa(r|) tu|transforma(r|) tu|hace crecer tu negocio/i, 'suena a coach: nombrar la tarea concreta.'],
+  [/elegi tu opcion|dirigir no es hacer todo|no esperes a que sea tarde|que no te agarre|el orden es rentabilidad|la informacion es poder|responde en la encuesta|sabias que|en tiempo y forma|a la brevedad/i, 'frase de manual: decir algo que sólo diría el estudio.'],
+  [/siguiente nivel|potencia(r|) tu|impulsa(r|) tu|transforma(r|) tu|hace crecer tu negocio|dormi tranquilo|ordena hoy|te concentres en|concentrate en|nos ocupamos de todo|despreocupate/i, 'suena a coach o a agencia: nombrar la tarea concreta que hace el estudio.'],
   [/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u, 'tiene emojis.'],
+  [/\bPyMEs?\b|\bPYMES?\b/, '«pyme» va en minúscula en el texto, como la web (los hashtags quedan como están).'],
+  [/\bemprendedor(a|es|as)?\b|\bmonotribut\w*|\brecategoriza\w*/i, 'el estudio trabaja sólo para empresas: «empresa», «sociedad».'],
+  [/\bgratis\b|\bcon lupa\b|\bhacks?\b|\bsecretos?\b/i, 'tono de oferta o de influencer: «segunda opinión técnica», «revisión».'],
+  [/\b(simple|faciles?|sin complicaciones)\b/i, 'promesa («simple», «fácil»): decir qué hace el estudio, concreto.'],
+  [/\btu negocio\b/i, 'el lector dirige una empresa: «tu empresa» o «tu sociedad».'],
+  [/\bconsultanos\b/i, 'el cierre es «Escribinos» y la página del servicio, no «Consultanos».'],
+  [/\bMDO( Consultores)? (brinda|ofrece|cuenta con|se especializa|es un estudio|acompana)\b/i, 'tercera persona corporativa: el estudio habla de sí en «nosotros».'],
+  [/\b(desde|fundad[oa] en|est\.)\s*19\d\d\b/i, 'si es la antigüedad del estudio, va «30 años», sin el año de fundación.'],
 ];
 
 function revisar(textos) {

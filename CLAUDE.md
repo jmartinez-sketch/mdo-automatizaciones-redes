@@ -20,15 +20,17 @@ Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del est
 
 ## Fuente de diseño: el design system «MDO - Diseño» (regla dura)
 
-**Desde el 17/09/2026, todo lo de marca se lee y se cambia en un solo lugar:** el design system **«MDO - Diseño»**, https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b. Plantillas de redes, colores, tipografías y logos viven ahí. Este repo **no es dueño del diseño**: guarda una copia sincronizada para poder renderizar las placas.
+**Desde el 17/09/2026, todo lo de marca se lee y se cambia en un solo lugar:** el design system **«MDO - Diseño»**, https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b. Plantillas de redes, colores, tipografías, logos y, desde el 08/10/2026, la guía de voz viven ahí. Este repo **no es dueño del diseño**: guarda una copia sincronizada para poder renderizar las placas.
 
 - **Qué archivo del design system alimenta qué archivo del repo:**
   - `project/templates/kit-redes-manual/KitRedesManual.dc.html` (kit 4.4, las 79 placas) → `mdo-templates/templates-kit-manual.jsx`
   - `project/ui_kits/redes/mdo-brand.css` (colores, tipografías) → `mdo-templates/mdo-brand.css`
   - `project/components/assets/logos/*.svg` (+ el asset `49b43af7d306c5f26383c300225b5816`, secundario en papel) → `mdo-templates/assets/logo-mdo-*.svg`
+  - `project/components/src/components/iconos/Icon.jsx` (íconos) → `mdo-templates/iconos-mdo.json`
+  - `project/GUIA-DE-VOZ.md` (la guía de voz) → `.claude/brand-voice-guidelines.md`
 - **Cómo se sincroniza:** se bajan esos archivos con la herramienta `Artifact` (action `read`) y se corre `node scripts/sincronizar-diseno.js <carpeta bajada>`. La rutina semanal lo hace sola en su paso 0b. El detalle está en `mdo-templates/LEEME-kit-manual.md`.
-- **Dónde leer la marca:** `project/README.md` (brand book), `project/tokens.json` (tokens), `project/assets/manual/SALVEDADES.md` (decisiones del estudio que se apartan del manual; hoy la principal para redes: **no se usa la familia «MDO Explica»**, el contenido educativo va como Novedades o Servicios).
-- ❌ **Nunca editar a mano** `templates-kit-manual.jsx`, `mdo-brand.css`, `iconos-mdo.json` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se pide **en el design system** y después se sincroniza.
+- **Dónde leer la marca:** `project/README.md` (brand book), `project/GUIA-DE-VOZ.md` (cómo se escribe; la sección 2 del brand book desarrollada), `project/tokens.json` (tokens), `project/assets/manual/SALVEDADES.md` (decisiones del estudio que se apartan del manual; hoy la principal para redes: **no se usa la familia «MDO Explica»**, el contenido educativo va como Novedades o Servicios).
+- ❌ **Nunca editar a mano** `templates-kit-manual.jsx`, `mdo-brand.css`, `iconos-mdo.json`, los SVG de `mdo-templates/assets/` ni `.claude/brand-voice-guidelines.md`: la próxima sincronización los pisa. Un cambio de diseño o de voz se pide **en el design system** y después se sincroniza.
 - Fuentes anteriores que **ya no mandan**: el repo `jmartinez-sketch/mdo-brand` y el proyecto viejo de Claude Design (`cc21dedf-…`). El design system los absorbió.
 
 ## Setup en sesiones frescas
@@ -102,8 +104,10 @@ posts/                  PNGs generados por la rutina (commiteados a git → URL 
                               últimas 4 semanas. Si se borra, la variedad se rompe.
 out/                    PNGs de prueba locales (en .gitignore)
 
-.claude/skills/
-  mdo-rutina-semanal/   Skill de la rutina automática
+.claude/
+  brand-voice-guidelines.md   Guía de voz — copia del design system, no editar
+  brand-voice.local.md        Ajustes del plugin brand-voice (Anthropic)
+  skills/mdo-rutina-semanal/  Skill de la rutina automática
 ```
 
 ## MCPs disponibles (verificar al inicio de cada sesión)
@@ -131,6 +135,8 @@ Todas las semanas sale **un video**, alternando: semana ISO **impar** → la his
 Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisan las hojas de cuadros (la tira, la de contacto y la de celular) con la tabla y el puntaje del paso 4c, y se corrige lo que falle (hasta 8 o más en todo). El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`). El script avisa si algo salta en el MP4. Los videos van **sin sonido** (28/09/2026), **sin encuestas** (06/10/2026: «muy básico, muy inteligencia artificial, poco profesional») y **sin gente**. Se evaluaron dos guías de motion: `onetake` (feitangyuan/onetake, licencia no comercial: sólo ideas) y `claude-motion-design` (howseen-ai, MIT); de ahí salen la revisión con puntaje, el control de saltos y el color BT.709. No se usan su desenfoque, sus resortes con rebote ni su sonido: el manual y Juan los descartan.
 
 **La voz** (06/10/2026): Juan coincidió en que lo que suena a IA es el texto, no el diseño. Afirmar en vez de preguntar, mostrar lo que sabe el estudio (la norma, el formulario, qué se revisaría) y cerrar con lo que haría el estudio. `scripts/revisar-textos.js` atrapa lo mecánico (AFIP, «llamanos», preguntas, aforismos, frases de manual) antes de renderizar.
+
+**Guía de voz** (08/10/2026): con el plugin brand-voice de Anthropic se armó la guía de voz del estudio (somos / no somos, tono por día, terminología, lenguaje a evitar, ejemplos aprobados y rechazados) y Juan la aprobó con cuatro decisiones: afirmar (una pregunta sólo si es un dilema real que la pieza responde), la guía vive en el design system, «no es… es» sólo con plata concreta y «pyme» en minúscula. La rutina (paso 3, «Cómo escribir») y el botón Regenerar del panel escriben con ella; `revisar-textos.js` controla sus términos.
 
 ## Estrategia de contenido (desde el 25/09/2026)
 

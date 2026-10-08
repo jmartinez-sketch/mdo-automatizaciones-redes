@@ -61,7 +61,7 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 
 > Hasta el 17/09/2026 esta tabla pedía «fondo claro y aire» para el viernes (familia MDO Explica). Se corrigió al alinear el skill con el design system: por eso casi todo el pool del viernes en el kit 4.4 es navy, y está bien que lo sea.
 
-**Tono de marca** (manual pág. 5, "This is how we talk"): **Estratégico · Claro · Seguro · Cercano**. Los cuatro juntos — ni frío ni informal.
+**Voz de marca**: la **guía de voz** que aprobó Juan el 08/10/2026, **`.claude/brand-voice-guidelines.md`** (copia de `project/GUIA-DE-VOZ.md` del design system; la trae el paso 0b). Estratégico · claro · seguro · cercano (manual, p. 5), los cuatro juntos; lo que la hace reconocible es lo concreto. Cómo se usa al escribir: «Cómo escribir», en el paso 3.
 
 **Datos de contacto correctos** (confirmados por Juan el 24/08/2026, y el manual los tiene MAL en la hoja membretada): la web y el mail van **con guion** → `mdo-consultores.com.ar` y `info@mdo-consultores.com.ar`. ❌ Nunca `mdoconsultores.com.ar` sin guion.
 
@@ -69,7 +69,7 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 
 - **Estudio**: Martinez, De Orta & Gutierrez Taboada (MDO Consultores) — Argentina
 - **Audiencia**: **empresas y PyMEs** (dueños y administradores). El estudio no atiende personas físicas: no se publica nada pensado para ellas.
-- **Tono**: profesional pero accesible, español rioplatense, NO jerga contable cerrada
+- **Voz**: la de la guía de voz (`.claude/brand-voice-guidelines.md`): español rioplatense, voseo, lo concreto antes que la frase linda, sin jerga cerrada
 - **Cuenta IG**: `@mdoconsultores` · mdo-consultores.com.ar
 
 ### 📣 Estrategia de contenido — leer `CONTEXTO-PUBLICIDAD.md` antes de elegir nada (regla dura)
@@ -206,7 +206,7 @@ Sobre esa base entran, al ritmo de lectura, gráficos que explican el tema con e
 - **Una sola pantalla, con todo el contenido a la vista al final.** Nada de pantallas encadenadas (rechazado el 07/10/2026) ni de texto sobre una foto con fundidos (superado el mismo día).
 - **Sin encuestas, sin gente y sin sonido.** Las encuestas en video se rechazaron el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional»); el sonido, el 28/09/2026.
 - **Cuenta lo mismo que el post de ese día** (la placa y el texto), con otra forma. Ni otro tema ni otro dato.
-- **La voz** (Juan, 06/10/2026: lo que suena a IA es el texto): afirmar en vez de preguntar; mostrar lo que sabe el estudio (la norma, el formulario, el área de la empresa, qué se revisaría); cerrar con lo que haría el estudio, en condicional. Nada de preguntas al lector, signos de exclamación ni frases de manual («Elegí tu opción», «Dirigir no es hacer todo»). Ver «Cómo escribir» en el paso 3.
+- **La voz** es la de la guía de voz (`.claude/brand-voice-guidelines.md`; Juan, 06/10/2026: lo que suena a IA es el texto): afirmar en vez de preguntar; mostrar lo que sabe el estudio (la norma, el formulario, el área de la empresa, qué se revisaría); cerrar con lo que haría el estudio, en condicional. Nada de preguntas al lector, signos de exclamación ni frases de manual («Elegí tu opción», «Dirigir no es hacer todo»). La receta tiene su fila en «Tono según el contexto» y su estructura en «Cómo se escribe cada pieza» (no más de 55 palabras). Ver «Cómo escribir» en el paso 3.
 - **Es la pieza de la semana que más se mira: va con esfuerzo de dirección de arte**, no como trámite (pedido de Juan, 25/09/2026). Ver el paso 4c.
 - El miércoles (noticia, ancla `po-13d`/`po-13e`) **no** va en video: es la placa que hace reconocible la grilla.
 - **El PNG se renderiza igual** (paso 4): es la placa de respaldo si Metricool no acepta el video, y la que el panel deja regenerar junto con la receta. La tapa del Reel en Instagram es otra: la **portada** 9:16 que arma `video-animado.js` (la pantalla completa, antes de que el contenido se retire para la firma).
@@ -287,6 +287,7 @@ La marca vive en el design system **«MDO - Diseño»** (https://claude.ai/code/
 - `project/components/assets/logos/isotipo-navy.svg`, `isotipo-paper.svg`, `logo-principal-navy.svg`, `logo-principal-paper.svg`, `logo-secundario-navy.svg`
 - el logo secundario en papel, que es un asset suelto: `path: 49b43af7d306c5f26383c300225b5816`
 - `project/components/src/components/iconos/Icon.jsx` (el set oficial de íconos, que usan los videos)
+- `project/GUIA-DE-VOZ.md` (la guía de voz, con la que se escriben todos los textos)
 
 **2. Correr el sincronizador** sobre esa carpeta:
 
@@ -294,16 +295,17 @@ La marca vive en el design system **«MDO - Diseño»** (https://claude.ai/code/
 node scripts/sincronizar-diseno.js <scratchpad>/artifact-files/44406cc7-a5b6-4e92-8bc3-ba5e9090747b
 ```
 
-Compara y escribe **sólo lo que cambió** (`templates-kit-manual.jsx`, `mdo-brand.css`, los logos, `iconos-mdo.json`) y lo lista. Si dice «El repo ya estaba al día», seguir. Si actualizó algo:
+Compara y escribe **sólo lo que cambió** (`templates-kit-manual.jsx`, `mdo-brand.css`, los logos, `iconos-mdo.json`, `.claude/brand-voice-guidelines.md`) y lo lista. Si dice «El repo ya estaba al día», seguir. Si actualizó algo:
 
 1. Renderizar una placa de prueba de cada cosa tocada (por ejemplo `po-13d` si cambió el kit o el CSS, `sv-01` o `mn-08` si cambiaron los logos), **mirarla** y confirmar que es el diseño del kit.
 2. Commitear y pushear a `main` **antes** de renderizar las placas de la semana: `git commit -am "diseño: sincronizado con MDO - Diseño (<fecha del último cambio>)"`.
 3. Si `--list-slots` de una placa cambió respecto de lo que dice este documento, mandan los slots reales (regla del kit, arriba).
 4. Si cambiaron `mdo-brand.css`, `iconos-mdo.json` o los logos, **republicarlos en el panel de Dirección MDO** (ver «Video regenerado, animado en el panel» en Notas técnicas): el panel los usa para mostrar los videos, y si quedan viejos muestra otra cosa que lo que se graba.
+5. Si cambió la guía de voz, **republicarla en el panel** como `guia-de-voz.md` (`files: {"guia-de-voz.md": ".claude/brand-voice-guidelines.md"}`): el botón Regenerar escribe con ella. No hay nada que renderizar.
 
 ⚠️ Si la herramienta `Artifact` no está disponible o la lectura falla, **no frenar la rutina**: renderizar con la copia que tiene el repo y **avisarlo en el reporte final** («no pude sincronizar con el design system; usé la copia del repo del <fecha del último commit de diseño>»).
 
-❌ Nunca editar a mano `templates-kit-manual.jsx`, `mdo-brand.css`, `iconos-mdo.json` ni los SVG de `mdo-templates/assets/`: la próxima sincronización los pisa. Un cambio de diseño se hace **en el design system** y después se sincroniza.
+❌ Nunca editar a mano `templates-kit-manual.jsx`, `mdo-brand.css`, `iconos-mdo.json`, los SVG de `mdo-templates/assets/` ni `.claude/brand-voice-guidelines.md`: la próxima sincronización los pisa. Un cambio de diseño o de voz se hace **en el design system** y después se sincroniza.
 
 ### 0c. Aprender de lo que Juan aprueba y rechaza (SIEMPRE, desde el 07/10/2026)
 
@@ -319,6 +321,7 @@ Pedido de Juan: que la rutina aprenda de lo que él aprueba y de lo que no. La m
 3. Lo que Juan diga en el chat sobre una pieza («esto no me gusta», «muy básico», «así sí») también va, con sus palabras.
 4. Si dos o más decisiones apuntan a lo mismo (el mismo tipo de placa rechazada, el mismo pedido al regenerar), escribir la **lección** en una línea concreta y accionable. Una sola decisión con un motivo claro de Juan también alcanza.
 5. Commitear `posts/aprendizaje.json` junto con el historial. Sólo agregar al final: no reescribir decisiones viejas.
+6. **Si la lección es de voz** (una palabra, un tipo de frase o de cierre que Juan no quiere, o un texto que aprobó y conviene tener de modelo), además de anotarla, **proponer el cambio a la guía de voz** en el cierre: qué sumar a «Lenguaje a evitar», a «Terminología» o a «Ejemplos». La guía se cambia en el design system (`project/GUIA-DE-VOZ.md`, con un `lastChange` nuevo en el índice) **recién con el ok de Juan**, y después se sincroniza. ❌ Nunca editar la copia del repo.
 
 En el cierre de la rutina, si se agregó una lección nueva, contársela a Juan en una línea.
 
@@ -466,28 +469,34 @@ El viernes es el post que más se nota cuando suena a manual de autoayuda para e
 
 **Test rápido antes de renderizar**: leé el titular en voz alta e imaginá que lo dice un coach de negocios en un video motivacional. Si le queda cómodo, no sirve. Si en cambio suena a algo que un contador le diría a un cliente mirándolo a los ojos, va.
 
-#### Cómo escribir (todos los días, placas, copys y videos — desde el 06/10/2026)
+#### Cómo escribir (todos los días, placas, copys y videos — con la guía de voz desde el 08/10/2026)
 
-Juan coincidió en el diagnóstico: lo que suena a inteligencia artificial no es el diseño sino el texto. Una encuesta con una pregunta obvia, nada que muestre lo que sabe el estudio y cierres de manual. Por eso:
+La voz del estudio está en la **guía de voz** que aprobó Juan el 08/10/2026: **`.claude/brand-voice-guidelines.md`**, copia de `project/GUIA-DE-VOZ.md` del design system (la trae el paso 0b). **Leerla entera antes de escribir el primer texto de la semana.** Sigue el método del plugin brand-voice de Anthropic: la voz no cambia, el tono se ajusta según la pieza. Antes había llegado Juan al mismo diagnóstico (06/10/2026): lo que sonaba a inteligencia artificial era el texto, no el diseño.
 
-1. **Afirmar, no preguntar.** El titular dice algo concreto. Nada de «¿Sabías que…?» ni preguntas al lector.
-2. **Mostrar lo que sabe el estudio**: nombrar la norma, el formulario, el impuesto o el área de la empresa; decir qué se revisaría y por qué.
-3. **Cerrar con lo que haría el estudio, en condicional** («revisaríamos el encuadre antes de la próxima liquidación») o con el CTA del servicio («… Escribinos.»). Nunca invitar a llamar.
-4. **Nada de**: signos de exclamación, eslóganes, frases motivacionales, aforismos de dos tiempos, estadísticas sin fuente, ni cierres de manual («Elegí tu opción», «Dirigir no es hacer todo»).
+Para cada texto (placa, copy, receta de video), antes de cargarlo en el panel:
+
+1. **Tono**: ubicar la pieza en «Tono según el contexto» (miércoles noticia, jueves historia, viernes gestión, sábado servicio) y escribirla con esa formalidad, energía y profundidad técnica. La estructura, la de «Cómo se escribe cada pieza».
+2. **Somos / No somos**: releer el texto contra la tabla. Si cruza un «No somos», reescribir ese pasaje; si le falta lo concreto (la norma, el formulario, qué revisaríamos), agregarlo.
+3. **Terminología**: lo de «Se usa siempre» va; lo de «Se evita» se reemplaza; lo de «No se usa nunca», jamás.
+4. **Lenguaje a evitar**: ninguno de los siete vicios. Para calibrar, «Lenguaje que funciona» y los «Ejemplos» aprobados y rechazados.
+5. **Control automático**: `revisar-textos.js` (abajo).
+
+Lo esencial, por si la guía no se pudiera leer: afirmar, no preguntar (una pregunta sólo si es un dilema real que la pieza responde, como «¿Certificado o auditado?»; nunca encuestas ni «¿Sabías que…?»); mostrar lo que sabe el estudio (la norma, el formulario, el impuesto o el área de la empresa, qué se revisaría y por qué); cerrar con lo que haría el estudio, en condicional («Lo que revisaríamos: …»), o con el CTA del servicio («… Escribinos.»), nunca invitar a llamar; «pyme» en minúscula (los hashtags quedan como están); nada de signos de exclamación, eslóganes, frases motivacionales, estadísticas sin fuente, cierres de manual («Elegí tu opción», «Dirigir no es hacer todo») ni aforismos de dos tiempos (salvo que la segunda parte nombre la plata concreta, una vez por pieza y nunca como cierre).
 
 Antes de renderizar, pasar los textos por el control automático:
 
 ```bash
 node scripts/revisar-textos.js --slots '<JSON de slots>' --texto '<copy del posteo>'
 node scripts/revisar-textos.js --spec posts/YYYY-MM-DD-N-video.json
+node scripts/revisar-textos.js --semana posts/aprobacion-semana-NN.json   # todo junto, antes del paso 7b
 ```
 
-Un **ERROR** (AFIP, «& Asociados», «llamanos», «Tip», la web sin guion) frena: corregir. Un **AVISO** (pregunta, «X no es A, es B», porcentaje, signo de exclamación, frase de manual) obliga a releer y justificar o reescribir.
+Un **ERROR** (AFIP, «& Asociados», «llamanos», «Tip», la web sin guion, «más de 30 años») frena: corregir. Un **AVISO** (pregunta, «X no es A, es B», porcentaje, signo de exclamación, frase de manual o de coach, «PyME» en mayúscula, términos de «Se evita» como emprendedor, monotributo, gratis, fácil o «tu negocio», «Consultanos», tercera persona corporativa) obliga a releer y justificar o reescribir.
 
 ⚠️ Ojo con el ángulo, no solo con las palabras: **"planificación tributaria / que no te agarren de sorpresa" ya salió el 26/06 y el 31/07/2026**. Reformularlo con otras palabras sigue siendo repetirlo.
 
 Mapear al contenido de la placa elegida (los nombres técnicos, con `--list-slots`; casi todas las del viernes usan éstos):
-- `VOLANTA` — la etiqueta chica de arriba. ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar el nombre del servicio de la semana o "Gestión PyME", ej: "Liquidación de sueldos", "Contabilidad", "Asesoramiento impositivo"
+- `VOLANTA` — la etiqueta chica de arriba. ❌ **NUNCA decir "Tip" / "Tip semanal".** Usar el nombre del servicio de la semana o "Gestión pyme", ej: "Liquidación de sueldos", "Contabilidad", "Asesoramiento impositivo"
 - `TITULAR_1` + `TITULAR_2` — el gancho, partido en dos: la primera parte en negrita, la segunda en normal. Juntas máx ~50 chars
 - `BAJADA` (si la placa la tiene) — explicación breve (máx 150 chars)
 - `ITEM_1`..`ITEM_n` (si la placa los tiene) — **siempre todos los que lista `--list-slots`**. Cada ítem de 1 línea (máx ~45 chars)
@@ -932,42 +941,46 @@ Instagram NO soporta HTML — usar texto plano con saltos de línea (`\n` reales
 
 ⚠️ **El texto de la noticia del miércoles se publica solo como nota en la web** (rutina «MDO - Novedades web»): la **primera oración es el título de la nota**, el párrafo siguiente es el resumen y los hashtags son los temas. Por eso la primera línea es un titular claro con el tema (sin emoji, hasta ~90 caracteres), el cuerpo se sostiene solo como nota corta, y el cierre lleva la página del servicio (es la regla de SEO de publicidad: cada novedad enlazada a su servicio).
 
-Estructura recomendada para noticias:
+Las estructuras salen de la guía de voz («Cómo se escribe cada pieza») y de los textos que Juan aprobó en la semana 41.
+
+Estructura para noticias (miércoles 07/10/2026, aprobada):
 
 ```
-Hook directo (1 línea con la noticia clave)
+Titular claro con el tema, en una oración (es el título de la nota de la web)
 
-Detalle: qué cambió, a quién afecta, desde cuándo (2-3 líneas).
+Qué cambió, a quién le toca y desde cuándo, con la norma: «Con la RG 5907, ARCA…» (2-3 líneas).
 
-Impacto: qué significa esto en la práctica para vos / tu PyME.
+Qué significa para tu empresa: lo que cambia en la caja, en el riesgo o en lo que hay que presentar.
 
 —
 
-Si tu empresa necesita revisarlo, escribinos: mdo-consultores.com.ar/servicios/<la página del tema>
+<El servicio en una frase>. Escribinos: mdo-consultores.com.ar/servicios/<la página del tema>
 
-#MDOConsultores #Impuestos #Contabilidad #PyMEs #Argentina #ARCA
+Fuente: <medio> · <norma>
+
+#MDOConsultores #ARCA #<tema> #<servicio>
 ```
 
-Estructura para tip PyME:
+Estructura para el post de gestión del viernes (09/10/2026, aprobada):
 
 ```
-Gestión PyME
+<Titular: una situación concreta que la empresa reconoce>
 
-[Tip principal en 1-2 líneas]
+<El mecanismo: cuando…, … y qué pasa en la caja o en el riesgo (2-3 líneas)>
 
-Por qué importa: [breve explicación].
+Lo que revisaríamos: <dos o tres controles concretos del estudio>.
 
 —
 
-Lo revisamos con tu empresa. Escribinos: mdo-consultores.com.ar/servicios/<la página del servicio>
+<CTA del eje, tabla del 3.1>: mdo-consultores.com.ar/servicios/<la página del servicio>
 
-#MDOConsultores #GestiónPyME #Contabilidad #Argentina
+#MDOConsultores #GestiónPyME #<servicio>
 ```
 
 Reglas de texto:
 
 - Largo total: entre 600-1200 caracteres
-- Español rioplatense, "vos" no "tú"
+- La voz, la de la guía (paso 3, «Cómo escribir»): español rioplatense, "vos" no "tú", «pyme» en minúscula
 - Sin emojis. ❌ Nunca 📞 ni "llamanos": el contacto es por WhatsApp, correo o la web (decisión de Juan, 25/09/2026)
 - El CTA cierra con **la página del servicio** del post (tabla de `CONTEXTO-PUBLICIDAD.md`), no con la home, salvo que el tema no tenga página
 - Hashtags al final, máximo 8
@@ -1158,6 +1171,6 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Botón Regenerar**: el panel le pide el texto nuevo a Claude (capacidad `sample` del artifact) y vuelve a dibujar la placa en el navegador con el HTML que `scripts/render.js --dump-html` dejó en el documento. La vista previa es fiel porque es el mismo DOM que se fotografía en el render de verdad; el PNG para bajar lo arma html2canvas dentro de un iframe. Ver 7c.
-- **Video regenerado, animado en el panel** (05/10/2026, receta desde el 07/10/2026): si el post tiene `video`, la versión regenerada se ve en movimiento en el panel (en la tarjeta y en la comparación «Ahora / Propuesta»), con el **mismo código** que graba el MP4. Si el post tiene `video.spec`, el botón Regenerar le pide a Claude también la receta nueva, con la guía del motor (`guiaReceta`), la valida con `validarSpec` (si no sirve, vuelve a pedirla una vez con los errores) y muestra la escena; al usarla, la guarda en `video.spec` y en `pendienteImagen.video`. Los archivos que el panel toma del artifact de Dirección MDO: `video-animado.js`, `mdo-brand.css`, `iconos-mdo.json` y `assets/*.svg` para los videos de receta, y `animacion-placa.js` para los viejos. ⚠️ **Si se cambia cualquiera de esos archivos en el repo (también por el paso 0b), volver a publicarlo en el artifact** (`Artifact` · `publish` con la `url` del panel, `file_path` = el `index.html` leído del artifact, y `files: {"video-animado.js": …, "mdo-brand.css": …, "iconos-mdo.json": …}`), si no el panel muestra otra cosa que lo que se graba. El MP4 final lo graba la pasada de reposición (7c).
+- **Video regenerado, animado en el panel** (05/10/2026, receta desde el 07/10/2026): si el post tiene `video`, la versión regenerada se ve en movimiento en el panel (en la tarjeta y en la comparación «Ahora / Propuesta»), con el **mismo código** que graba el MP4. Si el post tiene `video.spec`, el botón Regenerar le pide a Claude también la receta nueva, con la guía del motor (`guiaReceta`), la valida con `validarSpec` (si no sirve, vuelve a pedirla una vez con los errores) y muestra la escena; al usarla, la guarda en `video.spec` y en `pendienteImagen.video`. Los archivos que el panel toma del artifact de Dirección MDO: `video-animado.js`, `mdo-brand.css`, `iconos-mdo.json` y `assets/*.svg` para los videos de receta, `animacion-placa.js` para los viejos, y `guia-de-voz.md` (la copia de `.claude/brand-voice-guidelines.md`) para escribir los textos con la voz del estudio. ⚠️ **Si se cambia cualquiera de esos archivos en el repo (también por el paso 0b), volver a publicarlo en el artifact** (`Artifact` · `publish` con la `url` del panel, `file_path` = el `index.html` leído del artifact, y `files: {"video-animado.js": …, "mdo-brand.css": …, "iconos-mdo.json": …}`), si no el panel muestra otra cosa que lo que se graba. El MP4 final lo graba la pasada de reposición (7c).
 - **Panel de aprobación**: vive en el artifact Dirección MDO (Marketing → Publicaciones) y lee el documento `paneles/publicaciones` de su base. `scripts/aprobacion-doc.js` arma ese documento; la rutina lo guarda con `Artifact` → `write_db`. El botón "Aprobar" corre con las credenciales del que abre el panel (el usuario), no con las de la rutina. La rutina automática necesita tener permitida la herramienta `Artifact`; si el permiso no está, ver la salida de emergencia del paso 7b. El artifact declara `capabilities.mcp` para `Metricool` / `updateScheduledPost` (además de lo que ya usaba); si alguien lo republica, tiene que restatear eso o los botones dejan de andar.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.

@@ -71,6 +71,7 @@ los pisa. La rutina semanal lo hace sola en su paso 0b; a mano son dos pasos:
    | `project/components/assets/logos/logo-secundario-navy.svg` | `assets/logo-mdo-secundario.svg` | Logo secundario navy |
    | asset `49b43af7d306c5f26383c300225b5816` (`assets/logos/logo-secundario-paper.svg`) | `assets/logo-mdo-secundario-white.svg` | Logo secundario papel. Es un asset suelto: se baja por id, no por ruta |
    | `project/components/src/components/iconos/Icon.jsx` | `iconos-mdo.json` | El set oficial de íconos (nueve, de línea): los usan los videos animados |
+   | `project/GUIA-DE-VOZ.md` | `../.claude/brand-voice-guidelines.md` | La guía de voz (aprobada por Juan el 08/10/2026): con ella escriben la rutina y el botón Regenerar del panel |
 
 2. **Correr el sincronizador** sobre esa carpeta:
 

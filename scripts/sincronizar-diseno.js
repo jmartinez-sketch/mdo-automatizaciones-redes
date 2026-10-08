@@ -20,6 +20,8 @@
 //               (+ el secundario en papel, que en el design system es un asset
 //               suelto: se busca como project/assets/logos/logo-secundario-paper.svg
 //               o como <carpeta-bajada>/49b43af7d306c5f26383c300225b5816.svg)
+//   4. Íconos   project/components/src/components/iconos/Icon.jsx → mdo-templates/iconos-mdo.json
+//   5. Voz      project/GUIA-DE-VOZ.md → .claude/brand-voice-guidelines.md
 // Escribe únicamente lo que cambió y lo informa. No borra nada. No hace git.
 // Sale con código 0 si sincronizó (haya o no cambios) y 2 si no encontró el kit.
 
@@ -126,13 +128,33 @@ if (fs.existsSync(iconJsx)) {
   } else faltan.push('íconos (Icon.jsx sin el bloque PATHS)');
 } else faltan.push('íconos Icon.jsx');
 
+// 5. Guía de voz (aprobada por Juan el 08/10/2026): es la sección 2 del brand book desarrollada.
+//    Va a .claude/brand-voice-guidelines.md, donde la leen la rutina y el plugin brand-voice, con
+//    un aviso arriba para que nadie la edite acá.
+const guiaVoz = path.join(project, 'GUIA-DE-VOZ.md');
+if (fs.existsSync(guiaVoz)) {
+  const tmp = path.join(root, '.claude', 'brand-voice-guidelines.md.sync-tmp');
+  fs.mkdirSync(path.dirname(tmp), { recursive: true });
+  fs.writeFileSync(tmp, '<!-- Copia de project/GUIA-DE-VOZ.md del design system «MDO - Diseño». La escribe ' +
+    'scripts/sincronizar-diseno.js: no editar acá. Un cambio de voz se hace en el design system y después se sincroniza. -->\n\n' +
+    fs.readFileSync(guiaVoz, 'utf8'));
+  copiarSiCambio(tmp, '.claude/brand-voice-guidelines.md', 'guía de voz GUIA-DE-VOZ.md → .claude/brand-voice-guidelines.md');
+  fs.unlinkSync(tmp);
+} else faltan.push('guía de voz GUIA-DE-VOZ.md');
+
 console.log('');
 if (cambios.length) { console.log('ACTUALIZADO:'); cambios.forEach((c) => console.log('  · ' + c)); }
 if (iguales.length) { console.log('Sin cambios: ' + iguales.join(', ')); }
 if (faltan.length) { console.log('No estaba en la bajada (se conserva la copia del repo): ' + faltan.join(', ')); }
 console.log('');
-if (cambios.length) {
+if (cambios.some((c) => c.startsWith('guía de voz'))) {
+  console.log('Cambió la guía de voz: no hay nada que renderizar, pero hay que republicarla en el panel (guia-de-voz.md).');
+}
+if (cambios.some((c) => !c.startsWith('guía de voz'))) {
   console.log('Siguiente: renderizar una placa de prueba de lo que cambió y mirarla; después commitear con');
+  console.log(`  git commit -am "diseño: sincronizado con MDO - Diseño${lastChange ? ' (' + lastChange.at + ')' : ''}"`);
+} else if (cambios.length) {
+  console.log('Siguiente: commitear con');
   console.log(`  git commit -am "diseño: sincronizado con MDO - Diseño${lastChange ? ' (' + lastChange.at + ')' : ''}"`);
 } else {
   console.log('El repo ya estaba al día con el design system.');
