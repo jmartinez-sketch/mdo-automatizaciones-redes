@@ -138,6 +138,13 @@
       "pieza": "Videos de muestra con la plantilla de historias del design system (FAL en novedades, conciliación en servicios)",
       "decision": "aprobado",
       "motivo": "«Sí, muchísimo mejor así.» Es el formato de los videos desde la semana 42."
+    },
+    {
+      "fecha": "2026-10-08",
+      "semana": 41,
+      "pieza": "Viernes 09/10 · gestión PyME (po-25), reescrito: «Facturas en el mail, cargadas a fin de mes: IVA computado tarde.»",
+      "decision": "aprobado",
+      "motivo": "«ok viernes». Reemplazó a «Dirigir no es hacer todo», una frase de manual que la regla de voz descarta."
     }
   ]
 }
