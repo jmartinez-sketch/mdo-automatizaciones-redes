@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// Graba un video animado de redes a partir de una receta JSON: el formato que Juan aprobó el
-// 07/10/2026 («me gusta mucho más el último video»). Una sola pantalla 9:16 que se arma delante de
-// quien mira, con ventanas, flechas, cuadros e íconos, sólo con los colores y los íconos del manual.
-// La escena vive en mdo-templates/video-animado.js; acá se la recorre cuadro por cuadro y se graba.
+// Graba un video animado de redes a partir de una receta JSON. Una sola pantalla 9:16 que se arma
+// delante de quien mira, con la gramática de las historias del Manual de Marca 2026 tal como está en
+// el design system «MDO - Diseño» (familias novedades y servicios), y con fichas, flechas, ventanas,
+// casilleros e íconos dibujados con su mismo trazo fino. La escena vive en
+// mdo-templates/video-animado.js; acá se la recorre cuadro por cuadro y se graba.
 //
 // Uso:
 //   node scripts/video-animado.js --spec posts/2026-10-16-4-video.json --out posts/2026-10-16-4.mp4
@@ -15,7 +16,7 @@
 //                        (-entrada.png, -completa.png). Con --solo-tira no graba el MP4.
 //   --cuadros 9000,12000 esos momentos (ms) a tamaño real, para mirar detalles
 //   --portada ruta.png   (por defecto, junto al MP4 con -portada.png): la pantalla completa, antes
-//                        de que suba la banda del logo. Es la tapa del Reel (videoThumbnailUrl).
+//                        de que el contenido se retire para la firma. Es la tapa del Reel (videoThumbnailUrl).
 //   --fps 30|60
 //   --validar            sólo revisa la receta (sin abrir el navegador) y sale
 //
@@ -50,7 +51,8 @@ const iconos = () => JSON.parse(fs.readFileSync(path.join(MT, 'iconos-mdo.json')
 const svg = (f) => fs.readFileSync(path.join(MT, 'assets', f), 'utf8');
 
 async function videoAnimado({ spec, outPath, portada, fps = 30, tira, soloTira = false, cuadros = [] }) {
-  const recursos = { iconos: iconos(), isotipo: svg('logo-mdo-iso.svg'), logo: svg('logo-mdo-principal-white.svg') };
+  const recursos = { iconos: iconos(), isotipo: svg('logo-mdo-iso.svg'),
+    logoClaro: svg('logo-mdo-principal-white.svg'), logoOscuro: svg('logo-mdo-principal.svg') };
   const v = validarSpec(spec, recursos.iconos);
   if (v.errores.length) throw new Error('La receta tiene errores:\n  · ' + v.errores.join('\n  · '));
   fps = +fps || 30;
@@ -71,7 +73,7 @@ async function videoAnimado({ spec, outPath, portada, fps = 30, tira, soloTira =
     // Las tipografías se bajan recién cuando algo las usa: se piden antes de armar, porque el armado
     // mide los textos para que entren (con la tipografía de reemplazo mediría otra cosa).
     const fuentes = await page.evaluate(async () => {
-      const caras = ['400 40px "Open Sans"', '700 40px "Open Sans"', '800 40px "Open Sans"', '700 40px "Chivo"', '900 40px "Chivo"'];
+      const caras = ['300 40px "Open Sans"', '400 40px "Open Sans"', '700 40px "Open Sans"', '400 40px "Chivo"', '700 40px "Chivo"', 'italic 300 40px "Chivo"'];
       await Promise.all(caras.map((c) => document.fonts.load(c).catch(() => null)));
       await document.fonts.ready;
       return caras.filter((c) => !document.fonts.check(c));
@@ -109,7 +111,7 @@ async function videoAnimado({ spec, outPath, portada, fps = 30, tira, soloTira =
       // banda subiendo y el final.
       const momentos = [300, 1300];
       plan.marcas.forEach((m) => momentos.push((m.t + m.listo) / 2, m.listo));
-      momentos.push(plan.tPortada, plan.tBanda + 450, T - 60);
+      momentos.push(plan.tPortada, plan.tLogo + 700, T - 60);
       const unicos = [...new Set(momentos.map(recorte))].sort((a, b) => a - b);
       await hoja(tira, unicos, 270, 7);
       const base = tira.replace(/\.png$/i, '');
@@ -189,7 +191,7 @@ if (require.main === module) {
   })
     .then((r) => {
       r.avisos.forEach((x) => console.error('AVISO: ' + x));
-      const datos = `${(r.T / 1000).toFixed(1)} s · ${r.palabras} palabras · escala ${r.k} · contenido hasta ${r.alto} px`;
+      const datos = `${(r.T / 1000).toFixed(1)} s · ${r.familia} · ${r.palabras} palabras · escala ${r.k} · contenido hasta ${r.alto} px`;
       if (!r.outPath) console.log(`Tira → ${r.tira} · ${datos}`);
       else console.log(`OK → ${r.outPath} · ${datos} · ${Math.round(fs.statSync(r.outPath).size / 1024)} KB` +
         (r.portada ? ` · portada → ${r.portada}` : '') + (r.tira ? ` · tira → ${r.tira}` : ''));

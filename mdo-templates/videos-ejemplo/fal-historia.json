@@ -1,9 +1,11 @@
 {
-  "ceja": "Laboral · RG 5907",
-  "titular": "ARCA reglamentó el Fondo de Asistencia Laboral",
+  "familia": "novedades",
+  "fecha": "08.10.2026",
+  "titular": "ARCA reglamentó",
+  "titular2": "el Fondo de Asistencia Laboral",
   "bloques": [
     {"tipo": "flujo", "pasos": [{"rotulo": "Formulario", "valor": "F.931", "icono": "documento"}, {"rotulo": "Se suma", "valor": "+ FAL", "destacado": true}]},
-    {"tipo": "texto", "texto": "La alícuota depende del **encuadre de cada empresa**. Un error ahí se arrastraría **todos los meses**."},
+    {"tipo": "texto", "texto": "La alícuota depende del **encuadre de cada empresa**. Un error ahí se arrastraría todos los meses."},
     {"tipo": "linea", "etiquetas": "meses"},
     {"tipo": "cierre", "texto": "Antes de la próxima liquidación, revisaríamos el encuadre."}
   ]

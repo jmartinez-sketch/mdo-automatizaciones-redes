@@ -60,6 +60,12 @@
       "tema": "texto",
       "regla": "La historia del jueves en semana impar es el video (sin encuesta ni cita), y antes de renderizar los textos pasan por scripts/revisar-textos.js.",
       "origen": "Consecuencia de las lecciones del 06/10 (encuestas y voz) aplicada a la rutina."
+    },
+    {
+      "desde": "2026-10-08",
+      "tema": "diseño",
+      "regla": "El manual de marca es el del design system «MDO - Diseño», siempre. Los videos se arman con su plantilla «4.5 · Historias de redes» (familias novedades y servicios): nada de cápsulas, web al pie, tarjetas redondeadas, cifras en negrita ni papel de documento. Antes de inventar un recurso visual, buscarlo en el design system.",
+      "origen": "Juan, 08/10: «me siento que lo hiciste con el manual de marca anterior»; «el manual de marca es el que está en el design system, ya lo hablamos mil veces»."
     }
   ],
   "decisiones": [
@@ -118,6 +124,13 @@
       "pieza": "Prototipo de video animado del FAL (posts/propuestas/2026-10-07-video-animado-fal.mp4)",
       "decision": "aprobado como estilo",
       "motivo": "«Me gusta mucho más el último video que hiciste.» Pidió aplicar ese criterio a los próximos videos, sin muchos colores, con animaciones, ventanas, flechas, cuadros e íconos."
+    },
+    {
+      "fecha": "2026-10-08",
+      "semana": 41,
+      "pieza": "Motor de video animado (primera versión, 07/10)",
+      "decision": "rechazado",
+      "motivo": "Parecía del manual anterior: cápsula, banda con la web, tarjetas redondeadas. Se rehízo con la plantilla de historias del design system."
     }
   ]
 }

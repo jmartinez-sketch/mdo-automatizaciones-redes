@@ -191,9 +191,17 @@ Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
 | **impar** (`$(( $(date +%V) % 2 )) == 1`) | **Jueves · historia** (en semanas impares el jueves siempre es la historia en video, ver 3b) | 9:16, 1080×1920 | Instagram historia. El draft de LinkedIn del jueves sigue con su imagen `li-02` |
 | **par** | **Viernes · gestión PyME** | Reel 9:16, 1080×1920 | Instagram (sale como Reel) + LinkedIn, el mismo video |
 
-**Qué video: la escena animada de `scripts/video-animado.js`** (desde el 07/10/2026). Juan aprobó ese estilo («me gusta mucho más el último video que hiciste») y pidió usarlo en todos los que vengan («ese mismo criterio … para las próximas generaciones de video»). Es una sola pantalla con fondo papel que se arma delante de quien mira: el titular entra palabra por palabra y abajo aparecen, al ritmo de lectura, gráficos que explican el tema (tarjetas unidas por flechas, una ventana de sistema, listas con íconos, casilleros que se pintan, un número grande, dos columnas para comparar). Cierra una banda azul noche con el logo y la web. El contenido sale de una **receta** JSON que escribe la rutina (paso 4c); el diseño lo pone el motor, `mdo-templates/video-animado.js`.
+**Qué video: la escena animada de `scripts/video-animado.js`** (desde el 07/10/2026; rehecha el 08/10/2026 con la gramática del design system). Juan aprobó el estilo animado («me gusta mucho más el último video que hiciste», «ese mismo criterio … para las próximas generaciones de video»), y al día siguiente marcó que el primer motor «parecía del manual anterior»: llevaba cápsula arriba, banda con la web, tarjetas redondeadas, cifras en negrita y el papel de documento. **El manual es el que está en el design system** («ya lo hablamos mil veces»): el video es una historia de la plantilla **«4.5 · Historias de redes»** del design system, que se arma delante de quien mira, en una de dos familias:
 
-- **Un solo color de acento: el azul noche.** Fondo papel y grises del manual para lo secundario. Nada de ámbar, verde ni ningún otro color, aunque esté en `mdo-brand.css`. Juan, 07/10/2026: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos». La receta no elige colores: el motor lo hace cumplir.
+| Familia | Cuándo | Cómo se ve (plantilla del design system) |
+|---|---|---|
+| **novedades** | jueves de semana impar (la noticia) | HA1: degradé navy diagonal, fecha en Chivo itálica, titular en dos tonos (negrita clara + gris en peso normal), filete vertical de 1 px, desarrollo, destacado en negrita abajo |
+| **servicios** | viernes de semana par (gestión, el eje del servicio) | HB1/HB2: degradé claro con el isotipo gigante recortado, volanta en Chivo con tracking, titular en mayúsculas con segundo nivel en Chivo itálica, regla de 104 px, filas numeradas en peso fino |
+
+Sobre esa base entran, al ritmo de lectura, gráficos que explican el tema con el mismo trazo fino: fichas unidas por flechas, una ventana de sistema, listas, casilleros que se encienden, una cifra grande en peso 300, dos columnas. Al final el contenido se retira y se traza el **logo principal centrado** (así firma la marca en el manual). El contenido sale de una **receta** JSON que escribe la rutina (paso 4c); el diseño lo pone el motor, `mdo-templates/video-animado.js`.
+
+- **Los colores y las medidas son los de las historias del design system**, y un solo acento: el papel sobre navy o el navy sobre el degradé claro. Nada de ámbar, verde ni ningún otro color, aunque esté en `mdo-brand.css`. Juan, 07/10/2026: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos». La receta no elige colores: el motor lo hace cumplir.
+- ❌ **Lo que el manual no lleva en redes y el video tampoco**: cápsulas o chips, pie con @handle o con la web, lockup arriba, tarjetas redondeadas (las placas de redes van con esquinas rectas), bordes de color de un solo lado, sombras y cifras en negrita. Si se cambia el motor, se compara contra `project/templates/historias-redes/HistoriasRedes.dc.html` del design system.
 - **Íconos: sólo los del design system** (`mdo-templates/iconos-mdo.json`, que trae el paso 0b desde `Icon.jsx`).
 - **Una sola pantalla, con todo el contenido a la vista al final.** Nada de pantallas encadenadas (rechazado el 07/10/2026) ni de texto sobre una foto con fundidos (superado el mismo día).
 - **Sin encuestas, sin gente y sin sonido.** Las encuestas en video se rechazaron el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional»); el sonido, el 28/09/2026.
@@ -201,7 +209,7 @@ Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
 - **La voz** (Juan, 06/10/2026: lo que suena a IA es el texto): afirmar en vez de preguntar; mostrar lo que sabe el estudio (la norma, el formulario, el área de la empresa, qué se revisaría); cerrar con lo que haría el estudio, en condicional. Nada de preguntas al lector, signos de exclamación ni frases de manual («Elegí tu opción», «Dirigir no es hacer todo»). Ver «Cómo escribir» en el paso 3.
 - **Es la pieza de la semana que más se mira: va con esfuerzo de dirección de arte**, no como trámite (pedido de Juan, 25/09/2026). Ver el paso 4c.
 - El miércoles (noticia, ancla `po-13d`/`po-13e`) **no** va en video: es la placa que hace reconocible la grilla.
-- **El PNG se renderiza igual** (paso 4): es la placa de respaldo si Metricool no acepta el video, y la que el panel deja regenerar junto con la receta. La tapa del Reel en Instagram es otra: la **portada** 9:16 que arma `video-animado.js` (la pantalla completa, antes de que suba la banda del logo).
+- **El PNG se renderiza igual** (paso 4): es la placa de respaldo si Metricool no acepta el video, y la que el panel deja regenerar junto con la receta. La tapa del Reel en Instagram es otra: la **portada** 9:16 que arma `video-animado.js` (la pantalla completa, antes de que el contenido se retire para la firma).
 - **Destacadas**: la historia en video puede quedar en Destacadas, pero **se agrega a mano desde la app de Instagram** después de que se publica. Ni Instagram ni Metricool permiten hacerlo por API. Recordárselo a Juan en el reporte final.
 - `scripts/video.js` (la placa del kit animada, el formato del 23/09 al 06/10/2026) queda sólo para regenerar posts viejos que lo usaban. Los videos nuevos no lo usan.
 
@@ -773,7 +781,10 @@ Es la pieza que más se mira de la semana: **hacerla con esfuerzo de dirección 
 node -e 'const m=require("./mdo-templates/video-animado.js");console.log(m.guiaReceta(Object.keys(require("./mdo-templates/iconos-mdo.json").iconos)))'
 ```
 
-Ejemplos que pasaron la revisión: `mdo-templates/videos-ejemplo/fal-historia.json` (la historia del 08/10/2026 que aprobó Juan) y `conciliacion-reel.json`. Cómo se piensa una buena receta:
+Ejemplos que pasaron la revisión: `mdo-templates/videos-ejemplo/fal-historia.json` (familia novedades: el contenido de la historia del 08/10/2026 que aprobó Juan) y `conciliacion-reel.json` (familia servicios). Cómo se piensa una buena receta:
+
+- **La familia**: `novedades` para la historia del jueves (lleva `fecha`, ej. `"08.10.2026"`), `servicios` para el Reel del viernes (lleva `volanta`, ej. `"Servicios · Contabilidad"`).
+- **El titular es una sola oración partida en dos pesos**: `titular` (la primera parte, en negrita) y `titular2` (la continuación, en el segundo tono). Ej.: «ARCA reglamentó» / «el Fondo de Asistencia Laboral».
 
 - **Un mensaje, de arriba abajo**: titular (qué pasa) → un gráfico que lo muestra → el dato o el riesgo concreto → el cierre (qué haría el estudio, en condicional).
 - **El gráfico explica, no decora.** Flujo para «A pasa a B» o «se suma X»; ventana para lo que se ve en un sistema o un formulario; lista para 2 a 4 cosas que revisar; comparación para dos caminos; número sólo con una cifra de la fuente (nunca el viernes: la regla de no-números sigue); línea de casilleros para algo que se repite mes a mes; nota para la salvedad.
@@ -787,15 +798,15 @@ Ejemplos que pasaron la revisión: `mdo-templates/videos-ejemplo/fal-historia.js
 node scripts/video-animado.js --spec posts/YYYY-MM-DD-N-video.json --tira out/video-tira.png --solo-tira
 ```
 
-Primero valida la receta (un ERROR frena y dice qué corregir) y después deja `out/video-tira.png` (la apertura, cada bloque a mitad de su entrada y ya armado, la pantalla completa, la banda y el final), dos cuadros a tamaño real (`out/video-tira-entrada.png` y `out/video-tira-completa.png`) y dos hojas del video entero: `out/video-tira-contacto.png` (un cuadro cada medio segundo) y `out/video-tira-celular.png` (uno por segundo, a 360 px de ancho: como se ve en un teléfono). **Mirar todo con Read** y chequear:
+Primero valida la receta (un ERROR frena y dice qué corregir) y después deja `out/video-tira.png` (la apertura, cada bloque a mitad de su entrada y ya armado, la pantalla completa, el logo trazándose y el final), dos cuadros a tamaño real (`out/video-tira-entrada.png` y `out/video-tira-completa.png`) y dos hojas del video entero: `out/video-tira-contacto.png` (un cuadro cada medio segundo) y `out/video-tira-celular.png` (uno por segundo, a 360 px de ancho: como se ve en un teléfono). **Mirar todo con Read** y chequear:
 
 | | Qué tiene que pasar | Si no |
 |---|---|---|
-| a | **Apertura**: el isotipo se traza de fondo, entra la ceja y el titular palabra por palabra; a los 2 s ya hay algo que leer | — |
+| a | **Apertura**: entra la fecha (o la volanta) y el titular palabra por palabra, en sus dos tonos; a los 2 s ya hay algo que leer | — |
 | b | **Entrada**: cada bloque entra cuando terminó el anterior, en orden de lectura; nada cortado, montado ni corrido | acortar el texto del bloque que falla |
-| c | **Pantalla completa** (`-completa.png`): todo entra entre el titular y la banda; nada pegado a los bordes; la escala que imprime el script es 0,85 o más | sacar un bloque o acortar textos |
+| c | **Pantalla completa** (`-completa.png`): se ve como una historia de la plantilla 4.5 del design system; todo dentro de la zona segura, nada pegado a los bordes; la escala que imprime el script es 0,85 o más | sacar un bloque o acortar textos |
 | d | **Un solo acento**: sólo azul noche, papel y grises; íconos del set | es del motor: no se tocan colores en la receta |
-| e | **Cierre**: la banda azul sube suave, con el logo y `mdo-consultores.com.ar`, y queda quieta al final | — |
+| e | **Cierre**: el contenido se retira y se traza el logo principal centrado, que queda quieto al final (sin web ni @handle) | — |
 | f | **Ritmo**: entre 14 y 25 s en total (el script imprime la duración); algo nuevo cada 2 a 4 s; la pantalla completa quieta para leer no pasa de ~6 s | menos texto, o otro bloque gráfico |
 | g | **Exactitud**: lo mismo que la placa y el copy; ARCA, nunca AFIP; ningún dato inventado | corregir la receta |
 
