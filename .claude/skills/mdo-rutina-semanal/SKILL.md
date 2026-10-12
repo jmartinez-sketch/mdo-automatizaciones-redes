@@ -200,6 +200,16 @@ Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
 
 Sobre esa base entran, al ritmo de lectura, gráficos que explican el tema con el mismo trazo fino: fichas unidas por flechas, una ventana de sistema, listas, casilleros que se encienden, una cifra grande en peso 300, dos columnas. Al final el contenido se retira y se traza el **logo principal centrado** (así firma la marca en el manual). El contenido sale de una **receta** JSON que escribe la rutina (paso 4c); el diseño lo pone el motor, `mdo-templates/video-animado.js`.
 
+- **Cada semana, otro estilo** (pedido de Juan, 13/10/2026: «quiero que seamos más originales, que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»). La receta lleva `estilo`, que cambia a la vez el diseño (otra historia de «4.5 · Historias de redes») y la animación:
+
+  | `estilo` | Animación | Diseño en servicios | Diseño en novedades |
+  |---|---|---|---|
+  | `armado` | las palabras suben con máscara y los gráficos se dibujan | HB1: degradé claro, isotipo arriba a la derecha | HA1 |
+  | `cortina` | una banda del color del titular tapa cada renglón o cada caja y la destapa ya escrita; cierra con un telón a pantalla completa | HB3: degradé metalizado en diagonal, isotipo arriba a la izquierda | HA1 |
+  | `foco` | el titular arranca grande al centro, se lee solo unos segundos y se acomoda; los bloques se acercan; el logo entra sin trazarse | HB4: gris azulado con el texto en papel, contenido abajo | HA1 |
+  | `trazo` | primero las guías de la página (margen y renglones); el titular se escribe letra por letra y el resto se desenrolla | HB2: degradé con la luz abajo a la izquierda | HA1 |
+
+  **Regla:** nunca el mismo `estilo` que el video de la semana anterior, y entre los que quedan, el que menos se usó en las últimas 4 semanas (columna `video` del historial, paso 8). Además, no repetir la combinación de bloques de la semana anterior. Al regenerar desde el panel se mantiene el estilo de la receta, salvo que Juan pida otro.
 - **Los colores y las medidas son los de las historias del design system**, y un solo acento: el papel sobre navy o el navy sobre el degradé claro. Nada de ámbar, verde ni ningún otro color, aunque esté en `mdo-brand.css`. Juan, 07/10/2026: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos». La receta no elige colores: el motor lo hace cumplir.
 - ❌ **Lo que el manual no lleva en redes y el video tampoco**: cápsulas o chips, pie con @handle o con la web, lockup arriba, tarjetas redondeadas (las placas de redes van con esquinas rectas), bordes de color de un solo lado, sombras y cifras en negrita. Si se cambia el motor, se compara contra `project/templates/historias-redes/HistoriasRedes.dc.html` del design system.
 - **Íconos: sólo los del design system** (`mdo-templates/iconos-mdo.json`, que trae el paso 0b desde `Icon.jsx`).
@@ -793,13 +803,14 @@ node -e 'const m=require("./mdo-templates/video-animado.js");console.log(m.guiaR
 
 Ejemplos que pasaron la revisión: `mdo-templates/videos-ejemplo/fal-historia.json` (familia novedades: el contenido de la historia del 08/10/2026 que aprobó Juan) y `conciliacion-reel.json` (familia servicios). Cómo se piensa una buena receta:
 
+- **El estilo** (`estilo`): uno distinto del de la semana anterior, el menos usado en las últimas 4 semanas (regla del video). Mirarlo en el historial antes de escribir la receta.
 - **La familia**: `novedades` para la historia del jueves (lleva `fecha`, ej. `"08.10.2026"`), `servicios` para el Reel del viernes (lleva `volanta`, ej. `"Servicios · Contabilidad"`).
 - **El titular es una sola oración partida en dos pesos**: `titular` (la primera parte, en negrita) y `titular2` (la continuación, en el segundo tono). Ej.: «ARCA reglamentó» / «el Fondo de Asistencia Laboral».
 
 - **Un mensaje, de arriba abajo**: titular (qué pasa) → un gráfico que lo muestra → el dato o el riesgo concreto → el cierre (qué haría el estudio, en condicional).
 - **El gráfico explica, no decora.** Flujo para «A pasa a B» o «se suma X»; ventana para lo que se ve en un sistema o un formulario; lista para 2 a 4 cosas que revisar; comparación para dos caminos; número sólo con una cifra de la fuente (nunca el viernes: la regla de no-números sigue); línea de casilleros para algo que se repite mes a mes; nota para la salvedad.
 - **3 o 4 bloques y no más de 60 palabras.** El motor achica la letra si no entra y avisa si se pasa; a tamaño celular, menos texto se lee mejor.
-- **Variedad**: no repetir la misma combinación de bloques de la semana anterior (anotarla en el historial, paso 8).
+- **Variedad**: no repetir el estilo ni la combinación de bloques de la semana anterior (anotar los dos en el historial, paso 8).
 - **Voz**: la de «Cómo escribir» (paso 3). Pasar la receta por `node scripts/revisar-textos.js --spec <receta>`.
 
 **2. Prueba rápida, sin codificar** (tarda ~15 s):
@@ -1089,12 +1100,12 @@ Una vez creados todos los drafts, **agregar una entrada al array `historial` de 
   "template": "po-13d",         // plantilla de Instagram
   "linkedin": "li-01",          // plantilla de LinkedIn, o null
   "formato": "imagen",          // imagen | video | carrusel
-  "video": null,                // sólo el post en video: los bloques de la receta, ej. "flujo+texto+linea+cierre"
+  "video": null,                // sólo el post en video: el estilo y los bloques, ej. "cortina · flujo+texto+linea+cierre"
   "nota": "Percepción IVA · régimen unificado"
 }
 ```
 
-El campo `video` es lo que permite no repetir la misma combinación de bloques dos semanas seguidas (paso 4c).
+El campo `video` es lo que permite no repetir el estilo ni la combinación de bloques dos semanas seguidas (paso 4c). Los videos anteriores al 13/10/2026 son todos `armado`.
 
 Después commitear el archivo junto con los PNGs en la rama de trabajo:
 

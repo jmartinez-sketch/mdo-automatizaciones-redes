@@ -191,7 +191,7 @@ if (require.main === module) {
   })
     .then((r) => {
       r.avisos.forEach((x) => console.error('AVISO: ' + x));
-      const datos = `${(r.T / 1000).toFixed(1)} s · ${r.familia} · ${r.palabras} palabras · escala ${r.k} · contenido hasta ${r.alto} px`;
+      const datos = `${(r.T / 1000).toFixed(1)} s · ${r.familia} · ${r.estilo} · ${r.palabras} palabras · escala ${r.k} · contenido hasta ${r.alto} px`;
       if (!r.outPath) console.log(`Tira → ${r.tira} · ${datos}`);
       else console.log(`OK → ${r.outPath} · ${datos} · ${Math.round(fs.statSync(r.outPath).size / 1024)} KB` +
         (r.portada ? ` · portada → ${r.portada}` : '') + (r.tira ? ` · tira → ${r.tira}` : ''));

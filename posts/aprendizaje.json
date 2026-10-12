@@ -78,6 +78,12 @@
       "tema": "contenido",
       "regla": "La noticia del miércoles tiene que cambiarle algo a la empresa: su plata, su riesgo, una obligación o un trámite que hace ella. Lo que sólo cambia cómo presenta el estudio (aplicativos, servicios web, versiones de SIAP o SICORE) no es noticia para los clientes: se descarta y se elige la siguiente.",
       "origen": "Juan descartó el miércoles 14/10 (RG 5908, servicio web de Ganancias para sociedades): «no es una noticia para mis clientes»."
+    },
+    {
+      "desde": "2026-10-13",
+      "tema": "video",
+      "regla": "El video no repite el estilo de la semana anterior: rota entre armado, cortina, foco y trazo (cada uno con otra historia del design system y otra animación), eligiendo el menos usado en las últimas 4 semanas. Tampoco repite la combinación de bloques.",
+      "origen": "Juan, 13/10: «quiero que seamos más originales, que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»."
     }
   ],
   "decisiones": [
@@ -178,6 +184,13 @@
       "pieza": "Miércoles 14/10 · sq-01 · ARCA: servicio web «Ganancias Personas Jurídicas» (RG 5908)",
       "decision": "rechazado",
       "motivo": "«La noticia del servicio web para sociedades no es una noticia para mis clientes.» Se reemplazó por el feriado bancario del 6 al 10/11."
+    },
+    {
+      "fecha": "2026-10-13",
+      "semana": 42,
+      "pieza": "Viernes 16/10 · Reel «Un socio se fue hace años» (estilo armado, el mismo de los videos del 08/10)",
+      "decision": "rechazado",
+      "motivo": "«Me hiciste el video de esta semana con los mismos efectos del de la semana pasada. Quiero que seamos más originales, que los videos varíen en diseño cada semana, que no sean siempre las mismas animaciones.» Se rehízo en el estilo foco."
     }
   ]
 }
