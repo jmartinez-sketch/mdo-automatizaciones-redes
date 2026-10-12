@@ -310,10 +310,11 @@
       "fecha": "2026-10-08",
       "semana_iso": 41,
       "slot": "jueves",
-      "template": "st-10",
+      "template": "historia-de-texto",
       "linkedin": "li-02",
       "formato": "video",
-      "nota": "Historia encuesta en video · Back office: ¿quién paga hoy a tus proveedores? (el dueño desde su banco / administración con circuito) · ciclo 41%4=1 (st-10 la fija el ciclo, aunque grupos-kit la marque usada el 10/09) · draft de historia IG + draft LinkedIn con li-02 «Los pagos de tu empresa, con circuito y control.»"
+      "nota": "Historia en video de texto, una sola pantalla · FAL: ARCA reglamentó la contribución (RG 5907), el mismo tema del miércoles · reemplazó a la encuesta st-10, que Juan rechazó el 06/10 · LinkedIn li-02 «Los pagos de tu empresa, con circuito y control.» (circuito de pagos del dueño vs. administración) · corregido el 12/10: antes decía la encuesta",
+      "video": "texto (una pantalla)"
     },
     {
       "fecha": "2026-10-09",
@@ -323,6 +324,46 @@
       "linkedin": null,
       "formato": "imagen",
       "nota": "Outsourcing administrativo · facturas de compra que se cargan a fin de mes: el IVA se computa tarde (reescrito el 08/10, aprobado por Juan)"
+    },
+    {
+      "fecha": "2026-10-14",
+      "semana_iso": 42,
+      "slot": "noticia",
+      "template": "sq-01",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "ARCA: servicio web «Ganancias Personas Jurídicas» para la declaración jurada de sociedades (RG ARCA 5908/2026): optativo desde el 19/10/2026, obligatorio desde el 1/3/2027, cierres desde junio de 2026 · placa de número grande (regla 3 de variedad visual) · nv-06 descartada: su NUMERO salía mal, corregido el 12/10 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-15",
+      "semana_iso": 42,
+      "slot": "jueves",
+      "template": "st-09",
+      "linkedin": "li-02",
+      "formato": "imagen",
+      "video": null,
+      "nota": "Historia CTA institucional: «Un socio en cada cuenta» (volanta «30 años trabajando para empresas», cierre «Escribinos por WhatsApp») · ciclo 42%4=2 · st-09 base (st-09b usada la semana 38; texto distinto de los CTA de 13 semanas) · LinkedIn li-02 «Un socio en cada cuenta: sabés quién responde.»"
+    },
+    {
+      "fecha": "2026-10-16",
+      "semana_iso": 42,
+      "slot": "gestion",
+      "template": "po-23",
+      "linkedin": null,
+      "formato": "video",
+      "video": "flujo+texto+lista+cierre",
+      "nota": "Societario (eje 2) · un socio se fue y la cesión nunca se inscribió: frente a bancos y organismos la sociedad sigue con los socios de antes · Reel 9:16 (familia servicios) con po-23 de respaldo · bloqueadas por placa: po-24/26/28/31/33, po-25, po-32, po-35/po-30 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-17",
+      "semana_iso": 42,
+      "slot": "spotlight",
+      "template": "sv-08",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Servicios societarios · retiros de los socios sin acta: en los libros la sociedad les presta plata (problema + servicio) · sv-08 nunca usada · sv-01/po-16/sv-04/mn-04 y sv-02 bloqueadas · solo Instagram"
     }
   ],
   "temas_previos": [
@@ -619,12 +660,32 @@
     {
       "fecha": "2026-10-08",
       "slot": "jueves",
-      "tema": "Encuesta: quién paga hoy a tus proveedores (dueño vs. circuito de administración)"
+      "tema": "Historia FAL (RG 5907) en video; LinkedIn: los pagos de la empresa con circuito y control (no el dueño desde su banco)"
     },
     {
       "fecha": "2026-10-09",
       "slot": "gestion",
-      "tema": "Back office: los pagos dependen del celular del dueño"
+      "tema": "Back office: facturas de compra en el mail cargadas a fin de mes, IVA computado tarde"
+    },
+    {
+      "fecha": "2026-10-14",
+      "slot": "noticia",
+      "tema": "ARCA: servicio web Ganancias Personas Jurídicas (RG 5908), obligatorio desde marzo de 2027"
+    },
+    {
+      "fecha": "2026-10-15",
+      "slot": "jueves",
+      "tema": "Story CTA institucional: «Un socio en cada cuenta»"
+    },
+    {
+      "fecha": "2026-10-16",
+      "slot": "gestion",
+      "tema": "Societario: el socio que se fue y la cesión que no se inscribió (Reel)"
+    },
+    {
+      "fecha": "2026-10-17",
+      "slot": "spotlight",
+      "tema": "Servicios societarios: retiros de los socios sin acta"
     }
   ]
 }

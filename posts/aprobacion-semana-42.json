@@ -1,0 +1,330 @@
+{
+  "semana": 42,
+  "rango": "14 al 17 de octubre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 14/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "sq-01",
+      "imagenes": [
+        "posts/2026-10-14-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Ganancias sociedades · RG 5908",
+          "NUMERO": "19",
+          "UNIDAD": "oct",
+          "TITULAR_1": "ARCA habilita el servicio web",
+          "TITULAR_2": "para presentar Ganancias",
+          "CIERRE": "Es optativo hasta el 28 de febrero y obligatorio desde el 1 de marzo de 2027."
+        }
+      ],
+      "nota": "Noticia · ARCA: servicio web «Ganancias Personas Jurídicas» (RG 5908), desde el 19/10, obligatorio desde el 1/3/2027. Placa de número grande (regla de variedad).",
+      "info": {
+        "text": "ARCA cambia cómo presentan Ganancias las sociedades: servicio web obligatorio desde 2027.\n\nCon la RG 5908, ARCA creó el servicio web «Ganancias Personas Jurídicas», que reemplaza de a poco al aplicativo con el que las sociedades presentan su declaración jurada anual. Se habilita el 19 de octubre para los ejercicios con cierre desde junio de 2026: hasta el 28 de febrero de 2027 convive con el aplicativo, y desde el 1 de marzo de 2027 es la única vía. Los cierres anteriores siguen con el aplicativo.\n\nQué significa para tu empresa: si tu sociedad cierra en diciembre, su próxima declaración jurada de Ganancias ya se presenta por el servicio nuevo. Las que se presenten antes de marzo pueden ir por cualquiera de las dos vías, y sus rectificativas mantienen la vía de la original.\n\n—\n\nLiquidamos y presentamos el impuesto a las Ganancias de tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: Errepar · RG (ARCA) 5908/2026\n\n#MDOConsultores #ARCA #Ganancias #Sociedades #ImpuestosNacionales",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-14T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-14-2.png"
+        ],
+        "mediaAltText": [
+          "ARCA habilita el servicio web para presentar Ganancias de sociedades: desde el 19 de octubre, obligatorio desde el 1 de marzo de 2027"
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 15/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · historia"
+      ],
+      "plantilla": "st-09",
+      "imagenes": [
+        "posts/2026-10-15-3.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "30 años trabajando para empresas",
+          "TITULAR_1": "Un socio",
+          "TITULAR_2": "en cada",
+          "TITULAR_3": "cuenta.",
+          "BAJADA": "Sabés quién responde por los números de tu empresa. Escribinos por WhatsApp."
+        }
+      ],
+      "esStory": true,
+      "nota": "Historia CTA institucional (ciclo 2): «Un socio en cada cuenta». Texto nuevo, distinto de los CTA de las últimas 13 semanas.",
+      "info": {
+        "text": "",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-15T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-15-3.png"
+        ],
+        "mediaAltText": [
+          "Un socio en cada cuenta: sabés quién responde por los números de tu empresa. MDO Consultores, 30 años trabajando para empresas"
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "STORY",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      }
+    },
+    {
+      "dia": "Jueves 15/10",
+      "hora": "9:00",
+      "redes": [
+        "LinkedIn"
+      ],
+      "plantilla": "li-02",
+      "imagenes": [
+        "posts/2026-10-15-3-li.png"
+      ],
+      "slots": [
+        {
+          "TITULAR_1": "Un socio en cada cuenta:",
+          "TITULAR_2": "sabés quién responde."
+        }
+      ],
+      "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): claim horizontal + texto sobre cómo trabaja el estudio.",
+      "info": {
+        "text": "Un socio en cada cuenta: sabés quién responde por los números de tu empresa.\n\nEs como trabajamos. Cada empresa tiene un socio del estudio que conoce su historia, revisa lo que se presenta y está en las decisiones: cómo se cierra el balance, qué revisar antes de sumar un socio, cuándo replantear la estructura fiscal.\n\nDetrás hay un equipo de más de 25 profesionales en impuestos, sociedades, sueldos, contabilidad y auditoría, y 30 años trabajando para empresas. Cuando hay que decidir algo con impacto fiscal, societario o laboral, lo hablás con la misma persona que conoce tus números.\n\n—\n\nEscribinos: mdo-consultores.com.ar/contacto\n\n#MDOConsultores #Empresas #Pymes",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-15T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-15-3-li.png"
+        ],
+        "mediaAltText": [
+          "Un socio en cada cuenta: sabés quién responde. MDO Consultores"
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 16/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · Reel",
+        "LinkedIn"
+      ],
+      "plantilla": "po-23",
+      "imagenes": [
+        "posts/2026-10-16-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Societario",
+          "TITULAR_1": "Un socio se fue hace años",
+          "TITULAR_2": "y en los papeles sigue siendo socio.",
+          "BAJADA": "Si la salida no se inscribió, frente a bancos, clientes y organismos la sociedad sigue teniendo los socios de antes."
+        }
+      ],
+      "nota": "Gestión pyme · Societario, en video (Reel): un socio se fue y la cesión nunca se inscribió.",
+      "video": {
+        "archivo": "posts/2026-10-16-4.mp4",
+        "asset": "9644d2d115224dc78cee552ba94eed23",
+        "spec": {
+          "familia": "servicios",
+          "volanta": "Servicios · Societario",
+          "titular": "Un socio se fue hace años",
+          "titular2": "y en los papeles sigue siendo socio",
+          "bloques": [
+            {
+              "tipo": "flujo",
+              "pasos": [
+                {
+                  "rotulo": "Cesión",
+                  "valor": "Firmada",
+                  "icono": "documento"
+                },
+                {
+                  "rotulo": "Inscripción",
+                  "valor": "Pendiente",
+                  "icono": "reloj",
+                  "destacado": true
+                }
+              ]
+            },
+            {
+              "tipo": "texto",
+              "texto": "Hasta que se inscribe, para bancos y organismos, la sociedad sigue con **los socios de antes**."
+            },
+            {
+              "tipo": "lista",
+              "marca": "numero",
+              "items": [
+                "Quién figura como socio",
+                "Qué cesiones **faltan inscribir**"
+              ]
+            },
+            {
+              "tipo": "cierre",
+              "texto": "Lo revisaríamos antes de que lo pida un banco."
+            }
+          ]
+        }
+      },
+      "info": {
+        "text": "Un socio se fue hace años y en los papeles de la sociedad sigue siendo socio.\n\nCuando la salida de un socio se acuerda y la cesión se firma, pero no se inscribe, frente a bancos, clientes y organismos la sociedad sigue teniendo los socios de antes. El problema aparece cuando hay que firmar un acta, cambiar autoridades, pedir un crédito o vender la empresa: puede hacer falta la firma de alguien que hace años no está.\n\nLo que revisaríamos: quiénes figuran hoy como socios y autoridades, qué cesiones faltan inscribir y si los libros de la sociedad cuentan lo mismo que pasó.\n\n—\n\nPonemos al día tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/societario-igj\n\n#MDOConsultores #GestiónPyME #Sociedades #IGJ #Socios",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-16T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-16-4.mp4"
+        ],
+        "mediaAltText": [
+          "Un socio se fue hace años y en los papeles sigue siendo socio: la cesión firmada, la inscripción pendiente"
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "REEL",
+          "showReelOnFeed": true,
+          "collaborators": [],
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-16-4-portada.png"
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Sábado 17/10",
+      "hora": "11:00",
+      "redes": [
+        "Instagram"
+      ],
+      "plantilla": "sv-08",
+      "imagenes": [
+        "posts/2026-10-17-5.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Servicios societarios",
+          "TITULAR_1": "Retiros sin acta:",
+          "TITULAR_2": "la sociedad les presta",
+          "TITULAR_3": "plata a sus socios.",
+          "BAJADA": "Dejamos cada retiro documentado, con el acta que lo respalda."
+        }
+      ],
+      "nota": "Servicios societarios: retiros de los socios sin acta (problema + servicio).",
+      "info": {
+        "text": "Retiros sin acta: en los libros, la sociedad les está prestando plata a sus socios.\n\nCuando los socios retiran fondos sin un acta que apruebe una distribución, cada retiro queda registrado como una deuda del socio con la sociedad. Esa cuenta crece de un año a otro, y cuando un banco, un comprador o un auditor mira el balance, aparece un crédito que nadie sabe explicar.\n\nLo que revisaríamos: cuánto suman los retiros sin respaldo, qué acta corresponde a cada uno y cómo conviene reflejarlos en el balance.\n\n—\n\nServicios societarios para empresas. Escribinos: mdo-consultores.com.ar/servicios/societario-igj\n\n#MDOConsultores #Sociedades #Socios #Pymes #Balance",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-17T11:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-17-5.png"
+        ],
+        "mediaAltText": [
+          "Retiros sin acta: la sociedad les presta plata a sus socios. Servicios societarios de MDO Consultores"
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      }
+    }
+  ]
+}
