@@ -1,0 +1,40 @@
+{
+  "familia": "servicios",
+  "volanta": "Servicios · Societario",
+  "titular": "Un socio se fue hace años",
+  "titular2": "y en los papeles sigue siendo socio",
+  "bloques": [
+    {
+      "tipo": "flujo",
+      "pasos": [
+        {
+          "rotulo": "Cesión",
+          "valor": "Firmada",
+          "icono": "documento"
+        },
+        {
+          "rotulo": "Inscripción",
+          "valor": "Pendiente",
+          "icono": "reloj",
+          "destacado": true
+        }
+      ]
+    },
+    {
+      "tipo": "texto",
+      "texto": "Hasta que se inscribe, para bancos y organismos, la sociedad sigue con **los socios de antes**."
+    },
+    {
+      "tipo": "lista",
+      "marca": "numero",
+      "items": [
+        "Quién figura como socio",
+        "Qué cesiones **faltan inscribir**"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "texto": "Lo revisaríamos antes de que lo pida un banco."
+    }
+  ]
+}
