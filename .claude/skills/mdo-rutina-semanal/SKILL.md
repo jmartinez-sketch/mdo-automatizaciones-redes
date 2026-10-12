@@ -353,6 +353,7 @@ Reglas:
 
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
+- **Que sea noticia para el cliente, no para el contador** (Juan, 12/10/2026: «no es una noticia para mis clientes»). Lo que sólo cambia cómo presenta el estudio (un aplicativo o servicio web nuevo de ARCA, una versión de SIAP o SICORE) se descarta, aunque sea normativa de ARCA: la noticia tiene que tocar la plata, el riesgo, una obligación o un trámite de la empresa.
 - **Sólo novedades que le cambian algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Lo que es sólo de personas físicas (monotributo, Bienes Personales o Ganancias personales, jubilaciones) no se publica: se elige la siguiente. Entre dos de peso parecido, gana la que toca un eje de la estrategia (Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores). Las que mejor rindieron en orgánico son obligaciones nuevas para la empresa con qué hacer (rúbrica laboral, beneficiario final, facturación, domicilio electrónico IGJ)
 
 **Cuántas noticias elegir:**

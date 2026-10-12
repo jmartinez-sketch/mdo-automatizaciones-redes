@@ -329,11 +329,11 @@
       "fecha": "2026-10-14",
       "semana_iso": 42,
       "slot": "noticia",
-      "template": "sq-01",
+      "template": "nv-10",
       "linkedin": null,
       "formato": "imagen",
       "video": null,
-      "nota": "ARCA: servicio web «Ganancias Personas Jurídicas» para la declaración jurada de sociedades (RG ARCA 5908/2026): optativo desde el 19/10/2026, obligatorio desde el 1/3/2027, cierres desde junio de 2026 · placa de número grande (regla 3 de variedad visual) · nv-06 descartada: su NUMERO salía mal, corregido el 12/10 · un solo post IG+LinkedIn"
+      "nota": "Feriado bancario: cinco días sin bancos, del viernes 6 al martes 10 de noviembre (Comunicación BCRA «A» 8487, visita del papa León XIV): cheques, débitos y pagos que dependan de la compensación, antes del jueves 5 · placa de número grande nv-10 (nunca usada) · reemplazó a la RG ARCA 5908 (servicio web de Ganancias para sociedades), que Juan descartó el 12/10: «no es una noticia para mis clientes» · un solo post IG+LinkedIn"
     },
     {
       "fecha": "2026-10-15",
@@ -670,7 +670,7 @@
     {
       "fecha": "2026-10-14",
       "slot": "noticia",
-      "tema": "ARCA: servicio web Ganancias Personas Jurídicas (RG 5908), obligatorio desde marzo de 2027"
+      "tema": "Feriado bancario: cinco días sin bancos del 6 al 10 de noviembre (Com. BCRA A 8487)"
     },
     {
       "fecha": "2026-10-15",

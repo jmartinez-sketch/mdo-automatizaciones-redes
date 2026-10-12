@@ -10,23 +10,23 @@
         "Instagram",
         "LinkedIn"
       ],
-      "plantilla": "sq-01",
+      "plantilla": "nv-10",
       "imagenes": [
         "posts/2026-10-14-2.png"
       ],
       "slots": [
         {
-          "VOLANTA": "Ganancias sociedades · RG 5908",
-          "NUMERO": "19",
-          "UNIDAD": "oct",
-          "TITULAR_1": "ARCA habilita el servicio web",
-          "TITULAR_2": "para presentar Ganancias",
-          "CIERRE": "Es optativo hasta el 28 de febrero y obligatorio desde el 1 de marzo de 2027."
+          "VOLANTA": "Feriado bancario · BCRA",
+          "NUMERO": "5",
+          "UNIDAD": "días",
+          "TITULAR_1": "sin bancos",
+          "TITULAR_2": "del viernes 6 al martes 10 de noviembre",
+          "CIERRE": "Cheques, débitos y pagos que dependan del banco conviene resolverlos antes del jueves 5."
         }
       ],
-      "nota": "Noticia · ARCA: servicio web «Ganancias Personas Jurídicas» (RG 5908), desde el 19/10, obligatorio desde el 1/3/2027. Placa de número grande (regla de variedad).",
+      "nota": "Noticia · Feriado bancario: cinco días sin bancos, del 6 al 10/11 (Comunicación BCRA «A» 8487). Reemplaza a la RG 5908 (servicio web de Ganancias para sociedades), que Juan descartó: «no es una noticia para mis clientes».",
       "info": {
-        "text": "ARCA cambia cómo presentan Ganancias las sociedades: servicio web obligatorio desde 2027.\n\nCon la RG 5908, ARCA creó el servicio web «Ganancias Personas Jurídicas», que reemplaza de a poco al aplicativo con el que las sociedades presentan su declaración jurada anual. Se habilita el 19 de octubre para los ejercicios con cierre desde junio de 2026: hasta el 28 de febrero de 2027 convive con el aplicativo, y desde el 1 de marzo de 2027 es la única vía. Los cierres anteriores siguen con el aplicativo.\n\nQué significa para tu empresa: si tu sociedad cierra en diciembre, su próxima declaración jurada de Ganancias ya se presenta por el servicio nuevo. Las que se presenten antes de marzo pueden ir por cualquiera de las dos vías, y sus rectificativas mantienen la vía de la original.\n\n—\n\nLiquidamos y presentamos el impuesto a las Ganancias de tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: Errepar · RG (ARCA) 5908/2026\n\n#MDOConsultores #ARCA #Ganancias #Sociedades #ImpuestosNacionales",
+        "text": "Cinco días sin bancos: del 6 al 10 de noviembre no habrá atención ni compensación bancaria.\n\nCon la Comunicación «A» 8487, el Banco Central declaró feriado bancario el martes 10 de noviembre, por la visita del papa León XIV. Se suma al Día del Bancario, el viernes 6, y al feriado nacional del lunes 9: las sucursales cierran del 6 al 10 y vuelven a atender el miércoles 11. Los canales digitales y los cajeros deberían seguir funcionando.\n\nQué significa para tu empresa: los cheques, débitos y pagos que dependan de la compensación bancaria se procesarían recién el miércoles 11. Si la empresa tiene pagos a proveedores, cobros o sueldos programados para esos días, conviene adelantarlos al jueves 5.\n\n—\n\nLlevamos la tesorería y el back office de tu empresa: pagos, cobranzas y conciliaciones. Escribinos: mdo-consultores.com.ar/servicios/outsourcing-administrativo\n\nFuente: Errepar · Comunicación BCRA «A» 8487\n\n#MDOConsultores #Bancos #Tesorería #Empresas #BackOffice",
         "draft": true,
         "autoPublish": false,
         "providers": [
@@ -42,10 +42,10 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-14-2.png"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/dd0b096221e7536eb9d68d4de5435d249cb06c6e/posts/2026-10-14-2.png"
         ],
         "mediaAltText": [
-          "ARCA habilita el servicio web para presentar Ganancias de sociedades: desde el 19 de octubre, obligatorio desde el 1 de marzo de 2027"
+          "Cinco días sin bancos, del viernes 6 al martes 10 de noviembre: conviene resolver antes del jueves 5 lo que dependa del banco"
         ],
         "shortener": false,
         "smartLinkData": {
