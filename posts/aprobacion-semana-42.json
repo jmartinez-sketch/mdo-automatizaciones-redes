@@ -187,12 +187,13 @@
           "BAJADA": "Si la salida no se inscribió, frente a bancos, clientes y organismos la sociedad sigue teniendo los socios de antes."
         }
       ],
-      "nota": "Gestión pyme · Societario, en video (Reel): un socio se fue y la cesión nunca se inscribió.",
+      "nota": "Gestión pyme · Societario, en video (Reel): un socio se fue y la cesión nunca se inscribió. Estilo foco (13/10): el titular arranca grande al centro y se acomoda, fondo gris azulado.",
       "video": {
         "archivo": "posts/2026-10-16-4.mp4",
-        "asset": "9644d2d115224dc78cee552ba94eed23",
+        "asset": "840e215699fe281a52abed26cba169b5",
         "spec": {
           "familia": "servicios",
+          "estilo": "foco",
           "volanta": "Servicios · Societario",
           "titular": "Un socio se fue hace años",
           "titular2": "y en los papeles sigue siendo socio",
@@ -249,7 +250,7 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-16-4.mp4"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/377e6b059aab950f8d1365cf17c2921a6e424e60/posts/2026-10-16-4.mp4"
         ],
         "mediaAltText": [
           "Un socio se fue hace años y en los papeles sigue siendo socio: la cesión firmada, la inscripción pendiente"
@@ -265,7 +266,7 @@
           "type": "REEL",
           "showReelOnFeed": true,
           "collaborators": [],
-          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/main/posts/2026-10-16-4-portada.png"
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/377e6b059aab950f8d1365cf17c2921a6e424e60/posts/2026-10-16-4-portada.png"
         },
         "linkedinData": {
           "type": "post",
