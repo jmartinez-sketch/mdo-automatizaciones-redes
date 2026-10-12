@@ -196,6 +196,7 @@
 #mdo-video .ficha .rotulo,#mdo-video .ficha strong{position:relative}
 #mdo-video .ficha strong{font-size:calc(var(--k)*50px);font-weight:700;line-height:1.05;letter-spacing:-.015em;color:var(--tit);white-space:nowrap;overflow:hidden}
 #mdo-video .ficha svg.ico{position:absolute;right:calc(var(--k)*22px);top:calc(var(--k)*20px);width:calc(var(--k)*38px);height:calc(var(--k)*38px);color:var(--suave)}
+#mdo-video .ficha.con-ico .rotulo{margin-right:calc(var(--k)*44px)}
 #mdo-video .ficha.dest strong{color:var(--sobre-relleno)} #mdo-video .ficha.dest .rotulo,#mdo-video .ficha.dest svg.ico{color:var(--sobre-relleno-suave)}
 #mdo-video svg.flecha{flex:none;width:calc(var(--k)*92px);height:calc(var(--k)*28px);overflow:visible;color:var(--trazo)}
 #mdo-video .lista{display:flex;flex-direction:column}
@@ -315,7 +316,7 @@
             const punta = svgEl('path', { d: 'M74 5l10 9-10 9', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', pathLength: '100' }, f);
             r.partes.flechas.push({ linea, punta });
           }
-          const c = el('div', 'ficha' + (p.destacado ? ' dest' : ''), fila);
+          const c = el('div', 'ficha' + (p.destacado ? ' dest' : '') + (p.icono ? ' con-ico' : ''), fila);
           const fondo = p.destacado ? el('div', 'fondo', c) : null;
           const borde = marco(c, 2); borde.style.color = 'var(--trazo)';
           const rot = p.rotulo ? el('div', 'rotulo', c) : null; if (rot) rot.textContent = sinMarcas(p.rotulo);
