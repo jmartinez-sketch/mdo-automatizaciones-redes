@@ -587,7 +587,8 @@
   },
   {
    "texto": "07",
-   "slot": "DIA_1"
+   "slot": "DIA_1",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Aportes autónomos",
@@ -599,7 +600,8 @@
   },
   {
    "texto": "11",
-   "slot": "DIA_2"
+   "slot": "DIA_2",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Ingresos Brutos",
@@ -611,7 +613,8 @@
   },
   {
    "texto": "12",
-   "slot": "DIA_3"
+   "slot": "DIA_3",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Convenio Multilateral",
@@ -623,7 +626,8 @@
   },
   {
    "texto": "13",
-   "slot": "DIA_4"
+   "slot": "DIA_4",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "IVA",
@@ -635,7 +639,8 @@
   },
   {
    "texto": "14",
-   "slot": "DIA_5"
+   "slot": "DIA_5",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Sueldos · F.931",
@@ -665,7 +670,8 @@
   },
   {
    "texto": "18",
-   "slot": "DIA_1"
+   "slot": "DIA_1",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Ganancias · PH",
@@ -677,7 +683,8 @@
   },
   {
    "texto": "20",
-   "slot": "DIA_2"
+   "slot": "DIA_2",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "IVA",
@@ -689,7 +696,8 @@
   },
   {
    "texto": "22",
-   "slot": "DIA_3"
+   "slot": "DIA_3",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Bienes Personales",
@@ -701,7 +709,8 @@
   },
   {
    "texto": "26",
-   "slot": "DIA_4"
+   "slot": "DIA_4",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "SiCoRe",
@@ -713,7 +722,8 @@
   },
   {
    "texto": "30",
-   "slot": "DIA_5"
+   "slot": "DIA_5",
+   "tras": "tabular-nums\">"
   },
   {
    "texto": "Ganancias · Sociedades",
@@ -1115,7 +1125,8 @@
   },
   {
    "texto": "30",
-   "slot": "NUMERO"
+   "slot": "NUMERO",
+   "tras": "color:#f8f6f6\">"
   },
   {
    "texto": "sep",
