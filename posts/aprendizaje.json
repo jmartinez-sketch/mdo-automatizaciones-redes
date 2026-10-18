@@ -84,6 +84,12 @@
       "tema": "video",
       "regla": "El video no repite el estilo de la semana anterior: rota entre armado, cortina, foco y trazo (cada uno con otra historia del design system y otra animación), eligiendo el menos usado en las últimas 4 semanas. Tampoco repite la combinación de bloques.",
       "origen": "Juan, 13/10: «quiero que seamos más originales, que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»."
+    },
+    {
+      "desde": "2026-10-18",
+      "tema": "diseño",
+      "regla": "Todas las placas del kit están en juego: cada día elige entre todas las que le corresponden (mapa del kit en la skill) y, entre las que encajan, la menos usada (node scripts/grupos-kit.js --usos). No hace falta estrenar una por semana, pero las que nunca salieron tienen que empezar a entrar. El jueves del ciclo 2 va institucional y LinkedIn rota li-01/li-02/li-03.",
+      "origen": "Juan, 18/10: «empezame a usar todas»; «no necesariamente las que nunca salieron»; «pero que las empieces a incluir». Al 18/10 se habían publicado 19 de las 44 placas distintas."
     }
   ],
   "decisiones": [

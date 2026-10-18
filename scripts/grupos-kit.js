@@ -12,6 +12,10 @@
 //                                                todos sus equivalentes; paso 0 de la skill).
 //                                                Para probar otra semana: --semana-del AAAA-MM-DD (un lunes)
 //   node scripts/grupos-kit.js --grupo po-31   → con qué otros ids es la misma placa
+//   node scripts/grupos-kit.js --usos          → cuántas veces se publicó cada placa desde que entró
+//                                                el kit (08/09/2026) y cuándo fue la última, de la
+//                                                menos usada a la más usada (mapa del kit de la skill:
+//                                                entre las que encajan, gana la menos usada).
 //
 // sincronizar-diseno.js lo corre solo después de traer el kit: no editar kit-grupos.json a mano.
 const fs = require('fs');
@@ -115,8 +119,36 @@ function bloqueadas(lunesPedido) {
   [...bloq].sort(([a], [b]) => a.localeCompare(b)).forEach(([id, motivo]) => console.log(`  ${id.padEnd(10)} ${motivo}`));
 }
 
+// Desde cuándo cuentan los usos: antes de esta fecha los mismos ids eran el catálogo viejo.
+const DESDE_KIT = '2026-09-08';
+
+function usos() {
+  const kit = placasDelKit();
+  const porHtml = new Map();
+  for (const [id, html] of Object.entries(kit)) {
+    if (!porHtml.has(html)) porHtml.set(html, []);
+    porHtml.get(html).push(id);
+  }
+  const hist = fs.existsSync(HISTORIAL) ? JSON.parse(fs.readFileSync(HISTORIAL, 'utf8')).historial || [] : [];
+  const fechasPorId = new Map();
+  hist.filter((e) => e.fecha >= DESDE_KIT).forEach((e) => {
+    // Cuenta Instagram y la horizontal de LinkedIn: las dos son placas del kit que tienen que rotar.
+    [e.template, e.linkedin].filter(Boolean).forEach((t) => idsDe(t).forEach((id) => {
+      if (!fechasPorId.has(id)) fechasPorId.set(id, []);
+      fechasPorId.get(id).push(e.fecha);
+    }));
+  });
+  const filas = [...porHtml.values()].map((g) => {
+    const fechas = g.flatMap((id) => fechasPorId.get(id) || []).sort();
+    return { ids: g, veces: fechas.length, ultima: fechas[fechas.length - 1] || '' };
+  }).sort((a, b) => a.veces - b.veces || a.ultima.localeCompare(b.ultima) || a.ids[0].localeCompare(b.ids[0]));
+  console.log(`Usos de cada placa desde el ${DESDE_KIT} (${filas.length} placas distintas, ${filas.filter((f) => !f.veces).length} sin publicar):`);
+  for (const f of filas) console.log(`  ${String(f.veces).padStart(2)}  ${(f.ultima || 'nunca').padEnd(10)}  ${f.ids.join(' = ')}`);
+}
+
 const args = process.argv.slice(2);
 if (args[0] === '--bloqueadas') bloqueadas(args[1] === '--semana-del' ? args[2] : null);
+else if (args[0] === '--usos') usos();
 else if (args[0] === '--grupo') {
   const { grupos } = armarGrupos();
   const g = equivalentes(args[1], grupos);

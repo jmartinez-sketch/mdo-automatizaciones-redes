@@ -97,13 +97,13 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 |---|---|---|---|---|---|---|
 | ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — | — |
 | 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | comparte la vertical | Gmail newsletter | nunca |
-| 3 | Jueves 9hs    | Story / carrusel — **ciclo de 4** (*) | según ciclo | `li-02` (solo si es story) | Noticias de la semana | **semanas impares** (la historia) |
-| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | pool de 18 (**) | comparte la vertical | Generado por LLM | **semanas pares** (Reel + LinkedIn) |
-| 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | pool de 6 | — (solo IG) | Generado por LLM | nunca |
+| 3 | Jueves 9hs    | Historia, carrusel o institucional — **ciclo de 4** (*) | según ciclo | `li-01` / `li-02` / `li-03` (solo si es historia) | Noticias de la semana | **semanas impares** (la historia) |
+| 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | mapa del kit (**) | comparte la vertical | Generado por LLM | **semanas pares** (Reel + LinkedIn) |
+| 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | mapa del kit | — (solo IG) | Generado por LLM | nunca |
 
-(*) **Jueves — ciclo de 4 semanas**, ver sección 3b: carrusel, historia en video (las semanas impares) y CTA. Desde el 07/10/2026 no hay encuesta ni cita.
+(*) **Jueves — ciclo de 4 semanas**, ver sección 3b: carrusel, historia en video (las semanas impares) e institucional (en el feed o como historia, desde el 18/10/2026). Desde el 07/10/2026 no hay encuesta ni cita.
 
-(**) **Viernes — el template lo elige la IA** entre 18 opciones, **descartando las de las últimas 4 semanas** según el historial (paso 0).
+(**) **Viernes — la placa la elige la IA** entre todas las del viernes en el mapa del kit (regla «Variedad visual»), **descartando las de las últimas 4 semanas** según el historial (paso 0).
 
 (***) **Sábado — solo semanas pares** (`$(( $(date +%V) % 2 )) == 0`): post institucional de marca. **Solo Instagram, NO LinkedIn.** Ver sección 3c.
 
@@ -142,22 +142,30 @@ Pedido de Juan: *"los diseños de las placas están siendo muy similares"*. Al 0
 2. **Nunca dos placas de texto sobre navy seguidas en la grilla del feed.** Se mira el orden de publicación, contando el último post de feed de la semana anterior. Las historias no cuentan: no aparecen en la grilla.
 3. **Miércoles: si la noticia trae una fecha o un número propio, va con una placa de número grande** en lugar de `po-13d`. Puede ser un vencimiento o un plazo («15 días para…»), o una cantidad («3 jurisdicciones»). `po-13d` sigue siendo la placa por defecto cuando la noticia no tiene un número que la represente. El número tiene que estar en la fuente: no se inventa ni se redondea.
 4. **La primera semana del mes (el jueves cae entre el 1 y el 7), el jueves va con el carrusel de calendario** (`ca-cover` + `ca-q1` + `ca-q2`), con los vencimientos del mes que le tocan a una empresa: IVA, Ganancias sociedades, F.931, Ingresos Brutos y Convenio Multilateral. **Cada fecha tiene que salir del calendario oficial** (ARCA, o el calendario mensual de Errepar). Si no se puede verificar cada fecha, ese mes no hay carrusel y el jueves sigue su ciclo normal. Si esa semana es impar, el video pasa al viernes (Reel), porque el carrusel no se anima.
-5. **Entre dos placas que sirven igual, gana la que nunca se usó** o la menos usada. Para saber cuántas veces salió cada una: `node scripts/grupos-kit.js --bloqueadas` y el historial.
+5. **Todas las placas del kit están en juego** (mapa de abajo, desde el 18/10/2026): entre las que encajan con el contenido del día, gana **la menos usada** (`node scripts/grupos-kit.js --usos`).
 
-**Placas que nunca se usaron hasta el 05/10/2026** (slots con `--list-slots`; el catálogo visual se arma con las 44 placas renderizadas, ver el reporte del 05/10):
+#### 🗺️ Mapa del kit: todas las placas en juego (pedido de Juan, 18/10/2026)
 
-| Recurso | Placas | Slots | Dónde encajan |
-|---|---|---|---|
-| **Número grande** con fecha | `sq-01` (= `sq-01b`), `nv-06` | VOLANTA, NUMERO (día), UNIDAD (mes), TITULAR_1, TITULAR_2, CIERRE | Miércoles con vencimiento o fecha de vigencia |
-| **Número grande** con unidad | `nv-10` | VOLANTA, NUMERO, UNIDAD («días»), TITULAR_1, TITULAR_2, CIERRE | Miércoles con plazo; viernes sólo con cantidades atemporales («3 señales»), nunca un plazo normativo |
-| **Cifra** | `sq-03` (= `sq-03b` = `sq-03c`) | VOLANTA, NUMERO, TITULAR_1, TITULAR_2, CIERRE | Miércoles con una cantidad de la fuente; viernes con un conteo atemporal |
-| **Foto** | `in-02`, `mn-07` | TITULAR_1, CITA, TITULAR_2 | Sábado institucional |
-| **Foto** (sin texto variable) | `mn-08` | — | Sólo como placa de marca, nunca como único post de la semana |
-| **Historia con foto** | `st-08b` | TITULAR_1..3 | Placa de respaldo de la historia en video del jueves (3b, opción C) |
-| **Calendario** | `ca-cover`, `ca-q1`, `ca-q2` | ca-cover: VOLANTA, TITULAR_1 (mes), TITULAR_2 (año), BAJADA, DESTACADO · ca-q1/q2: VOLANTA, TITULAR_1/2, DIA_n, ITEM_n_TITULO, ITEM_n_DETALLE (n = 1..5), DESTACADO | Jueves de la primera semana del mes (regla 4) |
-| **Servicios en fondo claro** | `sv-06`, `sv-07` (lista de ítems), `sv-08` (invitación), `po-04b` | ver `--list-slots` | Sábado; `sv-08` cierra «Escribinos», nunca «llamanos» |
-| **Novedad del estudio** | `po-05` (= `po-05b` = `sv-03`) | VOLANTA, TITULAR_1, BAJADA | Sólo con una novedad real del estudio que Juan haya confirmado |
-| **Testimonio** | `po-36` | VOLANTA, CITA, AUTOR, AUTOR_DETALLE | Sólo con un testimonio real o aprobado por Juan; nunca inventado |
+Juan: *«empezame a usar todas… no necesariamente las que nunca salieron, pero que las empieces a incluir»*. Al 18/10/2026 se habían publicado 19 de las 44 placas distintas: cada día elegía dentro de las mismas 3 o 4. Desde ahora **cada día elige entre todas las placas que le corresponden según esta tabla**. No hay obligación de estrenar una por semana: entre las que encajan con el contenido de ese día gana **la menos usada** (`node scripts/grupos-kit.js --usos`), y así las que nunca salieron van entrando solas. Lo bloqueado por el historial (paso 0) sigue afuera. Los slots, siempre con `--list-slots`.
+
+| Día | Placas (con `=`, la misma placa con otro id) | Cuándo encaja |
+|---|---|---|
+| **Miércoles · noticia** | `po-13d` (ancla, = `po-13e` = `mn-02` = `nv-01`…`nv-05`, ver el paso 0) | La noticia sin un número que la represente |
+| | `nv-10` (número + unidad), `nv-06` (vencimiento anual), `sq-01` (= `sq-01b`, vencimiento con fecha grande), `sq-03` (= `sq-03b` = `sq-03c`, cifra) | La noticia trae un plazo, una fecha o una cantidad de la fuente (regla 3) |
+| | `sq-12b` (último momento) | Una prórroga o un cambio de último momento |
+| | `nv-07` (= `nv-08`, cierre de ejercicio) | Noviembre y diciembre: cierre al 31/12, inventario, balances |
+| | `po-34` (mito y realidad), `po-32` (comparativa), `po-24` (= `po-26` = `po-28` = `po-31` = `po-33`, lista), `po-35` (= `po-30`, errores) | La noticia corrige una creencia, compara dos caminos o trae pasos (paso 2b) |
+| **Jueves** | carrusel `cb-cover` + `cb-tip1`…`cb-tip3` | Ciclo 0 (paso 3b, opción B) |
+| | calendario `ca-cover` + `ca-q1` + `ca-q2` | Primera semana del mes (regla 4) |
+| | historia en video, con placa de respaldo `st-08` / `st-08b` / `st-08c` | Semanas impares (paso 3b, opción C) |
+| | **institucional** en el feed: `mn-01` y `mn-08` (sólo marca), `mn-03` (= `mn-05` = `sq-02` = `sq-02c` = `in-03` = `in-04`), `mn-07` e `in-02` (frase de marca), `sq-03` con un dato aprobado del estudio, `sv-07` (todo lo que hacemos); o como historia: `st-09` (= `st-09b`), `st-08b`, `st-08c` | Ciclo 2 (paso 3b, opción A) |
+| | LinkedIn: `li-01` (noticia con fecha), `li-02` (frase), `li-03` (número) | Cuando el jueves es historia: la que encaje con lo que dice, la menos usada (paso 4b) |
+| **Viernes · gestión** | `po-24` (lista), `po-22` (antes y después), `po-34` (mito y realidad), `po-32` (comparativa), `po-35` (errores), `po-23` (declaración), `po-25` (una idea), `po-04` (= `sv-05`, lista), `sq-03` y `nv-10` (sólo cantidades atemporales), `po-21` (= `po-27` = `po-29` = `nv-09`, pregunta) | Según el ángulo (paso 3). `po-21` sólo con un dilema real que la pieza responde (guía de voz) |
+| **Sábado · servicios** | `sv-01` (= `po-16` = `mn-04` = `sv-04`), `sv-02`, `sv-05` (= `po-04`), `sv-06`, `sv-07`, `sv-08`, `po-04b`, `po-23`, `po-25` | Paso 3c. En las de lista (`sv-05`, `sv-06`, `sv-07`, `po-04b`), cada ítem es un problema que el servicio resuelve, no una tarea |
+| **Sólo con contenido real** | `po-36` (testimonio de un cliente), `po-05` (= `po-05b` = `sv-03`, novedad del estudio) | Sábado o jueves institucional, sólo con un testimonio o una novedad que haya pasado Juan. ❌ Nunca inventados |
+| **Afuera** | `st-10` (encuesta) | Juan rechazó las encuestas el 06/10/2026 |
+
+Datos del estudio que pueden ir en las placas institucionales y de cifra: los aprobados en `CONTEXTO-PUBLICIDAD.md` («30 años», «Equipo de más de 25 profesionales», «Un socio en cada cuenta», «Para empresas y PyMEs»). Ninguna otra cifra del estudio sin que Juan la confirme.
 
 > `nv-10` y `sq-03` traían el número fijo («10», «128») hasta el 05/10/2026: se agregó el slot `NUMERO` en `mdo-templates/kit-slots.json` (con `tras`, porque el número solo es ambiguo en el HTML).
 
@@ -176,7 +184,7 @@ Instagram dejó de priorizar el cuadrado: **la grilla del perfil ahora muestra t
 ⚠️ **LinkedIn comparte la imagen vertical de Instagram.** LinkedIn muestra las verticales 4:5 sin romperlas — no están optimizadas para su feed, pero se ven bien. Como un post de Metricool tiene una sola imagen para todas sus redes, la alternativa era duplicar los drafts, y **el usuario la rechazó explícitamente** (ver la regla dura del paso 6). Así que:
 
 - **Miércoles y viernes**: un solo draft con IG + LinkedIn, imagen vertical compartida. **No** renderizar `-li`.
-- **Jueves de story**: es el único día que necesita una horizontal `li-02`, porque LinkedIn no tiene stories y no hay forma de meterlas en el mismo post.
+- **Jueves de story**: es el único día que necesita una horizontal (`li-01`, `li-02` o `li-03`, paso 4b), porque LinkedIn no tiene stories y no hay forma de meterlas en el mismo post.
 - **Jueves de carrusel**: el carrusel `cb-*` va tal cual a las dos redes — LinkedIn soporta carruseles verticales sin recortarlos.
 - **Zona segura**: logo, titular y CTA lejos de los bordes superior e inferior (la grilla 3:4 le recorta ~12% arriba/abajo a un post 4:5). Los templates ya traen padding generoso; si se edita uno, no bajar de ese margen.
 - En las **historias**, además, dejar libre el ~15% superior e inferior (ahí Instagram superpone su UI). Renderizar con `?safe=1` para ver los overlays de zona segura.
@@ -279,7 +287,7 @@ node scripts/grupos-kit.js --bloqueadas      # lo usado en las 4 semanas anterio
 node scripts/grupos-kit.js --grupo po-31     # con qué ids es la misma placa
 ```
 
-Esa lista **manda** sobre lo que se deduzca a mano del historial. Los grupos están en `mdo-templates/kit-grupos.json`, que regenera `sincronizar-diseno.js` en el paso 0b (no editarlo a mano). La horizontal `li-02` del jueves no cuenta: se repite a propósito. Al anotar el historial (paso 8), poner el id que se usó de verdad; en la `nota`, si se descartó una placa por ser equivalente a otra, decirlo.
+Esa lista **manda** sobre lo que se deduzca a mano del historial. Los grupos están en `mdo-templates/kit-grupos.json`, que regenera `sincronizar-diseno.js` en el paso 0b (no editarlo a mano). Las horizontales de LinkedIn (`li-*`) no se bloquean: rotan por `--usos` (paso 4b). Al anotar el historial (paso 8), poner el id que se usó de verdad; en la `nota`, si se descartó una placa por ser equivalente a otra, decirlo.
 
 Si el archivo no existe o `historial` está vacío (primera corrida), no hay nada bloqueado: elegir libremente y crear el archivo en el paso 8.
 
@@ -517,7 +525,9 @@ Ya no existen `COPETE`, `TITULO`, `BULLET_n`, `CTA` ni `HANDLE`: si los pasás, 
 
 #### Catálogo de templates del viernes (referencia — se pueden variar)
 
-El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**, no una lista cerrada.
+> **Desde el 18/10/2026 el pool del viernes son todas las placas del viernes en el mapa del kit** (regla «Variedad visual»): `po-24`, `po-22`, `po-34`, `po-32`, `po-35`, `po-23`, `po-25`, `po-04`, `sq-03` y `nv-10` (cantidades atemporales) y `po-21` (sólo un dilema real). Entre las que encajan con el ángulo, la menos usada (`node scripts/grupos-kit.js --usos`). Las tablas de abajo son del catálogo viejo: sirven como guía de ángulos.
+
+El viernes NO está atado a `po-04`. Los 18 ids de abajo son del catálogo viejo, todos verticales 4:5 (1080×1350). **Son referencias y puntos de partida**: el pool vigente es el del mapa del kit (nota de arriba).
 
 **Cómo se decide el template del viernes (NO es rotación ciega):**
 - El **servicio** lo fija la rotación por semana ISO (`SERVICIO_IDX`, ver arriba).
@@ -600,11 +610,11 @@ El viernes NO está atado a `po-04`. Hay **18 templates disponibles**, todos ver
 JUEVES_TIPO=$(( $(date +%V) % 4 ))
 # 0 → Carrusel cb-*         (noticia profunda)    → opción B
 # 1 → Historia en video     (escena animada)      → opción C   ← semana impar: es el video de la semana
-# 2 → Story st-09 / st-09b  (CTA institucional)   → opción A
+# 2 → Institucional         (placa de marca)      → opción A   ← feed o historia, desde el 18/10/2026
 # 3 → Historia en video     (escena animada)      → opción C   ← semana impar: es el video de la semana
 ```
 
-Hasta el 06/10/2026 el ciclo 1 era una encuesta (`st-10`) y el 3 una cita (`st-08*`). Ver la opción C.
+Hasta el 06/10/2026 el ciclo 1 era una encuesta (`st-10`) y el 3 una cita (`st-08*`). Ver la opción C. Hasta el 18/10/2026 el ciclo 2 era siempre la historia `st-09`.
 
 Dentro de las opciones con variante de color (`st-09`/`st-09b`, y las placas de respaldo `st-08`/`st-08b`/`st-08c`), elegir la que **no** figure en el historial del slot `jueves` en las últimas 4 semanas. Si ninguna figura, empezar por la versión base.
 
@@ -612,7 +622,9 @@ Dentro de las opciones con variante de color (`st-09`/`st-09b`, y las placas de 
 >
 > Antes acá iba `po-37` (vencimientos de la semana en el feed). El kit de redes del Manual de Marca 2026 no lleva vencimientos de la semana, así que esa plantilla se retiró junto con `st-07` y `st-07b`. Ver `mdo-templates/LEEME-kit-manual.md`.
 
-**Opción A — Story `st-09` / `st-09b` (ciclo = 2)**
+**Opción A — Institucional (ciclo = 2)**
+
+Desde el 18/10/2026 (Juan: «empezame a usar todas»), el ciclo 2 va con **una placa de marca del pool institucional del mapa del kit**: en el feed `mn-01`, `mn-08`, `mn-03`, `mn-07`, `in-02`, `sq-03` (con un dato aprobado del estudio) o `sv-07`; o como historia `st-09` / `st-09b`, `st-08b` o `st-08c`. La que no esté bloqueada y, entre las que encajan con el mensaje, la menos usada (`node scripts/grupos-kit.js --usos`). En el feed va a Instagram y LinkedIn con la vertical compartida (paso 6); como historia, LinkedIn recibe una horizontal (paso 4b). El mensaje es del estudio (cómo trabaja, qué resuelve, sus datos aprobados), nunca una noticia, y el copy cierra con la página de la web que corresponda. `mn-01` y `mn-08` no llevan texto en la placa: el mensaje va entero en el copy. Las demás placas institucionales tienen sus slots en `--list-slots`; abajo, los de la historia `st-09`.
 
 Slots en el kit 4.4 (confirmar con `--list-slots`):
 - `VOLANTA` — frase de contexto, ej: "Estás pensando en armar tu empresa"
@@ -633,7 +645,7 @@ Desde el 07/10/2026 el jueves de semana impar es **el video de la semana**: una 
 
 - Como es una noticia, **sí** puede llevar el dato real (la resolución, el formulario, el plazo, la cifra), siempre de la fuente.
 - **Placa de respaldo**: `st-08`, `st-08b` (con foto) o `st-08c`, la que no esté en el historial del slot `jueves`, con el titular de la receta partido en `TITULAR_1`, `TITULAR_2` y `TITULAR_3` (máx ~110 caracteres en total). Es el PNG del post: el panel la muestra y la regenera junto con la receta, y sale si Metricool no acepta el video.
-- LinkedIn del jueves: `li-02` con la misma noticia (paso 4b), como siempre.
+- LinkedIn del jueves: una horizontal con la misma noticia (paso 4b): `li-01` con la fecha, `li-03` con el número, o `li-02` (una frase) si no hay fecha ni número; entre las que encajan, la menos usada.
 - El tema tiene que ser algo que le toca a una empresa y que el estudio resuelve (servicios de la sección 5 de `CONTEXTO-PUBLICIDAD.md`). Esta regla vale para todos los días: el ángulo es libre, el tema no.
 - ❌ **Ya no hay encuesta (`st-10`) ni cita como historia del jueves.** La encuesta la rechazó Juan el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional») y la cita en tres renglones empuja a las frases de cuadrito que la regla de voz prohíbe. `st-10` queda en el kit sin usar: no proponerla.
 - Si la primera semana del mes cae en semana impar, el jueves va con el carrusel de calendario (regla «Variedad visual») y el video pasa al viernes.
@@ -676,20 +688,12 @@ Objetivo: un post de **Servicios** que funcione como un anuncio: **un problema c
 - **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
 - **Servicio**: uno del **mismo eje que el viernes de esa semana** → `SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))` (tabla del paso 3.1), con el nombre exacto que tiene en la web.
 
-**Template — pool de 6, descartando las últimas 4 del historial** (slot `spotlight`):
-
-| ID | Estilo | Slots |
-|---|---|---|
-| `po-16` | Spotlight de servicio (navy, isologo grande de fondo) | COPETE, TITULO, BAJADA, HANDLE |
-| `po-23` | Declaración/manifiesto (papel) + firma | COPETE, DECLARACION, APOYO, HANDLE |
-| `po-25` | Foco / una sola idea (navy) minimal | COPETE, IDEA, DETALLE, CTA, HANDLE |
-| `po-29` | Ícono + frase (navy) | COPETE, FRASE, CTA, HANDLE |
-| `po-30` | Grid 2×2 de servicios (blanco), casi sin texto | COPETE, TITULO, LABEL_1..4, HANDLE |
-| `po-36` | Testimonio de cliente (sin nombre propio) | COPETE, TESTIMONIO, CLIENTE_TIPO, CLIENTE_DETALLE, SERVICIO, HANDLE |
+**Placa — todas las de servicios del mapa del kit (regla «Variedad visual»), descartando las bloqueadas** (slot `spotlight`): `sv-01` (= `po-16` = `mn-04` = `sv-04`), `sv-02`, `sv-05` (= `po-04`), `sv-06`, `sv-07`, `sv-08`, `po-04b`, `po-23` y `po-25`. Entre las que encajan con el servicio y el problema, la menos usada (`node scripts/grupos-kit.js --usos`). Hasta el 18/10/2026 el pool era de 6 placas del catálogo viejo.
 
 Notas del pool:
-- `po-30` (grid de servicios) es el único que **no** se ancla a un solo servicio: muestra la amplitud del estudio. Usarlo como máximo **1 vez cada 2 meses**.
-- `po-36` (testimonio) requiere un testimonio **real o claramente genérico**. ❌ Nunca inventar una cita atribuida a un cliente identificable. Describir al cliente por sector y tamaño ("PyME textil, 12 empleados"), nunca por nombre.
+- En las placas de lista (`sv-05`, `sv-06`, `sv-07`, `po-04b`), **cada ítem es un problema concreto que el servicio resuelve**, no una tarea: los avisos con la lista de tareas fueron los peores posts de septiembre.
+- `sv-07` (todo lo que hacemos) no se ancla a un solo servicio: muestra la amplitud del estudio. Como máximo **1 vez cada 2 meses**.
+- `po-36` (testimonio) y `po-05` (novedad del estudio) sólo con contenido real que haya pasado Juan. ❌ Nunca inventar una cita atribuida a un cliente; el cliente se describe por sector y tamaño ("PyME textil, 12 empleados"), nunca por nombre.
 
 Slots de `po-16` en el kit 4.4 (confirmar con `--list-slots`):
 - `VOLANTA` — siempre "Servicios"
@@ -739,8 +743,8 @@ Templates por día (todos verticales — ver "Formatos correctos de imagen"):
 | Jueves, ciclo 0 | `cb-cover` + `cb-tip1..3` (un render por slide) | 1080×1350 |
 | Jueves, ciclos 1 y 3 (historia en video) | `st-08` / `st-08b` / `st-08c` (placa de respaldo) + el video del paso 4c | 1080×1920 |
 | Jueves, ciclo 2 | `st-09` / `st-09b` | 1080×1920 |
-| Viernes | el elegido del pool de 18 | 1080×1350 |
-| Sábado (semanas pares) | el elegido del pool de 6 | 1080×1350 |
+| Viernes | la elegida del mapa del kit | 1080×1350 |
+| Sábado (semanas pares) | la elegida del mapa del kit | 1080×1350 |
 
 Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 - `YYYY-MM-DD` = fecha de publicación
@@ -754,12 +758,12 @@ Nombrado: `posts/YYYY-MM-DD-N.png` donde:
 | Post | Template LinkedIn | Cuándo |
 |---|---|---|
 | Miércoles (noticia) | — | Comparte la vertical con Instagram |
-| Jueves (story) | **`li-02`** | **Único caso.** La story no existe en LinkedIn, así que LinkedIn recibe un claim institucional en horizontal |
+| Jueves (historia) | **`li-01`, `li-02` o `li-03`** | **Único caso.** La historia no existe en LinkedIn, así que LinkedIn recibe una horizontal con el mismo mensaje |
 | Jueves (carrusel) | — | El carrusel `cb-*` va tal cual a LinkedIn |
 | Viernes (gestión) | — | Comparte la vertical con Instagram |
 | Sábado (spotlight) | — | No va a LinkedIn |
 
-Las tres plantillas horizontales siguen disponibles por si en alguna semana se justifica (`li-01` noticia, `li-02` claim, `li-03` dato), pero la rutina normal solo usa `li-02` los jueves de story.
+Desde el 18/10/2026 rotan las tres (mapa del kit): `li-01` (noticia, con la fecha), `li-03` (un número de la fuente o un dato aprobado del estudio) y `li-02` (una frase). Se elige la que encaje con lo que dice la historia y, entre las que encajan, la menos usada (`node scripts/grupos-kit.js --usos`). Hasta esa fecha la rutina usaba sólo `li-02`.
 
 ```bash
 node scripts/render.js --template li-02 --list-slots
@@ -1171,6 +1175,7 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 
 - ¿Alguna plantilla se repite respecto de las últimas 4 semanas (fuera de la ancla `po-13d`/`po-13e`)? → **es un error**: volver a elegir y re-renderizar. Se compara por placa, no por id: si `node scripts/grupos-kit.js --grupo <id>` muestra que la elegida es equivalente a una bloqueada, también es repetición.
 - ¿Los posts de la semana se ven distintos entre sí en la grilla (modo de color, composición)? Si los 3-4 quedaron todos en navy o todos en papel, cambiar uno.
+- ¿Cada día eligió mirando **todas** sus placas del mapa del kit, y entre las que encajaban la menos usada (`node scripts/grupos-kit.js --usos`)? Si se eligió una muy usada habiendo otra que servía igual, cambiarla.
 
 ## Notas técnicas
 

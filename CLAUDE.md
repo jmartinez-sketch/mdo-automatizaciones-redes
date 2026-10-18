@@ -92,7 +92,8 @@ scripts/
                         regenerar los posts viejos que la usaban)
   revisar-textos.js     Control de la voz del estudio sobre placas, copys y recetas
   reponer-placas.js     Re-renderiza lo que Juan regeneró en el panel (paso 7c)
-  grupos-kit.js         Qué ids del kit son la misma placa, y qué queda bloqueado por el historial
+  grupos-kit.js         Qué ids del kit son la misma placa, qué queda bloqueado por el historial
+                        y cuántas veces salió cada una (--usos)
   aprobacion-doc.js     Arma el documento del panel de aprobación (Dirección MDO),
                         con el HTML de cada placa para el botón "Regenerar"
   setup.sh              Instalación de deps + Chromium para sesiones frescas
@@ -149,6 +150,7 @@ La estrategia de las redes vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-P
 - Cada post cierra con la página de su servicio. Nunca se invita a llamar.
 - Es contenido; el diseño sigue siendo el del design system.
 - **Variedad visual** (05/10/2026): cada semana al menos una placa con foto o número grande, nunca dos de texto sobre navy seguidas en la grilla, el miércoles con número grande si la noticia lo trae, y carrusel de calendario la primera semana del mes. Detalle en la regla «Variedad visual» de la skill.
+- **Todo el kit en juego** (18/10/2026, Juan: «empezame a usar todas… no necesariamente las que nunca salieron, pero que las empieces a incluir»): cada día elige entre todas las placas que le corresponden (mapa del kit, en la regla «Variedad visual» de la skill) y, entre las que encajan, la menos usada (`node scripts/grupos-kit.js --usos`). El jueves del ciclo 2 va con una placa institucional y LinkedIn rota `li-01` / `li-02` / `li-03`. La encuesta sigue afuera; el testimonio y la novedad del estudio, sólo con contenido real que pase Juan.
 
 ## Regla dura sobre el tip PyME (viernes)
 
