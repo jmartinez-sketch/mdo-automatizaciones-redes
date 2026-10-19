@@ -90,6 +90,12 @@
       "tema": "diseño",
       "regla": "Todas las placas del kit están en juego: cada día elige entre todas las que le corresponden (mapa del kit en la skill) y, entre las que encajan, la menos usada (node scripts/grupos-kit.js --usos). No hace falta estrenar una por semana, pero las que nunca salieron tienen que empezar a entrar. El jueves del ciclo 2 va institucional y LinkedIn rota li-01/li-02/li-03.",
       "origen": "Juan, 18/10: «empezame a usar todas»; «no necesariamente las que nunca salieron»; «pero que las empieces a incluir». Al 18/10 se habían publicado 19 de las 44 placas distintas."
+    },
+    {
+      "desde": "2026-10-19",
+      "tema": "contenido",
+      "regla": "ABL, Impuesto Inmobiliario y Patentes no son servicios del estudio (ni inscripción, ni revisión, ni planes de pago). Una novedad de esos temas se publica como información, sin ofrecer el servicio: sin «revisamos/revisaríamos», sin «Escribinos» y sin página de servicio; el texto cierra con la fuente y el video, con el dato práctico (el plazo). Vale para cualquier tema que el estudio no atiende.",
+      "origen": "Juan, 19/10, sobre el plan de pagos de la AGIP: «está bien informarlo… nosotros no hacemos asesoramiento… no lo revisamos, pero me gusta que lo informemos»."
     }
   ],
   "decisiones": [
@@ -218,6 +224,13 @@
       "pieza": "Semana 42 (14 al 17/10): noticia del feriado bancario, historia «Un socio en cada cuenta» + LinkedIn, Reel del socio que se fue (estilo trazo) y sábado de retiros sin acta",
       "decision": "publicado",
       "motivo": "Los cinco salieron en Instagram y LinkedIn; ninguno se borró en Metricool (revisado el 19/10). El sábado Juan lo había pausado y lo aprobó el 13/10."
+    },
+    {
+      "fecha": "2026-10-19",
+      "semana": 43,
+      "pieza": "Miércoles 21/10 · noticia del plan de pagos de la AGIP para ABL, Inmobiliario y Patentes (Res. 383/2026), y el video y el LinkedIn del jueves 22/10 con el mismo tema",
+      "decision": "aprobado, con corrección",
+      "motivo": "«Está bien informarlo. Lo que sí, nosotros no hacemos asesoramiento por todo lo que tenga que ver con el mismo, todo lo que es inscripción y demás, no lo revisamos, pero me gusta que lo informemos.» Se sacó el cierre de servicio («Revisamos las deudas de tu empresa y armamos el plan… Escribinos») del miércoles, que ya estaba aprobado y en pausa en Metricool: se corrigió allá y quedó programado. También del LinkedIn y del video del jueves («Revisaríamos qué deudas entran…»), que ahora cierra con el plazo para adherir."
     }
   ]
 }

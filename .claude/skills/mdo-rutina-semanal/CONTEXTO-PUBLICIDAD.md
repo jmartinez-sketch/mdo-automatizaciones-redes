@@ -142,3 +142,5 @@ Fuente: la web (`src/data/services.ts`). Son los **únicos** servicios que se no
 | Outsourcing | Certificaciones de Ingresos y Origen de Fondos | `certificaciones-ingresos-fondos` |
 
 Si el tema no tiene página propia: `mdo-consultores.com.ar/servicios` o `/contacto`. En LinkedIn el link se puede tocar; en Instagram no, pero igual sirve y en la nota de la web queda como link.
+
+**Lo que el estudio no hace** (Juan, 19/10/2026): ABL, Impuesto Inmobiliario y Patentes (ni inscripción, ni revisión, ni planes de pago). Una novedad útil de esos temas se informa igual, pero sin ofrecer el servicio: sin «revisamos», sin «Escribinos» y sin página de servicio; el texto cierra con la fuente.
