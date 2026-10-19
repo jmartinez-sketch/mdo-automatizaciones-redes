@@ -1,0 +1,38 @@
+{
+  "familia": "novedades",
+  "estilo": "cortina",
+  "fecha": "15.10.2026 · Resolución AGIP 383",
+  "titular": "La Ciudad abrió un plan",
+  "titular2": "para deudas de ABL y Patentes",
+  "bloques": [
+    {
+      "tipo": "ventana",
+      "titulo": "Intereses resarcitorios",
+      "icono": "calculadora",
+      "filas": [
+        {
+          "etiqueta": "Al contado",
+          "valor": "Quita total",
+          "nuevo": true
+        },
+        {
+          "etiqueta": "Hasta 12 cuotas",
+          "valor": "Quita del 50%"
+        },
+        {
+          "etiqueta": "Financiación",
+          "valor": "Sin interés"
+        }
+      ]
+    },
+    {
+      "tipo": "nota",
+      "icono": "reloj",
+      "texto": "Vencidas antes del 1/10. Adhesión hasta el 31/12, por débito automático."
+    },
+    {
+      "tipo": "cierre",
+      "texto": "Revisaríamos qué deudas entran y qué opción conviene más."
+    }
+  ]
+}
