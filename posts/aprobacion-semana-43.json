@@ -1,0 +1,277 @@
+{
+  "semana": 43,
+  "rango": "21 al 23 de octubre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 21/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "sq-01",
+      "imagenes": [
+        "posts/2026-10-21-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Plan de pagos AGIP · adhesión hasta el",
+          "NUMERO": "31",
+          "UNIDAD": "DIC",
+          "TITULAR_1": "Deudas de ABL y Patentes",
+          "TITULAR_2": "vencidas antes del 1/10",
+          "CIERRE": "Al contado, sin intereses resarcitorios; en hasta 12 cuotas, con 50% de quita."
+        }
+      ],
+      "nota": "Noticia · Plan de regularización de la AGIP (Res. 383/2026) para deudas de ABL, Inmobiliario y Patentes: placa de fecha grande sq-01 (nunca usada), con el cierre de la adhesión. Descartadas: San Luis (certificados de Ingresos Brutos, sólo para empresas con sede en esa provincia) y Río Negro (incentivo regional).",
+      "info": {
+        "text": "La Ciudad abrió un plan para deudas de ABL, Inmobiliario y Patentes con quita de intereses.\n\nCon la Resolución 383/2026, la AGIP habilitó un régimen transitorio para las deudas del Impuesto Inmobiliario y ABL y de Patentes sobre Vehículos que estén en sede administrativa y hayan vencido antes del 1 de octubre de 2026. Al contado, se condonan todos los intereses resarcitorios; en hasta 12 cuotas, se reducen a la mitad y no hay interés de financiación. La adhesión está abierta hasta el 31 de diciembre.\n\nQué implica en la práctica: si tu empresa tiene inmuebles o vehículos en la Ciudad con deudas atrasadas, conviene calcular cuánto se ahorra en intereses con cada opción antes de elegir. El régimen tiene un tope de deuda por inmueble o vehículo, y los pagos van por débito automático.\n\n—\n\nRevisamos las deudas de tu empresa y armamos el plan que más le conviene. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: Errepar · Resolución AGIP 383/2026\n\n#MDOConsultores #AGIP #ABL #PlanDePagos #Impuestos",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-21T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/34408ca97096c07a3fc173002183ef8610b2c10a/posts/2026-10-21-2.png"
+        ],
+        "mediaAltText": [
+          "Plan de pagos de la AGIP: deudas de ABL y Patentes vencidas antes del 1/10, adhesión hasta el 31 de diciembre. Al contado, sin intereses resarcitorios; en hasta 12 cuotas, con 50% de quita."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 22/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · historia (video)"
+      ],
+      "plantilla": "st-08b",
+      "imagenes": [
+        "posts/2026-10-22-3.png"
+      ],
+      "slots": [
+        {
+          "TITULAR_1": "Deudas de ABL y Patentes en la Ciudad:",
+          "TITULAR_2": "al contado o en 12 cuotas,",
+          "TITULAR_3": "con quita de intereses."
+        }
+      ],
+      "esStory": true,
+      "nota": "Historia en video (estilo cortina, familia novedades): contado o cuotas del plan de la AGIP, con la ventana de intereses resarcitorios. El newsletter no trajo otra noticia para empresas de la Ciudad, así que se profundizó la del miércoles. Placa de respaldo st-08b (nunca usada).",
+      "info": {
+        "text": "",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-22T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/34408ca97096c07a3fc173002183ef8610b2c10a/posts/2026-10-22-3.mp4"
+        ],
+        "mediaAltText": [
+          "Historia en video: la Ciudad abrió un plan para deudas de ABL y Patentes. Al contado, quita total de intereses resarcitorios; en hasta 12 cuotas, quita del 50% y financiación sin interés. Adhesión hasta el 31/12."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "STORY",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      },
+      "video": {
+        "archivo": "posts/2026-10-22-3.mp4",
+        "asset": "64f8811948669d195c9b84ef1d37355b",
+        "spec": {
+          "familia": "novedades",
+          "estilo": "cortina",
+          "fecha": "15.10.2026 · Resolución AGIP 383",
+          "titular": "La Ciudad abrió un plan",
+          "titular2": "para deudas de ABL y Patentes",
+          "bloques": [
+            {
+              "tipo": "ventana",
+              "titulo": "Intereses resarcitorios",
+              "icono": "calculadora",
+              "filas": [
+                {
+                  "etiqueta": "Al contado",
+                  "valor": "Quita total",
+                  "nuevo": true
+                },
+                {
+                  "etiqueta": "Hasta 12 cuotas",
+                  "valor": "Quita del 50%"
+                },
+                {
+                  "etiqueta": "Financiación",
+                  "valor": "Sin interés"
+                }
+              ]
+            },
+            {
+              "tipo": "nota",
+              "icono": "reloj",
+              "texto": "Vencidas antes del 1/10. Adhesión hasta el 31/12, por débito automático."
+            },
+            {
+              "tipo": "cierre",
+              "texto": "Revisaríamos qué deudas entran y qué opción conviene más."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "dia": "Jueves 22/10",
+      "hora": "9:00",
+      "redes": [
+        "LinkedIn"
+      ],
+      "plantilla": "li-03",
+      "imagenes": [
+        "posts/2026-10-22-3-li.png"
+      ],
+      "slots": [
+        {
+          "NUMERO": "12",
+          "BAJADA": "AGIP · deudas de ABL y Patentes",
+          "TITULAR_1": "cuotas con 50% menos",
+          "TITULAR_2": "de intereses resarcitorios",
+          "CIERRE": "Al contado, sin resarcitorios. Adhesión hasta el 31/12, por débito automático."
+        }
+      ],
+      "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): li-03 (nunca usada) con las 12 cuotas y el texto sobre cómo decidir entre contado y cuotas.",
+      "info": {
+        "text": "Contado o cuotas: las dos opciones del plan de la AGIP para deudas de ABL, Inmobiliario y Patentes no cuestan lo mismo.\n\nLa Resolución AGIP 383/2026 abrió, hasta el 31 de diciembre, un régimen transitorio para deudas en sede administrativa vencidas antes del 1 de octubre de 2026. Al contado se condonan todos los intereses resarcitorios. En hasta 12 cuotas se reducen a la mitad, sin interés de financiación.\n\nQué implica en la práctica: la decisión depende de la caja de la empresa. Pagar de una vez ahorra todos los resarcitorios; las cuotas preservan liquidez y ahorran la mitad. Los pagos van por débito automático y hay un tope de deuda por inmueble o vehículo.\n\nLo que revisaríamos: qué deudas de la empresa entran en el régimen, cuánto suman los intereses en cada opción y qué conviene según el flujo de fondos de los próximos meses.\n\n—\n\nRevisamos las deudas de tu empresa y armamos el plan que más le conviene. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\n#MDOConsultores #AGIP #Impuestos",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-22T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/34408ca97096c07a3fc173002183ef8610b2c10a/posts/2026-10-22-3-li.png"
+        ],
+        "mediaAltText": [
+          "12 cuotas con 50% menos de intereses resarcitorios para deudas de ABL y Patentes de la Ciudad. Al contado, sin resarcitorios. Adhesión hasta el 31/12, por débito automático."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 23/10",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-04",
+      "imagenes": [
+        "posts/2026-10-23-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Certificado MiPyME",
+          "TITULAR_1": "Beneficios que se pierden",
+          "ITEM_1": "El IVA se paga al mes siguiente pudiendo diferirse",
+          "ITEM_2": "El impuesto al cheque se registra como costo perdido",
+          "ITEM_3": "El certificado no se pidió por creer que no califica",
+          "ITEM_4": "Las ventas cambiaron y nadie revisó la categoría"
+        }
+      ],
+      "nota": "Gestión pyme · IVA, MiPyME y planificación (eje 3): beneficios del certificado MiPyME que se pierden. Placa clara po-04 (= sv-05), la única clara libre del viernes, para que la grilla no quede toda navy después del miércoles.",
+      "info": {
+        "text": "Tu empresa puede calificar como MiPyME y estar pagando como si no lo fuera.\n\nCon el certificado MiPyME, las micro y pequeñas empresas pueden diferir el pago del IVA sin costo, y una parte del impuesto al cheque puede computarse como pago a cuenta de Ganancias. Pero los beneficios no se aplican solos: hace falta el certificado y, en el IVA, elegir la opción. Mientras nadie lo revisa, la empresa adelanta impuestos con su propia caja.\n\nLo que revisaríamos: si la empresa califica según su actividad y sus ventas, si tiene el certificado y si cada beneficio está aplicado en las declaraciones juradas.\n\n—\n\nRevisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos: mdo-consultores.com.ar/servicios/certificado-mipyme\n\n#MDOConsultores #GestiónPyME #CertificadoMiPyME #IVA #Impuestos",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-10-23T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/34408ca97096c07a3fc173002183ef8610b2c10a/posts/2026-10-23-4.png"
+        ],
+        "mediaAltText": [
+          "Certificado MiPyME: beneficios que se pierden. El IVA se paga al mes siguiente pudiendo diferirse; el impuesto al cheque se registra como costo perdido; el certificado no se pidió por creer que no califica; las ventas cambiaron y nadie revisó la categoría."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    }
+  ]
+}

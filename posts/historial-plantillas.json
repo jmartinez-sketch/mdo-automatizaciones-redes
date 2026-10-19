@@ -364,6 +364,36 @@
       "formato": "imagen",
       "video": null,
       "nota": "Servicios societarios · retiros de los socios sin acta: en los libros la sociedad les presta plata (problema + servicio) · sv-08 nunca usada · sv-01/po-16/sv-04/mn-04 y sv-02 bloqueadas · solo Instagram"
+    },
+    {
+      "fecha": "2026-10-21",
+      "semana_iso": 43,
+      "slot": "noticia",
+      "template": "sq-01",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Plan de regularización de la AGIP (Res. AGIP 383/2026, BO CABA 15/10): deudas de Impuesto Inmobiliario y ABL y de Patentes en sede administrativa vencidas antes del 1/10/2026; al contado condonación total de resarcitorios, en hasta 12 cuotas 50% de quita y sin interés de financiación; adhesión hasta el 31/12 por débito automático · placa de fecha grande sq-01 (nunca usada; nv-10 bloqueada) · descartadas San Luis (RG DPIP 21/2026, saldos a favor de Ingresos Brutos en certificados transferibles: sólo contribuyentes con sede en la provincia) y Río Negro (incentivo de Ingresos Brutos por contratar personas con discapacidad, regional) · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-22",
+      "semana_iso": 43,
+      "slot": "jueves",
+      "template": "st-08b",
+      "linkedin": "li-03",
+      "formato": "video",
+      "video": "cortina · ventana+nota+cierre",
+      "nota": "Historia en video (novedades, estilo cortina): plan AGIP 383/2026, contado o cuotas (ventana «Intereses resarcitorios»: al contado quita total, hasta 12 cuotas quita del 50%, financiación sin interés) · el mismo tema del miércoles porque el newsletter no trajo otra noticia para empresas de la Ciudad · placa de respaldo st-08b (nunca usada; st-08 bloqueada) · LinkedIn li-03 (nunca usada) «12 cuotas con 50% menos de intereses resarcitorios» · ciclo 43%4=3"
+    },
+    {
+      "fecha": "2026-10-23",
+      "semana_iso": 43,
+      "slot": "gestion",
+      "template": "po-04",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "IVA, MiPyME y planificación (eje 3) · beneficios del certificado MiPyME que se pierden: el IVA que podía diferirse, el impuesto al cheque tomado como costo perdido, el certificado nunca pedido, la categoría sin revisar · placa clara po-04 (= sv-05) para cortar el navy del miércoles en la grilla · bloqueadas po-23, po-24/26/28/31/33, po-25, po-32, nv-10 · un solo post IG+LinkedIn"
     }
   ],
   "temas_previos": [
