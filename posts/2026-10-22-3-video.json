@@ -28,11 +28,11 @@
     {
       "tipo": "nota",
       "icono": "reloj",
-      "texto": "Vencidas antes del 1/10. Adhesión hasta el 31/12, por débito automático."
+      "texto": "Deudas vencidas antes del 1/10, en sede administrativa. Se paga por débito automático."
     },
     {
       "tipo": "cierre",
-      "texto": "Revisaríamos qué deudas entran y qué opción conviene más."
+      "texto": "Hay tiempo de adherir hasta el 31 de diciembre."
     }
   ]
 }
