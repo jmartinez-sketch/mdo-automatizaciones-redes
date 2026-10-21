@@ -45,11 +45,11 @@ Esto instala `node_modules` + Chromium (lleva ~30-60s la primera vez).
 
 ## Cómo se dispara la rutina
 
-**Trigger automático**: una sola rutina, **«MDO - Automatizaciones Redes»** (Claude Code on the Web), que corre **sólo los lunes, cada hora, de 7:50 a 19:50 hs Argentina** (desde el 14/10/2026, pedido de Juan: los lunes es cuando revisa el panel; del 05/10 al 13/10 pasaba cada hora de lunes a sábado, y antes 3 veces por día), y decide sola qué toca:
+**Trigger automático**: una sola rutina, **«MDO - Automatizaciones Redes»** (Claude Code on the Web), que corre **de lunes a viernes a las 7:50, 13:50 y 19:50 hs Argentina** (desde el 21/10/2026, pedido de Juan: ese día regeneró el post del viernes un miércoles y no había pasada que lo subiera a Metricool; del 14/10 al 21/10 corría sólo los lunes, cada hora; del 05/10 al 13/10, cada hora de lunes a sábado, y antes 3 veces por día), y decide sola qué toca:
 
-- **La primera pasada del lunes**: arma la semana completa (si falla, la reintenta la pasada siguiente).
-- **Las demás pasadas del lunes**: reponen las placas que Juan regeneró en el panel y mandan a Metricool las que ya aprobó (paso 7c de la skill). Si no hay nada, terminan en una línea.
-- **Si Juan regenera algo fuera del lunes**, no hay pasada que lo reponga hasta el lunes siguiente: hay que pedirlo a mano en la sesión («reponé lo que regeneré»).
+- **La primera pasada del lunes**: arma la semana completa (si falla, la reintentan las pasadas siguientes, hasta el martes).
+- **Las demás pasadas**: reponen las placas que Juan regeneró en el panel y mandan a Metricool las que ya aprobó (paso 7c de la skill). Si no hay nada, terminan en una línea.
+- **Lo que Juan regenere después de las 19:50 del viernes** (el post del sábado, en semanas pares) no tiene pasada que lo reponga: hay que pedirlo a mano en la sesión («reponé lo que regeneré»).
 
 Hasta el 25/09/2026 eran dos rutinas (la semanal y «MDO - Reponer placas regeneradas»); Juan pidió juntarlas.
 
