@@ -231,6 +231,13 @@
       "pieza": "Miércoles 21/10 · noticia del plan de pagos de la AGIP para ABL, Inmobiliario y Patentes (Res. 383/2026), y el video y el LinkedIn del jueves 22/10 con el mismo tema",
       "decision": "aprobado, con corrección",
       "motivo": "«Está bien informarlo. Lo que sí, nosotros no hacemos asesoramiento por todo lo que tenga que ver con el mismo, todo lo que es inscripción y demás, no lo revisamos, pero me gusta que lo informemos.» Se sacó el cierre de servicio («Revisamos las deudas de tu empresa y armamos el plan… Escribinos») del miércoles, que ya estaba aprobado y en pausa en Metricool: se corrigió allá y quedó programado. También del LinkedIn y del video del jueves («Revisaríamos qué deudas entran…»), que ahora cierra con el plazo para adherir."
+    },
+    {
+      "fecha": "2026-10-21",
+      "semana": 43,
+      "pieza": "Viernes 23/10 · po-04, beneficios del certificado MiPyME",
+      "decision": "regenerado y aprobado",
+      "motivo": "Lo regeneró en el panel sin pedido (21/10, 15:48) y aprobó la versión nueva, «Un certificado que no se usa». Como la pasada de reposición corre sólo los lunes, no llegó a Metricool hasta que se repuso a mano (21/10). La versión nueva dice «certificado vencido que nadie renovó», contra la regla «el certificado no vence: se renueva solo»: se le avisó."
     }
   ]
 }
