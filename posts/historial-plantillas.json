@@ -394,6 +394,46 @@
       "formato": "imagen",
       "video": null,
       "nota": "IVA, MiPyME y planificación (eje 3) · certificado MiPyME que no se usa (versión regenerada por Juan el 21/10): IVA sin diferir porque nadie eligió la opción, impuesto al cheque nunca tomado a cuenta de Ganancias, beneficios que no figuran en las declaraciones juradas, categoría que ya no refleja las ventas · placa clara po-04 (= sv-05) para cortar el navy del miércoles en la grilla · bloqueadas po-23, po-24/26/28/31/33, po-25, po-32, nv-10 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-28",
+      "semana_iso": 44,
+      "slot": "noticia",
+      "template": "sq-03",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Régimen excepcional de ARBA (RN ARBA 23/2026): deudas de Ingresos Brutos, Sellos, Inmobiliario y Automotores vencidas hasta el 31/12/2025; quita sobre el total al contado del 40% hasta el 13/11, 35% hasta el 27/11 y 30% hasta el 31/12; en 3 o 6 cuotas, del 20% al 5%; adhesión web del 26/10 al 31/12 · placa de cifra sq-03 (nunca usada; sq-01 y nv-10 bloqueadas) · servicio ofrecido sólo para Ingresos Brutos y Sellos · descartadas: Inocencia Fiscal II reglamentada (Decreto 1253/2026, personas humanas), vencimientos de noviembre de Convenio Multilateral y de ARBA corridos por los feriados (Disp. CA 11/2026), fallos de la CSJN sobre retenciones de Ingresos Brutos en Misiones (mismo tema que el carrusel Milk World del 01/10) · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-29",
+      "semana_iso": 44,
+      "slot": "jueves",
+      "template": "cb-cover+cb-tip1+cb-tip2+cb-tip3",
+      "linkedin": null,
+      "formato": "carrusel",
+      "video": null,
+      "nota": "Carrusel · Actualización del FAL: el Decreto 1228/2026 corrió la entrada en vigencia al 1/12/2026 (antes 1/11, Decreto 408/2026) y llevó la carencia de 6 a 12 meses desde la primera contribución registrada por ARCA · corrige la fecha publicada el 23/09 · ciclo 44%4=0 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-30",
+      "semana_iso": 44,
+      "slot": "gestion",
+      "template": "po-22",
+      "linkedin": null,
+      "formato": "video",
+      "video": "foco · comparacion+nota+cierre",
+      "nota": "Laboral (eje 4) · las tareas cambiaron y la categoría del recibo quedó igual: alguien que entró en administración hoy maneja la caja; la diferencia con la categoría superior del convenio se puede reclamar hacia atrás · Reel 9:16 (servicios, estilo foco, el menos usado; cortina fue la semana anterior) con po-22 de respaldo (nunca usada) · bloqueadas por placa: po-04/sv-05, po-23, po-24/26/28/31/33, po-25 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-10-31",
+      "semana_iso": 44,
+      "slot": "spotlight",
+      "template": "sv-06",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Servicios · Liquidación de sueldos: adicionales del convenio que nadie liquida, recibos y F.931 que no dicen lo mismo, altas y bajas con fechas que no son reales, ausencias y licencias mal descontadas (problemas, no tareas) · sv-06 (nunca usada; sv-02, sv-08 y sv-05/po-04 bloqueadas) · solo Instagram"
     }
   ],
   "temas_previos": [
