@@ -82,11 +82,19 @@ mdo-templates/          Copia sincronizada del diseño (la fuente es el design s
   video-animado.html    Punto de entrada para grabarlo
   videos-ejemplo/       Recetas de ejemplo (la historia del FAL que aprobó Juan, …)
 
+motion/                 Video semanal en Motion (desde el 02/11/2026)
+  LEEME.md              Cómo se escribe un film, el menú de recursos y cómo se graba
+  base/                 La marca de los films: base.css, shared.js (window.MDO) y las letras (OFL)
+  ejemplos/             Films aprobados (reel-laboral: el Reel del 30/10/2026 hecho en Motion)
+
 scripts/
   render.js             Renderiza cualquier template a PNG (--dump-html vuelca el HTML de la placa) via Puppeteer
   sincronizar-diseno.js Trae kit, CSS y logos desde la bajada del design system
   extraer-kit-manual.js Corta las placas del kit y les pone los slots (lo llama el sincronizador)
-  video-animado.js      Graba la escena de una receta a MP4 (el video semanal, desde el 07/10/2026)
+  motion-video.js       Graba un film de Motion a MP4 sin abrir la página (el video semanal,
+                        desde el 02/11/2026; --validar, --hoja, --cuadros, --out)
+  video-animado.js      Graba la escena de una receta a MP4 (el video del 07/10 al 30/10/2026;
+                        desde entonces, el plan B si Motion falla)
   video.js              Formato anterior: anima una placa del kit y la graba a MP4
                         (la animación está en mdo-templates/animacion-placa.js; queda para
                         regenerar los posts viejos que la usaban)
@@ -129,10 +137,22 @@ out/                    PNGs de prueba locales (en .gitignore)
 - ✅ Metricool como planificador (validado 22/05/2026 — `createScheduledPost` deja el post como SCHEDULED de verdad, no se traba)
 - ✅ Botón "Regenerar" en el panel Publicaciones de Dirección MDO (22/09/2026). **La imagen no puede viajar sola** desde el panel (Metricool sólo acepta URLs públicas y una página publicada no puede publicar una): la placa nueva la publica la rutina de reposición leyendo `pendienteImagen`. Ver el paso 7c de la skill.
 - ✅ Aprobar primero, Metricool después (24/09/2026): la rutina no crea posts en Metricool; los crea el panel al aprobar. El 24/09 dos posts regenerados salieron con la imagen vieja porque ya estaban en Metricool: esto lo evita.
+- ✅ Video semanal en Motion (decisión de Juan, 26/10/2026): un film por escenas que la rutina escribe y graba sin abrir la página de Motion, con el reproductor del propio tipo (`scripts/motion-video.js`). Marca del design system, recursos que cambian cada semana, íconos y nunca emojis. La escena de receta queda de plan B.
 
-## Video semanal (desde el 23/09/2026; formato nuevo desde el 07/10/2026)
+## Video semanal (desde el 23/09/2026; en Motion desde el 02/11/2026)
 
-Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn). Desde el 07/10/2026 es **una escena animada de una sola pantalla** que arma `scripts/video-animado.js` a partir de una receta JSON (`posts/…-video.json`), con la gramática de la plantilla **«4.5 · Historias de redes» del design system** (rehecha así el 08/10/2026, cuando Juan marcó que la primera versión «parecía del manual anterior»): familia **novedades** (navy, fecha en Chivo itálica, titular en dos tonos, filete vertical) o **servicios** (degradé claro con el isotipo gigante), gráficos que explican el tema con el mismo trazo fino (fichas con flechas, ventanas, listas, casilleros, cifras en peso 300), sólo los íconos del design system y la firma con el logo centrado. Sin cápsulas, sin web, sin tarjetas redondeadas. Es el estilo que Juan aprobó el 07/10/2026 («me gusta mucho más el último video», «ese mismo criterio para las próximas generaciones de video»; «no meter muchos colores… pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos»). Desde el 13/10/2026 **cada semana cambia el estilo** (Juan: «que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»): `armado`, `cortina`, `foco` o `trazo`, cada uno con otra historia del design system y otra forma de armarse; nunca el mismo que la semana anterior. Pasa por el panel de aprobación como el resto, y el botón Regenerar rehace también la receta. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
+Todas las semanas sale **un video**, alternando: semana ISO **impar** → la historia del jueves; semana **par** → el post del viernes en el feed (Reel 9:16 + LinkedIn).
+
+**Desde el 02/11/2026 el video se hace en Motion** (decisión de Juan, 26/10/2026). Ese día comparó el mismo Reel hecho con la receta y hecho en Motion, y eligió Motion: «creo que me gusta más esta versión».
+
+- **Qué es**: un film por escenas, con cámara que recorre, objetos que se transforman, trazos, gráficos, documentos, fotos del banco e íconos que se dibujan.
+- **La regla**: **la marca del design system no cambia; los recursos de animación cambian cada semana** («que no salgan todas las semanas con las mismas animaciones»). Íconos del design system, nunca emojis. Sin sonido, sin encuestas y sin gente, como antes.
+- **Cómo se graba**: la rutina escribe el film en `posts/AAAA-MM-DD-N-motion/` y lo graba a MP4 con `scripts/motion-video.js`, sin abrir la página de Motion. Usa el reproductor del tipo Motion, que se baja con la herramienta Artifact y no se commitea, y el Chromium del entorno.
+- **Dónde está todo**: la guía es `motion/LEEME.md`; el ejemplo aprobado, `motion/ejemplos/reel-laboral/`.
+- **Regenerar**: en el panel, Regenerar rehace la placa y el texto. El film lo rehace la pasada de reposición siguiente.
+- **Plan B**: si Motion falla, el video se hace con la escena de receta que se describe abajo.
+
+Del 07/10 al 30/10/2026 el video fue **una escena animada de una sola pantalla** que arma `scripts/video-animado.js` a partir de una receta JSON (`posts/…-video.json`), con la gramática de la plantilla **«4.5 · Historias de redes» del design system** (rehecha así el 08/10/2026, cuando Juan marcó que la primera versión «parecía del manual anterior»): familia **novedades** (navy, fecha en Chivo itálica, titular en dos tonos, filete vertical) o **servicios** (degradé claro con el isotipo gigante), gráficos que explican el tema con el mismo trazo fino (fichas con flechas, ventanas, listas, casilleros, cifras en peso 300), sólo los íconos del design system y la firma con el logo centrado. Sin cápsulas, sin web, sin tarjetas redondeadas. Es el estilo que Juan aprobó el 07/10/2026 («me gusta mucho más el último video», «ese mismo criterio para las próximas generaciones de video»; «no meter muchos colores… pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos»). Desde el 13/10/2026 **cada semana cambia el estilo** (Juan: «que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»): `armado`, `cortina`, `foco` o `trazo`, cada uno con otra historia del design system y otra forma de armarse; nunca el mismo que la semana anterior. Pasa por el panel de aprobación como el resto, y el botón Regenerar rehace también la receta. Las historias se agregan a **Destacadas a mano** desde la app (no hay API para eso). Detalle en la regla del video de la skill.
 
 Juan pidió **esfuerzo de dirección de arte** en los videos (25/09/2026): antes del render final se revisan las hojas de cuadros (la tira, la de contacto y la de celular) con la tabla y el puntaje del paso 4c, y se corrige lo que falle (hasta 8 o más en todo). El Reel lleva de tapa la portada 9:16 que arma el script (`-portada.png`). El script avisa si algo salta en el MP4. Los videos van **sin sonido** (28/09/2026), **sin encuestas** (06/10/2026: «muy básico, muy inteligencia artificial, poco profesional») y **sin gente**. Se evaluaron dos guías de motion: `onetake` (feitangyuan/onetake, licencia no comercial: sólo ideas) y `claude-motion-design` (howseen-ai, MIT); de ahí salen la revisión con puntaje, el control de saltos y el color BT.709. No se usan su desenfoque, sus resortes con rebote ni su sonido: el manual y Juan los descartan.
 

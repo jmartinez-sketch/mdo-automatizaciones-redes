@@ -96,6 +96,12 @@
       "tema": "contenido",
       "regla": "ABL, Impuesto Inmobiliario y Patentes no son servicios del estudio (ni inscripción, ni revisión, ni planes de pago). Una novedad de esos temas se publica como información, sin ofrecer el servicio: sin «revisamos/revisaríamos», sin «Escribinos» y sin página de servicio; el texto cierra con la fuente y el video, con el dato práctico (el plazo). Vale para cualquier tema que el estudio no atiende.",
       "origen": "Juan, 19/10, sobre el plan de pagos de la AGIP: «está bien informarlo… nosotros no hacemos asesoramiento… no lo revisamos, pero me gusta que lo informemos»."
+    },
+    {
+      "desde": "2026-11-02",
+      "tema": "video",
+      "regla": "El video de la semana se hace en Motion: un film por escenas que la rutina escribe y graba con scripts/motion-video.js (guía: motion/LEEME.md). Se mantienen el manual de marca y el diseño del design system, pero los recursos de animación cambian cada semana (2 o 3 del menú, ninguno de las últimas 4 semanas, anotados en el campo video del historial). Íconos del design system, nunca emojis. Sin sonido, sin encuestas, sin gente, sin rebotes. Si Motion falla, la escena de receta es el plan B.",
+      "origen": "Juan, 26/10/2026, después de comparar el mismo Reel en los dos formatos: «creo que me gusta más esta versión»; «lo que ganamos es que se mantenga el manual de marca, se mantenga el diseño, pero se mejoren mucho las animaciones, varíen mucho más»; «no quiero que los videos de todas las semanas salgan con las mismas animaciones». Sobre los emojis: se le recomendó usar íconos animados porque la guía de voz los excluye, y respondió «sí, ok a todo»."
     }
   ],
   "decisiones": [
@@ -245,6 +251,13 @@
       "pieza": "Semana 43 (21 al 23/10): plan de la AGIP para ABL, Inmobiliario y Patentes el miércoles, historia en video y LinkedIn del jueves con el mismo tema, y el viernes del certificado MiPyME",
       "decision": "publicado",
       "motivo": "Los cuatro salieron en Instagram y LinkedIn; ninguno se borró en Metricool (revisado el 26/10). El viernes salió con la versión que Juan regeneró y que se corrigió el 21/10."
+    },
+    {
+      "fecha": "2026-10-26",
+      "semana": 44,
+      "pieza": "Reel del viernes 30/10 (laboral, po-22): el mismo video hecho con la receta (estilo foco) y en Motion",
+      "decision": "eligió Motion",
+      "motivo": "Comparó las dos versiones y prefirió la de Motion: cámara que recorre el recibo, fichas que se apilan, corchete que se vuelve línea de tiempo, convenio que se tilda. Pidió que la rutina haga así el video desde ahora, con más variedad de animaciones cada semana. El Reel de la semana 44 ya cargado en el panel es el de la receta."
     }
   ]
 }

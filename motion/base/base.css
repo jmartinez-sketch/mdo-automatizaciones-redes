@@ -1,0 +1,47 @@
+/* Look MDO de los videos de Motion. scripts/motion-video.js lo pone primero en cada film
+   (después va el film.css del film, si tiene). Colores, degradés y letras son los del design
+   system «MDO - Diseño» (mdo-templates/mdo-brand.css): azul noche, gris azulado, papel y gris.
+   Las letras son archivos de motion/base/fuentes, una cara por peso: cada clase nombra la suya
+   y font-synthesis:style evita la negrita falsa. */
+#stage { --ground:#06162D; --main:#7C8392; --second:#F8F6F6; --accent:#D9D9D9;
+  --tinta:var(--second); --tono2:var(--accent); --suave:color-mix(in srgb, var(--second) 70%, var(--ground));
+  color:var(--tinta); font-synthesis:style; font-family:"OpenSans-400", var(--sans, system-ui, sans-serif) }
+
+/* Fondos: navy diagonal (novedades) o claro con brillo abajo a la izquierda (servicios). */
+.ground { position:absolute; inset:0; background:linear-gradient(to top right, #00081D 0%, #0A1A36 55%, #273F63 100%) }
+.ground.claro { background:radial-gradient(120% 95% at 0% 100%, #FFFFFF 0%, #DCDEE2 30%, #C8CCD4 62%, #C2C6CE 100%);
+  --tinta:var(--ground); --tono2:var(--main); --suave:color-mix(in srgb, var(--ground) 62%, var(--second)); color:var(--tinta) }
+
+/* Texto. Una línea de palabras va siempre dentro de un .words (columna con gap). */
+.words { position:absolute; margin:0; display:flex; flex-direction:column; gap:20px } .words > * { margin:0 }
+.line { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-size:96px; line-height:1.04; font-weight:700; letter-spacing:-0.02em }
+.line2 { font-family:"OpenSans-300", var(--sans, system-ui, sans-serif); font-weight:300; color:var(--tono2) }
+.sub { font-size:44px; line-height:1.3; font-weight:400; color:var(--suave) }
+.fuerte { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700 }
+.cifra { font-family:"OpenSans-300", var(--sans, system-ui, sans-serif); font-weight:300; font-size:240px; line-height:.9; letter-spacing:-0.04em; font-variant-numeric:tabular-nums }
+.vol, .tag, .paper-hd { font-family:"Chivo-700", var(--mono, ui-monospace, monospace); font-weight:700; text-transform:uppercase }
+.vol { font-size:30px; letter-spacing:.22em; color:var(--suave) }
+.tag { font-size:28px; letter-spacing:.16em; color:var(--suave) }
+.fecha { font-family:"Chivo-400i", var(--mono, ui-monospace, monospace); font-style:normal; font-size:40px; color:var(--suave) }
+
+/* Capas y dibujo. */
+.cam { position:absolute; left:0; top:0; width:1080px; height:1920px; transform-origin:0 0 }
+.art { position:absolute; inset:0; width:100%; height:100%; overflow:visible }
+.ink { fill:none; stroke:var(--tinta); stroke-width:5; stroke-linecap:round; stroke-linejoin:round }
+.ink-dark { fill:none; stroke:var(--ground); stroke-width:6; stroke-linecap:round; stroke-linejoin:round }
+.filete { position:absolute; width:2px; background:color-mix(in srgb, var(--tinta) 45%, transparent); transform-origin:50% 0 }
+.icono { fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; overflow:visible }
+.icono.fino * { vector-effect:non-scaling-stroke; stroke-width:4px }
+.logo-svg { display:block; width:100%; height:auto }
+
+/* Objetos de papel: un documento sobre el fondo, con su encabezado, filas y renglones. */
+.paper { position:absolute; box-sizing:border-box; background:var(--second); color:var(--ground); padding:44px 48px; box-shadow:0 30px 60px rgba(0,0,0,.25) }
+.paper-hd { font-size:26px; letter-spacing:.2em; color:color-mix(in srgb, var(--ground) 55%, var(--second)); margin:0 0 20px }
+.row { display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:22px 0; border-top:2px solid color-mix(in srgb, var(--ground) 14%, var(--second)); font-size:40px }
+.row span { color:color-mix(in srgb, var(--ground) 60%, var(--second)) } .row b { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700 }
+.bar { height:18px; margin:18px 0; background:color-mix(in srgb, var(--ground) 14%, var(--second)) }
+
+/* Fichas, niveles y casilleros (esquinas rectas, como las placas). */
+.task { position:absolute; box-sizing:border-box; display:flex; align-items:center; padding:0 36px; border:2px solid var(--tinta); background:color-mix(in srgb, var(--ground) 88%, var(--second)); color:var(--second); font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-size:44px; font-weight:700 }
+.lvl { position:absolute; height:0; border-top:4px dashed color-mix(in srgb, var(--tinta) 75%, transparent); transform-origin:0 50% }
+.box { position:absolute; box-sizing:border-box; border:3px solid color-mix(in srgb, var(--tinta) 50%, transparent) }

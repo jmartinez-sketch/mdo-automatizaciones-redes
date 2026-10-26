@@ -14,7 +14,9 @@
 //     con un nombre nuevo para que Metricool no use la copia vieja de su caché.
 //     El video de receta (formato del 07/10/2026) se graba con video-animado.js y
 //     la receta nueva que mandó el panel (`pendienteImagen.video`); el de antes,
-//     la placa animada, con video.js;
+//     la placa animada, con video.js. El video de Motion (`video.motion`, desde el
+//     02/11/2026) no se graba acá: el plan lo marca y la rutina rehace el film con
+//     los textos nuevos y el pedido de Juan (paso 7c);
 //   - arma la miniatura JPEG que muestra el panel.
 // Escribe un plan con lo que falta hacer afuera (push, Metricool, base del panel).
 // Lo usa la rutina "MDO - Automatizaciones Redes" en cada pasada (paso 7c de la skill).
@@ -80,7 +82,15 @@ async function miniatura(browser, abs, ancho) {
         miniaturas.push(await miniatura(browser, path.join(ROOT, rel), ancho));
       }
       let video = null;
-      if (p.video && p.video.asset) {
+      if (p.video && p.video.asset && p.video.motion) {
+        // Film de Motion: lo rehace la rutina (no hay receta que grabar). El plan lleva dónde
+        // está el film, qué pidió Juan y dónde tiene que quedar el MP4 nuevo con su portada.
+        const rel = archivos[0].replace(/\.png$/, '.mp4');
+        video = { motion: true, carpeta: p.video.motion.carpeta || null, pedido: pi.pedido || '', archivo: rel,
+          portada: rel.replace(/\.mp4$/, '-portada.png'), assetViejo: p.video.asset };
+        console.error(`MOTION: ${p.dia}: rehacer el film ${video.carpeta || '(sin carpeta: escribirlo de nuevo)'} con los textos ` +
+          `nuevos${pi.pedido ? ` y el pedido «${pi.pedido}»` : ''}, y grabarlo en ${rel} (paso 7c).`);
+      } else if (p.video && p.video.asset) {
         const rel = archivos[0].replace(/\.png$/, '.mp4');
         const receta = pi.video || p.video.spec || null;
         let r;

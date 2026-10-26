@@ -1,0 +1,50 @@
+{
+ "v": 1,
+ "stage": "final",
+ "look": "Papeles de la nómina: el recibo de sueldo y el convenio dibujados como papel sobre azul noche; la cámara recorre los papeles y cada idea se transforma en la siguiente. Colores y letras del design system MDO, un solo acento.",
+ "palettes": [
+  [
+   "#06162D",
+   "#7C8392",
+   "#F8F6F6",
+   "#D9D9D9"
+  ]
+ ],
+ "theirs": 1,
+ "width": 1080,
+ "height": 1920,
+ "fps": 60,
+ "background": "#06162D",
+ "scenes": [
+  {
+   "id": "titulo",
+   "name": "El titular",
+   "dur": 3.2,
+   "desc": "Las tareas cambiaron y la categoría del recibo quedó igual."
+  },
+  {
+   "id": "papeles",
+   "name": "Recibo y tarea",
+   "dur": 13,
+   "desc": "El recibo sube, la cámara marca la categoría de ingreso, se aleja y al lado se apilan las tareas reales hasta pasar la línea del recibo: esa distancia es la diferencia."
+  },
+  {
+   "id": "meses",
+   "name": "Hacia atrás",
+   "dur": 4.3,
+   "desc": "La diferencia se acuesta y recorre los meses hacia atrás: se puede reclamar."
+  },
+  {
+   "id": "convenio",
+   "name": "El convenio",
+   "dur": 3.5,
+   "desc": "El convenio se abre y cada puesto se tilda contra su categoría."
+  },
+  {
+   "id": "firma",
+   "name": "Firma",
+   "dur": 3,
+   "desc": "El logo de MDO Consultores y el servicio."
+  }
+ ]
+}

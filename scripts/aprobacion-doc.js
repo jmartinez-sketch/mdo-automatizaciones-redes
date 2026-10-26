@@ -156,9 +156,12 @@ async function placaDe(templateId) {
       // archivos de otros dominios). `imagenes` sigue siendo la placa fija: es la tapa
       // del video en el panel y el respaldo si Metricool no acepta el video. `spec` es la
       // receta del video animado (video-animado.js): con ella el panel lo muestra y lo
-      // regenera, y la reposición lo vuelve a grabar.
+      // regenera, y la reposición lo vuelve a grabar. `motion` (desde el 02/11/2026) es el
+      // film de Motion ({ carpeta }): el panel regenera la placa y el texto, y el video lo
+      // rehace la reposición (paso 7c).
       ...(p.video && p.video.asset ? { video: { asset: String(p.video.asset), archivo: p.video.archivo || '',
-        ...(p.video.spec ? { spec: p.video.spec } : {}) } } : {}),
+        ...(p.video.spec ? { spec: p.video.spec } : {}),
+        ...(p.video.motion ? { motion: { carpeta: String(p.video.motion.carpeta || '') } } : {}) } } : {}),
     });
   }
   const doc = {

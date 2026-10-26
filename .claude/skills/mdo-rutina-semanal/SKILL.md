@@ -199,37 +199,57 @@ Decisión de Juan: **todas las semanas sale un video**, y se alterna dónde:
 | **impar** (`$(( $(date +%V) % 2 )) == 1`) | **Jueves · historia** (en semanas impares el jueves siempre es la historia en video, ver 3b) | 9:16, 1080×1920 | Instagram historia. El draft de LinkedIn del jueves sigue con su imagen `li-02` |
 | **par** | **Viernes · gestión PyME** | Reel 9:16, 1080×1920 | Instagram (sale como Reel) + LinkedIn, el mismo video |
 
-**Qué video: la escena animada de `scripts/video-animado.js`** (desde el 07/10/2026; rehecha el 08/10/2026 con la gramática del design system). Juan aprobó el estilo animado («me gusta mucho más el último video que hiciste», «ese mismo criterio … para las próximas generaciones de video»), y al día siguiente marcó que el primer motor «parecía del manual anterior»: llevaba cápsula arriba, banda con la web, tarjetas redondeadas, cifras en negrita y el papel de documento. **El manual es el que está en el design system** («ya lo hablamos mil veces»): el video es una historia de la plantilla **«4.5 · Historias de redes»** del design system, que se arma delante de quien mira, en una de dos familias:
+**Qué video: un film de Motion** (desde el 02/11/2026). Antes era la escena de receta de `scripts/video-animado.js` (del 07/10 al 30/10/2026).
 
-| Familia | Cuándo | Cómo se ve (plantilla del design system) |
-|---|---|---|
-| **novedades** | jueves de semana impar (la noticia) | HA1: degradé navy diagonal, fecha en Chivo itálica, titular en dos tonos (negrita clara + gris en peso normal), filete vertical de 1 px, desarrollo, destacado en negrita abajo |
-| **servicios** | viernes de semana par (gestión, el eje del servicio) | HB1/HB2: degradé claro con el isotipo gigante recortado, volanta en Chivo con tracking, titular en mayúsculas con segundo nivel en Chivo itálica, regla de 104 px, filas numeradas en peso fino |
+El 26/10/2026 Juan comparó el Reel laboral hecho con la receta y el mismo tema hecho en Motion, y eligió Motion («creo que me gusta más esta versión»). Lo que busca: **que se mantengan el manual de marca y el diseño, pero que las animaciones mejoren mucho y varíen mucho más**:
 
-Sobre esa base entran, al ritmo de lectura, gráficos que explican el tema con el mismo trazo fino: fichas unidas por flechas, una ventana de sistema, listas, casilleros que se encienden, una cifra grande en peso 300, dos columnas. Al final el contenido se retira y se traza el **logo principal centrado** (así firma la marca en el manual). El contenido sale de una **receta** JSON que escribe la rutina (paso 4c); el diseño lo pone el motor, `mdo-templates/video-animado.js`.
+- cámara que recorre;
+- objetos que se transforman;
+- trazos que se dibujan;
+- gráficos animados;
+- documentos que se completan;
+- fotos del banco;
+- íconos que se dibujan.
 
-- **Cada semana, otro estilo** (pedido de Juan, 13/10/2026: «quiero que seamos más originales, que los videos varíen en diseño cada semana… que no sean siempre las mismas animaciones»). La receta lleva `estilo`, que cambia a la vez el diseño (otra historia de «4.5 · Historias de redes») y la animación:
+Lo que no quiere: «que los videos de todas las semanas salgan con las mismas animaciones».
 
-  | `estilo` | Animación | Diseño en servicios | Diseño en novedades |
-  |---|---|---|---|
-  | `armado` | las palabras suben con máscara y los gráficos se dibujan | HB1: degradé claro, isotipo arriba a la derecha | HA1 |
-  | `cortina` | una banda del color del titular tapa cada renglón o cada caja y la destapa ya escrita; cierra con un telón a pantalla completa | HB3: degradé metalizado en diagonal, isotipo arriba a la izquierda | HA1 |
-  | `foco` | el titular arranca grande al centro, se lee solo unos segundos y se acomoda; los bloques se acercan; el logo entra sin trazarse | HB4: gris azulado con el texto en papel, contenido abajo | HA1 |
-  | `trazo` | primero las guías de la página (margen y renglones); el titular se escribe letra por letra y el resto se desenrolla | HB2: degradé con la luz abajo a la izquierda | HA1 |
+La rutina escribe el film (una escena por archivo, en `posts/YYYY-MM-DD-N-motion/`) y lo graba a MP4 con `scripts/motion-video.js`, que usa el reproductor del tipo Motion sin abrir su página. **El kit, las reglas y el menú de recursos están en `motion/LEEME.md`**: leerlo entero antes del video de cada semana. El ejemplo aprobado es `motion/ejemplos/reel-laboral/`.
 
-  **Regla:** nunca el mismo `estilo` que el video de la semana anterior, y entre los que quedan, el que menos se usó en las últimas 4 semanas (columna `video` del historial, paso 8). Además, no repetir la combinación de bloques de la semana anterior. Al regenerar desde el panel se mantiene el estilo de la receta, salvo que Juan pida otro.
-- **Los colores y las medidas son los de las historias del design system**, y un solo acento: el papel sobre navy o el navy sobre el degradé claro. Nada de ámbar, verde ni ningún otro color, aunque esté en `mdo-brand.css`. Juan, 07/10/2026: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos». La receta no elige colores: el motor lo hace cumplir.
-- ❌ **Lo que el manual no lleva en redes y el video tampoco**: cápsulas o chips, pie con @handle o con la web, lockup arriba, tarjetas redondeadas (las placas de redes van con esquinas rectas), bordes de color de un solo lado, sombras y cifras en negrita. Si se cambia el motor, se compara contra `project/templates/historias-redes/HistoriasRedes.dc.html` del design system.
-- **Íconos: sólo los del design system** (`mdo-templates/iconos-mdo.json`, que trae el paso 0b desde `Icon.jsx`).
-- **Una sola pantalla, con todo el contenido a la vista al final.** Nada de pantallas encadenadas (rechazado el 07/10/2026) ni de texto sobre una foto con fundidos (superado el mismo día).
-- **Sin encuestas, sin gente y sin sonido.** Las encuestas en video se rechazaron el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional»); el sonido, el 28/09/2026.
+- **Cada semana, otros recursos** (Juan, 13/10 y 26/10/2026).
+  - Cada film usa 2 o 3 recursos del menú de `motion/LEEME.md`: `camara`, `transformacion`, `trazos`, `grafico`, `tipografia`, `papeles`, `ventana`, `casilleros`, `diagrama`, `foto`, `iconos`, `cortina`.
+  - Ninguno puede repetir los de las últimas 4 semanas (campo `video` del historial, paso 8).
+  - Cambian también el fondo (navy o claro) y la forma de pasar de una escena a otra.
+  - Nada de repetir la estructura del video anterior con otros textos.
+- **Marca**: los colores, las letras, los logos y los íconos del design system, que trae `motion/base` (los suma el script).
+  - Un solo acento: el papel sobre navy o el navy sobre el degradé claro.
+  - Nada de ámbar, verde ni ningún otro color, aunque esté en `mdo-brand.css`. Juan, 07/10/2026: «no meter muchos colores en un mismo video… siempre dentro de los colores del manual de marca, pero sí con las animaciones, las ventanas, flechitas, cuadritos, iconos».
+- ❌ **Lo que el manual no lleva en redes, el video tampoco**:
+  - cápsulas o chips;
+  - pie con @handle o con la web;
+  - lockup arriba;
+  - tarjetas redondeadas (van esquinas rectas);
+  - bordes de color de un solo lado;
+  - cifras en negrita.
+- **Íconos: sólo los del design system** (`MDO.icono`, de `mdo-templates/iconos-mdo.json`). ❌ **Nunca emojis**: los excluye la guía de voz, y Juan lo confirmó el 26/10/2026 (los íconos animados cumplen esa función).
+- **Sin encuestas, sin gente y sin sonido.**
+  - Las encuestas en video se rechazaron el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional»).
+  - El sonido, el 28/09/2026: el MP4 lleva una pista muda, aunque Motion ofrezca música.
+  - Las fotos del banco van sin personas.
+  - Tampoco rebotes ni desenfoque.
 - **Cuenta lo mismo que el post de ese día** (la placa y el texto), con otra forma. Ni otro tema ni otro dato.
-- **La voz** es la de la guía de voz (`.claude/brand-voice-guidelines.md`; Juan, 06/10/2026: lo que suena a IA es el texto): afirmar en vez de preguntar; mostrar lo que sabe el estudio (la norma, el formulario, el área de la empresa, qué se revisaría); cerrar con lo que haría el estudio, en condicional. Nada de preguntas al lector, signos de exclamación ni frases de manual («Elegí tu opción», «Dirigir no es hacer todo»). La receta tiene su fila en «Tono según el contexto» y su estructura en «Cómo se escribe cada pieza» (no más de 55 palabras). Ver «Cómo escribir» en el paso 3.
+- **La voz** es la de la guía de voz (`.claude/brand-voice-guidelines.md`). Juan, 06/10/2026: lo que suena a IA es el texto.
+  - Afirmar en vez de preguntar.
+  - Mostrar lo que sabe el estudio: la norma, el formulario, el área de la empresa, qué se revisaría.
+  - Cerrar con lo que haría el estudio, en condicional.
+  - Nada de preguntas al lector, signos de exclamación ni frases de manual («Elegí tu opción», «Dirigir no es hacer todo»).
+  - No más de 60 palabras en pantalla en todo el video. Ver «Cómo escribir» en el paso 3.
 - **Es la pieza de la semana que más se mira: va con esfuerzo de dirección de arte**, no como trámite (pedido de Juan, 25/09/2026). Ver el paso 4c.
 - El miércoles (noticia, ancla `po-13d`/`po-13e`) **no** va en video: es la placa que hace reconocible la grilla.
-- **El PNG se renderiza igual** (paso 4): es la placa de respaldo si Metricool no acepta el video, y la que el panel deja regenerar junto con la receta. La tapa del Reel en Instagram es otra: la **portada** 9:16 que arma `video-animado.js` (la pantalla completa, antes de que el contenido se retire para la firma).
+- **El PNG se renderiza igual** (paso 4).
+  - Es la placa de respaldo si Metricool no acepta el video, y la que el panel deja regenerar. El video se rehace después, en la pasada de reposición (7c).
+  - La tapa del Reel en Instagram es otra: la **portada** 9:16 que deja `motion-video.js`, un cuadro con el titular entero.
 - **Destacadas**: la historia en video puede quedar en Destacadas, pero **se agrega a mano desde la app de Instagram** después de que se publica. Ni Instagram ni Metricool permiten hacerlo por API. Recordárselo a Juan en el reporte final.
-- `scripts/video.js` (la placa del kit animada, el formato del 23/09 al 06/10/2026) queda sólo para regenerar posts viejos que lo usaban. Los videos nuevos no lo usan.
+- **Si Motion falla** (no se puede bajar el reproductor, o el film no queda bien después de corregirlo): ese video se hace con la receta de `scripts/video-animado.js`, como hasta el 30/10/2026 (plan B del paso 4c), y se avisa en el reporte. `scripts/video.js` (la placa animada, del 23/09 al 06/10/2026) queda sólo para regenerar posts viejos que lo usaban.
 
 ## Paso a paso
 
@@ -492,7 +512,7 @@ El viernes es el post que más se nota cuando suena a manual de autoayuda para e
 
 La voz del estudio está en la **guía de voz** que aprobó Juan el 08/10/2026: **`.claude/brand-voice-guidelines.md`**, copia de `project/GUIA-DE-VOZ.md` del design system (la trae el paso 0b). **Leerla entera antes de escribir el primer texto de la semana.** Sigue el método del plugin brand-voice de Anthropic: la voz no cambia, el tono se ajusta según la pieza. Antes había llegado Juan al mismo diagnóstico (06/10/2026): lo que sonaba a inteligencia artificial era el texto, no el diseño.
 
-Para cada texto (placa, copy, receta de video), antes de cargarlo en el panel:
+Para cada texto (placa, copy, textos del video), antes de cargarlo en el panel:
 
 1. **Tono**: ubicar la pieza en «Tono según el contexto» (miércoles noticia, jueves historia, viernes gestión, sábado servicio) y escribirla con esa formalidad, energía y profundidad técnica. La estructura, la de «Cómo se escribe cada pieza».
 2. **Somos / No somos**: releer el texto contra la tabla. Si cruza un «No somos», reescribir ese pasaje; si le falta lo concreto (la norma, el formulario, qué revisaríamos), agregarlo.
@@ -609,9 +629,9 @@ El viernes NO está atado a `po-04`. Los 18 ids de abajo son del catálogo viejo
 ```bash
 JUEVES_TIPO=$(( $(date +%V) % 4 ))
 # 0 → Carrusel cb-*         (noticia profunda)    → opción B
-# 1 → Historia en video     (escena animada)      → opción C   ← semana impar: es el video de la semana
+# 1 → Historia en video     (video de Motion)    → opción C   ← semana impar: es el video de la semana
 # 2 → Institucional         (placa de marca)      → opción A   ← feed o historia, desde el 18/10/2026
-# 3 → Historia en video     (escena animada)      → opción C   ← semana impar: es el video de la semana
+# 3 → Historia en video     (video de Motion)    → opción C   ← semana impar: es el video de la semana
 ```
 
 Hasta el 06/10/2026 el ciclo 1 era una encuesta (`st-10`) y el 3 una cita (`st-08*`). Ver la opción C. Hasta el 18/10/2026 el ciclo 2 era siempre la historia `st-09`.
@@ -641,10 +661,10 @@ Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
 
 **Opción C — Historia en video (ciclos 1 y 3: las semanas impares)**
 
-Desde el 07/10/2026 el jueves de semana impar es **el video de la semana**: una escena animada (regla del video y paso 4c) que desarrolla **la segunda noticia de la semana** (la que no salió el miércoles, ver paso 2), o un ángulo nuevo de la del miércoles si el newsletter no trajo otra que valga. Es lo que salió el 08/10/2026 (Fondo de Asistencia Laboral, RG 5907) y Juan aprobó: la receta equivalente está en `mdo-templates/videos-ejemplo/fal-historia.json`.
+Desde el 07/10/2026 el jueves de semana impar es **el video de la semana**: un video de Motion (regla del video y paso 4c) que desarrolla **la segunda noticia de la semana** (la que no salió el miércoles, ver paso 2), o un ángulo nuevo de la del miércoles si el newsletter no trajo otra que valga. Es lo que salió el 08/10/2026 (Fondo de Asistencia Laboral, RG 5907) y Juan aprobó: su receta está en `mdo-templates/videos-ejemplo/fal-historia.json` y sirve de guion (desde el 02/11/2026 el video se hace en Motion).
 
 - Como es una noticia, **sí** puede llevar el dato real (la resolución, el formulario, el plazo, la cifra), siempre de la fuente.
-- **Placa de respaldo**: `st-08`, `st-08b` (con foto) o `st-08c`, la que no esté en el historial del slot `jueves`, con el titular de la receta partido en `TITULAR_1`, `TITULAR_2` y `TITULAR_3` (máx ~110 caracteres en total). Es el PNG del post: el panel la muestra y la regenera junto con la receta, y sale si Metricool no acepta el video.
+- **Placa de respaldo**: `st-08`, `st-08b` (con foto) o `st-08c`, la que no esté en el historial del slot `jueves`, con el titular del video partido en `TITULAR_1`, `TITULAR_2` y `TITULAR_3` (máx ~110 caracteres en total). Es el PNG del post: el panel la muestra y la regenera (el video se rehace después, en la pasada de reposición), y sale si Metricool no acepta el video.
 - LinkedIn del jueves: una horizontal con la misma noticia (paso 4b): `li-01` con la fecha, `li-03` con el número, o `li-02` (una frase) si no hay fecha ni número; entre las que encajan, la menos usada.
 - El tema tiene que ser algo que le toca a una empresa y que el estudio resuelve (servicios de la sección 5 de `CONTEXTO-PUBLICIDAD.md`). Esta regla vale para todos los días: el ángulo es libre, el tema no.
 - ❌ **Ya no hay encuesta (`st-10`) ni cita como historia del jueves.** La encuesta la rechazó Juan el 06/10/2026 («muy básico, muy inteligencia artificial, poco profesional») y la cita en tres renglones empuja a las frases de cuadrito que la regla de voz prohíbe. `st-10` queda en el kit sin usar: no proponerla.
@@ -795,65 +815,85 @@ Después de renderizar, **abrir cada PNG y mirarlo** (tool Read sobre el archivo
 
 Si una imagen tiene texto cortado o pegado al borde, **NO crear el draft**: acortar el texto o ajustar el template y volver a renderizar. Un post mal renderizado que ya se publicó NO se puede corregir.
 
-### 4c. Renderizar el video de la semana (OBLIGATORIO, ver la regla del video)
+### 4c. Hacer el video de la semana en Motion (OBLIGATORIO, ver la regla del video)
 
-Es la pieza que más se mira de la semana: **hacerla con esfuerzo de dirección de arte**. Nada de renderizar y subir sin mirar. El video cuenta lo mismo que el post de ese día (el del jueves en semanas impares, el del viernes en semanas pares), armado como escena.
+Es la pieza que más se mira de la semana: **hacerla con esfuerzo de dirección de arte**. Nada de grabar y subir sin mirar. El video cuenta lo mismo que el post de ese día: el del jueves en semanas impares, el del viernes en semanas pares.
 
-**1. Escribir la receta** en `posts/YYYY-MM-DD-N-video.json` (mismo `N` que el post). La guía completa de los bloques, con sus largos máximos, la imprime el motor:
+**1. Leer `motion/LEEME.md` entero** (el kit, las reglas, el menú de recursos y cómo se graba) y el ejemplo `motion/ejemplos/reel-laboral/`.
+
+**2. Elegir los recursos y pensar el film.**
+
+- Mirar el campo `video` de las últimas 4 semanas en el historial y elegir 2 o 3 recursos del menú que no estén ahí.
+- Elegir también el fondo (navy o claro) y cómo se pasa de una escena a otra.
+- Antes del código, pensar el film:
+  - qué objeto o sujeto cuenta el tema;
+  - qué le pasa;
+  - cómo se ve el riesgo o el dato;
+  - qué haría el estudio.
+- Largo: de 4 a 6 escenas y de 20 a 30 s.
+
+**3. Escribir el film** en `posts/YYYY-MM-DD-N-motion/` (mismo `N` que el post): `scenes.json` y una `scene-<id>.js` por escena, más `shared.js`, `film.css` o `assets/` si hacen falta. Pasar los textos por `node scripts/revisar-textos.js --texto "…"`.
+
+**4. El reproductor**: si no está `out/motion-player/`, bajarlo e instalarlo (`motion/LEEME.md`, «Grabar y revisar»).
+
+**5. Validar y mirar** (tarda segundos):
 
 ```bash
-node -e 'const m=require("./mdo-templates/video-animado.js");console.log(m.guiaReceta(Object.keys(require("./mdo-templates/iconos-mdo.json").iconos)))'
+node scripts/motion-video.js --film posts/YYYY-MM-DD-N-motion --validar
+node scripts/motion-video.js --film posts/YYYY-MM-DD-N-motion --hoja out/motion-hoja.png
+node scripts/motion-video.js --film posts/YYYY-MM-DD-N-motion --cuadros 2.5,9.8
 ```
 
-Ejemplos que pasaron la revisión: `mdo-templates/videos-ejemplo/fal-historia.json` (familia novedades: el contenido de la historia del 08/10/2026 que aprobó Juan) y `conciliacion-reel.json` (familia servicios). Cómo se piensa una buena receta:
+- `--validar` carga el film, pasa por cada escena y lista los errores. Un ERROR frena: hay que corregir la escena.
+- `--hoja` deja un cuadro por segundo; con `--cada 0.5`, dos.
+- `--cuadros` deja cuadros sueltos a tamaño real en `out/`.
 
-- **El estilo** (`estilo`): uno distinto del de la semana anterior, el menos usado en las últimas 4 semanas (regla del video). Mirarlo en el historial antes de escribir la receta.
-- **La familia**: `novedades` para la historia del jueves (lleva `fecha`, ej. `"08.10.2026"`), `servicios` para el Reel del viernes (lleva `volanta`, ej. `"Servicios · Contabilidad"`).
-- **El titular es una sola oración partida en dos pesos**: `titular` (la primera parte, en negrita) y `titular2` (la continuación, en el segundo tono). Ej.: «ARCA reglamentó» / «el Fondo de Asistencia Laboral».
-
-- **Un mensaje, de arriba abajo**: titular (qué pasa) → un gráfico que lo muestra → el dato o el riesgo concreto → el cierre (qué haría el estudio, en condicional).
-- **El gráfico explica, no decora.** Flujo para «A pasa a B» o «se suma X»; ventana para lo que se ve en un sistema o un formulario; lista para 2 a 4 cosas que revisar; comparación para dos caminos; número sólo con una cifra de la fuente (nunca el viernes: la regla de no-números sigue); línea de casilleros para algo que se repite mes a mes; nota para la salvedad.
-- **3 o 4 bloques y no más de 60 palabras.** El motor achica la letra si no entra y avisa si se pasa; a tamaño celular, menos texto se lee mejor.
-- **Variedad**: no repetir el estilo ni la combinación de bloques de la semana anterior (anotar los dos en el historial, paso 8).
-- **Voz**: la de «Cómo escribir» (paso 3). Pasar la receta por `node scripts/revisar-textos.js --spec <receta>`.
-
-**2. Prueba rápida, sin codificar** (tarda ~15 s):
-
-```bash
-node scripts/video-animado.js --spec posts/YYYY-MM-DD-N-video.json --tira out/video-tira.png --solo-tira
-```
-
-Primero valida la receta (un ERROR frena y dice qué corregir) y después deja `out/video-tira.png` (la apertura, cada bloque a mitad de su entrada y ya armado, la pantalla completa, el logo trazándose y el final), dos cuadros a tamaño real (`out/video-tira-entrada.png` y `out/video-tira-completa.png`) y dos hojas del video entero: `out/video-tira-contacto.png` (un cuadro cada medio segundo) y `out/video-tira-celular.png` (uno por segundo, a 360 px de ancho: como se ve en un teléfono). **Mirar todo con Read** y chequear:
+**Mirar todo con Read** y chequear:
 
 | | Qué tiene que pasar | Si no |
 |---|---|---|
-| a | **Apertura**: entra la fecha (o la volanta) y el titular palabra por palabra, en sus dos tonos; a los 2 s ya hay algo que leer | — |
-| b | **Entrada**: cada bloque entra cuando terminó el anterior, en orden de lectura; nada cortado, montado ni corrido | acortar el texto del bloque que falla |
-| c | **Pantalla completa** (`-completa.png`): se ve como una historia de la plantilla 4.5 del design system; todo dentro de la zona segura, nada pegado a los bordes; la escala que imprime el script es 0,85 o más | sacar un bloque o acortar textos |
-| d | **Un solo acento**: sólo azul noche, papel y grises; íconos del set | es del motor: no se tocan colores en la receta |
-| e | **Cierre**: el contenido se retira y se traza el logo principal centrado, que queda quieto al final (sin web ni @handle) | — |
-| f | **Ritmo**: entre 14 y 25 s en total (el script imprime la duración); algo nuevo cada 2 a 4 s; la pantalla completa quieta para leer no pasa de ~6 s | menos texto, o otro bloque gráfico |
-| g | **Exactitud**: lo mismo que la placa y el copy; ARCA, nunca AFIP; ningún dato inventado | corregir la receta |
+| a | **Gancho**: en el primer cuadro ya se lee el titular (la volanta o la fecha y la primera línea); a los 2 s se entiende de qué se trata | que el titular entre desde un t negativo |
+| b | **Lectura en el celular**: en la hoja, a 270 px de ancho, los textos se leen; ninguno queda por debajo de 40 px en pantalla | agrandar el texto o acercar la cámara |
+| c | **Zona segura**: nada que leer arriba de y = 250, abajo de y = 1500 ni a la derecha de x = 960 | mover o achicar el encuadre |
+| d | **Nada montado ni cortado**: los textos no se pisan con objetos, las palabras están enteras y cada `.words` tiene `width` | corregir posiciones |
+| e | **Marca**: sólo navy, papel y grises, letras de la marca, íconos del set, esquinas rectas, sin emojis | sacar lo que no es del manual |
+| f | **Ritmo**: de 20 a 30 s; algo nuevo cada 2 a 4 s; después de un movimiento grande, de 0,6 a 1 s para ubicarse; nada quieto más de ~4 s; ningún flash | re-tiempar las escenas |
+| g | **Exactitud**: lo mismo que la placa y el copy; ARCA, nunca AFIP; ningún dato inventado; el viernes, sin números | corregir el texto |
+| h | **Firma**: el logo principal y una línea, 3 s o más, quieto al final | — |
 
-**Puntaje (con la hoja de contacto y la del celular).** Mirar como un director de arte exigente, no como el autor. De 1 a 10 en: gancho, lectura en el celular, movimiento (nada lineal, nada a los saltos), ritmo, composición y exactitud. Anotar los **3 peores problemas con su segundo** (ej. «4,3 s: la flecha llega antes que la tarjeta»), corregirlos y volver a probar. **Se sigue hasta que todo tenga 8 o más.** Los `AVISO:` del script cuentan como problemas.
+**Puntaje (con la hoja).** Mirar como un director de arte exigente, no como el autor. De 1 a 10 en:
 
-Lo que **no** se usa, aunque lo recomienden las guías de motion (ver `CLAUDE.md`): desenfoque de movimiento y resortes con rebote (el manual pide «sin blur, sin rebotes»), contadores de números y sonido.
+- gancho;
+- lectura en el celular;
+- movimiento (nada lineal, nada a los saltos);
+- ritmo;
+- composición;
+- variedad (contra los videos de las últimas semanas);
+- exactitud.
 
-Si algo falla por el motor (`mdo-templates/video-animado.js`) y no por la receta, **corregir el motor** — es código nuestro — y volver a probar. Si se cambia, **volver a publicarlo en el panel** (ver Notas técnicas). No subir un video con un defecto visible «porque es chico».
+Anotar los **3 peores problemas con su segundo** (ej. «9,4 s: la ficha tapa el rótulo»), corregirlos y volver a mirar. **Se sigue hasta que todo tenga 8 o más.**
 
-**3. Render final** (~1 minuto):
+**6. Grabar** (tarda de 3 a 5 minutos):
 
 ```bash
-node scripts/video-animado.js --spec posts/YYYY-MM-DD-N-video.json --out posts/YYYY-MM-DD-N.mp4
+node scripts/motion-video.js --film posts/YYYY-MM-DD-N-motion --out posts/YYYY-MM-DD-N.mp4 --portada <segundo>
 ```
 
-Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 en BT.709, con pista de audio muda) y **`posts/YYYY-MM-DD-N-portada.png`**, la pantalla completa que va de tapa del Reel. Al terminar revisa el MP4 ya codificado y avisa `AVISO: salto a los N s` si un cuadro cambia mucho más que los de al lado: mirarlo con `--cuadros` y corregirlo antes de subir.
+Deja `posts/YYYY-MM-DD-N.mp4` (1080×1920, 30 fps, H.264 en BT.709, con pista muda) y **`posts/YYYY-MM-DD-N-portada.png`**. La portada es el cuadro del segundo que se pasa en `--portada` (elegir uno con el titular entero) y va de tapa del Reel. Si el script avisa `AVISO: salto a los N s`, mirarlo con `--cuadros` y corregirlo antes de subir. En medio de un movimiento grande puede ser el movimiento mismo: ver «Grabar y revisar» en `motion/LEEME.md`.
 
-- Mismo nombre que el PNG del post, con `.mp4`. La receta se commitea junto (`-video.json`): con ella el panel muestra y regenera el video, y la reposición lo vuelve a grabar.
-- ❌ Las horizontales `li-*` no van en video: LinkedIn del jueves lleva su imagen.
-- **Sin sonido**: el video va con pista muda. El 28/09/2026 se probó un sonido sintetizado y Juan lo descartó («ese sonido no va»); no volver a agregarlo sin que lo pida.
+- El MP4 lleva el mismo nombre que el PNG del post, con `.mp4`.
+- La carpeta del film se commitea junto: con ella, la pasada de reposición lo rehace si Juan lo regenera (paso 7c).
+- ❌ Las horizontales `li-*` no van en video: el LinkedIn del jueves lleva su imagen.
+- **Sin sonido**: va la pista muda (Juan, 28/09/2026). No agregar música aunque Motion la ofrezca.
 
-Si el video falla o no queda bien después de corregirlo, **no frenar la rutina**: ese post sale con el PNG, como siempre, y se avisa en el reporte.
+**Plan B.** Si Motion falla (no se puede bajar el reproductor, o el film no queda bien después de corregirlo), hacer el video con la receta, como hasta el 30/10/2026:
+
+1. Escribir la receta en `posts/YYYY-MM-DD-N-video.json`. La guía de bloques la imprime `node -e 'const m=require("./mdo-templates/video-animado.js");console.log(m.guiaReceta(Object.keys(require("./mdo-templates/iconos-mdo.json").iconos)))'`, y hay ejemplos en `mdo-templates/videos-ejemplo/`.
+2. Probarla con `node scripts/video-animado.js --spec <receta> --tira out/video-tira.png --solo-tira`.
+3. Grabarla con `node scripts/video-animado.js --spec <receta> --out posts/YYYY-MM-DD-N.mp4`.
+4. Avisarlo en el reporte.
+
+Si tampoco sale, **no frenar la rutina**: ese post sale con el PNG y se avisa en el reporte.
 
 ### 5. Commitear y pushear los PNGs a GitHub
 
@@ -1039,7 +1079,7 @@ El panel **no se republica**: lee el documento `paneles/publicaciones` de la bas
 
 - `imagenes`: las placas de ese post, en orden (el carrusel lleva las 4; la story del jueves lleva la vertical, y el draft de LinkedIn del jueves es otra entrada con la `-li`).
 - `slots` (**obligatorio**): un objeto **por imagen**, en el mismo orden, con los slots exactos que se le pasaron a `scripts/render.js`. Es lo que hace andar el botón **Regenerar** del panel (ver 7c): sin esto, Juan ve la placa pero no puede pedir otra versión.
-- `video` (sólo el post que salió en video): `{ "archivo": "posts/YYYY-MM-DD-N.mp4", "asset": "<id>", "spec": <la receta del paso 4c, el objeto> }`. Sin `spec`, el panel no puede mostrar ni regenerar el video nuevo. El `asset` sale de subir el MP4 al artifact **antes** de generar el documento, con la herramienta `Artifact`: `action: publish` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `file_path: posts/YYYY-MM-DD-N.mp4` · `asset: true`. La respuesta trae el id (32 caracteres). Con eso el panel muestra el video para aprobar, con el PNG de tapa. Si la subida falla, el post va sin `video` y el panel muestra la placa fija: no frena nada.
+- `video` (sólo el post que salió en video): `{ "archivo": "posts/YYYY-MM-DD-N.mp4", "asset": "<id>", "motion": { "carpeta": "posts/YYYY-MM-DD-N-motion" } }` para el video de Motion (desde el 02/11/2026), o con `"spec": <la receta, el objeto>` en vez de `motion` si salió con el plan B del paso 4c. Con `motion`, el botón Regenerar del panel rehace la placa y el texto, y el video lo rehace la pasada de reposición (7c); con `spec`, el panel muestra y regenera la receta. El `asset` sale de subir el MP4 al artifact **antes** de generar el documento, con la herramienta `Artifact`: `action: publish` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `file_path: posts/YYYY-MM-DD-N.mp4` · `asset: true`. La respuesta trae el id (32 caracteres). Con eso el panel muestra el video para aprobar, con el PNG de tapa. Si la subida falla, el post va sin `video` y el panel muestra la placa fija: no frena nada.
 - `plantillas`: sólo para carruseles, la lista de ids en el orden de las imágenes (`["cb-cover","cb-tip1","cb-tip2","cb-tip3"]`). Para un post de una sola placa alcanza con `plantilla`.
 - `info`: el objeto completo que armó el paso 6 (el que antes se mandaba a `createScheduledPost`), con `publicationDate`, `media` apuntando a la URL pública ya pusheada, `providers` y los `...Data` de cada red.
 - **Sin** `id`, `uuid` ni `plannerUrl`: el post todavía no está en Metricool. `scripts/aprobacion-doc.js` le pone como clave local el nombre de la placa, y el panel guarda el id y el uuid de Metricool cuando Juan lo aprueba.
@@ -1073,13 +1113,14 @@ Si el `set` vuelve a fallar por versión, es que alguien tocó el panel entre la
 
 Esto lo hace la rutina **«MDO - Automatizaciones Redes»** en cada pasada (de lunes a viernes a las 7:50, 13:50 y 19:50; en la primera del lunes, antes de armar la semana nueva). Desde el 21/10/2026 pasa tres veces por día de lunes a viernes, para que lo que Juan regenere cualquier día llegue solo a Metricool (del 14/10 al 21/10 pasaba sólo los lunes, y el post del viernes 23/10, regenerado un miércoles, no se subió hasta que se repuso a mano; del 05/10 al 13/10 pasaba cada hora de lunes a sábado). Lo que regenere después de la última pasada del viernes se repone cuando lo pida en la sesión. Es el único puente entre lo que Juan regenera en el panel y Metricool. Hasta el 25/09/2026 lo hacía una rutina aparte («MDO - Reponer placas regeneradas»); Juan pidió que todo quede en una sola.
 
-Cuando Juan acepta una versión regenerada, el panel deja en el post el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`, y en un post con video de receta también `video`, la receta nueva, que ya pasó a `video.spec`) y, si Juan lo aprueba, **`aprobado: true`**. La placa nueva no puede viajar sola: Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. Si el post ya estaba en Metricool (posts de antes del 24/09/2026, o uno que Juan aprobó y después regeneró), el panel le cambia el texto allá y lo deja **en pausa** (borrador) hasta que llegue la placa.
+Cuando Juan acepta una versión regenerada, el panel deja en el post el campo **`pendienteImagen`** (`{cuando, pedido, plantillas, slots}`, y en un post con video de receta también `video`, la receta nueva, que ya pasó a `video.spec`) y, si Juan lo aprueba, **`aprobado: true`**. En un post con video de Motion (`video.motion`, desde el 02/11/2026) el panel regenera la placa y el texto, y el video lo rehace esta pasada (punto 3). La placa nueva no puede viajar sola: Metricool sólo acepta URLs públicas y una página publicada no puede publicar una. Si el post ya estaba en Metricool (posts de antes del 24/09/2026, o uno que Juan aprobó y después regeneró), el panel le cambia el texto allá y lo deja **en pausa** (borrador) hasta que llegue la placa.
 
 Procedimiento:
 
 1. Leer el documento: `ArtifactData` · `get` · `collection: paneles` · `doc_id: publicaciones` · `url: https://claude.ai/code/artifact/5c6970b0-11fd-4148-a1b6-abf5eabf6790` · `out_dir` en el scratchpad. Anotar la `version`.
 2. Si ningún post trae `pendienteImagen`: **terminar ahí, en una línea**. Es lo normal.
-3. `node scripts/reponer-placas.js <el json bajado> out/plan-reponer.json` — renderiza el PNG nuevo (y el MP4 si era el video de la semana: con `video-animado.js` y la receta nueva si el post es de receta, con `video.js` si es uno viejo) con un nombre nuevo, y arma las miniaturas. Los posts que ya salieron quedan en `saltados`: no se tocan. Si avisa que el panel no mandó receta nueva, mirar que el video siga diciendo lo mismo que la placa; si no, escribir la receta nueva a mano (paso 4c), grabarla y usar esa.
+3. `node scripts/reponer-placas.js <el json bajado> out/plan-reponer.json` — renderiza el PNG nuevo (y el MP4 si era el video de la semana y es de receta: con `video-animado.js` y la receta nueva; con `video.js` si es uno viejo) con un nombre nuevo, y arma las miniaturas. Los posts que ya salieron quedan en `saltados`: no se tocan. Si avisa que el panel no mandó receta nueva, mirar que el video siga diciendo lo mismo que la placa; si no, escribir la receta nueva a mano (plan B del paso 4c), grabarla y usar esa.
+   - **Video de Motion** (aviso `MOTION:` en la salida; en el plan, `video.motion: true` con la `carpeta` del film y el `pedido` de Juan): el script no lo graba. Rehacer el film en esa carpeta para que cuente lo que dice la placa nueva y lo que pidió Juan: los textos siempre; las escenas, si el pedido lo pide o si el texto nuevo ya no entra. Revisarlo con `--validar` y `--hoja` como en el paso 4c, grabarlo con `node scripts/motion-video.js --film <carpeta> --out <video.archivo del plan> --portada <segundo>` (deja también `video.portada`) y seguir con el punto 4 como con cualquier video.
 4. Commitear y pushear los archivos nuevos (`git add posts/ && git commit && git push`). URL pública: `https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/<sha del commit>/<archivo>` (con el sha, no con el nombre de la rama: así no hay caché vieja). Verificar que responda 200.
 5. Para cada post del plan, en el documento: `info.media` = la URL nueva (para video: el MP4, y si es Reel `instagramData.videoThumbnailUrl` = la URL de `video.portada` del plan), `imagenes` = las `miniaturas`, borrar `pendienteImagen`. Si había video, subir el MP4 nuevo como asset (`Artifact` · `publish` · `asset: true`), poner el id en `video.asset` y borrar el asset viejo.
 6. Metricool, según el plan:
@@ -1104,12 +1145,12 @@ Una vez creados todos los drafts, **agregar una entrada al array `historial` de 
   "template": "po-13d",         // plantilla de Instagram
   "linkedin": "li-01",          // plantilla de LinkedIn, o null
   "formato": "imagen",          // imagen | video | carrusel
-  "video": null,                // sólo el post en video: el estilo y los bloques, ej. "cortina · flujo+texto+linea+cierre"
+  "video": null,                // sólo el post en video: "motion · " y sus recursos, ej. "motion · camara+trazos+casilleros"
   "nota": "Percepción IVA · régimen unificado"
 }
 ```
 
-El campo `video` es lo que permite no repetir el estilo ni la combinación de bloques dos semanas seguidas (paso 4c). Los videos anteriores al 13/10/2026 son todos `armado`.
+El campo `video` es lo que permite no repetir recursos de una semana a otra (paso 4c). Desde el 02/11/2026 lleva `motion · ` y los recursos del film, con los nombres del menú de `motion/LEEME.md` (ej. `motion · camara+trazos+casilleros`). Las entradas anteriores tienen el estilo y los bloques de la receta (`cortina · flujo+texto+linea+cierre`; antes del 13/10/2026, todas `armado`), y un video del plan B se anota igual que antes.
 
 Después commitear el archivo junto con los PNGs en la rama de trabajo:
 
@@ -1180,7 +1221,8 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 ## Notas técnicas
 
 - **Setup**: si la sesión es fresca, correr primero `bash scripts/setup.sh` para instalar Node modules + Chromium.
-- **Video**: `scripts/video-animado.js` abre `mdo-templates/video-animado.html`, arma la escena de la receta con `mdo-templates/video-animado.js` (Web Animations API), la recorre cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). Las tipografías se cargan antes de armar porque el motor mide los textos para que entren. `--validar` revisa la receta sin abrir el navegador. El formato anterior, `scripts/video.js`, usa el mismo `render.html` que las placas y anima la placa real: el texto se parte en palabras sólo si el armado queda idéntico al PNG; el tono (placa clara u oscura) se mide sobre la imagen real, no sobre el CSS. `--tira` + `--solo-tira` sirven para probar en segundos; `--cuadros 9000,15000` saca cuadros sueltos a tamaño real. El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
+- **Video de Motion** (desde el 02/11/2026): `scripts/motion-video.js` arma el film (la carpeta `posts/…-motion` + `motion/base` + los logos y los íconos del design system) y lo dibuja con el reproductor del tipo Motion, sin abrir su página: `out/motion-player/`, que se baja con `Artifact` de https://claude.ai/artifact/DPA8ejHSTpJWs8geFXifKY y no se commitea (es código del tipo Motion). Corre en el Chromium del entorno (`/opt/pw-browsers`): con el Chrome 148 que trae puppeteer el reproductor no termina de cargar. Sin red; cada cuadro se dibuja a 2× en tres páginas a la vez y ffmpeg pega los tramos con la pista muda (unos 3 a 5 minutos un film de 27 s). Las letras son archivos (`motion/base/fuentes`: Open Sans y Chivo de Fontsource, licencia OFL); la página de Motion, en cambio, las baja de Google Fonts. El kit y las reglas están en `motion/LEEME.md`.
+- **Video de receta (plan B)**: `scripts/video-animado.js` abre `mdo-templates/video-animado.html`, arma la escena de la receta con `mdo-templates/video-animado.js` (Web Animations API), la recorre cuadro por cuadro con Puppeteer y arma el MP4 (H.264, 30 fps) con el ffmpeg que trae el paquete `ffmpeg-static` (se instala con `npm install`; en la sesión cloud no hay ffmpeg del sistema). Las tipografías se cargan antes de armar porque el motor mide los textos para que entren. `--validar` revisa la receta sin abrir el navegador. El formato anterior, `scripts/video.js`, usa el mismo `render.html` que las placas y anima la placa real: el texto se parte en palabras sólo si el armado queda idéntico al PNG; el tono (placa clara u oscura) se mide sobre la imagen real, no sobre el CSS. `--tira` + `--solo-tira` sirven para probar en segundos; `--cuadros 9000,15000` saca cuadros sueltos a tamaño real. El panel muestra el video desde el asset store del artifact Dirección MDO, que declara la capacidad `assets`: si alguien lo republica con `capabilities`, tiene que incluirla junto con `db`, `downloads`, `sample` y `mcp`.
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. La rutina pasa de lunes a viernes a las 7:50, 13:50 y 19:50 ARG (desde el 21/10/2026; el cron está escrito con `CRON_TZ=America/Argentina/Buenos_Aires 50 7,13,19 * * 1-5`). El armado de la semana es la pasada del lunes a las 7:50: la de las 7:50 llega antes de los posts de las 9.
 - **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.
@@ -1188,6 +1230,6 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Botón Regenerar**: el panel le pide el texto nuevo a Claude (capacidad `sample` del artifact) y vuelve a dibujar la placa en el navegador con el HTML que `scripts/render.js --dump-html` dejó en el documento. La vista previa es fiel porque es el mismo DOM que se fotografía en el render de verdad; el PNG para bajar lo arma html2canvas dentro de un iframe. Ver 7c.
-- **Video regenerado, animado en el panel** (05/10/2026, receta desde el 07/10/2026): si el post tiene `video`, la versión regenerada se ve en movimiento en el panel (en la tarjeta y en la comparación «Ahora / Propuesta»), con el **mismo código** que graba el MP4. Si el post tiene `video.spec`, el botón Regenerar le pide a Claude también la receta nueva, con la guía del motor (`guiaReceta`), la valida con `validarSpec` (si no sirve, vuelve a pedirla una vez con los errores) y muestra la escena; al usarla, la guarda en `video.spec` y en `pendienteImagen.video`. Los archivos que el panel toma del artifact de Dirección MDO: `video-animado.js`, `mdo-brand.css`, `iconos-mdo.json` y `assets/*.svg` para los videos de receta, `animacion-placa.js` para los viejos, y `guia-de-voz.md` (la copia de `.claude/brand-voice-guidelines.md`) para escribir los textos con la voz del estudio. ⚠️ **Si se cambia cualquiera de esos archivos en el repo (también por el paso 0b), volver a publicarlo en el artifact** (`Artifact` · `publish` con la `url` del panel, `file_path` = el `index.html` leído del artifact, y `files: {"video-animado.js": …, "mdo-brand.css": …, "iconos-mdo.json": …}`), si no el panel muestra otra cosa que lo que se graba. El MP4 final lo graba la pasada de reposición (7c).
+- **Video regenerado, animado en el panel** (05/10/2026, receta desde el 07/10/2026): si el post tiene `video`, la versión regenerada se ve en movimiento en el panel (en la tarjeta y en la comparación «Ahora / Propuesta»), con el **mismo código** que graba el MP4. Si el post tiene `video.spec`, el botón Regenerar le pide a Claude también la receta nueva, con la guía del motor (`guiaReceta`), la valida con `validarSpec` (si no sirve, vuelve a pedirla una vez con los errores) y muestra la escena; al usarla, la guarda en `video.spec` y en `pendienteImagen.video`. Los archivos que el panel toma del artifact de Dirección MDO: `video-animado.js`, `mdo-brand.css`, `iconos-mdo.json` y `assets/*.svg` para los videos de receta, `animacion-placa.js` para los viejos, y `guia-de-voz.md` (la copia de `.claude/brand-voice-guidelines.md`) para escribir los textos con la voz del estudio. ⚠️ **Si se cambia cualquiera de esos archivos en el repo (también por el paso 0b), volver a publicarlo en el artifact** (`Artifact` · `publish` con la `url` del panel, `file_path` = el `index.html` leído del artifact, y `files: {"video-animado.js": …, "mdo-brand.css": …, "iconos-mdo.json": …}`), si no el panel muestra otra cosa que lo que se graba. El MP4 final lo graba la pasada de reposición (7c). Los videos de Motion (`video.motion`, desde el 02/11/2026) no se dibujan en el panel: Regenerar rehace la placa y el texto, y el video lo rehace la pasada (7c).
 - **Panel de aprobación**: vive en el artifact Dirección MDO (Marketing → Publicaciones) y lee el documento `paneles/publicaciones` de su base. `scripts/aprobacion-doc.js` arma ese documento; la rutina lo guarda con `Artifact` → `write_db`. El botón "Aprobar" corre con las credenciales del que abre el panel (el usuario), no con las de la rutina. La rutina automática necesita tener permitida la herramienta `Artifact`; si el permiso no está, ver la salida de emergencia del paso 7b. El artifact declara `capabilities.mcp` para `Metricool` / `updateScheduledPost` (además de lo que ya usaba); si alguien lo republica, tiene que restatear eso o los botones dejan de andar.
 - **Repo público**: las URLs `raw.githubusercontent.com/...` deben responder 200 al momento de crear el post (Metricool descarga la imagen una vez y la copia a su CDN). Si el repo es privado, el paso 6 falla.
