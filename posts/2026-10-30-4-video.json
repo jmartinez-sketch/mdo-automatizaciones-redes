@@ -1,0 +1,36 @@
+{
+  "familia": "servicios",
+  "estilo": "foco",
+  "volanta": "Servicios · Laboral",
+  "titular": "Las tareas cambiaron",
+  "titular2": "y la categoría del recibo quedó igual",
+  "bloques": [
+    {
+      "tipo": "comparacion",
+      "a": {
+        "rotulo": "En el recibo",
+        "titulo": "Categoría de ingreso",
+        "lineas": [
+          "Sin cambios"
+        ]
+      },
+      "b": {
+        "rotulo": "En la tarea",
+        "titulo": "Maneja la caja",
+        "lineas": [
+          "Aprueba pagos"
+        ]
+      }
+    },
+    {
+      "tipo": "nota",
+      "icono": "balanza",
+      "texto": "Si la tarea es de una categoría superior, la diferencia se puede reclamar hacia atrás."
+    },
+    {
+      "tipo": "cierre",
+      "icono": "documento",
+      "texto": "Revisaríamos cada puesto contra su convenio."
+    }
+  ]
+}
