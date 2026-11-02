@@ -81,7 +81,7 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 - **Todo para empresas**, con un problema de plata o de riesgo concreto en la primera línea, contado por el estudio que lo resuelve. Nunca tutoriales de "hacelo vos".
 - **Nunca invitar a llamar** (WhatsApp, correo o web; ❌ 📞). Datos en condicional; Ingresos Brutos es "el fisco".
 - **Cada post cierra con la página de su servicio** (tabla de la sección 5 del archivo).
-- **Ejes, por peso comercial**: Ingresos Brutos · IVA/MiPyME/planificación · Sociedades · Auditoría y due diligence · Empleadores · Contabilidad y back office. Mientras duren las campañas de Meta (hasta el 24/10/2026), primero los dos de impuestos.
+- **Ejes, por peso comercial**: Ingresos Brutos · IVA/MiPyME/planificación · Sociedades · Auditoría de estados contables · Empleadores · Contabilidad y back office. Mientras duren las campañas de Meta (hasta el 24/10/2026), primero los dos de impuestos.
 
 ⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
 
@@ -448,7 +448,7 @@ SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))
 # 2 = Societario
 # 3 = Impuestos · IVA, MiPyME y planificación
 # 4 = Laboral (empleadores)
-# 5 = Auditoría y due diligence
+# 5 = Auditoría de estados contables
 ```
 
 El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacción son libres** (ver la regla de creatividad), pero el eje queda fijado por el cálculo y el tema tiene que ser un servicio real de la web (tabla de la sección 5 de `CONTEXTO-PUBLICIDAD.md`).
@@ -460,7 +460,7 @@ El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacció
 | 2 | Societario | Sociedad al día ante IGJ (actas, autoridades, balances), elegir SA/SRL/SAS, socios que entran o salen | "Ponemos al día tu sociedad. Escribinos." → `/servicios/societario-igj` |
 | 3 | IVA, MiPyME y planificación | Diferir el IVA con el Certificado MiPyME, cheque a cuenta de Ganancias, anticipos sobre un año que ya no existe, decidir con el impacto fiscal a la vista | "Revisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos." → `/servicios/certificado-mipyme` o `/servicios/impuestos-nacionales` |
 | 4 | Laboral (empleadores) | Costo real de un empleado, convenio que aplica, inspecciones, altas y bajas | "Liquidamos los sueldos de tu empresa. Escribinos." → `/servicios/liquidacion-de-sueldos` |
-| 5 | Auditoría y due diligence | Cuando el banco, un socio o un comprador piden los números; certificar vs. auditar; due diligence antes de comprar | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` o `/servicios/fusiones-adquisiciones-reorganizaciones` |
+| 5 | Auditoría de estados contables | Cuando el banco, un socio o un proveedor grande piden los números; certificar vs. auditar; el cierre del ejercicio (recuento de stock, confirmaciones, ajustes); control interno. ❌ Nada de compra-venta de empresas ni due diligence: no es un servicio central del estudio (Juan, 02/11/2026) | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` |
 
 > Hasta el 25/09/2026 la rotación era `% 5` sobre Contabilidad, Tributario, Laboral, Societario y Auditoría.
 

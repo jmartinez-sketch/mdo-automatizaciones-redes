@@ -102,6 +102,12 @@
       "tema": "video",
       "regla": "El video de la semana se hace en Motion: un film por escenas que la rutina escribe y graba con scripts/motion-video.js (guía: motion/LEEME.md). Se mantienen el manual de marca y el diseño del design system, pero los recursos de animación cambian cada semana (2 o 3 del menú, ninguno de las últimas 4 semanas, anotados en el campo video del historial). Íconos del design system, nunca emojis. Sin sonido, sin encuestas, sin gente, sin rebotes. Si Motion falla, la escena de receta es el plan B.",
       "origen": "Juan, 26/10/2026, después de comparar el mismo Reel en los dos formatos: «creo que me gusta más esta versión»; «lo que ganamos es que se mantenga el manual de marca, se mantenga el diseño, pero se mejoren mucho las animaciones, varíen mucho más»; «no quiero que los videos de todas las semanas salgan con las mismas animaciones». Sobre los emojis: se le recomendó usar íconos animados porque la guía de voz los excluye, y respondió «sí, ok a todo»."
+    },
+    {
+      "desde": "2026-11-02",
+      "tema": "contenido",
+      "regla": "El eje de auditoría es la auditoría de estados contables (el banco o un socio que piden los números, certificación vs. auditoría, el cierre del ejercicio, control interno). Compra-venta de empresas y due diligence no son servicios centrales del estudio: no se eligen como tema aunque la página exista en la web.",
+      "origen": "Juan, 02/11/2026, sobre el Reel del viernes 06/11 (due diligence antes de comprar una empresa): «no entiendo el foco, no proveo mucho servicio de compra venta de empresas, no está en el core de lo que hago»."
     }
   ],
   "decisiones": [
@@ -265,6 +271,20 @@
       "pieza": "Semana 44 (28 al 31/10): plan de ARBA (sq-03), carrusel de actualización del FAL, Reel laboral del viernes (receta, estilo foco) y sábado de liquidación de sueldos (sv-06)",
       "decision": "publicado",
       "motivo": "Los cuatro estaban aprobados en el panel y salieron en Instagram y LinkedIn (el viernes como Reel, con la versión de receta); ninguno se borró en Metricool (revisado el 02/11)."
+    },
+    {
+      "fecha": "2026-11-02",
+      "semana": 45,
+      "pieza": "Miércoles 04/11 · plan de pagos de ARCA para MiPyMEs prorrogado al 30/12 (RG 5920/2026, nv-06) y jueves 05/11 · carrusel de vencimientos de noviembre (ca-cover + ca-q1 + ca-q2)",
+      "decision": "aprobado",
+      "motivo": "Los aprobó en el panel el mismo lunes; quedaron en Metricool programados."
+    },
+    {
+      "fecha": "2026-11-02",
+      "semana": 45,
+      "pieza": "Viernes 06/11 · Reel de due diligence «Lo que no muestra el balance de la empresa que vas a comprar» (po-35, Motion · foto+diagrama+iconos)",
+      "decision": "rechazado",
+      "motivo": "Lo regeneró en el panel con el pedido «no proveo este servicio específicamente» y escribió en el chat: «no entiendo el foco, no proveo mucho servicio de compra venta de empresas, no está en el core de lo que hago». Se rehízo con auditoría de estados contables: el recuento de stock del cierre sin el auditor."
     }
   ]
 }

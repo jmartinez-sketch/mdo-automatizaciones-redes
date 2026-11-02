@@ -80,7 +80,7 @@ Por orden de peso comercial:
 | **Ingresos Brutos** (campaña Meta al aire) | Retenciones y percepciones que superan el impuesto, saldo a favor que inmoviliza capital de trabajo, jurisdicciones donde corresponde o no estar inscripto, Convenio Multilateral y coeficientes, exclusiones y certificados de no retención | `/servicios/analisis-ingresos-brutos` |
 | **IVA, MiPyME y planificación** (campaña Meta al aire) | IVA diferido, cheque a cuenta de Ganancias, saldos de IVA, anticipos calculados sobre un año que ya no existe, planificación fiscal antes de decidir | `/servicios/certificado-mipyme` · `/servicios/impuestos-nacionales` |
 | **Sociedades** (Google) | Obligaciones ante IGJ y ARCA (actas, balances, autoridades, beneficiario final, domicilio electrónico), constitución y tipo de sociedad (SA, SRL, SAS), reformas, aumentos de capital | `/servicios/societario-igj` |
-| **Auditoría y due diligence** (Google) | Cuando el banco, un socio nuevo, un comprador o un inversor piden los números; certificación vs. auditoría; due diligence antes de comprar o invertir | `/servicios/auditoria-de-empresas` · `/servicios/fusiones-adquisiciones-reorganizaciones` |
+| **Auditoría de estados contables** (Google) | Cuando el banco, un socio nuevo o un proveedor grande piden los números; certificación vs. auditoría; el cierre del ejercicio (recuento de stock, confirmaciones); control interno. ❌ No compra-venta de empresas ni due diligence: Juan, 02/11/2026, «no proveo mucho servicio de compra venta de empresas, no está en el core» | `/servicios/auditoria-de-empresas` |
 | **Empleadores** (buen orgánico) | Cambios que afectan la liquidación de sueldos, convenios, cargas sociales, inspecciones laborales, altas | `/servicios/liquidacion-de-sueldos` |
 | **Contabilidad y back office** | Balances para decidir, outsourcing administrativo-contable (cuentas a pagar y cobrar, conciliaciones, tesorería, reporting) | `/servicios/contabilidad-pymes` · `/servicios/outsourcing-administrativo` |
 | Nichos (de vez en cuando, si hay noticia) | Comercio exterior, impuestos internacionales, precios de transferencia, representación de empresas extranjeras, prevención de lavado, tasas municipales, certificaciones | su página, ver la sección 5 |
@@ -132,7 +132,7 @@ Fuente: la web (`src/data/services.ts`). Son los **únicos** servicios que se no
 | Auditoría | Auditoría de Empresas (estados contables, NIIF, auditoría interna y operativa, control interno, revisiones limitadas, certificaciones, pericias, valuación) | `auditoria-de-empresas` |
 | Auditoría | Pymes (auditoría, outsourcing contable y fiscal, reporting, start-ups) | `pymes` |
 | Consultoría | Asesoramiento Estratégico y Financiero (presupuestos, control de gestión) | `asesoramiento-estrategico-financiero` |
-| Consultoría | Fusiones, Adquisiciones y Reorganizaciones (y due diligence) | `fusiones-adquisiciones-reorganizaciones` |
+| Consultoría | Fusiones, Adquisiciones y Reorganizaciones (y due diligence). Está en la web, pero no es un servicio central: no se elige como tema de un post (Juan, 02/11/2026) | `fusiones-adquisiciones-reorganizaciones` |
 | Consultoría | Servicios Societarios (SA, SRL, SAS, IGJ, actas, reformas, aumentos de capital, contratos) | `societario-igj` |
 | Consultoría | Representación de Empresas Extranjeras | `representacion-empresas-extranjeras` |
 | Consultoría | Prevención de Lavado de Activos (sujetos obligados) | `prevencion-lavado-activos` |

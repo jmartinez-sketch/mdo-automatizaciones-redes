@@ -1,51 +1,51 @@
-// Lo propio de este film: la foto del titular y el diagrama «la empresa que comprás» (la caja,
-// el balance y lo que queda fuera de él), que las escenas empresa, fuera y revisar arman igual
-// para que el paso de una a otra no se note. Cada escena le pone su prefijo a lo que anima.
+// Lo propio de este film: el titular (que «titulo» achica y sube, y «recuento» e «informe»
+// retoman como encabezado), los casilleros del depósito y el lugar vacío del auditor.
 Object.assign(window.MDO, {
-  DD: {
-    box: [80, 330, 880, 1150],
-    bal: [130, 440, 380, 330],
-    sep: 810,
-    cells: [[130, 905], [550, 905], [130, 1190], [550, 1190]],
-    items: [
-      ['equipo', 'Reclamos laborales que todavía no son juicio'],
-      ['buscar', 'Impuestos que una inspección puede reclamar'],
-      ['documento', 'Contratos que se caen si cambia el dueño'],
-      ['escudo', 'Avales que la empresa firmó por terceros'],
-    ],
+  ST: {
+    sube: -350, escala: 0.55,
+    grid: { x: 120, y: 760, w: 150, h: 120, gx: 22, gy: 22, cols: 5, rows: 4 },
+    falta: [120, 1340, 840, 150],
   },
-  ddIso(kit) {
-    return '<div class="dd-iso">' + MDO.logo(kit, 'iso', true) + '</div>';
+  stIso(kit) {
+    return '<div class="st-iso">' + MDO.logo(kit, 'iso', true) + '</div>';
   },
-  ddFoto(kit, p) {
-    return '<div class="dd-foto ' + p + '-f"><img class="dd-foto-img" src="' + kit.assets.url('edificios.jpg') + '"><div class="dd-velo"></div></div>';
+  stIcono(kit, nombre, px, clases, estilo) {
+    return MDO.icono(kit, nombre, px).replace('class="icono"', 'class="icono st-ic ' + clases + '" style="' + estilo + '"');
   },
-  ddIcono(kit, nombre, px, clases) {
-    return MDO.icono(kit, nombre, px).replace('class="icono"', 'class="icono dd-ic ' + clases + '"');
+  // El titular. Con `arriba`, ya chico y sin volanta: el encabezado de «recuento» e «informe».
+  stTitular(kit, p, arriba) {
+    const S = MDO.ST;
+    const tr = arriba ? 'transform:translateY(' + S.sube + 'px) scale(' + S.escala + ');' : '';
+    return '<div class="words st-tit ' + p + '-tit" style="left:150px;top:640px;width:820px;' + tr + '">' +
+      '<p class="st-vol ' + p + '-vol"' + (arriba ? ' style="opacity:0"' : '') + '>Cierre de ejercicio</p>' +
+      '<h1 class="line ' + p + '-a" style="font-size:92px">Stock contado sin el auditor:</h1>' +
+      '<h2 class="line line2 ' + p + '-b" style="font-size:92px">el informe puede salir con salvedad</h2></div>';
   },
-  ddDiagrama(kit, p) {
-    const D = MDO.DD, b = D.box, a = D.bal;
-    let cells = '';
-    D.items.forEach((it, i) => {
-      const c = D.cells[i];
-      cells += '<div class="dd-cell ' + p + '-c" style="left:' + c[0] + 'px;top:' + c[1] + 'px">' +
-        '<div class="dd-ic-wrap">' + MDO.ddIcono(kit, it[0], 100, p + '-i') + MDO.ddIcono(kit, 'tilde', 100, p + '-k') + '</div>' +
-        '<p class="dd-lbl ' + p + '-l">' + it[1] + '</p></div>';
-    });
-    return '<div class="dd ' + p + '-dd">' +
-      '<svg class="art" viewBox="0 0 1080 1920"><rect class="ink-dark dd-box ' + p + '-box" x="' + b[0] + '" y="' + b[1] + '" width="' + b[2] + '" height="' + b[3] + '"/>' +
-      '<line class="dd-sep ' + p + '-sep" x1="' + (b[0] + 50) + '" y1="' + D.sep + '" x2="' + (b[0] + b[2] - 50) + '" y2="' + D.sep + '"/></svg>' +
-      '<div class="words ' + p + '-tw" style="left:' + (b[0] + 50) + 'px;top:' + (b[1] + 34) + 'px;width:760px"><p class="dd-tag ' + p + '-t1">La empresa que comprás</p></div>' +
-      '<div class="paper dd-bal ' + p + '-bal" style="left:' + a[0] + 'px;top:' + a[1] + 'px;width:' + a[2] + 'px;height:' + a[3] + 'px">' +
-      '<p class="paper-hd" style="font-size:40px;letter-spacing:.12em">Balance</p>' +
-      '<div class="bar dd-bar ' + p + '-bar" style="width:100%"></div><div class="bar dd-bar ' + p + '-bar" style="width:78%"></div>' +
-      '<div class="bar dd-bar ' + p + '-bar" style="width:90%"></div><div class="bar dd-bar ' + p + '-bar" style="width:62%"></div></div>' +
-      '<div class="dd-okbal ' + p + '-okb">' + MDO.ddIcono(kit, 'tilde', 150, p + '-ok') + '</div>' +
-      '<div class="words ' + p + '-tw2" style="left:' + (b[0] + 50) + 'px;top:' + (D.sep + 24) + 'px;width:760px"><p class="dd-tag ' + p + '-t2">Fuera del balance</p></div>' +
-      cells + '</div>';
+  // Los casilleros del depósito, con su tilde, y el rótulo del recuento.
+  stGrid(kit, p) {
+    const G = MDO.ST.grid;
+    let boxes = '', checks = '';
+    for (let r = 0; r < G.rows; r++) {
+      for (let c = 0; c < G.cols; c++) {
+        const x = G.x + c * (G.w + G.gx), y = G.y + r * (G.h + G.gy), cx = x + G.w / 2, cy = y + G.h / 2;
+        boxes += '<div class="box st-box ' + p + '-bx" style="left:' + x + 'px;top:' + y + 'px;width:' + G.w + 'px;height:' + G.h + 'px"></div>';
+        checks += '<path class="ink-dark st-ck ' + p + '-ck" d="M' + (cx - 24) + ' ' + cy + ' L' + (cx - 7) + ' ' + (cy + 17) + ' L' + (cx + 25) + ' ' + (cy - 17) + '"/>';
+      }
+    }
+    return '<div class="' + p + '-grid" style="position:absolute;inset:0">' +
+      '<div class="words" style="left:120px;top:675px;width:840px"><p class="st-tag ' + p + '-tag">Recuento del cierre</p></div>' +
+      boxes + '<svg class="art" viewBox="0 0 1080 1920">' + checks + '</svg></div>';
+  },
+  // El lugar vacío del auditor, debajo de los casilleros.
+  stFalta(kit, p) {
+    const f = MDO.ST.falta;
+    return '<div class="' + p + '-falta" style="position:absolute;inset:0">' +
+      '<div class="st-falta" style="left:' + f[0] + 'px;top:' + f[1] + 'px;width:' + f[2] + 'px;height:' + f[3] + 'px"></div>' +
+      MDO.stIcono(kit, 'buscar', 96, p + '-lupa', 'left:' + (f[0] + 40) + 'px;top:' + (f[1] + 27) + 'px;opacity:.45') +
+      '<p class="st-txt ' + p + '-sin" style="left:' + (f[0] + 170) + 'px;top:' + (f[1] + 46) + 'px">Sin el auditor</p></div>';
   },
   // Dibuja un ícono trazo por trazo: devuelve p => … (de 0 a 1).
-  ddDibujo(svg) {
+  stDibujo(svg) {
     const els = [...svg.querySelectorAll('path,circle,rect,line')].map((e) => MDO.trazo(e));
     return (p) => els.forEach((f, i) => f(Math.max(0, Math.min(1, p * els.length - i))));
   },
