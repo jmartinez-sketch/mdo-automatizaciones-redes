@@ -190,25 +190,25 @@
       ],
       "slots": [
         {
-          "VOLANTA": "Due diligence · antes de comprar",
-          "TITULAR_1": "Lo que no muestra el balance",
-          "TITULAR_2": "de la empresa que vas a comprar",
-          "ITEM_1": "Reclamos laborales que todavía no son juicio.",
-          "ITEM_2": "Impuestos que una inspección puede reclamar.",
-          "ITEM_3": "Contratos que se caen si cambia el dueño.",
-          "ITEM_4": "Avales que la empresa firmó por terceros.",
-          "CIERRE": "Hacemos la due diligence antes de que firmes. Escribinos."
+          "VOLANTA": "Auditoría · cierre de ejercicio",
+          "TITULAR_1": "Stock contado sin el auditor:",
+          "TITULAR_2": "el informe puede salir con salvedad",
+          "ITEM_1": "Fecha del recuento acordada con el auditor.",
+          "ITEM_2": "Mercadería de terceros separada de la propia.",
+          "ITEM_3": "Corte de remitos y facturas del último día.",
+          "ITEM_4": "Planillas numeradas que firma quien cuenta.",
+          "CIERRE": "Auditamos los estados contables de tu empresa. Escribinos."
         }
       ],
       "video": {
         "archivo": "posts/2026-11-06-4.mp4",
-        "asset": "af52ae41609d2a9c36bef7d6ef305477",
+        "asset": "8e2cae41c3a672fb0d9f3f16ea52ec1e",
         "motion": {
           "carpeta": "posts/2026-11-06-4-motion"
         }
       },
       "info": {
-        "text": "Lo que no muestra el balance de la empresa que vas a comprar.\n\nEl balance cuenta lo que la empresa registró hasta su cierre. Un reclamo laboral que todavía no llegó a juicio, un impuesto que una inspección puede reclamar, un contrato con un cliente importante que se cae si cambia el dueño o un aval que la empresa firmó por otro pueden no figurar ahí, y siguen siendo de la empresa después de la compra.\n\nLo que revisaríamos antes de firmar: los reclamos y juicios en curso, las declaraciones juradas contra los libros, los contratos con clientes y proveedores, y las garantías y avales que firmó la empresa. Eso es una due diligence: la revisión de la empresa antes de comprarla o de sumar un socio.\n\n—\n\nHacemos la due diligence antes de que compres o sumes un socio. Escribinos: mdo-consultores.com.ar/servicios/fusiones-adquisiciones-reorganizaciones\n\n#MDOConsultores #GestiónPyME #DueDiligence #Auditoría #Empresas",
+        "text": "Stock contado sin el auditor: el informe puede salir con salvedad.\n\nPara auditar el stock, el auditor presencia el recuento físico del cierre del ejercicio. Si la empresa cuenta sola y nadie lo planificó, reconstruir después lo que había ese día cuesta más y no siempre alcanza: el informe de auditoría puede salir con una salvedad sobre el stock, y esa salvedad la lee cualquiera que pida el balance, desde el banco hasta un proveedor grande.\n\nLo que revisaríamos antes del recuento: la fecha acordada con el auditor, la mercadería de terceros separada de la propia, que los remitos y las facturas del último día queden del lado correcto del corte, y planillas numeradas que firme quien cuenta.\n\n—\n\nAuditamos los estados contables de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/auditoria-de-empresas\n\n#MDOConsultores #GestiónPyME #Auditoría #EstadosContables #Empresas",
         "draft": true,
         "autoPublish": false,
         "providers": [
@@ -224,10 +224,10 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-06-4.mp4"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/fe6d4ee4817aef39b9370098c706536859701a67/posts/2026-11-06-4.mp4"
         ],
         "mediaAltText": [
-          "Lo que no muestra el balance de la empresa que vas a comprar: reclamos laborales que todavía no son juicio, impuestos que una inspección puede reclamar, contratos que se caen si cambia el dueño y avales que la empresa firmó por terceros."
+          "Stock contado sin el auditor: el informe puede salir con salvedad. Antes del recuento revisaríamos la fecha acordada con el auditor, la mercadería de terceros separada, el corte de remitos y facturas del último día y planillas numeradas que firma quien cuenta."
         ],
         "shortener": false,
         "smartLinkData": {
@@ -240,7 +240,7 @@
           "type": "REEL",
           "showReelOnFeed": true,
           "collaborators": [],
-          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-06-4-portada.png"
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/fe6d4ee4817aef39b9370098c706536859701a67/posts/2026-11-06-4-portada.png"
         },
         "linkedinData": {
           "type": "post",
