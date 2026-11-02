@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "stage": "final",
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "background": "#06162D",
+  "look": "La empresa que se compra, de foto a diagrama: la torre con velo navy se cierra en una caja sobre el degradé claro de servicios; adentro, el balance y lo que queda fuera de él, con íconos del design system que se dibujan. Un solo acento: el navy sobre el claro.",
+  "scenes": [
+    { "id": "titulo", "name": "El titular", "dur": 3.4, "desc": "Sobre la foto de las torres con velo navy, el titular: lo que no muestra el balance de la empresa que vas a comprar." },
+    { "id": "empresa", "name": "La empresa y su balance", "dur": 4.2, "desc": "La foto se cierra en una caja, la empresa que comprás; adentro sube el balance, que cierra, y debajo se abre la zona fuera del balance." },
+    { "id": "fuera", "name": "Fuera del balance", "dur": 9, "desc": "Cuatro cosas que no figuran en el balance aparecen una por una, cada una con su ícono que se dibuja." },
+    { "id": "revisar", "name": "Lo que revisaríamos", "dur": 4.2, "desc": "El balance se va, cada punto se tilda y queda la frase: revisaríamos todo esto antes de firmar." },
+    { "id": "firma", "name": "Firma", "dur": 3.4, "desc": "El logo de MDO Consultores y el tema, due diligence." }
+  ]
+}

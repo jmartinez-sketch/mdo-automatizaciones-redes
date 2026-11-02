@@ -434,6 +434,36 @@
       "formato": "imagen",
       "video": null,
       "nota": "Servicios · Liquidación de sueldos: adicionales del convenio que nadie liquida, recibos y F.931 que no dicen lo mismo, altas y bajas con fechas que no son reales, ausencias y licencias mal descontadas (problemas, no tareas) · sv-06 (nunca usada; sv-02, sv-08 y sv-05/po-04 bloqueadas) · solo Instagram"
+    },
+    {
+      "fecha": "2026-11-04",
+      "semana_iso": 45,
+      "slot": "noticia",
+      "template": "nv-06",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Plan de pagos de ARCA para MiPyMEs (RG 5875/2026): la RG 5920/2026 (BO 30/10) prorrogó la adhesión al 30/12/2026 (vencía el 30/10); deudas impositivas, aduaneras y de la seguridad social vencidas hasta el 30/06/2026; micro y pequeñas hasta 18 cuotas con 5% a cuenta, medianas tramo 1 y 2 hasta 15 con 10%; 2,75% mensual · placa de vencimiento nv-06 (nunca usada; nv-10, sq-01 y sq-03 bloqueadas) · Errepar Hoy no llegó del 27/10 al 30/10: la noticia salió del Boletín Oficial · descartadas: suma fija del FFEP de la SRT (actualización mensual, $1.935 a $1.971), FAL: ARCA adecuó fechas a la prórroga (sería el quinto post del FAL en siete semanas), Régimen Simplificado de Ganancias (personas humanas) · tercer plan de pagos seguido (AGIP 21/10, ARBA 28/10), de otro organismo · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-11-05",
+      "semana_iso": 45,
+      "slot": "jueves",
+      "template": "ca-cover+ca-q1+ca-q2",
+      "linkedin": null,
+      "formato": "carrusel",
+      "video": null,
+      "nota": "Carrusel de calendario · vencimientos de noviembre 2026 para empresas con los cambios por los feriados de la visita del papa (Disp. CA 11/2026: anticipo 10 de Convenio Multilateral del 17 al 20 y SIRCAR el 13; AGIP corrió el 11 al 12; bancos cerrados del 6 al 10): F.931 del 11 al 13, Ingresos Brutos CABA del 12 al 17, Ganancias sociedades cierre junio y anticipos del 13 al 17 (pago del 16 al 18), IVA del 18 al 25, Ingresos Brutos PBA del 24 al 30 · primera semana del mes (regla 4 de variedad), ca-* nunca usadas · fechas verificadas en los calendarios de ARCA, la Comisión Arbitral, ARBA y AGIP · el video pasó al viernes · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-11-06",
+      "semana_iso": 45,
+      "slot": "gestion",
+      "template": "po-35",
+      "linkedin": null,
+      "formato": "video",
+      "video": "motion · foto+diagrama+iconos",
+      "nota": "Auditoría y due diligence (eje 5) · lo que no muestra el balance de la empresa que vas a comprar: reclamos laborales que todavía no son juicio, impuestos que una inspección puede reclamar, contratos que se caen si cambia el dueño, avales que la empresa firmó por terceros · primer Reel hecho en Motion (la foto de las torres se cierra en la caja de la empresa, el balance adentro y lo que queda afuera con íconos que se dibujan, fondo claro) con po-35 de respaldo (= po-30, usada el 18/09) · po-34 (mito y realidad, nunca usada) descartada: el mito no está de verdad difundido · bloqueadas por placa: po-04/sv-05, po-22, po-23, po-24/26/28/31/33, po-25, nv-10, sq-03 · un solo post IG+LinkedIn"
     }
   ],
   "temas_previos": [
