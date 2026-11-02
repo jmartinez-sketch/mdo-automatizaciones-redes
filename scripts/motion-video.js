@@ -97,15 +97,20 @@ function armarFilm(dir) {
 }
 
 // El reproductor de Motion no termina de cargar en el Chrome 148 que trae puppeteer (26/10/2026:
-// «did not finish loading within 20 s»), y sí en el Chromium 141 que viene instalado en el entorno
+// «did not finish loading within 20 s»), y sí en el Chromium que viene instalado en el entorno
 // (/opt/pw-browsers, el mismo que usa la guía de Motion para dibujar sin abrir la página).
-// MOTION_CHROME manda si está definido.
+// El entorno lo deja en /opt/pw-browsers/chromium (un enlace); antes de eso, en
+// chromium-NNNN/chrome-linux/chrome (la 1194, Chromium 141), y desde el 02/11/2026 en
+// chromium-NNNN/chrome-linux64/chrome. MOTION_CHROME manda si está definido.
 function chromium() {
   if (process.env.MOTION_CHROME) return process.env.MOTION_CHROME;
   const base = '/opt/pw-browsers';
   if (!fs.existsSync(base)) return undefined;
+  const enlace = path.join(base, 'chromium');
+  if (fs.existsSync(enlace)) return enlace;
   return fs.readdirSync(base).filter((x) => x.startsWith('chromium-')).sort().reverse()
-    .map((x) => path.join(base, x, 'chrome-linux', 'chrome')).find((x) => fs.existsSync(x));
+    .flatMap((x) => ['chrome-linux64', 'chrome-linux'].map((d) => path.join(base, x, d, 'chrome')))
+    .find((x) => fs.existsSync(x));
 }
 
 async function lanzar() {
@@ -115,8 +120,11 @@ async function lanzar() {
     headless: true,
     executablePath: exe,
     // Sin red: el film no carga nada de afuera (además de la intercepción de abrir()).
+    // ❌ Sin --allow-file-access-from-files: con ese flag el reproductor no termina de cargar el
+    // film en los Chrome nuevos («did not finish loading within 20 s»; probado el 02/11/2026 con
+    // Chrome 153). Era la causa de lo que el 26/10 parecía un problema del Chrome 148.
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none', '--force-color-profile=srgb',
-      '--disable-lcd-text', '--allow-file-access-from-files', '--host-resolver-rules=MAP * ^NOTFOUND',
+      '--disable-lcd-text', '--host-resolver-rules=MAP * ^NOTFOUND',
       '--proxy-server=http://127.0.0.1:9', '--proxy-bypass-list=<-loopback>'],
   });
 }
