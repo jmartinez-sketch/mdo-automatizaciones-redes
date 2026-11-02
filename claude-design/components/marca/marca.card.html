@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" viewport="700x210" name="Marca" subtitle="Lockup e IsoWatermark: los ocho SVG del manual, en tres tintes" -->
+<!doctype html><meta charset="utf-8"><title>Marca — MDO</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>*{box-sizing:border-box}body{margin:0;padding:20px 24px;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:14px;line-height:1.5}.lbl{font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-55)}.grp{display:flex;flex-direction:column;gap:7px}</style>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.MDOConsultoresDesignSystem_cc21de;
+
+const { Lockup, IsoWatermark } = NS;
+const B = '../../assets/logos';
+const Cell = ({ bg, label, children, border }) => (
+  <div className="grp" style={{ flex: 1 }}>
+    <div style={{ height: 96, display: 'grid', placeItems: 'center', background: bg, borderRadius: 'var(--r-sm)',
+      border: border ? '1px solid var(--hair)' : 'none', padding: '12px 16px', position: 'relative', overflow: 'hidden' }}>{children}</div>
+    <span className="lbl">{label}</span>
+  </div>
+);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div style={{ display: 'flex', gap: 14 }}>
+    <Cell bg="var(--paper)" label="principal · navy" border>
+      <Lockup variant="principal" tone="navy" height={48} base={B} />
+    </Cell>
+    <Cell bg="var(--navy)" label="principal · slate">
+      <Lockup variant="principal" tone="slate" height={48} base={B} />
+    </Cell>
+    <Cell bg="var(--paper)" label="secundario · navy" border>
+      <Lockup variant="secundario" tone="navy" height={40} base={B} />
+    </Cell>
+    <Cell bg="var(--navy)" label="isotipo + marca de agua">
+      <IsoWatermark size={150} opacity={0.09} tone="paper" base={B} style={{ right: -30, bottom: -30 }} />
+      <Lockup variant="isotipo" tone="paper" height={52} base={B} />
+    </Cell>
+  </div>
+);
+
+</script>
