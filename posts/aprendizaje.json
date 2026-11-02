@@ -108,6 +108,12 @@
       "tema": "contenido",
       "regla": "El eje de auditoría es la auditoría de estados contables (el banco o un socio que piden los números, certificación vs. auditoría, el cierre del ejercicio, control interno). Compra-venta de empresas y due diligence no son servicios centrales del estudio: no se eligen como tema aunque la página exista en la web.",
       "origen": "Juan, 02/11/2026, sobre el Reel del viernes 06/11 (due diligence antes de comprar una empresa): «no entiendo el foco, no proveo mucho servicio de compra venta de empresas, no está en el core de lo que hago»."
+    },
+    {
+      "desde": "2026-11-02",
+      "tema": "video",
+      "regla": "El post de la semana que va en video sale con video o no sale: la placa PNG es la tapa en el panel y la que se regenera, pero nunca se publica en lugar del video. Si Metricool rechaza el MP4, se corrige el video y se vuelve a mandar.",
+      "origen": "Juan, 02/11/2026: «¿por qué no aceptaría el video? Sí o sí debe salir con video, es video o nada»."
     }
   ],
   "decisiones": [
