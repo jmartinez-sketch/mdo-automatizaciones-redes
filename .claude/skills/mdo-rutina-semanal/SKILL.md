@@ -451,6 +451,8 @@ SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))
 # 5 = Auditoría de estados contables
 ```
 
+⚠️ **El tema sale del banco de temas aprobado** (sección 6 de `CONTEXTO-PUBLICIDAD.md`, Juan, 02/11/2026): uno de su eje que no haya salido en los últimos 3 meses y que esté «disponible». Si el eje no tiene ninguno, se elige otro tema con el mismo enfoque y en el reporte del lunes se le proponen a Juan 2 o 3 temas nuevos para sumar al banco.
+
 El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacción son libres** (ver la regla de creatividad), pero el eje queda fijado por el cálculo y el tema tiene que ser un servicio real de la web (tabla de la sección 5 de `CONTEXTO-PUBLICIDAD.md`).
 
 | IDX | Eje | Ángulos que funcionan | CTA (cierre) y página |
@@ -460,7 +462,7 @@ El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacció
 | 2 | Societario | Sociedad al día ante IGJ (actas, autoridades, balances), elegir SA/SRL/SAS, socios que entran o salen | "Ponemos al día tu sociedad. Escribinos." → `/servicios/societario-igj` |
 | 3 | IVA, MiPyME y planificación | Diferir el IVA con el Certificado MiPyME, cheque a cuenta de Ganancias, anticipos sobre un año que ya no existe, decidir con el impacto fiscal a la vista | "Revisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos." → `/servicios/certificado-mipyme` o `/servicios/impuestos-nacionales` |
 | 4 | Laboral (empleadores) | Costo real de un empleado, convenio que aplica, inspecciones, altas y bajas | "Liquidamos los sueldos de tu empresa. Escribinos." → `/servicios/liquidacion-de-sueldos` |
-| 5 | Auditoría de estados contables | Cuando el banco, un socio o un proveedor grande piden los números; certificar vs. auditar; el cierre del ejercicio (recuento de stock, confirmaciones, ajustes); control interno. ❌ Nada de compra-venta de empresas ni due diligence: no es un servicio central del estudio (Juan, 02/11/2026) | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` |
+| 5 | Auditoría de estados contables | Desde lo que le abre o le cuida plata a la empresa, nunca desde el trabajo del auditor: la plata que se pierde sin control (pagos duplicados, descuentos sin autorizar, stock que no cierra), el crédito que espera al balance auditado. ❌ Ni compra-venta de empresas ni due diligence («no está en el core»), ni licitaciones o altas de proveedor («nunca tuve una consulta de ese tipo»), ni procedimientos del auditor como el recuento o la salvedad (Juan, 02/11/2026) | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` |
 
 > Hasta el 25/09/2026 la rotación era `% 5` sobre Contabilidad, Tributario, Laboral, Societario y Auditoría.
 

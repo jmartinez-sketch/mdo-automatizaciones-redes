@@ -80,7 +80,7 @@ Por orden de peso comercial:
 | **Ingresos Brutos** (campaña Meta al aire) | Retenciones y percepciones que superan el impuesto, saldo a favor que inmoviliza capital de trabajo, jurisdicciones donde corresponde o no estar inscripto, Convenio Multilateral y coeficientes, exclusiones y certificados de no retención | `/servicios/analisis-ingresos-brutos` |
 | **IVA, MiPyME y planificación** (campaña Meta al aire) | IVA diferido, cheque a cuenta de Ganancias, saldos de IVA, anticipos calculados sobre un año que ya no existe, planificación fiscal antes de decidir | `/servicios/certificado-mipyme` · `/servicios/impuestos-nacionales` |
 | **Sociedades** (Google) | Obligaciones ante IGJ y ARCA (actas, balances, autoridades, beneficiario final, domicilio electrónico), constitución y tipo de sociedad (SA, SRL, SAS), reformas, aumentos de capital | `/servicios/societario-igj` |
-| **Auditoría de estados contables** (Google) | Cuando el banco, un socio nuevo o un proveedor grande piden los números; certificación vs. auditoría; el cierre del ejercicio (recuento de stock, confirmaciones); control interno. ❌ No compra-venta de empresas ni due diligence: Juan, 02/11/2026, «no proveo mucho servicio de compra venta de empresas, no está en el core» | `/servicios/auditoria-de-empresas` |
+| **Auditoría de estados contables** (Google) | Desde lo que le abre o le cuida plata a la empresa: la plata que se pierde sin control, el crédito que espera al balance auditado. ❌ No compra-venta de empresas ni due diligence, ni licitaciones o altas de proveedor, ni procedimientos del auditor (Juan, 02/11/2026) | `/servicios/auditoria-de-empresas` |
 | **Empleadores** (buen orgánico) | Cambios que afectan la liquidación de sueldos, convenios, cargas sociales, inspecciones laborales, altas | `/servicios/liquidacion-de-sueldos` |
 | **Contabilidad y back office** | Balances para decidir, outsourcing administrativo-contable (cuentas a pagar y cobrar, conciliaciones, tesorería, reporting) | `/servicios/contabilidad-pymes` · `/servicios/outsourcing-administrativo` |
 | Nichos (de vez en cuando, si hay noticia) | Comercio exterior, impuestos internacionales, precios de transferencia, representación de empresas extranjeras, prevención de lavado, tasas municipales, certificaciones | su página, ver la sección 5 |
@@ -144,3 +144,24 @@ Fuente: la web (`src/data/services.ts`). Son los **únicos** servicios que se no
 Si el tema no tiene página propia: `mdo-consultores.com.ar/servicios` o `/contacto`. En LinkedIn el link se puede tocar; en Instagram no, pero igual sirve y en la nota de la web queda como link.
 
 **Lo que el estudio no hace** (Juan, 19/10/2026): ABL, Impuesto Inmobiliario y Patentes (ni inscripción, ni revisión, ni planes de pago). Una novedad útil de esos temas se informa igual, pero sin ofrecer el servicio: sin «revisamos», sin «Escribinos» y sin página de servicio; el texto cierra con la fuente.
+
+## 6. Enfoque y banco de temas del viernes (Juan, 02/11/2026)
+
+**Enfoque.** Cada viernes arranca por algo que el dueño quiere o teme en plata: conseguir crédito, no pagar de más, no perder plata, no tener un reclamo. El servicio es el medio, nunca el tema: no «qué hace el auditor», sino «lo que te traba el crédito». La estructura no cambia: situación que reconoce → qué pasa en la caja → qué revisaríamos.
+
+**Banco de temas.** Juan los marcó el 02/11/2026. Cada viernes toma uno de su eje que esté disponible y no haya salido en los últimos 3 meses (el historial lo dice). Al usarlo, se anota acá la fecha. Si un eje se queda sin temas disponibles, la rutina elige otro con el mismo enfoque y en el reporte del lunes le propone a Juan 2 o 3 temas nuevos para sumar.
+
+| Eje | Tema | Estado |
+|---|---|---|
+| Auditoría | La plata que se pierde sin control: pagos duplicados, descuentos que nadie autorizó, stock que no cierra | usado el 06/11/2026 |
+| Auditoría | El crédito que espera al balance: la renovación de la línea depende del balance auditado y de cuándo llega | desde el 26/12/2026 (se parece a «¿certificado o auditado?», 25/09) |
+| Ingresos Brutos | Coeficientes viejos de Convenio Multilateral: la empresa paga en provincias donde ya casi no vende | desde el 03/01/2027 (se parece al 02/10 y al 03/10) |
+| Ingresos Brutos | Le retienen en provincias donde no tiene actividad: plata inmovilizada | desde el 03/01/2027 (se parece al 02/10) |
+| IVA y planificación | Anticipos de más: si este año vende menos que el anterior, adelanta Ganancias sobre un año que ya no existe | disponible |
+| IVA y planificación | Saldo de IVA que crece mes a mes y nadie usa | disponible |
+| Sociedades | El socio que se quiere ir: si el contrato no lo prevé, discutir cuánto vale su parte frena a la empresa | desde el 17/01/2027 (se parece al 16/10) |
+| Sueldos | Lo que cuesta de verdad un empleado además del sueldo | desde el 12/12/2026 (se parece al 11/09) |
+| Sueldos | Lo que se paga «por afuera»: el riesgo que queda en cada reclamo o inspección | disponible |
+| Contabilidad y back office | Ventas que nadie cobra a tiempo: la empresa termina financiando a sus clientes | disponible |
+
+❌ **Descartados**: venderle a una empresa grande o al Estado (Juan: «nunca tuve una consulta de ese tipo»); compra-venta de empresas y due diligence («no está en el core»); el recuento de stock con el auditor y la salvedad (Juan: «no es prioridad» para los clientes).
