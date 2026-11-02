@@ -1,0 +1,252 @@
+{
+  "semana": 45,
+  "rango": "4 al 6 de noviembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 04/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "nv-06",
+      "imagenes": [
+        "posts/2026-11-04-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Plazo para adherir · RG 5920/2026",
+          "NUMERO": "30",
+          "UNIDAD": "dic",
+          "TITULAR_1": "Plan de pagos de ARCA para MiPyMEs",
+          "TITULAR_2": "con deudas vencidas hasta el 30 de junio",
+          "CIERRE": "Hasta 18 cuotas al 2,75% mensual, según el tamaño de la empresa."
+        }
+      ],
+      "info": {
+        "text": "ARCA extendió hasta el 30 de diciembre el plan de pagos para MiPyMEs.\n\nCon la Resolución General 5920/2026, ARCA prorrogó el plazo para adherir al régimen de la RG 5875/2026, que vencía el 30 de octubre. El plan alcanza deudas impositivas, aduaneras y de la seguridad social vencidas hasta el 30 de junio de 2026. Las micro y pequeñas empresas pueden pagarlas en hasta 18 cuotas, con un pago a cuenta del 5%; las medianas de tramo 1 y 2, en hasta 15 cuotas, con un 10%. La tasa de financiación es del 2,75% mensual y el plan no condona intereses ni multas.\n\nQué implica en la práctica: hay dos meses más para consolidar la deuda y decidir qué conviene incluir. Las retenciones y percepciones van en menos cuotas (9 o 7, según el tamaño) y ninguna cuota puede ser menor a $50.000. La adhesión es por Mis Facilidades.\n\n—\n\nRevisamos las deudas de tu empresa con ARCA y armamos el plan que más conviene. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: ARCA · Resolución General 5920/2026\n\n#MDOConsultores #ARCA #PlanDePagos #MiPyME #Impuestos",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-04T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-04-2.png"
+        ],
+        "mediaAltText": [
+          "Hasta el 30 de diciembre: plan de pagos de ARCA para MiPyMEs con deudas vencidas hasta el 30 de junio de 2026, en hasta 18 cuotas al 2,75% mensual según el tamaño de la empresa (RG ARCA 5920/2026)."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 05/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "ca-cover",
+      "plantillas": [
+        "ca-cover",
+        "ca-q1",
+        "ca-q2"
+      ],
+      "imagenes": [
+        "posts/2026-11-05-3-cover.png",
+        "posts/2026-11-05-3-s1.png",
+        "posts/2026-11-05-3-s2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Calendario impositivo",
+          "TITULAR_1": "Noviembre",
+          "TITULAR_2": "2026",
+          "BAJADA": "IVA, sueldos, Ganancias de sociedades e Ingresos Brutos, con los cambios por los feriados. Del 6 al 10 no abren los bancos.",
+          "DESTACADO": "Deslizá"
+        },
+        {
+          "VOLANTA": "Calendario · noviembre 2026",
+          "TITULAR_1": "Vencimientos",
+          "TITULAR_2": "primera quincena",
+          "DIA_1": "11",
+          "ITEM_1_TITULO": "Sueldos · F.931",
+          "ITEM_1_DETALLE": "Devengado 10/2026 · 11 al 13",
+          "DIA_2": "12",
+          "ITEM_2_TITULO": "Ingresos Brutos · CABA",
+          "ITEM_2_DETALLE": "Anticipo 10/2026 · 12 al 17",
+          "DIA_3": "13",
+          "ITEM_3_TITULO": "Ganancias · Sociedades",
+          "ITEM_3_DETALLE": "DDJJ cierre 06/2026 · 13 al 17",
+          "DIA_4": "13",
+          "ITEM_4_TITULO": "Anticipos de Ganancias",
+          "ITEM_4_DETALLE": "Sociedades · 13 al 17",
+          "DIA_5": "13",
+          "ITEM_5_TITULO": "Convenio Multilateral · SIRCAR",
+          "ITEM_5_DETALLE": "Agentes · 2.ª quincena 10/2026",
+          "DESTACADO": "Según la terminación del CUIT."
+        },
+        {
+          "VOLANTA": "Calendario · noviembre 2026",
+          "TITULAR_1": "Vencimientos",
+          "TITULAR_2": "segunda quincena",
+          "DIA_1": "16",
+          "ITEM_1_TITULO": "Ganancias · Sociedades",
+          "ITEM_1_DETALLE": "Pago cierre 06/2026 · 16 al 18",
+          "DIA_2": "17",
+          "ITEM_2_TITULO": "Convenio Multilateral",
+          "ITEM_2_DETALLE": "Anticipo 10/2026 · 17 al 20",
+          "DIA_3": "18",
+          "ITEM_3_TITULO": "IVA · CUIT 0 a 5",
+          "ITEM_3_DETALLE": "Período 10/2026 · 18 al 20",
+          "DIA_4": "24",
+          "ITEM_4_TITULO": "IVA · CUIT 6 a 9",
+          "ITEM_4_DETALLE": "Período 10/2026 · 24 y 25",
+          "DIA_5": "24",
+          "ITEM_5_TITULO": "Ingresos Brutos · PBA",
+          "ITEM_5_DETALLE": "Anticipo 10/2026 · 24 al 30",
+          "DESTACADO": "Los presentamos por tu empresa."
+        }
+      ],
+      "info": {
+        "text": "Vencimientos de noviembre para empresas, con los cambios por los feriados.\n\nDel 6 al 10 de noviembre no abren los bancos. Por los feriados de esos días, la Comisión Arbitral corrió el anticipo de octubre de Convenio Multilateral al 17 al 20 de noviembre, y los agentes de SIRCAR presentan la segunda quincena de octubre el 13 (Disposición 11/2026). En CABA, el anticipo de Ingresos Brutos que vencía el 11 pasó al 12.\n\nLas fechas dependen de la terminación del CUIT: el F.931 vence del 11 al 13, Ganancias de sociedades con cierre en junio del 13 al 17, el IVA del 18 al 25 e Ingresos Brutos de Provincia de Buenos Aires del 24 al 30.\n\n—\n\nLiquidamos y presentamos los impuestos de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: calendarios de ARCA, la Comisión Arbitral, ARBA y AGIP · Disposición CA 11/2026\n\n#MDOConsultores #Vencimientos #ARCA #IngresosBrutos #Impuestos",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-05T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-05-3-cover.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-05-3-s1.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-05-3-s2.png"
+        ],
+        "mediaAltText": [
+          "Calendario impositivo de noviembre 2026: IVA, sueldos, Ganancias de sociedades e Ingresos Brutos, con los cambios por los feriados. Del 6 al 10 no abren los bancos.",
+          "Vencimientos de la primera quincena de noviembre: F.931 del 11 al 13; Ingresos Brutos de CABA del 12 al 17; Ganancias de sociedades con cierre en junio y anticipos, del 13 al 17; SIRCAR, el 13.",
+          "Vencimientos de la segunda quincena de noviembre: pago de Ganancias de sociedades del 16 al 18; Convenio Multilateral del 17 al 20; IVA del 18 al 20 (CUIT 0 a 5) y el 24 y 25 (CUIT 6 a 9); Ingresos Brutos de Provincia de Buenos Aires del 24 al 30."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 06/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-35",
+      "imagenes": [
+        "posts/2026-11-06-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Due diligence · antes de comprar",
+          "TITULAR_1": "Lo que no muestra el balance",
+          "TITULAR_2": "de la empresa que vas a comprar",
+          "ITEM_1": "Reclamos laborales que todavía no son juicio.",
+          "ITEM_2": "Impuestos que una inspección puede reclamar.",
+          "ITEM_3": "Contratos que se caen si cambia el dueño.",
+          "ITEM_4": "Avales que la empresa firmó por terceros.",
+          "CIERRE": "Hacemos la due diligence antes de que firmes. Escribinos."
+        }
+      ],
+      "video": {
+        "archivo": "posts/2026-11-06-4.mp4",
+        "asset": "af52ae41609d2a9c36bef7d6ef305477",
+        "motion": {
+          "carpeta": "posts/2026-11-06-4-motion"
+        }
+      },
+      "info": {
+        "text": "Lo que no muestra el balance de la empresa que vas a comprar.\n\nEl balance cuenta lo que la empresa registró hasta su cierre. Un reclamo laboral que todavía no llegó a juicio, un impuesto que una inspección puede reclamar, un contrato con un cliente importante que se cae si cambia el dueño o un aval que la empresa firmó por otro pueden no figurar ahí, y siguen siendo de la empresa después de la compra.\n\nLo que revisaríamos antes de firmar: los reclamos y juicios en curso, las declaraciones juradas contra los libros, los contratos con clientes y proveedores, y las garantías y avales que firmó la empresa. Eso es una due diligence: la revisión de la empresa antes de comprarla o de sumar un socio.\n\n—\n\nHacemos la due diligence antes de que compres o sumes un socio. Escribinos: mdo-consultores.com.ar/servicios/fusiones-adquisiciones-reorganizaciones\n\n#MDOConsultores #GestiónPyME #DueDiligence #Auditoría #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-06T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-06-4.mp4"
+        ],
+        "mediaAltText": [
+          "Lo que no muestra el balance de la empresa que vas a comprar: reclamos laborales que todavía no son juicio, impuestos que una inspección puede reclamar, contratos que se caen si cambia el dueño y avales que la empresa firmó por terceros."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "REEL",
+          "showReelOnFeed": true,
+          "collaborators": [],
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/f82e048a37016be29a92dd19bee5ce22815b71b5/posts/2026-11-06-4-portada.png"
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    }
+  ]
+}
