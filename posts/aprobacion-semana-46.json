@@ -1,0 +1,246 @@
+{
+  "semana": 46,
+  "rango": "11 al 14 de noviembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 11/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "nv-10",
+      "imagenes": [
+        "posts/2026-11-11-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Laboral · Res. 260/2026 de la Provincia",
+          "NUMERO": "1",
+          "UNIDAD": "por mes",
+          "TITULAR_1": "Declaración jurada de sueldos y jornadas",
+          "TITULAR_2": "para empleadores bonaerenses",
+          "CIERRE": "Obligatoria desde el período enero de 2027, con recibos firmados y constancias bancarias."
+        }
+      ],
+      "nota": "Noticia: F.U.T.U.R.O., declaración jurada mensual de sueldos y jornadas para empleadores bonaerenses (Res. 260/2026 del Ministerio de Trabajo de la Provincia). Placa de número grande nv-10: las cuatro de número estaban usadas en las últimas 4 semanas y es la menos reciente; además corta el navy de texto del carrusel del jueves 05/11.",
+      "info": {
+        "text": "Empleadores bonaerenses: nueva declaración jurada mensual de sueldos y jornadas.\n\nCon la Resolución 260/2026, el Ministerio de Trabajo de la Provincia de Buenos Aires creó el F.U.T.U.R.O., que se presenta todos los meses por el Portal de Trabajo. Alcanza a las empresas con domicilio o establecimientos en la Provincia, o con trabajadores que presten tareas allí. Es voluntario desde el período diciembre de 2026 y obligatorio desde el período enero de 2027.\n\nQué implica en la práctica: cada mes se informan el total pagado (remunerativo, no remunerativo y neto) y la jornada, con los recibos firmados y las constancias de acreditación bancaria. Si no se presenta o los datos no son ciertos, el Ministerio puede aplicar las sanciones de la Ley 10.149. Antes de la primera presentación, revisaríamos que recibos, acreditaciones y F.931 de cada mes digan lo mismo.\n\n—\n\nLiquidamos los sueldos de tu empresa y preparamos su documentación laboral. Escribinos: mdo-consultores.com.ar/servicios/liquidacion-de-sueldos\n\nFuente: Ministerio de Trabajo de la Provincia de Buenos Aires · Resolución 260/2026\n\n#MDOConsultores #Empleadores #LiquidaciónDeSueldos #ProvinciaDeBuenosAires #Laboral",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-11T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f150cee9e04e8f5b972e5acd962c7275ed28002/posts/2026-11-11-2.png"
+        ],
+        "mediaAltText": [
+          "Declaración jurada mensual de sueldos y jornadas para empleadores bonaerenses (F.U.T.U.R.O., Resolución 260/2026 del Ministerio de Trabajo de la Provincia de Buenos Aires): voluntaria desde el período diciembre de 2026 y obligatoria desde el período enero de 2027."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 12/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "mn-07",
+      "imagenes": [
+        "posts/2026-11-12-3.png"
+      ],
+      "slots": [
+        {
+          "TITULAR_1": "Traducimos",
+          "CITA": "cada cambio de la norma",
+          "TITULAR_2": "concretas."
+        }
+      ],
+      "nota": "Institucional (ciclo 2): la norma traducida a decisiones. mn-07 con foto, nunca usada. En el feed: va a Instagram y LinkedIn con la misma vertical.",
+      "info": {
+        "text": "Cada resolución nueva termina en una decisión de tu empresa.\n\nUn formulario que se suma, un plazo que se corre o un régimen que cambia sus condiciones modifican lo que la empresa paga, presenta o arriesga. Nuestro trabajo empieza ahí: leemos la norma completa, vemos a cuáles de nuestros clientes les toca y le decimos a cada uno qué cambia en su caso y qué hay que hacer.\n\nPor eso cada novedad que publicamos cierra con lo que revisaríamos: es lo que hacemos con cada cliente antes de que el cambio llegue a sus números.\n\n—\n\nImpuestos, sueldos, sociedades y auditoría para empresas. Escribinos: mdo-consultores.com.ar/contacto\n\n#MDOConsultores #Empresas #Pymes",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-12T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f150cee9e04e8f5b972e5acd962c7275ed28002/posts/2026-11-12-3.png"
+        ],
+        "mediaAltText": [
+          "Traducimos cada cambio de la norma en decisiones concretas. MDO Consultores."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 13/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-34",
+      "imagenes": [
+        "posts/2026-11-13-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Ingresos Brutos · mito y realidad",
+          "MITO": "«Ingresos Brutos se paga sobre todo lo que se facturó.»",
+          "REALIDAD": "Las devoluciones, los descuentos y las notas de crédito se restan de la base, y según la provincia también las ventas incobrables."
+        }
+      ],
+      "nota": "Ingresos Brutos (eje 0): mito y realidad de la base imponible; devoluciones, descuentos y notas de crédito se restan y, según la provincia, las ventas incobrables. Reel en Motion (tipografía + transformación + diagrama). po-34, nunca usada.",
+      "video": {
+        "archivo": "posts/2026-11-13-4.mp4",
+        "asset": "6486805f42bb4b5ba969c996b57eca25",
+        "motion": {
+          "carpeta": "posts/2026-11-13-4-motion"
+        }
+      },
+      "info": {
+        "text": "Tu empresa puede estar pagando Ingresos Brutos sobre plata que nunca entró.\n\nEl impuesto se calcula sobre los ingresos de la actividad, pero hay importes que se restan de la base: las devoluciones de mercadería, los descuentos y bonificaciones que se documentan con nota de crédito y, según la provincia y con requisitos, las ventas que resultaron incobrables. Cuando la declaración jurada se arma con el total facturado, el fisco cobra cada mes sobre ventas que no fueron.\n\nLo que revisaríamos: que las notas de crédito del mes bajen la base de la provincia que corresponde, que los descuentos por pago o por volumen estén documentados, y qué ventas incobrables se pueden descontar en cada jurisdicción.\n\n—\n\nRevisamos cómo liquida Ingresos Brutos tu empresa. Escribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\n#MDOConsultores #GestiónPyME #IngresosBrutos #Impuestos #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-13T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f150cee9e04e8f5b972e5acd962c7275ed28002/posts/2026-11-13-4.mp4"
+        ],
+        "mediaAltText": [
+          "Mito: Ingresos Brutos se paga sobre todo lo que se facturó. Realidad: las devoluciones, los descuentos y las notas de crédito se restan de la base, y según la provincia también las ventas incobrables."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "REEL",
+          "showReelOnFeed": true,
+          "collaborators": [],
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f150cee9e04e8f5b972e5acd962c7275ed28002/posts/2026-11-13-4-portada.png"
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Sábado 14/11",
+      "hora": "11:00",
+      "redes": [
+        "Instagram"
+      ],
+      "plantilla": "sv-01",
+      "imagenes": [
+        "posts/2026-11-14-5.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Servicios",
+          "TITULAR_1": "Análisis de Ingresos Brutos",
+          "BAJADA": "Si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde."
+        }
+      ],
+      "nota": "Servicios · Análisis integral de Ingresos Brutos (mismo eje que el viernes): la actividad inscripta ya no es la que factura la empresa. sv-01, la menos reciente de las de una línea. Sólo Instagram.",
+      "info": {
+        "text": "La actividad con la que tu empresa está inscripta en Ingresos Brutos puede no ser la que hoy le da la plata.\n\nCada actividad tiene su alícuota, y en cada provincia es distinta. Si la empresa empezó a fabricar lo que antes revendía, sumó servicios o cambió de rubro, y la inscripción quedó igual, puede estar pagando de más o acumulando una diferencia que el fisco reclama con intereses.\n\nEn el análisis integral de Ingresos Brutos comparamos lo que la empresa factura con lo que tiene inscripto, la alícuota de cada actividad en cada jurisdicción y los regímenes que la alcanzan.\n\n—\n\nAnálisis integral de Ingresos Brutos para empresas. Escribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\n#MDOConsultores #IngresosBrutos #Impuestos #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-14T11:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f150cee9e04e8f5b972e5acd962c7275ed28002/posts/2026-11-14-5.png"
+        ],
+        "mediaAltText": [
+          "Servicios · Análisis de Ingresos Brutos: si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      }
+    }
+  ]
+}
