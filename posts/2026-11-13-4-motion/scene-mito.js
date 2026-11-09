@@ -22,7 +22,7 @@ kit.scene('mito', {
     this.k.forEach((s) => { s.style.opacity = 1; s.style.transform = 'none'; });
     this.gui.opacity = eo(seg(t, 0, 0.35));
     if (t < 3.45) MDO.ibIn(this.r, t, 0.1, eo, { stagger: 0.11, dur: 0.45, dx: 26 });
-    else MDO.ibOut(this.k.concat(this.r), t, 3.45, ei, { stagger: 0.035, dur: 0.4, dx: 26 });
+    else MDO.ibOut(this.k.concat(this.r), t, 3.45, ei, { stagger: 0.03, dur: 0.38, dx: 26 });
     if (t >= 3.45) this.gui.opacity = 1 - ei(seg(t, 3.45, 3.8));
     // «todo» se apaga: es lo que no es cierto.
     const d = eio(seg(t, 2.25, 2.85));

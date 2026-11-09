@@ -33,9 +33,9 @@ kit.scene('realidad', {
   render(t) {
     const B = this.B;
     // El bloque sube desde abajo.
-    const up = lerp(1000, 0, eio(seg(t, 0, 0.85)));
+    const up = lerp(1520, 0, eio(seg(t, 0, 0.95)));
     this.blk.transform = 'translateY(' + up.toFixed(1) + 'px)';
-    this.tag.opacity = eo(seg(t, -0.1, 0.35)) * (1 - ei(seg(t, 4.9, 5.3)));
+    this.tag.opacity = eo(seg(t, 0, 0.45)) * (1 - ei(seg(t, 4.9, 5.3)));
     this.ft.forEach((s, i) => { s.opacity = eo(seg(t, 0.75 + i * 0.18, 1.2 + i * 0.18)); });
     // Las franjas se recortan y se van hacia la derecha, de arriba hacia abajo.
     let top = B.top;
