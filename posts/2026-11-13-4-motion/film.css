@@ -1,0 +1,13 @@
+/* Ingresos Brutos sobre plata que nunca entró (viernes 13/11/2026): mito y realidad. */
+.ib-w { display:inline-block; white-space:pre }
+.ib-b { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; color:var(--tinta) }
+.ib-l { font-family:"OpenSans-300", var(--sans, system-ui, sans-serif); font-weight:300; color:var(--tono2) }
+.ib-tag { font-family:"Chivo-700", var(--mono, ui-monospace, monospace); font-weight:700; text-transform:uppercase; font-size:40px; letter-spacing:.2em; color:var(--suave); white-space:nowrap }
+.ib-gui { position:absolute; left:-58px; top:0; font-family:"OpenSans-300", var(--sans, system-ui, sans-serif); font-weight:300; color:var(--tono2) }
+.ib-paper { position:absolute; box-sizing:border-box; background:var(--second) }
+.ib-slice { position:absolute; box-sizing:border-box; display:flex; align-items:center; padding:0 48px; background:var(--second); color:var(--ground); font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:48px; line-height:1.12; border-bottom:3px dashed color-mix(in srgb, var(--ground) 32%, var(--second)) }
+.ib-ficha { position:absolute; box-sizing:border-box; display:flex; align-items:center; padding:0 44px; border:3px solid var(--ground); background:color-mix(in srgb, var(--second) 55%, transparent); color:var(--ground); font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:50px; line-height:1.12 }
+.ib-fill { position:absolute; inset:0; background:var(--ground) }
+.ib-ficha span { position:relative }
+.ib-iso { position:absolute; top:-120px; right:-380px; width:1836px; opacity:.05 }
+.ib-iso svg { display:block; width:100%; height:auto }

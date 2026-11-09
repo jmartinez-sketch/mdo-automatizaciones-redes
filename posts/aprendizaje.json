@@ -114,6 +114,12 @@
       "tema": "video",
       "regla": "El post de la semana que va en video sale con video o no sale: la placa PNG es la tapa en el panel y la que se regenera, pero nunca se publica en lugar del video. Si Metricool rechaza el MP4, se corrige el video y se vuelve a mandar.",
       "origen": "Juan, 02/11/2026: «¿por qué no aceptaría el video? Sí o sí debe salir con video, es video o nada»."
+    },
+    {
+      "desde": "2026-11-02",
+      "tema": "contenido",
+      "regla": "El viernes arranca por algo que el dueño quiere o teme en plata (conseguir crédito, no pagar de más, no perder plata, no tener un reclamo) y el tema sale del banco aprobado (CONTEXTO-PUBLICIDAD.md, sección 6). Nada de procedimientos del auditor ni de auditoría interna (caja chica, comparación de proveedores), y nada que se parezca a lo publicado en los últimos 3 meses aunque cambie el ángulo. Si el eje no tiene temas disponibles, se elige uno con el mismo enfoque y se le proponen a Juan 2 o 3 para sumar al banco.",
+      "origen": "Juan, 02/11/2026, sobre el viernes 06/11: «el contenido sigue sin cerrarme… no es prioridad para los clientes»; «deberíamos darle un foco que haga que le importe»; rechazó el recuento de stock con el auditor y los temas de auditoría interna, y dijo que los temas propuestos eran «repetidos»."
     }
   ],
   "decisiones": [
@@ -291,6 +297,20 @@
       "pieza": "Viernes 06/11 · Reel de due diligence «Lo que no muestra el balance de la empresa que vas a comprar» (po-35, Motion · foto+diagrama+iconos)",
       "decision": "rechazado",
       "motivo": "Lo regeneró en el panel con el pedido «no proveo este servicio específicamente» y escribió en el chat: «no entiendo el foco, no proveo mucho servicio de compra venta de empresas, no está en el core de lo que hago». Se rehízo con auditoría de estados contables: el recuento de stock del cierre sin el auditor."
+    },
+    {
+      "fecha": "2026-11-09",
+      "semana": 45,
+      "pieza": "Viernes 06/11 · Reel del recuento de stock sin el auditor (po-35, Motion · casilleros+papeles+iconos), la versión que reemplazó a la de due diligence",
+      "decision": "rechazado",
+      "motivo": "Llegó a su hora sin aprobar y no se publicó. Juan, 02/11: «el video está bien hecho, lo que sigue sin cerrarme es el contenido… siento que son cosas a las que los clientes o potenciales clientes no es prioridad». Pidió proponer temas y definir un foco antes de hacer más videos. De la primera lista aprobó casi todo (rechazó licitaciones: «nunca tuve una consulta de ese tipo») pero los sintió «repetidos»; de la segunda rechazó caja chica y comparación de proveedores («es más de auditoría interna»), facturas apócrifas («no pasa») y el 15 («no se entiende»). Pidió un análisis de lo que publican los estudios reconocidos: se entregó el informe el 03/11 y las instrucciones para mirar Instagram desde una sesión local."
+    },
+    {
+      "fecha": "2026-11-09",
+      "semana": 45,
+      "pieza": "Semana 45: miércoles 04/11 (plan de pagos de ARCA para MiPyMEs, nv-06) y jueves 05/11 (carrusel de vencimientos de noviembre)",
+      "decision": "publicado",
+      "motivo": "Salieron en Instagram y LinkedIn; ninguno se borró en Metricool (revisado el 09/11)."
     }
   ]
 }

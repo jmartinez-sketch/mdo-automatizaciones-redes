@@ -1,0 +1,16 @@
+{
+ "v": 1,
+ "stage": "final",
+ "look": "Mito y realidad de Ingresos Brutos con tipografía cinética sobre azul noche: la frase del mito se arma palabra por palabra, lo facturado se recorta en franjas que se van y lo que queda, la base, se abre hasta ser el fondo claro donde un diagrama muestra lo que revisaría el estudio. Colores y letras del design system MDO, un solo acento.",
+ "width": 1080,
+ "height": 1920,
+ "fps": 60,
+ "background": "#06162D",
+ "scenes": [
+  { "id": "titulo", "name": "El titular", "dur": 3.4, "desc": "Ingresos Brutos sobre plata que nunca entró: el titular entra palabra por palabra y «Ingresos Brutos» queda en su lugar." },
+  { "id": "mito", "name": "El mito", "dur": 4.2, "desc": "«Ingresos Brutos» sigue la frase del mito, que se arma palabra por palabra; la palabra «todo» se apaga." },
+  { "id": "realidad", "name": "La realidad", "dur": 6.6, "desc": "Lo facturado es un bloque de papel: devoluciones, descuentos y notas de crédito e incobrables se recortan y se van; lo que queda es la base, que se abre hasta llenar la pantalla." },
+  { "id": "revisar", "name": "Lo que revisaríamos", "dur": 6, "desc": "Sobre el fondo claro, un diagrama: las ventas del mes, lo que se resta documentado y la base de cada provincia, unidos por flechas que se dibujan." },
+  { "id": "firma", "name": "Firma", "dur": 3.4, "desc": "El logo de MDO Consultores y el servicio: Análisis de Ingresos Brutos." }
+ ]
+}
