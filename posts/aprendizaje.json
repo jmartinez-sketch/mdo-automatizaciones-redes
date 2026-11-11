@@ -120,6 +120,12 @@
       "tema": "contenido",
       "regla": "El viernes arranca por algo que el dueño quiere o teme en plata (conseguir crédito, no pagar de más, no perder plata, no tener un reclamo) y el tema sale del banco aprobado (CONTEXTO-PUBLICIDAD.md, sección 6). Nada de procedimientos del auditor ni de auditoría interna (caja chica, comparación de proveedores), y nada que se parezca a lo publicado en los últimos 3 meses aunque cambie el ángulo. Si el eje no tiene temas disponibles, se elige uno con el mismo enfoque y se le proponen a Juan 2 o 3 para sumar al banco.",
       "origen": "Juan, 02/11/2026, sobre el viernes 06/11: «el contenido sigue sin cerrarme… no es prioridad para los clientes»; «deberíamos darle un foco que haga que le importe»; rechazó el recuento de stock con el auditor y los temas de auditoría interna, y dijo que los temas propuestos eran «repetidos»."
+    },
+    {
+      "desde": "2026-11-10",
+      "tema": "voz",
+      "regla": "Placas y primeras líneas en lenguaje llano: quién hace qué, en orden directo («La empresa factura una cosa y está inscripta en otra»). Nada de construcciones que obliguen a releer («ya no factura lo que tiene inscripto»), aunque sean correctas. Pendiente: proponerle a Juan sumarlo a la guía de voz (Lenguaje a evitar y Ejemplos).",
+      "origen": "Juan, 10/11/2026, al regenerar el sábado 14/11: «no se entiende el mensaje, fijate si podés reformularlo»."
     }
   ],
   "decisiones": [
@@ -311,6 +317,20 @@
       "pieza": "Semana 45: miércoles 04/11 (plan de pagos de ARCA para MiPyMEs, nv-06) y jueves 05/11 (carrusel de vencimientos de noviembre)",
       "decision": "publicado",
       "motivo": "Salieron en Instagram y LinkedIn; ninguno se borró en Metricool (revisado el 09/11)."
+    },
+    {
+      "fecha": "2026-11-11",
+      "semana": 46,
+      "pieza": "Semana 46: miércoles 11/11 (F.U.T.U.R.O., declaración jurada de sueldos y jornadas, nv-10), jueves 12/11 (institucional «Traducimos cada cambio de la norma en decisiones concretas», mn-07) y viernes 13/11 (Reel en Motion de Ingresos Brutos sobre plata que nunca entró, po-34)",
+      "decision": "aprobado",
+      "motivo": "Los aprobó el 10/11 en el panel, sin cambios; quedaron programados en Metricool (el viernes como Reel con el MP4)."
+    },
+    {
+      "fecha": "2026-11-11",
+      "semana": 46,
+      "pieza": "Sábado 14/11 · Servicios, Análisis de Ingresos Brutos (sv-01): «Si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde.»",
+      "decision": "regenerado",
+      "motivo": "Pedido del 10/11: «no se entiende el mensaje, fijate si podés reformularlo». Quedó «Inscripta en otra actividad» / «La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.», y aprobó esa versión. El 11/11 rechazó que la pasada de reposición lo programara en Metricool: quedó en el panel, sin aprobar, para que lo mande él."
     }
   ]
 }
