@@ -157,7 +157,9 @@ Si el tema no tiene página propia: `mdo-consultores.com.ar/servicios` o `/conta
 | Auditoría | El crédito que espera al balance: la renovación de la línea depende del balance auditado y de cuándo llega | desde el 26/12/2026 (se parece a «¿certificado o auditado?», 25/09) |
 | Ingresos Brutos | Coeficientes viejos de Convenio Multilateral: la empresa paga en provincias donde ya casi no vende | desde el 03/01/2027 (se parece al 02/10 y al 03/10) |
 | Ingresos Brutos | Le retienen en provincias donde no tiene actividad: plata inmovilizada | desde el 03/01/2027 (se parece al 02/10) |
-| Ingresos Brutos | Ingresos Brutos sobre plata que nunca entró: devoluciones, descuentos y notas de crédito que no se restan de la base, e incobrables según la provincia | usado el 13/11/2026 (fuera del banco, a confirmar por Juan: el eje no tenía temas disponibles) |
+| Ingresos Brutos | Ingresos Brutos sobre plata que nunca entró: devoluciones, descuentos y notas de crédito que no se restan de la base, e incobrables según la provincia | usado el 13/11/2026 (Juan lo sumó al banco el 11/11/2026) |
+| Ingresos Brutos | Inscripta en otra actividad: la empresa factura una cosa y está inscripta en otra, y puede pagar una alícuota que no le corresponde | usado el 14/11/2026, en el sábado (Juan lo sumó al banco el 11/11/2026) |
+| Ingresos Brutos | Exenciones o alícuotas reducidas que nadie pidió: la actividad tiene un tratamiento menor y la empresa sigue pagando la alícuota general | disponible (Juan lo sumó al banco el 11/11/2026) |
 | IVA y planificación | Anticipos de más: si este año vende menos que el anterior, adelanta Ganancias sobre un año que ya no existe | disponible |
 | IVA y planificación | Saldo de IVA que crece mes a mes y nadie usa | disponible |
 | Sociedades | El socio que se quiere ir: si el contrato no lo prevé, discutir cuánto vale su parte frena a la empresa | desde el 17/01/2027 (se parece al 16/10) |

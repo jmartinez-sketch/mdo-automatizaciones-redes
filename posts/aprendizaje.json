@@ -124,7 +124,7 @@
     {
       "desde": "2026-11-10",
       "tema": "voz",
-      "regla": "Placas y primeras líneas en lenguaje llano: quién hace qué, en orden directo («La empresa factura una cosa y está inscripta en otra»). Nada de construcciones que obliguen a releer («ya no factura lo que tiene inscripto»), aunque sean correctas. Pendiente: proponerle a Juan sumarlo a la guía de voz (Lenguaje a evitar y Ejemplos).",
+      "regla": "Placas y primeras líneas en lenguaje llano: quién hace qué, en orden directo («La empresa factura una cosa y está inscripta en otra»). Nada de construcciones que obliguen a releer («ya no factura lo que tiene inscripto»), aunque sean correctas. Está en la guía de voz 1.1 desde el 11/11/2026 («Lenguaje a evitar», 8, y «Ejemplos»), con el ok de Juan.",
       "origen": "Juan, 10/11/2026, al regenerar el sábado 14/11: «no se entiende el mensaje, fijate si podés reformularlo»."
     }
   ],
@@ -330,7 +330,7 @@
       "semana": 46,
       "pieza": "Sábado 14/11 · Servicios, Análisis de Ingresos Brutos (sv-01): «Si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde.»",
       "decision": "regenerado",
-      "motivo": "Pedido del 10/11: «no se entiende el mensaje, fijate si podés reformularlo». Quedó «Inscripta en otra actividad» / «La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.», y aprobó esa versión. El 11/11 rechazó que la pasada de reposición lo programara en Metricool: quedó en el panel, sin aprobar, para que lo mande él."
+      "motivo": "Pedido del 10/11: «no se entiende el mensaje, fijate si podés reformularlo». Quedó «Inscripta en otra actividad» / «La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.», y aprobó esa versión. El 11/11 rechazó que la pasada de reposición lo programara en Metricool: quedó en el panel y ese mismo día lo aprobó desde ahí: quedó programado en Metricool con la placa nueva."
     }
   ]
 }
