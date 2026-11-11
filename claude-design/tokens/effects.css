@@ -1,0 +1,31 @@
+/* MDO — bordes, radios, sombras, foco y movimiento.
+   Radios chicos: la marca es de filete, no de tarjeta redondeada. */
+:root{
+  --r-sharp:0; /* @kind radius */
+  --r-xs:2px;    /* chips, badges, tags */
+  --r-sm:3px;    /* tarjetas y specimens de la pagina de marca */
+  --r-md:4px;    /* pastillas de estado del panel */
+  --r-lg:6px;    /* inputs y botones del panel */
+  --r-xl:7px;    /* contenedores del panel */
+  --r-2xl:8px;   /* fichas del panel */
+  --r-3xl:10px;  /* dialogos */
+  --r-pill:999px;
+
+  --bd-hair:1px solid var(--hair); /* @kind other */
+  --bd-hair-2:1px solid var(--hair-2); /* @kind other */
+  --bd-dashed:1px dashed var(--hair-2); /* @kind other */
+  --bd-tab-active:2px solid var(--navy); /* @kind other */
+
+  /* Sin sistema de sombras: la profundidad se hace con filete + superficie.
+     La unica sombra de la marca es el velo de dialogo. */
+  --shadow-none:none; /* @kind shadow */
+  --veil:rgba(15,18,21,0.45); /* @kind color */
+
+  --focus-ring:2px solid var(--navy); /* @kind other */
+  --focus-offset:2px;
+
+  --dur-fast:120ms; /* @kind other */
+  --dur:180ms; /* @kind other */
+  --ease:cubic-bezier(0.2,0,0.2,1); /* @kind other */
+  --hover-fade:0.9; /* @kind other */   /* opacidad de hover en solidos */
+}

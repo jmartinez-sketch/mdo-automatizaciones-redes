@@ -1,0 +1,42 @@
+<!-- @dsCard group="Placas de redes" viewport="1400x760" name="Estudio de placas" subtitle="El catalogo de plantillas de Instagram y LinkedIn del estudio, con contenido de ejemplo, placeholders y zona segura" -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MDO · Estudio de placas de redes</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>*{box-sizing:border-box}html,body{margin:0;height:100%}body{background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:14px;line-height:var(--lh-app);-webkit-font-smoothing:antialiased}a{color:var(--link)}a:hover{color:var(--link-hover)}code{font-family:var(--font-mono);font-size:.85em;background:var(--chip-bg);padding:.1em .38em;border-radius:2px}button:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset)}</style>
+</head>
+<body>
+<div id="mdo-redes-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="plates-feed.babel.js"></script>
+<script type="text/babel" src="plates-story-linkedin.babel.js"></script>
+<script type="text/babel" src="plates-manual-v2.babel.js"></script>
+<script type="text/babel" src="plates-originales.babel.js"></script>
+<script type="text/babel" src="plates-explicador.babel.js"></script>
+<script type="text/babel" src="plates-marketing.babel.js"></script>
+<script type="text/babel" src="plates-iconos.babel.js"></script>
+<script type="text/babel" src="plates-carousel.babel.js"></script>
+<script type="text/babel" src="plates-variants.babel.js"></script>
+<script type="text/babel" src="plates-variants-light.babel.js"></script>
+<script type="text/babel" src="plates-friday.babel.js"></script>
+<script type="text/babel" src="app-v2.babel.js"></script>
+<!-- El montaje va inline a proposito: los <script src> de esta carpeta los
+     empaqueta el compilador dentro de _ds_bundle.js, y si el createRoot vive
+     ahi se monta dos veces (una por el bundle y otra por el script de la
+     pagina). Inline no se compila, asi que hay un solo montaje por carga.
+     El contenedor tampoco se llama "root": asi una copia vieja del bundle que
+     todavia traiga su propio montaje no encuentra donde montar y no hace nada. -->
+<script type="text/babel">
+// Reusa la raiz si ya existe (por ejemplo si una copia vieja del bundle ya
+// monto sobre este contenedor): dos createRoot sobre el mismo nodo tiran warning.
+const el = document.getElementById('mdo-redes-root');
+el.__mdoRoot = el.__mdoRoot || ReactDOM.createRoot(el);
+el.__mdoRoot.render(<window.MdoRedesApp />);
+</script>
+</body>
+</html>
