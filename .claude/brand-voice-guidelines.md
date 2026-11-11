@@ -2,7 +2,7 @@
 
 # MDO Consultores — Guía de voz
 
-**Versión 1 · aprobada por Juan Martínez el 08/10/2026.** Es la sección 2 del brand book («Cómo se escribe») desarrollada entera. Vive acá, en el design system «MDO - Diseño», y el repo `mdo-automatizaciones-redes` la copia en `.claude/brand-voice-guidelines.md` cuando sincroniza: la rutina de redes y el botón «Regenerar» del panel escriben con ella y controlan cada texto contra ella. **Un cambio de voz se hace acá, no en la copia.**
+**Versión 1.1 · aprobada por Juan Martínez el 08/10/2026; actualizada con su ok el 11/11/2026 (lenguaje llano en placas y primeras líneas).** Es la sección 2 del brand book («Cómo se escribe») desarrollada entera. Vive acá, en el design system «MDO - Diseño», y el repo `mdo-automatizaciones-redes` la copia en `.claude/brand-voice-guidelines.md` cuando sincroniza: la rutina de redes y el botón «Regenerar» del panel escriben con ella y controlan cada texto contra ella. **Un cambio de voz se hace acá, no en la copia.**
 
 **Alcance**: todo lo que el estudio publica (redes, web, notas). Los documentos y mails para clientes usan la misma voz y la misma terminología; sus fórmulas propias (membrete, firmas, pie legal) las marcan sus plantillas.
 
@@ -146,6 +146,7 @@ La voz no cambia; el tono se ajusta en formalidad, energía y profundidad técni
 #### Placa
 - **Volanta**: el servicio o el tema («Outsourcing administrativo», «Laboral · RG 5907»).
 - **Titular**: una sola oración partida en dos o tres pesos; afirma algo concreto. Una pregunta sólo si es un dilema real que la placa responde (ver «Decisiones»).
+- **Lenguaje llano**: quién hace qué, en orden directo. Si una frase hay que leerla dos veces, se reescribe (ver «Lenguaje a evitar», 8).
 - **Sin**: llamados, web ni @handle dentro de la placa.
 
 #### Video (receta)
@@ -215,6 +216,7 @@ La voz no cambia; el tono se ajusta en formalidad, energía y profundidad técni
 5. **Miedo vago**: «que no te agarre desprevenido». Mejor: el riesgo concreto (la multa, el saldo inmovilizado).
 6. **Invitar a llamar**: «📞 Consultanos». Mejor: «Escribinos: mdo-consultores.com.ar/servicios/…».
 7. **Relleno de agencia**: «para que vos te concentres en tu negocio». Mejor: qué hace el estudio, con nombre y apellido («conciliamos banco contra libros cada mes»).
+8. **Frase que hay que leer dos veces**: «Si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde.» (Juan, 10/11/2026: «no se entiende el mensaje»). Mejor: quién hace qué, en orden directo: «La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.» Vale para la placa y para la primera línea del posteo.
 
 ---
 
@@ -233,6 +235,13 @@ Por qué funciona: el titular es una situación reconocible; el cuerpo explica e
 > Hace años que no hacés una asamblea. La sociedad funciona igual, hasta que un banco, un cliente grande o la IGJ te piden los papeles. Lo que suele aparecer cuando abrimos los libros de una PyME: balances cerrados que nadie aprobó en acta, autoridades con el mandato vencido…
 
 Por qué funciona: abre con algo que el lector reconoce y lo lleva al riesgo concreto; la lista es lo que ve el estudio, no un consejo. (Se publicó con «PyME»; hoy va «pyme».)
+
+### Mal y bien: sábado 14/11 (regenerado por Juan)
+> Mal: «Análisis de Ingresos Brutos. Si tu empresa ya no factura lo que tiene inscripto, puede estar pagando una alícuota que no le corresponde.»
+>
+> Bien: «Inscripta en otra actividad. La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.»
+
+Qué cambió: la primera versión obliga a reconstruir la frase («lo que tiene inscripto» no es algo que se factura); la segunda dice en orden directo qué pasa y cuál es la consecuencia. Juan: «no se entiende el mensaje, fijate si podés reformularlo». Aprobó la segunda.
 
 ### Mal: la encuesta del jueves 08/10 (rechazada)
 > ¿Quién paga hoy a tus proveedores? · El dueño, desde su banco / Administración, con circuito · Respondé en la encuesta. El viernes te contamos qué cambia.
