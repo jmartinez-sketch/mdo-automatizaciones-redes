@@ -504,6 +504,36 @@
       "formato": "imagen",
       "video": null,
       "nota": "Servicios · Análisis integral de Ingresos Brutos: la actividad inscripta ya no es la que factura la empresa y puede estar pagando una alícuota que no le corresponde (problema + servicio) · sv-01 (= po-16 = mn-04 = sv-04), la menos reciente de las de una línea; sv-02 es la del mismo servicio del 03/10; sv-05, sv-06 y sv-08 bloqueadas · solo Instagram · regenerado por Juan el 10/11 («no se entiende el mensaje»): «Inscripta en otra actividad» / «La empresa factura una cosa y está inscripta en otra: puede estar pagando una alícuota que no le corresponde.»"
+    },
+    {
+      "fecha": "2026-11-18",
+      "semana_iso": 47,
+      "slot": "noticia",
+      "template": "sq-01",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Multas formales: ARCA reglamentó la reducción del 50% (RG 5927/2026, BO 12/11) que prevé la Ley 27.826 de Inocencia Fiscal; empresas con Certificado MiPyME vigente; obligaciones vencidas desde el 2/1/2026 e infracciones anteriores al 9/10; cumplir lo pendiente hasta el 18/12/2026 · placa de fecha grande sq-01 («18 DIC»): las cuatro de número (nv-10, nv-06, sq-01, sq-03) estaban bloqueadas, pool agotado → la menos reciente · el 26/08 salió el dictamen de Inocencia Fiscal II: esto es la reglamentación con plazo, no el mismo hecho · descartadas: F.U.T.U.R.O. (salió el 11/11), FAL (ya publicado), ARBA RN 23/2026 y suspensión de ejecuciones de ARCA (alivios y planes de las últimas semanas), adhesión de CABA al SIRCUPA y padrón SIRCREB (sin norma verificable; la exclusión es para personas humanas)"
+    },
+    {
+      "fecha": "2026-11-19",
+      "semana_iso": 47,
+      "slot": "jueves",
+      "template": "st-08c",
+      "linkedin": "li-01",
+      "formato": "video",
+      "video": "motion · camara+trazos+grafico",
+      "nota": "Historia en video (semana impar): Empleados de Comercio, la Justicia Federal de San Martín prorrogó seis meses la cautelar que suspende para los convenios de FAECYS (CCT 130/75) los arts. 131 (ultraactividad) y 133 (tope del 2% a los aportes sindicales) de la Ley 27.802; el aporte solidario del 2,5% sigue; apelación en la Cámara · film de fondo claro: línea de tiempo con cámara, barras 2% contra 2,5% con el tope tachado, subrayados · st-08c y li-01 nunca usadas"
+    },
+    {
+      "fecha": "2026-11-20",
+      "semana_iso": 47,
+      "slot": "gestion",
+      "template": "po-25",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Contabilidad y back office (eje 1) · banco de temas: ventas que nadie cobra a tiempo, la empresa financia a sus clientes con su caja o con descubierto (cuentas a cobrar por antigüedad, clientes fuera de plazo, quién reclama cada factura) · po-25 claro: entre las que encajaban, la menos reciente con fondo claro (po-24 y po-32 son navy y la grilla hubiera quedado toda navy)"
     }
   ],
   "temas_previos": [

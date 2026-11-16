@@ -165,6 +165,6 @@ Si el tema no tiene página propia: `mdo-consultores.com.ar/servicios` o `/conta
 | Sociedades | El socio que se quiere ir: si el contrato no lo prevé, discutir cuánto vale su parte frena a la empresa | desde el 17/01/2027 (se parece al 16/10) |
 | Sueldos | Lo que cuesta de verdad un empleado además del sueldo | desde el 12/12/2026 (se parece al 11/09) |
 | Sueldos | Lo que se paga «por afuera»: el riesgo que queda en cada reclamo o inspección | disponible |
-| Contabilidad y back office | Ventas que nadie cobra a tiempo: la empresa termina financiando a sus clientes | disponible |
+| Contabilidad y back office | Ventas que nadie cobra a tiempo: la empresa termina financiando a sus clientes | usado el 20/11/2026 |
 
 ❌ **Descartados**: venderle a una empresa grande o al Estado (Juan: «nunca tuve una consulta de ese tipo»); compra-venta de empresas y due diligence («no está en el core»); el recuento de stock con el auditor y la salvedad (Juan: «no es prioridad» para los clientes); caja chica y comparación de proveedores («es más de auditoría interna»); facturas de proveedores apócrifas («no pasa»).

@@ -1,0 +1,11 @@
+/* Clases de este film (historia del jueves 19/11/2026). */
+.co-iso { position:absolute; left:-330px; top:250px; width:1600px; opacity:.07 }
+.co-tag { font-size:40px; letter-spacing:.18em }
+.co-lbl { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:42px; line-height:1.15; color:var(--tinta) }
+.co-bar { position:absolute; background:var(--ground); transform-origin:50% 100% }
+.co-num { font-family:"OpenSans-300", var(--sans, system-ui, sans-serif); font-weight:300; font-size:150px; line-height:.9; letter-spacing:-0.04em; color:var(--tinta); font-variant-numeric:tabular-nums; white-space:nowrap }
+.co-item { font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:54px; line-height:1.15; color:var(--tinta) }
+.co-n { font-family:"Chivo-700", var(--mono, ui-monospace, monospace); font-weight:700; font-size:40px; letter-spacing:.12em; color:var(--suave) }
+/* Sobre el fondo claro, el segundo tono se oscurece para que se lea en el celular. */
+.ground.claro .line2 { color:color-mix(in srgb, var(--ground) 72%, var(--main)) }
+.co-sub { font-size:50px; line-height:1.2; font-weight:400; color:color-mix(in srgb, var(--ground) 78%, var(--second)) }

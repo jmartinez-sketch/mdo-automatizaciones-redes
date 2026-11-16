@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "stage": "final",
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "background": "#C8CCD4",
+  "look": "Fondo claro del design system con el isotipo grande; la cámara recorre una línea de tiempo que se dibuja, un gráfico de barras compara el tope de la ley con el aporte que sigue y los trazos subrayan lo que revisaría el estudio. Un solo acento: el azul noche.",
+  "scenes": [
+    { "id": "titulo", "name": "El titular", "dur": 3.4, "desc": "Comercio: el aporte solidario del 2,5 % sigue seis meses más." },
+    { "id": "linea", "name": "La causa en el tiempo", "dur": 6.6, "desc": "Una línea de tiempo se dibuja y la cámara la recorre: la cautelar de marzo, la prórroga de noviembre y la Cámara, que todavía tiene que resolver." },
+    { "id": "tope", "name": "El tope y el aporte", "dur": 6.4, "desc": "Dos barras: el tope del 2 % de la Ley 27.802 queda tachado para Comercio y el aporte solidario del 2,5 % sigue." },
+    { "id": "revisar", "name": "Lo que revisaríamos", "dur": 5.6, "desc": "Tres controles de la liquidación de noviembre que se subrayan uno por uno." },
+    { "id": "firma", "name": "Firma", "dur": 3.6, "desc": "El logo de MDO Consultores y el servicio: Liquidación de sueldos." }
+  ]
+}
