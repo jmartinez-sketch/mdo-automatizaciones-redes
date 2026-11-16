@@ -1,0 +1,239 @@
+{
+  "semana": 47,
+  "rango": "18 al 20 de noviembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 18/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "sq-01",
+      "imagenes": [
+        "posts/2026-11-18-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Multas formales · regularizar hasta el",
+          "NUMERO": "18",
+          "UNIDAD": "DIC",
+          "TITULAR_1": "La multa baja a la mitad",
+          "TITULAR_2": "para empresas MiPyME",
+          "CIERRE": "Si lo pendiente se presenta hasta esa fecha. RG 5927/2026 de ARCA."
+        }
+      ],
+      "nota": "Noticia: ARCA reglamentó la rebaja del 50% de las multas formales (RG 5927/2026) para empresas con Certificado MiPyME que cumplan lo pendiente hasta el 18/12. Placa de fecha grande sq-01: las cuatro de número estaban usadas en las últimas 4 semanas y es la menos reciente. El 26/08 salió el dictamen de la ley; esto es la reglamentación, con plazo.",
+      "info": {
+        "text": "ARCA reglamentó la rebaja del 50% de las multas formales para empresas MiPyME.\n\nCon la Resolución General 5927/2026, publicada en el Boletín Oficial el 12 de noviembre, ARCA puso en marcha la reducción que prevé la Ley 27.826 de Inocencia Fiscal. Alcanza a las multas por incumplir deberes formales, como presentar tarde una declaración jurada, de obligaciones vencidas desde el 2 de enero de 2026 e infracciones cometidas antes del 9 de octubre. La pueden usar las empresas con Certificado MiPyME vigente al momento de la infracción.\n\nQué implica en la práctica: si la empresa cumple lo pendiente hasta el 18 de diciembre de 2026, la multa se reduce a la mitad. No toca el impuesto ni los intereses: sólo la sanción. Antes de esa fecha, revisaríamos qué declaraciones juradas y regímenes de información de tu empresa quedaron sin presentar este año.\n\n—\n\nRevisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: ARCA · Resolución General 5927/2026\n\n#MDOConsultores #ARCA #MiPyME #Impuestos #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-18T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/14eef7eed74cf9cac59fd6d7fe75f3955a670858/posts/2026-11-18-2.png"
+        ],
+        "mediaAltText": [
+          "Multas formales: las empresas con Certificado MiPyME que presenten lo pendiente hasta el 18 de diciembre de 2026 pagan la mitad (Resolución General 5927/2026 de ARCA)."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 19/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram · historia (video)"
+      ],
+      "plantilla": "st-08c",
+      "imagenes": [
+        "posts/2026-11-19-3.png"
+      ],
+      "slots": [
+        {
+          "TITULAR_1": "Comercio:",
+          "TITULAR_2": "el aporte solidario del 2,5 %",
+          "TITULAR_3": "sigue seis meses más"
+        }
+      ],
+      "esStory": true,
+      "nota": "Historia en video (semana impar, Motion: cámara, trazos y gráfico, fondo claro): Comercio, la Justicia prorrogó seis meses la cautelar sobre los artículos 131 y 133 de la Ley 27.802 y el aporte solidario del 2,5% sigue. Placa de respaldo st-08c (nunca usada).",
+      "video": {
+        "archivo": "posts/2026-11-19-3.mp4",
+        "asset": "12267db90513a2da58fd63bab8f086ba",
+        "motion": {
+          "carpeta": "posts/2026-11-19-3-motion"
+        }
+      },
+      "info": {
+        "text": "",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-19T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/14eef7eed74cf9cac59fd6d7fe75f3955a670858/posts/2026-11-19-3.mp4"
+        ],
+        "mediaAltText": [
+          "Empleadores de Comercio: la Justicia prorrogó por seis meses la cautelar sobre los artículos 131 y 133 de la Ley 27.802, y el aporte solidario del 2,5 % se sigue reteniendo."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "STORY",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      }
+    },
+    {
+      "dia": "Jueves 19/11",
+      "hora": "9:00",
+      "redes": [
+        "LinkedIn"
+      ],
+      "plantilla": "li-01",
+      "imagenes": [
+        "posts/2026-11-19-3-li.png"
+      ],
+      "slots": [
+        {
+          "FECHA": "10.11.2026",
+          "TITULAR_1": "Empleadores de Comercio",
+          "TITULAR_2": "siguen con el aporte del 2,5 %",
+          "CIERRE": "La Justicia prorrogó seis meses la cautelar sobre los artículos 131 y 133 de la Ley 27.802."
+        }
+      ],
+      "nota": "Versión LinkedIn del jueves (LinkedIn no tiene historias): li-01 (nunca usada), con la fecha de la noticia y el texto sobre qué implica para la liquidación de sueldos de Comercio.",
+      "info": {
+        "text": "Empleadores de Comercio: el aporte solidario del 2,5% se sigue reteniendo, por ahora.\n\nLa Justicia Federal de San Martín prorrogó por seis meses la cautelar que suspende, para los convenios de FAECYS (entre ellos el CCT 130/75), los artículos 131 y 133 de la Ley 27.802 de Modernización Laboral. El 131 cambia la ultraactividad de los convenios; el 133 pone un tope del 2% a los aportes para los sindicatos. La apelación está en la Cámara.\n\nQué implica en la práctica: mientras siga la medida, una empresa de Comercio liquida los sueldos con el convenio como estaba y con el aporte solidario del 2,5%. Revisaríamos que la liquidación de noviembre lo aplique así y qué cambiaría si la Cámara resuelve otra cosa.\n\n—\n\nLiquidamos los sueldos de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/liquidacion-de-sueldos\n\nFuente: Errepar · Justicia Federal de San Martín\n\n#MDOConsultores #Laboral #EmpleadosDeComercio",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-19T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/14eef7eed74cf9cac59fd6d7fe75f3955a670858/posts/2026-11-19-3-li.png"
+        ],
+        "mediaAltText": [
+          "Empleadores de Comercio siguen con el aporte solidario del 2,5 %: la Justicia prorrogó seis meses la cautelar sobre los artículos 131 y 133 de la Ley 27.802."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 20/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-25",
+      "imagenes": [
+        "posts/2026-11-20-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Outsourcing administrativo",
+          "TITULAR_1": "Cada factura sin cobrar",
+          "TITULAR_2": "es plata que tu empresa",
+          "TITULAR_3": "le presta al cliente."
+        }
+      ],
+      "nota": "Contabilidad y back office (eje 1), tema del banco: ventas que nadie cobra a tiempo. po-25, fondo claro, para que la grilla no quede toda navy.",
+      "info": {
+        "text": "Cada factura que tu empresa no cobra a tiempo es plata que le presta a su cliente.\n\nPasa cuando las ventas se siguen de cerca y las cobranzas no: el plazo pactado vence, nadie reclama y la deuda envejece en la cuenta corriente del cliente. Mientras tanto, la empresa paga sueldos, proveedores e impuestos con su propia caja o con el descubierto del banco, y una parte de esas ventas termina siendo incobrable.\n\nLo que revisaríamos: el listado de cuentas a cobrar ordenado por antigüedad, qué clientes pagan fuera del plazo acordado y quién reclama cada factura el día que vence.\n\n—\n\nLlevamos la contabilidad y el back office de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/outsourcing-administrativo\n\n#MDOConsultores #GestiónPyME #Cobranzas #BackOffice #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-20T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/14eef7eed74cf9cac59fd6d7fe75f3955a670858/posts/2026-11-20-4.png"
+        ],
+        "mediaAltText": [
+          "Outsourcing administrativo: cada factura sin cobrar es plata que tu empresa le presta al cliente."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    }
+  ]
+}
