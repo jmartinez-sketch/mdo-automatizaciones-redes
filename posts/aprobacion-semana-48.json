@@ -1,0 +1,287 @@
+{
+  "semana": 48,
+  "rango": "25 al 28 de noviembre de 2026",
+  "blogId": "6267636",
+  "posts": [
+    {
+      "dia": "Miércoles 25/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "sq-03",
+      "imagenes": [
+        "posts/2026-11-25-2.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Ingresos Brutos · 1 de diciembre",
+          "NUMERO": "6",
+          "TITULAR_1": "provincias pasan las percepciones",
+          "TITULAR_2": "de Ingresos Brutos al SIRCIP",
+          "CIERRE": "Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego."
+        }
+      ],
+      "nota": "Noticia: desde el 1/12 seis provincias (Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego) pasan las percepciones de Ingresos Brutos al SIRCIP de la Comisión Arbitral; la Disp. CA 13/2026 (BO 20/11) postergó a Mendoza. Placa de cifra sq-03 («6»): las cuatro de número estaban usadas en las últimas 4 semanas y es la menos reciente; además el jueves es el carrusel navy y el miércoles no podía ser texto sobre navy.",
+      "info": {
+        "text": "Desde el 1 de diciembre, seis provincias pasan las percepciones de Ingresos Brutos al SIRCIP.\n\nEl SIRCIP es el sistema de la Comisión Arbitral del Convenio Multilateral para las percepciones de Ingresos Brutos (Resolución General CA 9/2025). Arranca el 1 de diciembre de 2026 en Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego. Mendoza estaba en la lista, pero la Disposición CA 13/2026, publicada el 20 de noviembre, postergó su ingreso.\n\nQué implica en la práctica: si tu empresa es agente de percepción en alguna de esas provincias, puede tener que declarar y pagar en el SIRCIP las percepciones que haga desde diciembre, según cómo incorpore cada provincia a sus agentes. Si es una empresa de Convenio Multilateral a la que le perciben, esas percepciones se informan en el sistema y se toman en la declaración jurada del SIFERE. Revisaríamos que aparezcan todas: la que no se computa puede terminar pagándose dos veces.\n\n—\n\nRevisamos cómo liquida Ingresos Brutos tu empresa. Escribinos: mdo-consultores.com.ar/servicios/analisis-ingresos-brutos\n\nFuente: Comisión Arbitral · Disposiciones CA 12/2026 y 13/2026\n\n#MDOConsultores #IngresosBrutos #ConvenioMultilateral #Impuestos #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-25T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-25-2.png"
+        ],
+        "mediaAltText": [
+          "Ingresos Brutos: desde el 1 de diciembre de 2026, seis provincias (Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego) pasan las percepciones al SIRCIP de la Comisión Arbitral."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Jueves 26/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "cb-cover cb-tip1 cb-tip2 cb-tip3",
+      "plantillas": [
+        "cb-cover",
+        "cb-tip1",
+        "cb-tip2",
+        "cb-tip3"
+      ],
+      "imagenes": [
+        "posts/2026-11-26-3-cover.png",
+        "posts/2026-11-26-3-s1.png",
+        "posts/2026-11-26-3-s2.png",
+        "posts/2026-11-26-3-s3.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Laboral · Cámara del Trabajo",
+          "TITULAR_1": "Indemnización en cuotas:",
+          "TITULAR_2": "la Justicia la frenó",
+          "BAJADA": "La Sala II de la Cámara del Trabajo ordenó a una empresa dejar de pagar en cuotas un despido sin causa.",
+          "DESTACADO": "Deslizá"
+        },
+        {
+          "VOLANTA": "1 de 3",
+          "TITULAR_1": "Qué pasó",
+          "TITULAR_2": "con el despido.",
+          "ITEM_1": "La empresa despidió sin causa y empezó a pagar la indemnización en cuotas, por su cuenta, invocando la reforma laboral (Ley 27.802). La Sala II revocó lo resuelto en primera instancia y le ordenó no seguir así.",
+          "DESTACADO": "Es una medida cautelar: el juicio sigue."
+        },
+        {
+          "VOLANTA": "2 de 3",
+          "TITULAR_1": "Las cuotas, sólo",
+          "TITULAR_2": "para las condenas judiciales.",
+          "ITEM_1": "Para los camaristas, la reforma cambió el artículo 277 de la Ley de Contrato de Trabajo para que se pueda cumplir en cuotas una sentencia que condena a pagar, no la indemnización de un despido directo.",
+          "DESTACADO": "Es el criterio de la Sala II."
+        },
+        {
+          "VOLANTA": "3 de 3",
+          "TITULAR_1": "Qué implica",
+          "TITULAR_2": "para tu empresa.",
+          "ITEM_1": "Mientras se sostenga este criterio, el despido sin causa se paga completo. Antes de decidirlo, revisaríamos la liquidación final y la caja para pagarla a tiempo.",
+          "DESTACADO": "Liquidamos los sueldos de tu empresa."
+        }
+      ],
+      "nota": "Carrusel (ciclo 48%4=0) · Laboral: la Sala II de la Cámara del Trabajo frenó en una cautelar el pago en cuotas de la indemnización de un despido sin causa; para la Sala, la Ley 27.802 permite cuotas sólo para las condenas judiciales.",
+      "info": {
+        "text": "La Justicia frenó el pago en cuotas de una indemnización por despido.\n\nLa Sala II de la Cámara Nacional de Apelaciones del Trabajo ordenó a una empresa que deje de pagar en cuotas la indemnización de un despido sin causa. La empresa las había aplicado por su cuenta, invocando la reforma laboral (Ley 27.802). Para los camaristas, la reforma permite cumplir en cuotas una condena judicial, no el pago de un despido directo. Es una medida cautelar y el juicio sigue.\n\nQué implica en la práctica: mientras se sostenga este criterio, una empresa que despide sin causa paga la liquidación final completa. Antes de decidir un despido, revisaríamos la liquidación final y la caja para pagarla a tiempo.\n\n—\n\nLiquidamos los sueldos de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/liquidacion-de-sueldos\n\nFuente: Errepar · Cámara Nacional de Apelaciones del Trabajo, Sala II\n\n#MDOConsultores #Laboral #ReformaLaboral #Empleadores #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-26T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-cover.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s1.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s2.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s3.png"
+        ],
+        "mediaAltText": [
+          "Indemnización en cuotas: la Sala II de la Cámara Nacional de Apelaciones del Trabajo ordenó a una empresa dejar de pagar en cuotas un despido sin causa.",
+          "Qué pasó: la empresa empezó a pagar la indemnización en cuotas por su cuenta, invocando la Ley 27.802, y la Sala II le ordenó no seguir así, en una medida cautelar.",
+          "Para la Sala II, la reforma permite cumplir en cuotas sólo una sentencia que condena a pagar (artículo 277 de la Ley de Contrato de Trabajo), no la indemnización de un despido directo.",
+          "Qué implica para tu empresa: mientras se sostenga este criterio, el despido sin causa se paga completo; antes de decidirlo, revisaríamos la liquidación final y la caja."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Viernes 27/11",
+      "hora": "9:00",
+      "redes": [
+        "Instagram",
+        "LinkedIn"
+      ],
+      "plantilla": "po-24",
+      "imagenes": [
+        "posts/2026-11-27-4.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Servicios societarios",
+          "TITULAR_1": "La sociedad que nadie usa",
+          "TITULAR_2": "sigue sumando vencimientos.",
+          "ITEM_1": "Declaraciones juradas, aunque sean en cero.",
+          "ITEM_2": "Ingresos Brutos, si sigue inscripta.",
+          "ITEM_3": "Intimaciones de ARCA que nadie revisa.",
+          "CIERRE": "Revisaríamos si conviene ponerla al día o cerrarla."
+        }
+      ],
+      "nota": "Societario (eje 2): la sociedad que nadie usa y nadie cerró sigue sumando vencimientos. Tema fuera del banco (Sociedades no tenía temas disponibles). Reel en Motion (foto + ventana + cortina) con po-24 de respaldo.",
+      "video": {
+        "archivo": "posts/2026-11-27-4.mp4",
+        "asset": "0885f634e49bd6b04f137edf1010b330",
+        "motion": {
+          "carpeta": "posts/2026-11-27-4-motion"
+        }
+      },
+      "info": {
+        "text": "La sociedad que nadie usa sigue sumando vencimientos.\n\nPasa con la sociedad que se armó para un proyecto que no arrancó, o con la que quedó vacía cuando el negocio pasó a otra empresa del grupo. No factura, pero sigue inscripta: cada período vence una declaración jurada, aunque sea en cero, y si quedó dada de alta en Ingresos Brutos, también ahí. Lo que no se presenta puede generar multas, y las intimaciones llegan a un domicilio fiscal electrónico que nadie revisa. El día que se la quiere usar o cerrar, aparece todo junto.\n\nLo que revisaríamos: qué impuestos siguen dados de alta, qué declaraciones juradas y balances faltan, y si conviene ponerla al día para usarla o cerrarla.\n\n—\n\nPonemos al día tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/societario-igj\n\n#MDOConsultores #GestiónPyME #Sociedades #IGJ #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          },
+          {
+            "network": "linkedin"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-27T09:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-27-4.mp4"
+        ],
+        "mediaAltText": [
+          "Servicios societarios: la sociedad que nadie usa sigue sumando vencimientos: declaraciones juradas aunque sean en cero, Ingresos Brutos si sigue inscripta e intimaciones de ARCA que nadie revisa."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "REEL",
+          "showReelOnFeed": true,
+          "collaborators": [],
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-27-4-portada.png"
+        },
+        "linkedinData": {
+          "type": "post",
+          "previewIncluded": true
+        }
+      }
+    },
+    {
+      "dia": "Sábado 28/11",
+      "hora": "11:00",
+      "redes": [
+        "Instagram"
+      ],
+      "plantilla": "sv-02",
+      "imagenes": [
+        "posts/2026-11-28-5.png"
+      ],
+      "slots": [
+        {
+          "VOLANTA": "Servicios",
+          "TITULAR_1": "Un solo gerente, sin suplente",
+          "BAJADA": "Si el único gerente no puede firmar, la sociedad no opera con el banco ni firma contratos."
+        }
+      ],
+      "nota": "Servicios societarios (mismo eje que el viernes): un solo gerente y ningún suplente. sv-02, la menos reciente de las de un solo problema. Sólo Instagram.",
+      "info": {
+        "text": "Si el único gerente de tu sociedad no puede firmar, la empresa se frena.\n\nPasa en muchas SRL: un solo gerente, ningún suplente y nadie más con poder para operar. Si ese gerente se enferma o deja el cargo, nadie puede firmar con el banco, cerrar un contrato ni presentar un trámite a nombre de la sociedad hasta que los socios designen a otro y la designación quede inscripta.\n\nEn los servicios societarios revisamos quién representa a tu sociedad, si conviene designar un gerente suplente o dar poderes, y dejamos todo inscripto antes de que haga falta.\n\n—\n\nPonemos al día tu sociedad. Escribinos: mdo-consultores.com.ar/servicios/societario-igj\n\n#MDOConsultores #Sociedades #IGJ #Empresas",
+        "draft": true,
+        "autoPublish": false,
+        "providers": [
+          {
+            "network": "instagram"
+          }
+        ],
+        "publicationDate": {
+          "dateTime": "2026-11-28T11:00:00",
+          "timezone": "America/Argentina/Buenos_Aires"
+        },
+        "media": [
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-28-5.png"
+        ],
+        "mediaAltText": [
+          "Servicios societarios: un solo gerente, sin suplente. Si el único gerente no puede firmar, la sociedad no opera con el banco ni firma contratos."
+        ],
+        "shortener": false,
+        "smartLinkData": {
+          "ids": []
+        },
+        "firstCommentText": "",
+        "hasNotReadNotes": false,
+        "descendants": [],
+        "instagramData": {
+          "type": "POST",
+          "showReelOnFeed": true,
+          "collaborators": []
+        }
+      }
+    }
+  ]
+}
