@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "stage": "final",
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "background": "#06162D",
+  "look": "Una foto de edificios del banco del design system, tratada en gris bajo el velo azul noche, abre con el titular; una cortina de papel deja ver el fondo claro, donde una ventana de sistema se completa campo por campo con lo que la sociedad sin actividad sigue debiendo, y otra cortina azul pasa a lo que revisaría el estudio. Colores y letras del design system MDO, un solo acento.",
+  "scenes": [
+    { "id": "titulo", "name": "El titular", "dur": 3.8, "desc": "La sociedad que nadie usa sigue sumando vencimientos: el titular sobre la foto de edificios, que se acerca apenas; una banda de papel barre la pantalla y deja el fondo claro." },
+    { "id": "ventana", "name": "La ventana de la sociedad", "dur": 7.0, "desc": "Una ventana de sistema, «Sociedad sin actividad», se completa fila por fila: facturación sin movimientos, declaraciones juradas que vencen igual, Ingresos Brutos que sigue inscripta y notificaciones de ARCA sin revisar." },
+    { "id": "multas", "name": "Lo que se acumula", "dur": 5.6, "desc": "Las notificaciones suben y debajo llegan los avisos sin abrir: intimación, intimación, multa. Lo que no se presenta puede generar multas. Una cortina azul barre la pantalla." },
+    { "id": "revisar", "name": "Lo que revisaríamos", "dur": 6.6, "desc": "Sobre el azul noche, cada control del estudio aparece detrás de una banda de papel que lo destapa: qué impuestos siguen activos, qué falta presentar y si conviene ponerla al día o cerrarla." },
+    { "id": "firma", "name": "Firma", "dur": 3.6, "desc": "El logo de MDO Consultores y el servicio: Servicios societarios." }
+  ]
+}

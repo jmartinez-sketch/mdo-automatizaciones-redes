@@ -534,6 +534,46 @@
       "formato": "imagen",
       "video": null,
       "nota": "Contabilidad y back office (eje 1) · banco de temas: ventas que nadie cobra a tiempo, la empresa financia a sus clientes con su caja o con descubierto (cuentas a cobrar por antigüedad, clientes fuera de plazo, quién reclama cada factura) · po-25 claro: entre las que encajaban, la menos reciente con fondo claro (po-24 y po-32 son navy y la grilla hubiera quedado toda navy)"
+    },
+    {
+      "fecha": "2026-11-25",
+      "semana_iso": 48,
+      "slot": "noticia",
+      "template": "sq-03",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "SIRCIP de la Comisión Arbitral: desde el 1/12/2026 seis provincias (Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego) pasan las percepciones de Ingresos Brutos al SIRCIP (RG CA 9/2025; Disp. CA 12/2026; la Disp. CA 13/2026, BO 20/11, postergó a Mendoza); agentes de percepción de esas provincias y cómputo en el SIFERE · placa de cifra sq-03 («6»): las cuatro de número (nv-10, nv-06, sq-01, sq-03) estaban bloqueadas, pool agotado → la menos reciente; el jueves es el carrusel navy, así que el miércoles no podía ser texto sobre navy · descartadas: Pago Electrónico COMARB y SIRCUPA (medios de pago, lección 13), RG 5866 (bancos que facturan préstamos desde diciembre: etapa de una norma de junio), feriados de fin de año (recordatorio), amparo por mora por una devolución (un caso), plan de pagos y multas MiPyME (ya publicados) · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-11-26",
+      "semana_iso": 48,
+      "slot": "jueves",
+      "template": "cb-cover+cb-tip1+cb-tip2+cb-tip3",
+      "linkedin": null,
+      "formato": "carrusel",
+      "video": null,
+      "nota": "Carrusel · Laboral: la Sala II de la Cámara Nacional de Apelaciones del Trabajo frenó en una cautelar el pago en cuotas de la indemnización de un despido sin causa que la empresa aplicó por su cuenta invocando la reforma laboral (Ley 27.802); para la Sala, el nuevo art. 277 de la LCT permite cuotas sólo para condenas judiciales · ciclo 48%4=0 (el jueves lo define el ciclo, como en la semana 44) · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-11-27",
+      "semana_iso": 48,
+      "slot": "gestion",
+      "template": "po-24",
+      "linkedin": null,
+      "formato": "video",
+      "video": "motion · foto+ventana+cortina",
+      "nota": "Societario (eje 2) · la sociedad que nadie usa y nadie cerró sigue sumando vencimientos: declaraciones juradas aunque sean en cero, Ingresos Brutos si sigue inscripta, intimaciones de ARCA en un domicilio fiscal electrónico que nadie revisa; revisaríamos qué impuestos siguen activos, qué falta presentar y si conviene ponerla al día o cerrarla · tema fuera del banco: Sociedades no tenía temas disponibles (el socio que se quiere ir, desde el 17/01/2027) · Reel en Motion (foto de edificios del banco, ventana de sistema que se completa campo por campo, cortinas de papel y azul; los tres recursos sin usar en las últimas 4 semanas) con po-24 de respaldo · bloqueadas por placa: po-22, po-25, po-34, po-35/po-30, sq-03, nv-10 · un solo post IG+LinkedIn"
+    },
+    {
+      "fecha": "2026-11-28",
+      "semana_iso": 48,
+      "slot": "spotlight",
+      "template": "sv-02",
+      "linkedin": null,
+      "formato": "imagen",
+      "video": null,
+      "nota": "Servicios societarios · un solo gerente y ningún suplente: si no puede firmar, la sociedad no opera con el banco ni firma contratos (problema + servicio) · sv-02, la menos reciente de las de un solo problema (sv-01/po-16/sv-04/mn-04, sv-06 y po-25 bloqueadas; sv-08 usada el 17/10) · solo Instagram"
     }
   ],
   "temas_previos": [

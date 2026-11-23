@@ -1,0 +1,29 @@
+/* Clases de este film (Reel del viernes 27/11/2026, «La sociedad que nadie usa»). */
+.ve-foto { position:absolute; inset:0; background-size:cover; background-position:30% 50%; filter:grayscale(1) contrast(1.08) brightness(.9); transform-origin:50% 35% }
+.ve-velo { position:absolute; inset:0; background:linear-gradient(to top, color-mix(in srgb, var(--ground) 96%, transparent) 0%, color-mix(in srgb, var(--ground) 88%, transparent) 46%, color-mix(in srgb, var(--ground) 38%, transparent) 100%) }
+.ve-iso { position:absolute; left:-330px; top:250px; width:1600px; opacity:.07 }
+/* La cortina: una banda que barre la pantalla. Sobre el azul es de papel; sobre el claro, azul. */
+.ve-banda { position:absolute; left:0; top:0; width:160px; height:1920px; background:var(--second); opacity:0 }
+.ve-banda.oscura { background:color-mix(in srgb, var(--ground) 82%, var(--second)) }
+/* La ventana del sistema: barra azul noche, cuerpo de papel, esquinas rectas. */
+.ve-win { position:absolute; left:90px; top:528px; width:900px; background:var(--second); color:var(--ground); box-shadow:0 30px 60px rgba(6,22,45,.22) }
+.ve-bar { height:104px; box-sizing:border-box; padding:0 44px; display:flex; align-items:center; justify-content:space-between; background:var(--ground) }
+.ve-tit { margin:0; font-size:40px; letter-spacing:.14em; color:var(--second) }
+.ve-ctl { display:flex; gap:12px }
+.ve-ctl i { display:block; width:18px; height:18px; border:3px solid color-mix(in srgb, var(--second) 55%, transparent) }
+.ve-body { position:relative; height:760px }
+.ve-fila, .ve-aviso { position:absolute; left:48px; right:48px; height:178px; box-sizing:border-box; border-top:2px solid color-mix(in srgb, var(--ground) 12%, var(--second)) }
+.ve-fila { padding-top:26px }
+.ve-fila.primera { border-top-color:transparent }
+.ve-lbl { margin:0; font-family:"OpenSans-400", var(--sans, system-ui, sans-serif); font-weight:400; font-size:42px; line-height:1.2; color:color-mix(in srgb, var(--ground) 62%, var(--second)) }
+.ve-val { margin:8px 0 0; font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:62px; line-height:1.1; color:var(--ground); white-space:nowrap }
+.ve-caret { display:inline-block; width:5px; height:54px; margin-left:8px; vertical-align:-8px; background:var(--ground); opacity:0 }
+.ve-aviso { display:flex; align-items:center; gap:30px }
+.ve-aviso i { display:block; width:26px; height:26px; background:var(--ground) }
+.ve-aviso p { margin:0; font-family:"OpenSans-700", var(--sans, system-ui, sans-serif); font-weight:700; font-size:62px; line-height:1.1; color:var(--ground) }
+/* Lo que revisaríamos: cada renglón lo destapa una banda de papel. */
+.ve-it { position:relative; align-self:flex-start }
+.ve-it-b { position:absolute; inset:-8px -16px; background:var(--second); transform:scaleX(0) }
+.ve-it > p { margin:0; opacity:0 }
+/* Sobre el fondo claro, el segundo tono se oscurece para que se lea en el celular. */
+.ground.claro .line2 { color:color-mix(in srgb, var(--ground) 72%, var(--main)) }
