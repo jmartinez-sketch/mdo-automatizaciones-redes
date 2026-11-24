@@ -126,6 +126,18 @@
       "tema": "voz",
       "regla": "Placas y primeras líneas en lenguaje llano: quién hace qué, en orden directo («La empresa factura una cosa y está inscripta en otra»). Nada de construcciones que obliguen a releer («ya no factura lo que tiene inscripto»), aunque sean correctas. Está en la guía de voz 1.1 desde el 11/11/2026 («Lenguaje a evitar», 8, y «Ejemplos»), con el ok de Juan.",
       "origen": "Juan, 10/11/2026, al regenerar el sábado 14/11: «no se entiende el mensaje, fijate si podés reformularlo»."
+    },
+    {
+      "desde": "2026-11-24",
+      "tema": "contenido",
+      "regla": "Menos sueldos: el eje laboral salió de la rotación del viernes (quedan Ingresos Brutos, contabilidad, sociedades, IVA/MiPyME y auditoría) y una novedad laboral va sólo si es claramente la más importante de la semana, como máximo una pieza cada 4 semanas. Entre una laboral y otra de peso parecido, gana la otra. El foco va en los otros servicios.",
+      "origen": "Juan, 24/11/2026: «quiero q disminuzcas las publucaciones sobre cosas vincualdas a sueldos etc enfocate enl os otros sevicios». Venían seguidas: F.U.T.U.R.O. (11/11), Comercio (19/11) y el carrusel de las cuotas (26/11), que cambió."
+    },
+    {
+      "desde": "2026-11-24",
+      "tema": "contenido",
+      "regla": "Más noticias: el jueves es siempre noticia. En el ciclo 2 va una segunda noticia en el feed (placa del pool del miércoles, distinta de la de ese día); la placa institucional queda sólo si no hay ninguna noticia que valga.",
+      "origen": "Juan, 24/11/2026: «quiero que te enfoques más en noticias»; entre las opciones, eligió «Jueves siempre noticia» (viernes y sábado siguen con los temas del banco)."
     }
   ],
   "decisiones": [
@@ -352,6 +364,27 @@
       "pieza": "Semana 47: miércoles 18/11 (sq-01), jueves 19/11 (historia en video + LinkedIn li-01) y viernes 20/11 (po-25)",
       "decision": "publicado",
       "motivo": "Salieron todos (Instagram y LinkedIn; el jueves, la historia en video en Instagram y la horizontal en LinkedIn). Ninguno se borró en Metricool (revisado el 23/11)."
+    },
+    {
+      "fecha": "2026-11-24",
+      "semana": 48,
+      "pieza": "Miércoles 25/11 (SIRCIP en seis provincias, sq-03), viernes 27/11 (Reel en Motion «La sociedad que nadie usa sigue sumando vencimientos», po-24) y sábado 28/11 (un solo gerente y ningún suplente, sv-02)",
+      "decision": "aprobado",
+      "motivo": "Los aprobó en el panel el 24/11 sin cambios; quedaron en Metricool programados (el viernes, como Reel con el video)."
+    },
+    {
+      "fecha": "2026-11-24",
+      "semana": 48,
+      "pieza": "Jueves 26/11 · carrusel laboral «Indemnización en cuotas: la Justicia la frenó» (cb-*)",
+      "decision": "regenerado",
+      "motivo": "Pedido en el panel: «usa otro tema». La versión que armó el panel («Recibos que nadie firmó: el legajo no alcanza») seguía siendo de sueldos; después, en el chat, Juan pidió «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios» y «quiero que te enfoques más en noticias», y eligió reemplazarlo por la noticia de la devolución trabada en ARCA (amparo por mora), que quedó en el panel para aprobar."
+    },
+    {
+      "fecha": "2026-11-24",
+      "semana": 48,
+      "pieza": "Banco de temas de Sociedades (préstamos y facturas entre empresas del mismo dueño; autoridades con el mandato vencido; plata de los socios que nunca se pasó a capital)",
+      "decision": "aprobado",
+      "motivo": "Juan: «si, sumalos al banco»."
     }
   ]
 }

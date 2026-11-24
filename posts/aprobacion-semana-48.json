@@ -41,7 +41,7 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-25-2.png"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-25-2.png"
         ],
         "mediaAltText": [
           "Ingresos Brutos: desde el 1 de diciembre de 2026, seis provincias (Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego) pasan las percepciones al SIRCIP de la Comisión Arbitral."
@@ -86,37 +86,37 @@
       ],
       "slots": [
         {
-          "VOLANTA": "Laboral · Cámara del Trabajo",
-          "TITULAR_1": "Indemnización en cuotas:",
-          "TITULAR_2": "la Justicia la frenó",
-          "BAJADA": "La Sala II de la Cámara del Trabajo ordenó a una empresa dejar de pagar en cuotas un despido sin causa.",
+          "VOLANTA": "Impuestos · Devoluciones",
+          "TITULAR_1": "Devolución trabada:",
+          "TITULAR_2": "la Justicia le puso plazo a ARCA",
+          "BAJADA": "La Cámara le ordenó resolver en 20 días un pedido de devolución que no respondía.",
           "DESTACADO": "Deslizá"
         },
         {
           "VOLANTA": "1 de 3",
           "TITULAR_1": "Qué pasó",
-          "TITULAR_2": "con el despido.",
-          "ITEM_1": "La empresa despidió sin causa y empezó a pagar la indemnización en cuotas, por su cuenta, invocando la reforma laboral (Ley 27.802). La Sala II revocó lo resuelto en primera instancia y le ordenó no seguir así.",
-          "DESTACADO": "Es una medida cautelar: el juicio sigue."
+          "TITULAR_2": "con el pedido.",
+          "ITEM_1": "Un contribuyente pidió una devolución millonaria y ARCA no la resolvía. Reclamó con un amparo por mora: el Tribunal Fiscal lo rechazó y la Sala II de la Cámara Contencioso Administrativo Federal revocó ese rechazo.",
+          "DESTACADO": "ARCA tiene 20 días para resolver."
         },
         {
           "VOLANTA": "2 de 3",
-          "TITULAR_1": "Las cuotas, sólo",
-          "TITULAR_2": "para las condenas judiciales.",
-          "ITEM_1": "Para los camaristas, la reforma cambió el artículo 277 de la Ley de Contrato de Trabajo para que se pueda cumplir en cuotas una sentencia que condena a pagar, no la indemnización de un despido directo.",
-          "DESTACADO": "Es el criterio de la Sala II."
+          "TITULAR_1": "La demora",
+          "TITULAR_2": "no se justifica.",
+          "ITEM_1": "Para la Cámara, el tiempo sin respuesta fue irrazonable. Los pases del expediente entre áreas de ARCA, el volumen de la documentación y el monto no alcanzan para explicarlo.",
+          "DESTACADO": "La orden es resolver, no pagar."
         },
         {
           "VOLANTA": "3 de 3",
           "TITULAR_1": "Qué implica",
           "TITULAR_2": "para tu empresa.",
-          "ITEM_1": "Mientras se sostenga este criterio, el despido sin causa se paga completo. Antes de decidirlo, revisaríamos la liquidación final y la caja para pagarla a tiempo.",
-          "DESTACADO": "Liquidamos los sueldos de tu empresa."
+          "ITEM_1": "Un pedido de devolución sin respuesta es plata que la empresa ya pagó y no puede usar. Revisaríamos el expediente, el tiempo que pasó y si corresponde reclamar la demora.",
+          "DESTACADO": "Seguimos cada pedido ante ARCA."
         }
       ],
-      "nota": "Carrusel (ciclo 48%4=0) · Laboral: la Sala II de la Cámara del Trabajo frenó en una cautelar el pago en cuotas de la indemnización de un despido sin causa; para la Sala, la Ley 27.802 permite cuotas sólo para las condenas judiciales.",
+      "nota": "Carrusel (ciclo 48%4=0) · Impuestos: la Sala II de la Cámara Contencioso Administrativo Federal le ordenó a ARCA resolver en 20 días un pedido de devolución trabado (amparo por mora). Reemplaza al carrusel laboral de la indemnización en cuotas, a pedido de Juan (24/11: menos sueldos, más noticias).",
       "info": {
-        "text": "La Justicia frenó el pago en cuotas de una indemnización por despido.\n\nLa Sala II de la Cámara Nacional de Apelaciones del Trabajo ordenó a una empresa que deje de pagar en cuotas la indemnización de un despido sin causa. La empresa las había aplicado por su cuenta, invocando la reforma laboral (Ley 27.802). Para los camaristas, la reforma permite cumplir en cuotas una condena judicial, no el pago de un despido directo. Es una medida cautelar y el juicio sigue.\n\nQué implica en la práctica: mientras se sostenga este criterio, una empresa que despide sin causa paga la liquidación final completa. Antes de decidir un despido, revisaríamos la liquidación final y la caja para pagarla a tiempo.\n\n—\n\nLiquidamos los sueldos de tu empresa. Escribinos: mdo-consultores.com.ar/servicios/liquidacion-de-sueldos\n\nFuente: Errepar · Cámara Nacional de Apelaciones del Trabajo, Sala II\n\n#MDOConsultores #Laboral #ReformaLaboral #Empleadores #Empresas",
+        "text": "La Justicia le ordenó a ARCA resolver en 20 días un pedido de devolución trabado.\n\nLa Sala II de la Cámara Nacional de Apelaciones en lo Contencioso Administrativo Federal revocó un fallo del Tribunal Fiscal y le ordenó a ARCA resolver en 20 días un pedido de devolución millonario que no respondía. El contribuyente había reclamado con un amparo por mora. Para los camaristas, la demora fue irrazonable: ni los pases del expediente entre áreas ni el volumen de la documentación la justifican. La orden obliga a resolver, no a pagar: ARCA decide si la devolución corresponde.\n\nQué implica en la práctica: un pedido de devolución o un saldo a favor sin respuesta es plata que la empresa ya pagó y no puede usar. Revisaríamos el expediente, el tiempo que pasó y si corresponde reclamar la demora.\n\n—\n\nAsesoramos a tu empresa en impuestos nacionales. Escribinos: mdo-consultores.com.ar/servicios/impuestos-nacionales\n\nFuente: Errepar · Cámara Contencioso Administrativo Federal, Sala II\n\n#MDOConsultores #ARCA #Impuestos #Devoluciones #Empresas",
         "draft": true,
         "autoPublish": false,
         "providers": [
@@ -132,16 +132,16 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-cover.png",
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s1.png",
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s2.png",
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-26-3-s3.png"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-26-3-cover.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-26-3-s1.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-26-3-s2.png",
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-26-3-s3.png"
         ],
         "mediaAltText": [
-          "Indemnización en cuotas: la Sala II de la Cámara Nacional de Apelaciones del Trabajo ordenó a una empresa dejar de pagar en cuotas un despido sin causa.",
-          "Qué pasó: la empresa empezó a pagar la indemnización en cuotas por su cuenta, invocando la Ley 27.802, y la Sala II le ordenó no seguir así, en una medida cautelar.",
-          "Para la Sala II, la reforma permite cumplir en cuotas sólo una sentencia que condena a pagar (artículo 277 de la Ley de Contrato de Trabajo), no la indemnización de un despido directo.",
-          "Qué implica para tu empresa: mientras se sostenga este criterio, el despido sin causa se paga completo; antes de decidirlo, revisaríamos la liquidación final y la caja."
+          "Devolución trabada: la Cámara Contencioso Administrativo Federal le ordenó a ARCA resolver en 20 días un pedido de devolución que no respondía.",
+          "Qué pasó: un contribuyente reclamó con un amparo por mora; el Tribunal Fiscal lo rechazó y la Sala II de la Cámara revocó ese rechazo. ARCA tiene 20 días para resolver.",
+          "Para la Cámara, la demora fue irrazonable: los pases del expediente entre áreas, el volumen de la documentación y el monto no la justifican. Resolver no es pagar.",
+          "Qué implica para tu empresa: un pedido de devolución sin respuesta es plata que ya pagó y no puede usar; revisaríamos el expediente y si corresponde reclamar la demora."
         ],
         "shortener": false,
         "smartLinkData": {
@@ -208,7 +208,7 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-27-4.mp4"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-27-4.mp4"
         ],
         "mediaAltText": [
           "Servicios societarios: la sociedad que nadie usa sigue sumando vencimientos: declaraciones juradas aunque sean en cero, Ingresos Brutos si sigue inscripta e intimaciones de ARCA que nadie revisa."
@@ -224,7 +224,7 @@
           "type": "REEL",
           "showReelOnFeed": true,
           "collaborators": [],
-          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-27-4-portada.png"
+          "videoThumbnailUrl": "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-27-4-portada.png"
         },
         "linkedinData": {
           "type": "post",
@@ -264,7 +264,7 @@
           "timezone": "America/Argentina/Buenos_Aires"
         },
         "media": [
-          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/e2568955b8bc6ea1f6ac75160062722a452318e0/posts/2026-11-28-5.png"
+          "https://raw.githubusercontent.com/jmartinez-sketch/mdo-automatizaciones-redes/3f83b34228dacd32c885bfa4261fbda001cbba3b/posts/2026-11-28-5.png"
         ],
         "mediaAltText": [
           "Servicios societarios: un solo gerente, sin suplente. Si el único gerente no puede firmar, la sociedad no opera con el banco ni firma contratos."

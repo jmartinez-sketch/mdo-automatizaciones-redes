@@ -81,13 +81,14 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 - **Todo para empresas**, con un problema de plata o de riesgo concreto en la primera línea, contado por el estudio que lo resuelve. Nunca tutoriales de "hacelo vos".
 - **Nunca invitar a llamar** (WhatsApp, correo o web; ❌ 📞). Datos en condicional; Ingresos Brutos es "el fisco".
 - **Cada post cierra con la página de su servicio** (tabla de la sección 5 del archivo).
-- **Ejes, por peso comercial**: Ingresos Brutos · IVA/MiPyME/planificación · Sociedades · Auditoría de estados contables · Empleadores · Contabilidad y back office. Mientras duren las campañas de Meta (hasta el 24/10/2026), primero los dos de impuestos.
+- **Ejes, por peso comercial**: Ingresos Brutos · IVA/MiPyME/planificación · Sociedades · Auditoría de estados contables · Contabilidad y back office. **Empleadores (sueldos) quedó en pausa el 24/11/2026** (Juan: «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios»): sale de la rotación del viernes y una noticia laboral va sólo si es claramente la más importante (paso 2).
+- **Más noticias** (Juan, 24/11/2026: «quiero que te enfoques más en noticias»): el jueves es siempre noticia (paso 3b).
 
 ⚠️ **REGLA DURA — ARCA, nunca AFIP**: el organismo recaudador hoy se llama **ARCA** (Agencia de Recaudación y Control Aduanero). Usar SIEMPRE "ARCA" en títulos, copys, imágenes y hashtags. ❌ Nunca escribir "AFIP", aunque la fuente lo diga — traducirlo a "ARCA".
 
 ## Output esperado
 
-**4 posts por semana en el panel de aprobación** (5 solo cuando la semana ISO cae en `%4==2`, que junta story del jueves con spotlight del sábado), para la cuenta IG+LinkedIn de **MDO Consultores** (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
+**4 posts por semana en el panel de aprobación** (hasta el 24/11/2026 eran 5 cuando la semana ISO caía en `%4==2`, que juntaba la historia del jueves con el sábado; desde entonces el jueves de esas semanas va en el feed), para la cuenta IG+LinkedIn de **MDO Consultores** (`blogId: 6267636`, timezone `America/Argentina/Buenos_Aires`).
 
 **Cada draft lleva Instagram y LinkedIn juntos**, salvo el jueves de story — ver la regla dura del paso 6.
 
@@ -97,11 +98,11 @@ Al elegir plantilla dentro de cada pool, **preferir la variante cuyo fondo coinc
 |---|---|---|---|---|---|---|
 | ~~1~~ | **Lunes** | **NO se publica** — solo corre la rutina | — | — | — | — |
 | 2 | Miércoles 9hs | Noticia de la semana | `po-13d` (ancla) | comparte la vertical | Gmail newsletter | nunca |
-| 3 | Jueves 9hs    | Historia, carrusel o institucional — **ciclo de 4** (*) | según ciclo | `li-01` / `li-02` / `li-03` (solo si es historia) | Noticias de la semana | **semanas impares** (la historia) |
+| 3 | Jueves 9hs    | Siempre noticia: carrusel, historia en video o segunda noticia en el feed — **ciclo de 4** (*) | según ciclo | `li-01` / `li-02` / `li-03` (solo si es historia) | Noticias de la semana | **semanas impares** (la historia) |
 | 4 | Viernes 9hs   | Gestión PyME (foco en un servicio) | mapa del kit (**) | comparte la vertical | Generado por LLM | **semanas pares** (Reel + LinkedIn) |
 | 5 | Sábado 11hs (***) | Spotlight de servicio (quincenal) | mapa del kit | — (solo IG) | Generado por LLM | nunca |
 
-(*) **Jueves — ciclo de 4 semanas**, ver sección 3b: carrusel, historia en video (las semanas impares) e institucional (en el feed o como historia, desde el 18/10/2026). Desde el 07/10/2026 no hay encuesta ni cita.
+(*) **Jueves — ciclo de 4 semanas, siempre noticia** (desde el 24/11/2026), ver sección 3b: carrusel, historia en video (las semanas impares) y la segunda noticia en el feed (ciclo 2; del 18/10 al 24/11/2026 era una placa institucional). Desde el 07/10/2026 no hay encuesta ni cita.
 
 (**) **Viernes — la placa la elige la IA** entre todas las del viernes en el mapa del kit (regla «Variedad visual»), **descartando las de las últimas 4 semanas** según el historial (paso 0).
 
@@ -158,7 +159,8 @@ Juan: *«empezame a usar todas… no necesariamente las que nunca salieron, pero
 | **Jueves** | carrusel `cb-cover` + `cb-tip1`…`cb-tip3` | Ciclo 0 (paso 3b, opción B) |
 | | calendario `ca-cover` + `ca-q1` + `ca-q2` | Primera semana del mes (regla 4) |
 | | historia en video, con placa de respaldo `st-08` / `st-08b` / `st-08c` | Semanas impares (paso 3b, opción C) |
-| | **institucional** en el feed: `mn-01` y `mn-08` (sólo marca), `mn-03` (= `mn-05` = `sq-02` = `sq-02c` = `in-03` = `in-04`), `mn-07` e `in-02` (frase de marca), `sq-03` con un dato aprobado del estudio, `sv-07` (todo lo que hacemos); o como historia: `st-09` (= `st-09b`), `st-08b`, `st-08c` | Ciclo 2 (paso 3b, opción A) |
+| | **segunda noticia** en el feed, con una placa del pool del miércoles distinta de la de ese miércoles | Ciclo 2 (paso 3b, opción A), desde el 24/11/2026 |
+| | **institucional** en el feed: `mn-01` y `mn-08` (sólo marca), `mn-03` (= `mn-05` = `sq-02` = `sq-02c` = `in-03` = `in-04`), `mn-07` e `in-02` (frase de marca), `sq-03` con un dato aprobado del estudio, `sv-07` (todo lo que hacemos); o como historia: `st-09` (= `st-09b`), `st-08b`, `st-08c` | Ciclo 2, sólo si no hay una segunda noticia (paso 3b, opción A) |
 | | LinkedIn: `li-01` (noticia con fecha), `li-02` (frase), `li-03` (número) | Cuando el jueves es historia: la que encaje con lo que dice, la menos usada (paso 4b) |
 | **Viernes · gestión** | `po-24` (lista), `po-22` (antes y después), `po-34` (mito y realidad), `po-32` (comparativa), `po-35` (errores), `po-23` (declaración), `po-25` (una idea), `po-04` (= `sv-05`, lista), `sq-03` y `nv-10` (sólo cantidades atemporales), `po-21` (= `po-27` = `po-29` = `nv-09`, pregunta) | Según el ángulo (paso 3). `po-21` sólo con un dilema real que la pieza responde (guía de voz) |
 | **Sábado · servicios** | `sv-01` (= `po-16` = `mn-04` = `sv-04`), `sv-02`, `sv-05` (= `po-04`), `sv-06`, `sv-07`, `sv-08`, `po-04b`, `po-23`, `po-25` | Paso 3c. En las de lista (`sv-05`, `sv-06`, `sv-07`, `po-04b`), cada ítem es un problema que el servicio resuelve, no una tarea |
@@ -392,7 +394,8 @@ Reglas:
 - Preferir noticias con fuente clara y verificable
 - Evitar opinión política partidaria
 - **Que sea noticia para el cliente, no para el contador** (Juan, 12/10/2026: «no es una noticia para mis clientes»). Lo que sólo cambia cómo presenta el estudio (un aplicativo o servicio web nuevo de ARCA, una versión de SIAP o SICORE) se descarta, aunque sea normativa de ARCA: la noticia tiene que tocar la plata, el riesgo, una obligación o un trámite de la empresa.
-- **Sólo novedades que le cambian algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Lo que es sólo de personas físicas (monotributo, Bienes Personales o Ganancias personales, jubilaciones) no se publica: se elige la siguiente. Entre dos de peso parecido, gana la que toca un eje de la estrategia (Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores). Las que mejor rindieron en orgánico son obligaciones nuevas para la empresa con qué hacer (rúbrica laboral, beneficiario final, facturación, domicilio electrónico IGJ)
+- **Sólo novedades que le cambian algo a una empresa** (ver `CONTEXTO-PUBLICIDAD.md`). Lo que es sólo de personas físicas (monotributo, Bienes Personales o Ganancias personales, jubilaciones) no se publica: se elige la siguiente. Entre dos de peso parecido, gana la que toca un eje de la estrategia (Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, contabilidad). Las que mejor rindieron en orgánico son obligaciones nuevas para la empresa con qué hacer (rúbrica laboral, beneficiario final, facturación, domicilio electrónico IGJ)
+- **Menos sueldos** (Juan, 24/11/2026: «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios»): una novedad laboral (sueldos, convenios, cargas sociales, despidos, FAL) va sólo si es claramente la más importante de la semana para una empresa, y como máximo una pieza laboral cada 4 semanas entre el miércoles y el jueves. Entre una laboral y otra de peso parecido, gana la otra. Esa semana, el 24/11, Juan cambió el carrusel laboral del jueves por una noticia de impuestos.
 
 **Cuántas noticias elegir:**
 
@@ -439,16 +442,15 @@ Regla de alternancia de color (para que no se fosilice):
 
 **3.1 — Determinar el eje de la semana (rotación fija)**:
 
-El eje del viernes NO se elige a criterio: sale de la semana ISO. Desde el 25/09/2026 la rotación sigue los **ejes de la estrategia de contenido** (`CONTEXTO-PUBLICIDAD.md`), con los dos de impuestos más seguido porque son los de la pauta. El corrimiento `+ 2` hace que la semana 40 (2/10) caiga en Ingresos Brutos y la 43 (23/10) en IVA/MiPyME, las dos dentro de las campañas de Meta.
+El eje del viernes NO se elige a criterio: sale de la semana ISO. La rotación sigue los **ejes de la estrategia de contenido** (`CONTEXTO-PUBLICIDAD.md`). **Desde el 24/11/2026 el eje laboral no está en la rotación** (Juan: «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios»): quedan cinco ejes. El corrimiento `+ 4` deja la semana 48 en Societario y la 49 en IVA/MiPyME, como estaban.
 
 ```bash
-SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))
+SERVICIO_IDX=$(( ($(date +%V) + 4) % 5 ))
 # 0 = Impuestos · Ingresos Brutos
 # 1 = Contabilidad y back office
 # 2 = Societario
 # 3 = Impuestos · IVA, MiPyME y planificación
-# 4 = Laboral (empleadores)
-# 5 = Auditoría de estados contables
+# 4 = Auditoría de estados contables
 ```
 
 ⚠️ **El tema sale del banco de temas aprobado** (sección 6 de `CONTEXTO-PUBLICIDAD.md`, Juan, 02/11/2026): uno de su eje que no haya salido en los últimos 3 meses y que esté «disponible». Si el eje no tiene ninguno, se elige otro tema con el mismo enfoque y en el reporte del lunes se le proponen a Juan 2 o 3 temas nuevos para sumar al banco.
@@ -461,10 +463,9 @@ El post y el CTA giran en torno al eje de la semana. El **ángulo y la redacció
 | 1 | Contabilidad y back office | Balance para decidir (no sólo para cumplir), back office tercerizado, conciliaciones, reporting | "Llevamos la contabilidad y el back office de tu empresa. Escribinos." → `/servicios/contabilidad-pymes` o `/servicios/outsourcing-administrativo` |
 | 2 | Societario | Sociedad al día ante IGJ (actas, autoridades, balances), elegir SA/SRL/SAS, socios que entran o salen | "Ponemos al día tu sociedad. Escribinos." → `/servicios/societario-igj` |
 | 3 | IVA, MiPyME y planificación | Diferir el IVA con el Certificado MiPyME, cheque a cuenta de Ganancias, anticipos sobre un año que ya no existe, decidir con el impacto fiscal a la vista | "Revisamos si tu empresa aprovecha los beneficios que le corresponden. Escribinos." → `/servicios/certificado-mipyme` o `/servicios/impuestos-nacionales` |
-| 4 | Laboral (empleadores) | Costo real de un empleado, convenio que aplica, inspecciones, altas y bajas | "Liquidamos los sueldos de tu empresa. Escribinos." → `/servicios/liquidacion-de-sueldos` |
-| 5 | Auditoría de estados contables | Desde lo que le abre o le cuida plata a la empresa, nunca desde el trabajo del auditor: la plata que se pierde sin control (pagos duplicados, descuentos sin autorizar, stock que no cierra), el crédito que espera al balance auditado. ❌ Ni compra-venta de empresas ni due diligence («no está en el core»), ni licitaciones o altas de proveedor («nunca tuve una consulta de ese tipo»), ni procedimientos del auditor como el recuento o la salvedad (Juan, 02/11/2026) | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` |
+| 4 | Auditoría de estados contables | Desde lo que le abre o le cuida plata a la empresa, nunca desde el trabajo del auditor: la plata que se pierde sin control (pagos duplicados, descuentos sin autorizar, stock que no cierra), el crédito que espera al balance auditado. ❌ Ni compra-venta de empresas ni due diligence («no está en el core»), ni licitaciones o altas de proveedor («nunca tuve una consulta de ese tipo»), ni procedimientos del auditor como el recuento o la salvedad (Juan, 02/11/2026) | "Auditamos los estados contables de tu empresa. Escribinos." → `/servicios/auditoria-de-empresas` |
 
-> Hasta el 25/09/2026 la rotación era `% 5` sobre Contabilidad, Tributario, Laboral, Societario y Auditoría.
+> Hasta el 25/09/2026 la rotación era `% 5` sobre Contabilidad, Tributario, Laboral, Societario y Auditoría. Del 25/09 al 24/11/2026 fue `(semana + 2) % 6`, con Laboral (empleadores) en el 4: «Liquidamos los sueldos de tu empresa. Escribinos.» → `/servicios/liquidacion-de-sueldos`.
 
 **REGLAS DURAS — no negociables**:
 
@@ -632,11 +633,11 @@ El viernes NO está atado a `po-04`. Los 18 ids de abajo son del catálogo viejo
 JUEVES_TIPO=$(( $(date +%V) % 4 ))
 # 0 → Carrusel cb-*         (noticia profunda)    → opción B
 # 1 → Historia en video     (video de Motion)    → opción C   ← semana impar: es el video de la semana
-# 2 → Institucional         (placa de marca)      → opción A   ← feed o historia, desde el 18/10/2026
+# 2 → Segunda noticia       (en el feed)          → opción A   ← desde el 24/11/2026; antes, placa institucional
 # 3 → Historia en video     (video de Motion)    → opción C   ← semana impar: es el video de la semana
 ```
 
-Hasta el 06/10/2026 el ciclo 1 era una encuesta (`st-10`) y el 3 una cita (`st-08*`). Ver la opción C. Hasta el 18/10/2026 el ciclo 2 era siempre la historia `st-09`.
+Hasta el 06/10/2026 el ciclo 1 era una encuesta (`st-10`) y el 3 una cita (`st-08*`). Ver la opción C. Hasta el 18/10/2026 el ciclo 2 era siempre la historia `st-09`; del 18/10 al 24/11/2026, una placa institucional. Desde el 24/11/2026 **el jueves es siempre noticia** (Juan: «quiero que te enfoques más en noticias»).
 
 Dentro de las opciones con variante de color (`st-09`/`st-09b`, y las placas de respaldo `st-08`/`st-08b`/`st-08c`), elegir la que **no** figure en el historial del slot `jueves` en las últimas 4 semanas. Si ninguna figura, empezar por la versión base.
 
@@ -644,9 +645,15 @@ Dentro de las opciones con variante de color (`st-09`/`st-09b`, y las placas de 
 >
 > Antes acá iba `po-37` (vencimientos de la semana en el feed). El kit de redes del Manual de Marca 2026 no lleva vencimientos de la semana, así que esa plantilla se retiró junto con `st-07` y `st-07b`. Ver `mdo-templates/LEEME-kit-manual.md`.
 
-**Opción A — Institucional (ciclo = 2)**
+**Opción A — Segunda noticia (ciclo = 2, desde el 24/11/2026)**
 
-Desde el 18/10/2026 (Juan: «empezame a usar todas»), el ciclo 2 va con **una placa de marca del pool institucional del mapa del kit**: en el feed `mn-01`, `mn-08`, `mn-03`, `mn-07`, `in-02`, `sq-03` (con un dato aprobado del estudio) o `sv-07`; o como historia `st-09` / `st-09b`, `st-08b` o `st-08c`. La que no esté bloqueada y, entre las que encajan con el mensaje, la menos usada (`node scripts/grupos-kit.js --usos`). En el feed va a Instagram y LinkedIn con la vertical compartida (paso 6); como historia, LinkedIn recibe una horizontal (paso 4b). El mensaje es del estudio (cómo trabaja, qué resuelve, sus datos aprobados), nunca una noticia, y el copy cierra con la página de la web que corresponda. `mn-01` y `mn-08` no llevan texto en la placa: el mensaje va entero en el copy. Las demás placas institucionales tienen sus slots en `--list-slots`; abajo, los de la historia `st-09`.
+Juan, 24/11/2026: «quiero que te enfoques más en noticias». El jueves del ciclo 2 ya no lleva la placa institucional: va con **la segunda noticia de la semana** (paso 2), en el feed, a Instagram y LinkedIn con la vertical compartida (un solo post, como el miércoles).
+
+- **Placa**: del pool del miércoles en el mapa del kit (`po-13d` y sus iguales, las de número grande si la noticia trae una fecha o una cifra de la fuente, `sq-12b`, `nv-07`, `po-34`, `po-32`, `po-24`, `po-35`), **distinta de la del miércoles de esa semana**, sin las bloqueadas y respetando la grilla: si el miércoles es texto sobre navy, el jueves va con número grande, y al revés.
+- **Texto**: con la estructura de la noticia (paso 7): la primera oración es el titular, qué cambió, qué implica en la práctica y el servicio. La regla «Menos sueldos» del paso 2 vale también acá.
+- **Si no hay una segunda noticia que valga**: una actualización de una noticia anterior (qué cambió desde entonces) o un ángulo nuevo de la del miércoles. Recién si tampoco hay eso, la placa institucional de antes (abajo), y se avisa en el reporte.
+
+**Último recurso, la placa institucional** (lo que era el ciclo 2 del 18/10 al 24/11/2026). Desde el 18/10/2026 (Juan: «empezame a usar todas»), el ciclo 2 iba con **una placa de marca del pool institucional del mapa del kit**: en el feed `mn-01`, `mn-08`, `mn-03`, `mn-07`, `in-02`, `sq-03` (con un dato aprobado del estudio) o `sv-07`; o como historia `st-09` / `st-09b`, `st-08b` o `st-08c`. La que no esté bloqueada y, entre las que encajan con el mensaje, la menos usada (`node scripts/grupos-kit.js --usos`). En el feed va a Instagram y LinkedIn con la vertical compartida (paso 6); como historia, LinkedIn recibe una horizontal (paso 4b). El mensaje es del estudio (cómo trabaja, qué resuelve, sus datos aprobados), nunca una noticia, y el copy cierra con la página de la web que corresponda. `mn-01` y `mn-08` no llevan texto en la placa: el mensaje va entero en el copy. Las demás placas institucionales tienen sus slots en `--list-slots`; abajo, los de la historia `st-09`.
 
 Slots en el kit 4.4 (confirmar con `--list-slots`):
 - `VOLANTA` — frase de contexto, ej: "Estás pensando en armar tu empresa"
@@ -659,7 +666,7 @@ Ya no hay slots de canales ni handle: el kit no los lleva.
 
 ⚠️ **CONSTRAINT CRÍTICO st-09**: El template usa 72px (TITULAR_1/3) y 92px (TITULAR_2) sobre un artboard de 480px (→ 400px útiles con padding). Frases largas DESBORDAN el borde derecho y se cortan. Usar SIEMPRE palabras sueltas o frases de máximo 2-3 palabras muy cortas. Verificar mentalmente: ~40px por carácter bold a 72px.
 
-Contenido: institucional/CTA, NO atado a ninguna noticia puntual.
+Contenido de la placa institucional (sólo como último recurso): institucional, NO atado a ninguna noticia puntual.
 
 **Opción C — Historia en video (ciclos 1 y 3: las semanas impares)**
 
@@ -708,7 +715,7 @@ Objetivo: un post de **Servicios** que funcione como un anuncio: **un problema c
 
 - **Día/hora**: sábado de esa semana, 11hs Argentina (`-03:00`)
 - **Red**: **SOLO Instagram** (NO LinkedIn — es un post liviano de marca)
-- **Servicio**: uno del **mismo eje que el viernes de esa semana** → `SERVICIO_IDX=$(( ($(date +%V) + 2) % 6 ))` (tabla del paso 3.1), con el nombre exacto que tiene en la web.
+- **Servicio**: uno del **mismo eje que el viernes de esa semana** → `SERVICIO_IDX=$(( ($(date +%V) + 4) % 5 ))` (tabla del paso 3.1), con el nombre exacto que tiene en la web.
 
 **Placa — todas las de servicios del mapa del kit (regla «Variedad visual»), descartando las bloqueadas** (slot `spotlight`): `sv-01` (= `po-16` = `mn-04` = `sv-04`), `sv-02`, `sv-05` (= `po-04`), `sv-06`, `sv-07`, `sv-08`, `po-04b`, `po-23` y `po-25`. Entre las que encajan con el servicio y el problema, la menos usada (`node scripts/grupos-kit.js --usos`). Hasta el 18/10/2026 el pool era de 6 placas del catálogo viejo.
 
@@ -764,7 +771,7 @@ Templates por día (todos verticales — ver "Formatos correctos de imagen"):
 | Miércoles | `po-13d` / `po-13e` (o excepción de 2b) | 1080×1350 |
 | Jueves, ciclo 0 | `cb-cover` + `cb-tip1..3` (un render por slide) | 1080×1350 |
 | Jueves, ciclos 1 y 3 (historia en video) | `st-08` / `st-08b` / `st-08c` (placa de respaldo) + el video del paso 4c | 1080×1920 |
-| Jueves, ciclo 2 | `st-09` / `st-09b` | 1080×1920 |
+| Jueves, ciclo 2 | la segunda noticia: una placa del pool del miércoles, distinta de la de ese día (la institucional `st-09` / `st-09b`, 1080×1920, sólo como último recurso) | 1080×1350 |
 | Viernes | la elegida del mapa del kit | 1080×1350 |
 | Sábado (semanas pares) | la elegida del mapa del kit | 1080×1350 |
 
@@ -939,11 +946,12 @@ Un post de Metricool tiene **un solo array `media` y un solo `text`** compartido
 |---|---|---|
 | Miércoles (noticia) | **1** | IG + LinkedIn, imagen vertical compartida |
 | Jueves ciclo 0 (carrusel) | **1** | IG + LinkedIn, mismos slides |
-| Jueves ciclo 1/2/3 (story) | **2** | IG Story (`text` vacío) + LinkedIn con texto e imagen `-li` |
+| Jueves ciclo 2 (segunda noticia, desde el 24/11/2026) | **1** | IG + LinkedIn, imagen vertical compartida |
+| Jueves ciclos 1 y 3 (historia) | **2** | IG Story (`text` vacío) + LinkedIn con texto e imagen `-li` |
 | Viernes (gestión) | **1** | IG + LinkedIn, imagen vertical compartida |
 | Sábado (semanas pares) | **1** | Solo Instagram |
 
-→ **Semana impar: 4 drafts.** **Semana par con carrusel: 4.** **Semana par con story: 5.**
+→ **Semana impar: 4.** **Semana par: 4** (el jueves va en el feed: carrusel o segunda noticia). Sólo si el jueves del ciclo 2 cae en el último recurso de la historia institucional, son 5.
 
 **Hashtags del texto compartido**: como el texto va a las dos redes, usar **5 hashtags** — suficiente para Instagram y no spammeado para LinkedIn. (La tabla de diferencias del paso 7 aplica solo al draft de LinkedIn del jueves, que sí tiene texto propio.)
 

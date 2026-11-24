@@ -167,11 +167,12 @@ La estrategia de las redes vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-P
 
 - El estudio trabaja **sólo para empresas**.
 - El orgánico es la vidriera para quien llega desde un anuncio, y la noticia del miércoles se publica como nota en la web.
-- Ejes por peso comercial: Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, empleadores, contabilidad.
+- Ejes por peso comercial: Ingresos Brutos, IVA/MiPyME, sociedades, auditoría, contabilidad. **Empleadores (sueldos) en pausa desde el 24/11/2026** (Juan: «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios»): salió de la rotación del viernes, y una noticia laboral va sólo si es claramente la más importante de la semana.
+- **Más noticias** (24/11/2026, Juan: «quiero que te enfoques más en noticias»): el jueves es siempre noticia; en el ciclo 2 va una segunda noticia en el feed, ya no la placa institucional.
 - Cada post cierra con la página de su servicio. Nunca se invita a llamar.
 - Es contenido; el diseño sigue siendo el del design system.
 - **Variedad visual** (05/10/2026): cada semana al menos una placa con foto o número grande, nunca dos de texto sobre navy seguidas en la grilla, el miércoles con número grande si la noticia lo trae, y carrusel de calendario la primera semana del mes. Detalle en la regla «Variedad visual» de la skill.
-- **Todo el kit en juego** (18/10/2026, Juan: «empezame a usar todas… no necesariamente las que nunca salieron, pero que las empieces a incluir»): cada día elige entre todas las placas que le corresponden (mapa del kit, en la regla «Variedad visual» de la skill) y, entre las que encajan, la menos usada (`node scripts/grupos-kit.js --usos`). El jueves del ciclo 2 va con una placa institucional y LinkedIn rota `li-01` / `li-02` / `li-03`. La encuesta sigue afuera; el testimonio y la novedad del estudio, sólo con contenido real que pase Juan.
+- **Todo el kit en juego** (18/10/2026, Juan: «empezame a usar todas… no necesariamente las que nunca salieron, pero que las empieces a incluir»): cada día elige entre todas las placas que le corresponden (mapa del kit, en la regla «Variedad visual» de la skill) y, entre las que encajan, la menos usada (`node scripts/grupos-kit.js --usos`). Cuando el jueves es historia, LinkedIn rota `li-01` / `li-02` / `li-03`; la placa institucional del ciclo 2 queda sólo como último recurso, si no hay una segunda noticia. La encuesta sigue afuera; el testimonio y la novedad del estudio, sólo con contenido real que pase Juan.
 
 ## Regla dura sobre el tip PyME (viernes)
 

@@ -81,7 +81,7 @@ Por orden de peso comercial:
 | **IVA, MiPyME y planificación** (campaña Meta al aire) | IVA diferido, cheque a cuenta de Ganancias, saldos de IVA, anticipos calculados sobre un año que ya no existe, planificación fiscal antes de decidir | `/servicios/certificado-mipyme` · `/servicios/impuestos-nacionales` |
 | **Sociedades** (Google) | Obligaciones ante IGJ y ARCA (actas, balances, autoridades, beneficiario final, domicilio electrónico), constitución y tipo de sociedad (SA, SRL, SAS), reformas, aumentos de capital | `/servicios/societario-igj` |
 | **Auditoría de estados contables** (Google) | Desde lo que le abre o le cuida plata a la empresa: la plata que se pierde sin control, el crédito que espera al balance auditado. ❌ No compra-venta de empresas ni due diligence, ni licitaciones o altas de proveedor, ni procedimientos del auditor (Juan, 02/11/2026) | `/servicios/auditoria-de-empresas` |
-| **Empleadores** (buen orgánico) | Cambios que afectan la liquidación de sueldos, convenios, cargas sociales, inspecciones laborales, altas | `/servicios/liquidacion-de-sueldos` |
+| **Empleadores**: en pausa desde el 24/11/2026 (Juan: «disminuí las publicaciones sobre cosas vinculadas a sueldos… enfocate en los otros servicios») | Sólo una novedad laboral que sea claramente la más importante de la semana, como máximo una pieza cada 4 semanas. Fuera de la rotación del viernes | `/servicios/liquidacion-de-sueldos` |
 | **Contabilidad y back office** | Balances para decidir, outsourcing administrativo-contable (cuentas a pagar y cobrar, conciliaciones, tesorería, reporting) | `/servicios/contabilidad-pymes` · `/servicios/outsourcing-administrativo` |
 | Nichos (de vez en cuando, si hay noticia) | Comercio exterior, impuestos internacionales, precios de transferencia, representación de empresas extranjeras, prevención de lavado, tasas municipales, certificaciones | su página, ver la sección 5 |
 
@@ -108,11 +108,7 @@ Por orden de peso comercial:
     - la **primera oración es el titular** (clara, con el tema, sin emoji, hasta ~90 caracteres);
     - el cuerpo cuenta qué cambió, a quién le toca y qué conviene hacer;
     - cierra con la página del servicio.
-- **Jueves.**
-  - Carrusel: la segunda noticia o la del miércoles en profundidad.
-  - Encuesta: una pregunta de gestión de la empresa sobre algo que el estudio hace.
-  - CTA: invita a escribir por WhatsApp, para empresas.
-  - Cita: una frase del estudio sobre un problema de empresa.
+- **Jueves.** Siempre noticia (Juan, 24/11/2026: «quiero que te enfoques más en noticias»): la segunda noticia de la semana, en carrusel, en la historia en video o en el feed. Si no hay una segunda que valga, una actualización de una noticia anterior o la del miércoles en profundidad. Ya no hay encuesta, CTA ni cita.
 - **Viernes (gestión PyME).** El eje lo fija la rotación. Mejor una situación concreta de la empresa que una moraleja. Sin números ni plazos.
 - **Sábado (servicio).** ❌ No describir el servicio con su lista de tareas: fueron los peores posts de septiembre. ✅ **Un problema concreto + el servicio que lo resuelve**, en una línea, como un anuncio. Ejemplo: "Tu empresa puede estar pagando Ingresos Brutos donde no corresponde → Análisis integral de Ingresos Brutos". Mientras dure la pauta, preferir los dos servicios de campaña.
 
@@ -163,8 +159,13 @@ Si el tema no tiene página propia: `mdo-consultores.com.ar/servicios` o `/conta
 | IVA y planificación | Anticipos de más: si este año vende menos que el anterior, adelanta Ganancias sobre un año que ya no existe | disponible |
 | IVA y planificación | Saldo de IVA que crece mes a mes y nadie usa | disponible |
 | Sociedades | El socio que se quiere ir: si el contrato no lo prevé, discutir cuánto vale su parte frena a la empresa | desde el 17/01/2027 (se parece al 16/10) |
-| Sueldos | Lo que cuesta de verdad un empleado además del sueldo | desde el 12/12/2026 (se parece al 11/09) |
-| Sueldos | Lo que se paga «por afuera»: el riesgo que queda en cada reclamo o inspección | disponible |
+| Sociedades | Préstamos y facturas entre empresas del mismo dueño sin contrato: ARCA puede cuestionarlos | disponible (Juan lo sumó al banco el 24/11/2026) |
+| Sociedades | Autoridades con el mandato vencido: el banco no acepta la firma | desde el 18/12/2026 (se parece al 18/09; Juan lo sumó el 24/11/2026) |
+| Sociedades | Plata que pusieron los socios y nunca se pasó a capital: figura como deuda de la sociedad | desde el 18/12/2026 (se parece al 18/09; Juan lo sumó el 24/11/2026) |
+| Sociedades | La sociedad que nadie usa sigue sumando vencimientos | usado el 27/11/2026 (tema nuevo; Juan lo aprobó) |
+| Sociedades | Un solo gerente y ningún suplente: si no puede firmar, la empresa se frena | usado el 28/11/2026, en el sábado (tema nuevo; Juan lo aprobó) |
+| Sueldos | Lo que cuesta de verdad un empleado además del sueldo | en pausa desde el 24/11/2026: menos sueldos (antes, desde el 12/12/2026) |
+| Sueldos | Lo que se paga «por afuera»: el riesgo que queda en cada reclamo o inspección | en pausa desde el 24/11/2026: menos sueldos |
 | Contabilidad y back office | Ventas que nadie cobra a tiempo: la empresa termina financiando a sus clientes | usado el 20/11/2026 |
 
 ❌ **Descartados**: venderle a una empresa grande o al Estado (Juan: «nunca tuve una consulta de ese tipo»); compra-venta de empresas y due diligence («no está en el core»); el recuento de stock con el auditor y la salvedad (Juan: «no es prioridad» para los clientes); caja chica y comparación de proveedores («es más de auditoría interna»); facturas de proveedores apócrifas («no pasa»).
