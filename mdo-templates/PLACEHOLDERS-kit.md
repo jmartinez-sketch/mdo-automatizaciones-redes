@@ -8,6 +8,7 @@ Estas placas son el catálogo entero rehecho en Claude Design con la gramática 
 - `TITULAR_1` + `TITULAR_2` — el titular va en **dos tonos**: la primera parte blanca y negrita, la segunda gris y normal. Cortar la frase donde tenga sentido. (`TITULAR_3` cuando hay tercera línea.)
 - `BAJADA` — párrafo. `CIERRE` — remate en negrita al pie (reemplaza al CTA). `ITEM_n` — ítems de lista; la numeración 01/02/03 es fija.
 - `NUMERO` + `UNIDAD` — placas de dato/vencimiento. `DIA_n` + `ITEM_n_TITULO` + `ITEM_n_DETALLE` — filas del calendario. `OPCION_A/B` — encuesta. `LABEL_n` + `LABEL_n_ITEM_k` — comparativas. `MITO`/`REALIDAD`, `ANTES`/`DESPUES`. `CITA` + `AUTOR` + `AUTOR_DETALLE` — testimonio.
+- `FECHA_n` + `HITO_n` + `DETALLE_n` — cronograma (`nv-12`; el hito 2 va resaltado). `NUMERO_n` + `UNIDAD_n` + `ITEM_n_TITULO` + `ITEM_n_DETALLE` — escala (`nv-13`). `PROVINCIAS` — códigos de las provincias que se encienden en `nv-14`, separados por espacios (`CHA LP RN`).
 - **No hay** `CATEGORIA`, `FUENTE` ni `HANDLE`: el kit no lleva chip, fuente ni pie con @handle. `@mdoconsultores`, la web y "MDO Consultores" quedan fijos donde el kit los trae.
 
 Reglas duras del kit: sin emojis, sin íconos, **ARCA nunca AFIP**, margen de 130 px. Descartadas (fotos que no se pueden bajar del DS): `in-01`, `in-05`, `in-06`, `mn-06`, `sq-02b`.
@@ -477,6 +478,70 @@ Reglas duras del kit: sin emojis, sin íconos, **ARCA nunca AFIP**, margen de 13
 | `TITULAR_1` | para responder |
 | `TITULAR_2` | una intimación de ARCA |
 | `CIERRE` | Si te llegó una, escribinos hoy. |
+
+### `nv-11` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `FECHA` | 17.11.2026 · Impuestos |
+| `TITULAR_1` | Devolución trabada: |
+| `TITULAR_2` | la Justicia le puso plazo a ARCA |
+| `CIERRE` | Un pedido sin respuesta es plata que la empresa ya pagó. |
+
+### `nv-12` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | Ingresos Brutos · SIRCIP |
+| `TITULAR_1` | Percepciones: |
+| `TITULAR_2` | el calendario del sistema nuevo |
+| `FECHA_1` | 20 nov |
+| `HITO_1` | Mendoza queda afuera |
+| `DETALLE_1` | Disposición CA 13/2026. |
+| `FECHA_2` | 1 dic |
+| `HITO_2` | Arranca en seis provincias |
+| `DETALLE_2` | Para las percepciones hechas desde diciembre. |
+| `FECHA_3` | 8 ene |
+| `HITO_3` | Primer vencimiento |
+| `DETALLE_3` | Declaración jurada de los agentes de percepción. |
+| `CIERRE` | Revisaríamos si tu empresa percibe en esas provincias. |
+
+### `nv-13` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | ARBA · plan de pagos |
+| `TITULAR_1` | La quita baja |
+| `TITULAR_2` | con cada vencimiento |
+| `NUMERO_1` | 40 |
+| `UNIDAD_1` | % |
+| `ITEM_1_TITULO` | Hasta el 13 de noviembre |
+| `ITEM_1_DETALLE` | Pago al contado. |
+| `NUMERO_2` | 35 |
+| `UNIDAD_2` | % |
+| `ITEM_2_TITULO` | Hasta el 27 de noviembre |
+| `ITEM_2_DETALLE` | Pago al contado. |
+| `NUMERO_3` | 30 |
+| `UNIDAD_3` | % |
+| `ITEM_3_TITULO` | Hasta el 31 de diciembre |
+| `ITEM_3_DETALLE` | Pago al contado. |
+| `CIERRE` | Revisaríamos qué deuda de Ingresos Brutos entra. |
+
+### `nv-14` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | Ingresos Brutos · 1 de diciembre |
+| `TITULAR_1` | El SIRCIP arranca |
+| `TITULAR_2` | en seis provincias |
+| `PROVINCIAS` | CHA LP RN SJ SE TDF |
+| `BAJADA` | Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego. |
+| `CIERRE` | Mendoza quedó para más adelante. |
+
+### `nv-15` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `FECHA` | 12.11.2026 |
+| `TITULAR_1` | La multa baja a la mitad |
+| `TITULAR_2` | para empresas MiPyME |
+| `BAJADA` | ARCA reglamentó la reducción del 50 % de las multas formales para quien presente lo pendiente hasta el 18 de diciembre. |
+| `CIERRE` | Revisaríamos qué declaraciones juradas quedaron sin presentar. |
 
 
 ## B · Servicios

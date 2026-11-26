@@ -1785,5 +1785,198 @@
    "texto": "Buenos Aires · 30 años",
    "slot": "BAJADA"
   }
+ ],
+ "nv-11": [
+  {
+   "texto": "17.11.2026 · Impuestos",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Devolución trabada:",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "la Justicia le puso plazo a ARCA",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Un pedido sin respuesta es plata que la empresa ya pagó.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-12": [
+  {
+   "texto": "Ingresos Brutos · SIRCIP",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Percepciones:",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "el calendario del sistema nuevo",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "20 nov",
+   "slot": "FECHA_1"
+  },
+  {
+   "texto": "Mendoza queda afuera",
+   "slot": "HITO_1"
+  },
+  {
+   "texto": "Disposición CA 13/2026.",
+   "slot": "DETALLE_1"
+  },
+  {
+   "texto": "1 dic",
+   "slot": "FECHA_2"
+  },
+  {
+   "texto": "Arranca en seis provincias",
+   "slot": "HITO_2"
+  },
+  {
+   "texto": "Para las percepciones hechas desde diciembre.",
+   "slot": "DETALLE_2"
+  },
+  {
+   "texto": "8 ene",
+   "slot": "FECHA_3"
+  },
+  {
+   "texto": "Primer vencimiento",
+   "slot": "HITO_3"
+  },
+  {
+   "texto": "Declaración jurada de los agentes de percepción.",
+   "slot": "DETALLE_3"
+  },
+  {
+   "texto": "Revisaríamos si tu empresa percibe en esas provincias.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-13": [
+  {
+   "texto": "ARBA · plan de pagos",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "La quita baja",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "con cada vencimiento",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "40",
+   "slot": "NUMERO_1",
+   "tras": "white-space:nowrap\">"
+  },
+  {
+   "texto": "%",
+   "slot": "UNIDAD_1",
+   "tras": "margin-left:8px\">"
+  },
+  {
+   "texto": "Hasta el 13 de noviembre",
+   "slot": "ITEM_1_TITULO"
+  },
+  {
+   "texto": "Pago al contado.",
+   "slot": "ITEM_1_DETALLE"
+  },
+  {
+   "texto": "35",
+   "slot": "NUMERO_2",
+   "tras": "white-space:nowrap\">"
+  },
+  {
+   "texto": "%",
+   "slot": "UNIDAD_2",
+   "tras": "margin-left:8px\">"
+  },
+  {
+   "texto": "Hasta el 27 de noviembre",
+   "slot": "ITEM_2_TITULO"
+  },
+  {
+   "texto": "Pago al contado.",
+   "slot": "ITEM_2_DETALLE"
+  },
+  {
+   "texto": "30",
+   "slot": "NUMERO_3",
+   "tras": "white-space:nowrap\">"
+  },
+  {
+   "texto": "%",
+   "slot": "UNIDAD_3",
+   "tras": "margin-left:8px\">"
+  },
+  {
+   "texto": "Hasta el 31 de diciembre",
+   "slot": "ITEM_3_TITULO"
+  },
+  {
+   "texto": "Pago al contado.",
+   "slot": "ITEM_3_DETALLE"
+  },
+  {
+   "texto": "Revisaríamos qué deuda de Ingresos Brutos entra.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-14": [
+  {
+   "texto": "Ingresos Brutos · 1 de diciembre",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "El SIRCIP arranca",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "en seis provincias",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "CHA LP RN SJ SE TDF",
+   "slot": "PROVINCIAS",
+   "tras": "class=\"nv14g "
+  },
+  {
+   "texto": "Chaco, La Pampa, Río Negro, San Juan, Santiago del Estero y Tierra del Fuego.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Mendoza quedó para más adelante.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-15": [
+  {
+   "texto": "12.11.2026",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "La multa baja a la mitad",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para empresas MiPyME",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "ARCA reglamentó la reducción del 50 % de las multas formales para quien presente lo pendiente hasta el 18 de diciembre.",
+   "slot": "BAJADA"
+  },
+  {
+   "texto": "Revisaríamos qué declaraciones juradas quedaron sin presentar.",
+   "slot": "CIERRE"
+  }
  ]
 }

@@ -8,7 +8,7 @@ sus estilos en línea. No se reinterpretó nada, así que la placa del repo es
 idéntica a la del design system. **El design system es la única fuente**: acá no
 se edita nada de diseño, se sincroniza (ver «Cómo se sincroniza», abajo).
 
-Viven en [`templates-kit-manual.jsx`](templates-kit-manual.jsx). Son **79 placas**: las 53 heredadas del catálogo rehechas con la gramática del manual (mismo id, **pisan a la versión vieja**) más las nuevas `nv-`/`sv-`/`in-`. Los slots de cada una están en [PLACEHOLDERS-kit.md](PLACEHOLDERS-kit.md) y se definen en `kit-slots.json`.
+Viven en [`templates-kit-manual.jsx`](templates-kit-manual.jsx). Son **84 placas**: las 53 heredadas del catálogo rehechas con la gramática del manual (mismo id, **pisan a la versión vieja**) más las nuevas `nv-`/`sv-`/`in-`. Las cinco últimas (`nv-11` … `nv-15`: noticia con foto, cronograma, escala, provincias y noticia en papel) las sumó Juan el 26/11/2026. Los slots de cada una están en [PLACEHOLDERS-kit.md](PLACEHOLDERS-kit.md) y se definen en `kit-slots.json`.
 
 ## Las tres familias
 
@@ -16,7 +16,7 @@ Salen de la guía de redes de la página 23 del Manual de Marca 2026.
 
 | Familia | IDs | Fondo | Para |
 |---|---|---|---|
-| **A · Novedades impositivas / ARCA** | `nv-01` … `nv-10` | navy con degradé diagonal | Novedades normativas, vencimientos, ARCA y ANSES |
+| **A · Novedades impositivas / ARCA** | `nv-01` … `nv-15` | navy con degradé diagonal (`nv-11` con foto arriba; `nv-15` sobre papel, salvedad 4) | Novedades normativas, vencimientos, ARCA y ANSES |
 | **B · Servicios** | `sv-01` … `sv-08` | degradé claro con el isotipo gigante | Lo comercial: qué hace el estudio |
 | **D · Institucional / Marca** | `in-02`, `in-03`, `in-04` | foto con velo navy, o papel | Posicionamiento, filosofía, valores |
 
@@ -62,7 +62,7 @@ los pisa. La rutina semanal lo hace sola en su paso 0b; a mano son dos pasos:
    | Archivo del design system | Va a | Qué es |
    |---|---|---|
    | `project/design-system.json` | — (sólo se lee) | El índice: fecha y nota del último cambio |
-   | `project/templates/kit-redes-manual/KitRedesManual.dc.html` | `templates-kit-manual.jsx` | El kit 4.4, las 79 placas |
+   | `project/templates/kit-redes-manual/KitRedesManual.dc.html` | `templates-kit-manual.jsx` | El kit 4.4, las 84 placas |
    | `project/ui_kits/redes/mdo-brand.css` | `mdo-brand.css` | Colores, tipografías, primitivas |
    | `project/components/assets/logos/isotipo-navy.svg` | `assets/logo-mdo-iso.svg` | Isotipo navy |
    | `project/components/assets/logos/isotipo-paper.svg` | `assets/logo-mdo-iso-white.svg` | Isotipo papel |
@@ -93,7 +93,12 @@ Después: renderizar una placa de prueba de lo que cambió, mirarla, y commitear
   propio de Claude Design. `render.html` lo define como una `<img>` que llena su
   caja; sin eso, `mn-07`, `mn-08`, `st-08`/`st-08b`/`st-08c` e `in-02` salían con
   fondo navy liso (pasó hasta el 17/09/2026). Las fotos están en
-  `mdo-templates/assets/fotos/` (`arquitectura-navy.jpg`, `manos-teclado.jpg`).
+  `mdo-templates/assets/fotos/` (`arquitectura-navy.jpg`, `manos-teclado.jpg` y, desde el
+  26/11/2026, `torres-cielo.jpg`, que usa `nv-11`, y `calle-corporativa.jpg`). Son copias de los
+  assets del grupo `redes` del design system: una foto nueva se sube ahí y se baja por su id.
+- **Una placa con hoja de estilos.** `nv-14` (provincias) trae un `<style>` propio dentro de la
+  placa: la grilla enciende las celdas cuyos códigos van en la clase del contenedor, que es el
+  slot `PROVINCIAS`. Las demás placas siguen con todos los estilos en línea.
 - **Slots parciales.** En las historias de cita (`st-08*`) la tercera línea del kit
   es «es la primera decisión **estratégica** del año.», con el slot sólo sobre la
   palabra destacada. La rutina llena la línea entera, así que el extractor deja

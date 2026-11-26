@@ -1,7 +1,7 @@
 {
   "_leeme": "GENERADO por scripts/grupos-kit.js desde templates-kit-manual.jsx: no editar. Cada grupo es una misma placa con varios ids. Para la variedad cuenta el grupo, no el id.",
-  "ids": 79,
-  "placas_distintas": 44,
+  "ids": 84,
+  "placas_distintas": 49,
   "grupos": [
     [
       "mn-02",
