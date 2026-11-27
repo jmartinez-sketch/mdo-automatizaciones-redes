@@ -142,8 +142,9 @@ const cabecera = `// templates-kit-manual.jsx — el kit 4.4 completo del design
 // ("Kit de redes — según el manual"), copiadas TAL CUAL del proyecto MDO - Diseño.
 //
 // Tres familias, según la guía de redes de la página 23 del Manual de Marca 2026:
-//   nv-01..nv-15  A · Novedades impositivas / ARCA   — fondo navy con degradé diagonal
-//                 (nv-11 con foto arriba; nv-15 sobre papel, salvedad 4 del design system)
+//   nv-01..nv-19  A · Novedades impositivas / ARCA   — fondo navy con degradé diagonal
+//                 (nv-11 y nv-18 con foto; nv-15, nv-16, nv-17 y nv-19 sobre papel, claro
+//                 o gris azulado: salvedad 4 del design system)
 //   sv-01..sv-08  B · Servicios                      — degradés claros, isotipo gigante
 //   in-02..in-04  D · Institucional / Marca          — foto con velo navy, o papel
 //                 (in-01, in-05 e in-06 descartadas: ver DESCARTADAS más abajo)

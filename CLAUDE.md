@@ -23,7 +23,7 @@ Proyecto para automatizar los posteos de Instagram (y a futuro LinkedIn) del est
 **Desde el 17/09/2026, todo lo de marca se lee y se cambia en un solo lugar:** el design system **«MDO - Diseño»**, https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b. Plantillas de redes, colores, tipografías, logos y, desde el 08/10/2026, la guía de voz viven ahí. Este repo **no es dueño del diseño**: guarda una copia sincronizada para poder renderizar las placas.
 
 - **Qué archivo del design system alimenta qué archivo del repo:**
-  - `project/templates/kit-redes-manual/KitRedesManual.dc.html` (kit 4.4, las 84 placas) → `mdo-templates/templates-kit-manual.jsx`
+  - `project/templates/kit-redes-manual/KitRedesManual.dc.html` (kit 4.4, las 88 placas) → `mdo-templates/templates-kit-manual.jsx`
   - `project/ui_kits/redes/mdo-brand.css` (colores, tipografías) → `mdo-templates/mdo-brand.css`
   - `project/components/assets/logos/*.svg` (+ el asset `49b43af7d306c5f26383c300225b5816`, secundario en papel) → `mdo-templates/assets/logo-mdo-*.svg`
   - `project/components/src/components/iconos/Icon.jsx` (íconos) → `mdo-templates/iconos-mdo.json`
@@ -68,7 +68,7 @@ La skill vive en `.claude/skills/mdo-rutina-semanal/SKILL.md` y describe el fluj
 ```
 mdo-templates/          Copia sincronizada del diseño (la fuente es el design system, ver arriba)
   render.html           Punto de entrada para renderizar UN template a PNG
-  templates-kit-manual.jsx  Las 84 placas del kit 4.4 — GENERADO por sincronizar-diseno.js, no editar
+  templates-kit-manual.jsx  Las 88 placas del kit 4.4 — GENERADO por sincronizar-diseno.js, no editar
   mdo-brand.css         Colores y tipografías de las placas — copia del design system, no editar
   assets/               Logos MDO (SVG) y fotos — copia del design system, no editar
   kit-slots.json        Qué texto de ejemplo de cada placa es cada slot [NOMBRE]
@@ -171,7 +171,7 @@ La estrategia de las redes vive en `.claude/skills/mdo-rutina-semanal/CONTEXTO-P
 - **Más noticias** (24/11/2026, Juan: «quiero que te enfoques más en noticias»): el jueves es siempre noticia; en el ciclo 2 va una segunda noticia en el feed, ya no la placa institucional.
 - Cada post cierra con la página de su servicio. Nunca se invita a llamar.
 - Es contenido; el diseño sigue siendo el del design system.
-- **Placas nuevas** (26/11/2026, Juan: «me gustan las plantillas… agregalas»): el kit sumó cinco placas de Novedades para que las noticias no se vean todas iguales: `nv-11` con foto, `nv-12` cronograma, `nv-13` escala de cifras, `nv-14` provincias y `nv-15` en papel. Cómo se usan, en el mapa del kit de la skill.
+- **Placas nuevas** (26/11/2026, Juan: «me gustan las plantillas… agregalas»): el kit sumó cinco placas de Novedades para que las noticias no se vean todas iguales: `nv-11` con foto, `nv-12` cronograma, `nv-13` escala de cifras, `nv-14` provincias y `nv-15` en papel. El 27/11/2026 pidió otras cinco con fondos distintos y aprobó cuatro (rechazó la de la fecha en un bloque azul): `nv-16` antes y ahora (mitad papel, mitad azul), `nv-17` cifra sobre el claro, `nv-18` foto completa y `nv-19` tres puntos en gris azulado. Cómo se usan, en el mapa del kit de la skill.
 - **Variedad visual** (05/10/2026): cada semana al menos una placa con foto o número grande, nunca dos de texto sobre navy seguidas en la grilla, el miércoles con número grande si la noticia lo trae, y carrusel de calendario la primera semana del mes. Detalle en la regla «Variedad visual» de la skill.
 - **Todo el kit en juego** (18/10/2026, Juan: «empezame a usar todas… no necesariamente las que nunca salieron, pero que las empieces a incluir»): cada día elige entre todas las placas que le corresponden (mapa del kit, en la regla «Variedad visual» de la skill) y, entre las que encajan, la menos usada (`node scripts/grupos-kit.js --usos`). Cuando el jueves es historia, LinkedIn rota `li-01` / `li-02` / `li-03`; la placa institucional del ciclo 2 queda sólo como último recurso, si no hay una segunda noticia. La encuesta sigue afuera; el testimonio y la novedad del estudio, sólo con contenido real que pase Juan.
 

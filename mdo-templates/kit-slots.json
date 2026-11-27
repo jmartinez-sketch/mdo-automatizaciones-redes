@@ -1978,5 +1978,114 @@
    "texto": "Revisaríamos qué declaraciones juradas quedaron sin presentar.",
    "slot": "CIERRE"
   }
+ ],
+ "nv-16": [
+  {
+   "texto": "Multas formales · RG 5927/2026",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Antes",
+   "slot": "ROTULO_1"
+  },
+  {
+   "texto": "La multa completa",
+   "slot": "ANTES_1"
+  },
+  {
+   "texto": "por presentar tarde",
+   "slot": "ANTES_2"
+  },
+  {
+   "texto": "Ahora",
+   "slot": "ROTULO_2"
+  },
+  {
+   "texto": "La mitad",
+   "slot": "AHORA_1"
+  },
+  {
+   "texto": "si la empresa MiPyME presenta lo pendiente",
+   "slot": "AHORA_2"
+  },
+  {
+   "texto": "Hasta el 18 de diciembre.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-17": [
+  {
+   "texto": "Impuestos · devoluciones",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "20",
+   "slot": "NUMERO",
+   "tras": "tabular-nums\">"
+  },
+  {
+   "texto": "días",
+   "slot": "UNIDAD"
+  },
+  {
+   "texto": "tiene ARCA para resolver",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "una devolución trabada",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Lo ordenó la Cámara en un amparo por mora.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-18": [
+  {
+   "texto": "30.10.2026 · ARCA",
+   "slot": "FECHA"
+  },
+  {
+   "texto": "Plan de pagos para MiPyMEs:",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "la adhesión sigue hasta fin de año",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Revisaríamos qué deuda conviene incluir.",
+   "slot": "CIERRE"
+  }
+ ],
+ "nv-19": [
+  {
+   "texto": "Ingresos Brutos · SIRCIP",
+   "slot": "VOLANTA"
+  },
+  {
+   "texto": "Qué cambia",
+   "slot": "TITULAR_1"
+  },
+  {
+   "texto": "para tu empresa",
+   "slot": "TITULAR_2"
+  },
+  {
+   "texto": "Si percibe, declara y paga en el sistema nuevo.",
+   "slot": "ITEM_1"
+  },
+  {
+   "texto": "Si le perciben, lo toma en el SIFERE.",
+   "slot": "ITEM_2"
+  },
+  {
+   "texto": "La percepción que no se computa se paga dos veces.",
+   "slot": "ITEM_3"
+  },
+  {
+   "texto": "Revisaríamos que aparezcan todas.",
+   "slot": "CIERRE"
+  }
  ]
 }

@@ -138,6 +138,12 @@
       "tema": "contenido",
       "regla": "Más noticias: el jueves es siempre noticia. En el ciclo 2 va una segunda noticia en el feed (placa del pool del miércoles, distinta de la de ese día); la placa institucional queda sólo si no hay ninguna noticia que valga.",
       "origen": "Juan, 24/11/2026: «quiero que te enfoques más en noticias»; entre las opciones, eligió «Jueves siempre noticia» (viernes y sábado siguen con los temas del banco)."
+    },
+    {
+      "desde": "2026-11-27",
+      "tema": "diseño",
+      "regla": "La noticia puede cambiar de fondo sin salir de la marca: papel (nv-15), mitad papel y mitad azul (nv-16), degradé claro con el isotipo (nv-17), foto completa (nv-18) y gris azulado (nv-19). Se usan para cortar el azul de la grilla. Un bloque o una caja de color dentro de la placa (la fecha en un recuadro azul sobre papel) no: Juan lo rechazó.",
+      "origen": "Juan, 26 y 27/11/2026: pidió placas nuevas «en las que tal vez se diferencie un poco el tema del fondo» y de la segunda tanda aprobó cuatro de cinco."
     }
   ],
   "decisiones": [
@@ -385,6 +391,27 @@
       "pieza": "Banco de temas de Sociedades (préstamos y facturas entre empresas del mismo dueño; autoridades con el mandato vencido; plata de los socios que nunca se pasó a capital)",
       "decision": "aprobado",
       "motivo": "Juan: «si, sumalos al banco»."
+    },
+    {
+      "fecha": "2026-11-26",
+      "semana": 48,
+      "pieza": "Cinco placas nuevas de Novedades para el design system: noticia con foto, cronograma, escala de cifras, provincias y noticia en papel (nv-11 a nv-15)",
+      "decision": "aprobado",
+      "motivo": "Juan pidió «4/5 plantillas nuevas» para las placas de redes y, al verlas: «Me gustan las plantillas, está ok. Agregalas». Pidió otras cinco «en las que tal vez se diferencie un poco el tema del fondo»."
+    },
+    {
+      "fecha": "2026-11-27",
+      "semana": 48,
+      "pieza": "Segunda tanda, con otros fondos: antes y ahora (mitad papel, mitad azul), cifra en claro, foto completa y tres puntos en gris azulado (nv-16 a nv-19)",
+      "decision": "aprobado",
+      "motivo": "Juan: «menos el último que no me gustó, el resto ok». Quedaron en el design system el mismo día."
+    },
+    {
+      "fecha": "2026-11-27",
+      "semana": 48,
+      "pieza": "Maqueta de la noticia en papel con la fecha en un bloque azul («Último día · 30 dic»)",
+      "decision": "rechazado",
+      "motivo": "Juan: «menos el último que no me gustó». No dijo por qué; no se sumó al kit."
     }
   ]
 }

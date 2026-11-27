@@ -8,7 +8,7 @@ Estas placas son el catálogo entero rehecho en Claude Design con la gramática 
 - `TITULAR_1` + `TITULAR_2` — el titular va en **dos tonos**: la primera parte blanca y negrita, la segunda gris y normal. Cortar la frase donde tenga sentido. (`TITULAR_3` cuando hay tercera línea.)
 - `BAJADA` — párrafo. `CIERRE` — remate en negrita al pie (reemplaza al CTA). `ITEM_n` — ítems de lista; la numeración 01/02/03 es fija.
 - `NUMERO` + `UNIDAD` — placas de dato/vencimiento. `DIA_n` + `ITEM_n_TITULO` + `ITEM_n_DETALLE` — filas del calendario. `OPCION_A/B` — encuesta. `LABEL_n` + `LABEL_n_ITEM_k` — comparativas. `MITO`/`REALIDAD`, `ANTES`/`DESPUES`. `CITA` + `AUTOR` + `AUTOR_DETALLE` — testimonio.
-- `FECHA_n` + `HITO_n` + `DETALLE_n` — cronograma (`nv-12`; el hito 2 va resaltado). `NUMERO_n` + `UNIDAD_n` + `ITEM_n_TITULO` + `ITEM_n_DETALLE` — escala (`nv-13`). `PROVINCIAS` — códigos de las provincias que se encienden en `nv-14`, separados por espacios (`CHA LP RN`).
+- `FECHA_n` + `HITO_n` + `DETALLE_n` — cronograma (`nv-12`; el hito 2 va resaltado). `NUMERO_n` + `UNIDAD_n` + `ITEM_n_TITULO` + `ITEM_n_DETALLE` — escala (`nv-13`). `PROVINCIAS` — códigos de las provincias que se encienden en `nv-14`, separados por espacios (`CHA LP RN`). `ROTULO_1` + `ANTES_1/2` y `ROTULO_2` + `AHORA_1/2` — las dos mitades de `nv-16` (papel arriba, azul abajo; los rótulos suelen ser «Antes» y «Ahora»).
 - **No hay** `CATEGORIA`, `FUENTE` ni `HANDLE`: el kit no lleva chip, fuente ni pie con @handle. `@mdoconsultores`, la web y "MDO Consultores" quedan fijos donde el kit los trae.
 
 Reglas duras del kit: sin emojis, sin íconos, **ARCA nunca AFIP**, margen de 130 px. Descartadas (fotos que no se pueden bajar del DS): `in-01`, `in-05`, `in-06`, `mn-06`, `sq-02b`.
@@ -542,6 +542,47 @@ Reglas duras del kit: sin emojis, sin íconos, **ARCA nunca AFIP**, margen de 13
 | `TITULAR_2` | para empresas MiPyME |
 | `BAJADA` | ARCA reglamentó la reducción del 50 % de las multas formales para quien presente lo pendiente hasta el 18 de diciembre. |
 | `CIERRE` | Revisaríamos qué declaraciones juradas quedaron sin presentar. |
+
+### `nv-16` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | Multas formales · RG 5927/2026 |
+| `ROTULO_1` | Antes |
+| `ANTES_1` | La multa completa |
+| `ANTES_2` | por presentar tarde |
+| `ROTULO_2` | Ahora |
+| `AHORA_1` | La mitad |
+| `AHORA_2` | si la empresa MiPyME presenta lo pendiente |
+| `CIERRE` | Hasta el 18 de diciembre. |
+
+### `nv-17` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | Impuestos · devoluciones |
+| `NUMERO` | 20 |
+| `UNIDAD` | días |
+| `TITULAR_1` | tiene ARCA para resolver |
+| `TITULAR_2` | una devolución trabada |
+| `CIERRE` | Lo ordenó la Cámara en un amparo por mora. |
+
+### `nv-18` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `FECHA` | 30.10.2026 · ARCA |
+| `TITULAR_1` | Plan de pagos para MiPyMEs: |
+| `TITULAR_2` | la adhesión sigue hasta fin de año |
+| `CIERRE` | Revisaríamos qué deuda conviene incluir. |
+
+### `nv-19` · 1080×1350 · feed 4:5
+| Slot | Ejemplo en el kit |
+|---|---|
+| `VOLANTA` | Ingresos Brutos · SIRCIP |
+| `TITULAR_1` | Qué cambia |
+| `TITULAR_2` | para tu empresa |
+| `ITEM_1` | Si percibe, declara y paga en el sistema nuevo. |
+| `ITEM_2` | Si le perciben, lo toma en el SIFERE. |
+| `ITEM_3` | La percepción que no se computa se paga dos veces. |
+| `CIERRE` | Revisaríamos que aparezcan todas. |
 
 
 ## B · Servicios

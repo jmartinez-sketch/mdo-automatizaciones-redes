@@ -128,7 +128,7 @@ Esto no es teórico — pasó de verdad (auditoría del 17/08/2026 sobre 3 meses
 
 ### ⚠️ Regla dura — variedad de plantillas
 
-La rutina tiene **84 ids de plantilla, que son 49 placas distintas** (79 y 44 hasta el 26/11/2026, cuando Juan sumó `nv-11` … `nv-15`) (varios ids son el mismo diseño, ver el paso 0), y el riesgo real es caer siempre en las mismas 5-6. Por eso:
+La rutina tiene **88 ids de plantilla, que son 53 placas distintas** (79 y 44 hasta el 26/11/2026, cuando Juan sumó `nv-11` … `nv-15`; 84 y 49 hasta el 27/11/2026, cuando sumó `nv-16` … `nv-19`) (varios ids son el mismo diseño, ver el paso 0), y el riesgo real es caer siempre en las mismas 5-6. Por eso:
 
 1. **Antes de elegir cualquier plantilla, leer `posts/historial-plantillas.json`** (paso 0). Lo usado en las últimas 4 semanas queda **descartado**, salvo la ancla `po-13d`.
 2. **Al terminar, escribir el historial** (paso 8). Si no se escribe, la próxima corrida no tiene memoria y la variedad se rompe.
@@ -152,9 +152,10 @@ Juan: *«empezame a usar todas… no necesariamente las que nunca salieron, pero
 | Día | Placas (con `=`, la misma placa con otro id) | Cuándo encaja |
 |---|---|---|
 | **Miércoles · noticia** | `po-13d` (ancla, = `po-13e` = `mn-02` = `nv-01`…`nv-05`, ver el paso 0) | La noticia sin un número que la represente |
-| | `nv-10` (número + unidad), `nv-06` (vencimiento anual), `sq-01` (= `sq-01b`, vencimiento con fecha grande), `sq-03` (= `sq-03b` = `sq-03c`, cifra) | La noticia trae un plazo, una fecha o una cantidad de la fuente (regla 3) |
-| | `nv-11` (noticia con foto) y `nv-15` (noticia en papel, los mismos slots que `po-13d`) | La noticia sin un número, cuando hace falta cortar el azul de la grilla (desde el 26/11/2026) |
+| | `nv-10` (número + unidad), `nv-06` (vencimiento anual), `sq-01` (= `sq-01b`, vencimiento con fecha grande), `sq-03` (= `sq-03b` = `sq-03c`, cifra), `nv-17` (cifra sobre el claro, desde el 27/11/2026) | La noticia trae un plazo, una fecha o una cantidad de la fuente (regla 3) |
+| | `nv-11` (noticia con foto), `nv-18` (foto completa, los mismos slots que `nv-11`) y `nv-15` (noticia en papel, los mismos slots que `po-13d`) | La noticia sin un número, cuando hace falta cortar el azul de la grilla (desde el 26/11/2026) |
 | | `nv-12` (cronograma: tres fechas), `nv-13` (escala: tres cifras) y `nv-14` (provincias) | La noticia trae etapas con fecha, una escala de cifras de la fuente o alcanza a provincias determinadas (desde el 26/11/2026) |
+| | `nv-16` (antes y ahora) y `nv-19` (tres puntos en gris azulado) | La noticia cambia una regla que ya existía, o trae tres consecuencias concretas para la empresa (desde el 27/11/2026) |
 | | `sq-12b` (último momento) | Una prórroga o un cambio de último momento |
 | | `nv-07` (= `nv-08`, cierre de ejercicio) | Noviembre y diciembre: cierre al 31/12, inventario, balances |
 | | `po-34` (mito y realidad), `po-32` (comparativa), `po-24` (= `po-26` = `po-28` = `po-31` = `po-33`, lista), `po-35` (= `po-30`, errores) | La noticia corrige una creencia, compara dos caminos o trae pasos (paso 2b) |
@@ -177,7 +178,14 @@ Juan: *«empezame a usar todas… no necesariamente las que nunca salieron, pero
 - `nv-14` · **provincias**: la grilla de las 24 jurisdicciones. El slot `PROVINCIAS` lleva los códigos de las que se encienden, separados por espacios y tal cual están en la placa: `BA CABA CAT CHA CHU CBA COR ER FOR JUJ LP LR MZA MIS NQN RN SAL SJ SL SC SF SE TDF TUC` (`CBA` es Córdoba y `COR`, Corrientes). `BAJADA` las nombra con todas las letras. Pensada para Ingresos Brutos.
 - `nv-15` · **noticia en papel**: la noticia de siempre sobre el papel de la marca, con los mismos cinco slots que `po-13d`. Es la salvedad 4 del design system (el manual pide las novedades en navy). Cuenta como placa clara.
 
-Para la regla de la grilla: `nv-11` (foto), `nv-13` (número grande) y `nv-15` (clara) cortan una seguidilla de texto sobre navy; `nv-12` y `nv-14` son navy y no la cortan. La ancla `po-13d` sigue siendo la placa por defecto; `nv-15` y `nv-11` la reemplazan cuando la grilla lo pide, no todas las semanas.
+**Las cuatro placas con otros fondos** (27/11/2026). Juan pidió otras cinco en las que cambiara el fondo, aprobó cuatro y rechazó la quinta (la fecha en un bloque azul sobre papel, que no está en el kit). Van en los mismos pools que las cinco anteriores:
+
+- `nv-16` · **antes y ahora**: la mitad de arriba en papel (lo que regía) y la de abajo en azul (lo que rige). Slots `VOLANTA`, `ROTULO_1` + `ANTES_1` + `ANTES_2`, `ROTULO_2` + `AHORA_1` + `AHORA_2` y `CIERRE`. Los rótulos suelen ser «Antes» y «Ahora», pero pueden ser otros cortos («Hasta noviembre» / «Desde diciembre»). Cada mitad entra en tres o cuatro líneas de titular; si se pasa, se pisa con la otra mitad. Cuenta como placa clara.
+- `nv-17` · **cifra en claro**: el número grande sobre el degradé claro con el isotipo (`VOLANTA`, `NUMERO`, `UNIDAD`, `TITULAR_1`, `TITULAR_2`, `CIERRE`). Número de hasta 3 caracteres. Cuenta como placa de número grande y como clara. Sólo en noticias, igual que `nv-13`.
+- `nv-18` · **foto completa**: la foto de la calle en toda la placa, con un velo azul y el titular abajo. Lleva los mismos slots que `nv-11` y cuenta como placa con foto.
+- `nv-19` · **tres puntos en gris azulado**: qué cambia para la empresa en tres frases cortas (`VOLANTA`, `TITULAR_1`, `TITULAR_2`, `ITEM_1` … `ITEM_3`, `CIERRE`). La numeración 01/02/03 es fija.
+
+Para la regla de la grilla: `nv-11` y `nv-18` (foto), `nv-13` y `nv-17` (número grande), y `nv-15`, `nv-16`, `nv-17` y `nv-19` (fondo que no es navy) cortan una seguidilla de texto sobre navy; `nv-12` y `nv-14` son navy y no la cortan. La ancla `po-13d` sigue siendo la placa por defecto; las de foto y las de otros fondos la reemplazan cuando la grilla lo pide, no todas las semanas.
 
 Datos del estudio que pueden ir en las placas institucionales y de cifra: los aprobados en `CONTEXTO-PUBLICIDAD.md` («30 años», «Equipo de más de 25 profesionales», «Un socio en cada cuenta», «Para empresas y PyMEs»). Ninguna otra cifra del estudio sin que Juan la confirme.
 
@@ -314,7 +322,7 @@ Reglas de bloqueo:
 | `gestion` | últimas 4 semanas | si el pool se agota, usar la **menos reciente** |
 | `spotlight` | últimas 4 corridas quincenales | si el pool se agota, usar la **menos reciente** |
 
-⚠️ **Se bloquea la PLACA, no el id** (desde el 25/09/2026). El kit 4.4 trae 84 ids pero sólo 49 placas distintas: varios ids son exactamente el mismo diseño con otro nombre (ej. `po-24` = `po-26` = `po-28` = `po-31` = `po-33`, `po-30` = `po-35`, `st-09` = `st-09b`, `po-16` = `sv-01` = `sv-04` = `mn-04`). Usar `po-31` una semana y `po-24` la siguiente es repetir. La lista de bloqueadas sale de:
+⚠️ **Se bloquea la PLACA, no el id** (desde el 25/09/2026). El kit 4.4 trae 88 ids pero sólo 53 placas distintas: varios ids son exactamente el mismo diseño con otro nombre (ej. `po-24` = `po-26` = `po-28` = `po-31` = `po-33`, `po-30` = `po-35`, `st-09` = `st-09b`, `po-16` = `sv-01` = `sv-04` = `mn-04`). Usar `po-31` una semana y `po-24` la siguiente es repetir. La lista de bloqueadas sale de:
 
 ```bash
 node scripts/grupos-kit.js --bloqueadas      # lo usado en las 4 semanas anteriores + sus equivalentes
@@ -1248,7 +1256,7 @@ Antes de cerrar, comparar las plantillas de esta corrida contra las 4 semanas an
 - **Branch**: la rutina automática corre sobre `main` (default branch). Las sesiones manuales pueden trabajar sobre branches `claude/*` efímeras, pero al final todo se mergea a `main`.
 - **Timezone**: Argentina = UTC-3. Sin DST. La rutina pasa de lunes a viernes a las 7:50, 13:50 y 19:50 ARG (desde el 21/10/2026; el cron está escrito con `CRON_TZ=America/Argentina/Buenos_Aires 50 7,13,19 * * 1-5`). El armado de la semana es la pasada del lunes a las 7:50: la de las 7:50 llega antes de los posts de las 9.
 - **Diseño**: la fuente es el design system «MDO - Diseño» (https://claude.ai/code/artifact/44406cc7-a5b6-4e92-8bc3-ba5e9090747b); el repo se sincroniza cada corrida (paso 0b) con `scripts/sincronizar-diseno.js`. El detalle de qué archivo del design system alimenta qué archivo del repo está en `mdo-templates/LEEME-kit-manual.md`.
-- **Templates disponibles**: las **84 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
+- **Templates disponibles**: las **88 placas del kit 4.4** (`mdo-templates/templates-kit-manual.jsx`, slots en `PLACEHOLDERS-kit.md` y con `--list-slots`). `PLACEHOLDERS.md` es el catálogo viejo: sirve para saber qué id existe, no para los nombres de slots.
 - **Historial de plantillas**: `posts/historial-plantillas.json`. Es lo que le da memoria a la rutina entre semanas. Se lee en el paso 0 y se escribe en el paso 8.
 - **Metricool**: la autenticación viene del MCP, no hardcodear nada. brand `blogId: 6267636`.
 - **Botón Regenerar**: el panel le pide el texto nuevo a Claude (capacidad `sample` del artifact) y vuelve a dibujar la placa en el navegador con el HTML que `scripts/render.js --dump-html` dejó en el documento. La vista previa es fiel porque es el mismo DOM que se fotografía en el render de verdad; el PNG para bajar lo arma html2canvas dentro de un iframe. Ver 7c.
