@@ -412,6 +412,13 @@
       "pieza": "Maqueta de la noticia en papel con la fecha en un bloque azul («Último día · 30 dic»)",
       "decision": "rechazado",
       "motivo": "Juan: «menos el último que no me gustó». No dijo por qué; no se sumó al kit."
+    },
+    {
+      "fecha": "2026-11-27",
+      "semana": 48,
+      "pieza": "Jueves 26/11 · carrusel «Devolución trabada: la Justicia le puso plazo a ARCA» (cb-*)",
+      "decision": "aprobado",
+      "motivo": "No quedó aprobado en el panel antes de las 9 del jueves, y después el panel ya no deja aprobar un post con la hora vencida. Juan pidió por chat «publicalo hoy a la tarde»: salió el viernes 27/11 a las 18, después del Reel."
     }
   ]
 }
